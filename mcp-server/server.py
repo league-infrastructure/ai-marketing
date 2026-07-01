@@ -33,7 +33,9 @@ MARKETING_DIR = Path(__file__).resolve().parent.parent
 # how it is launched (e.g. spawned by an MCP client with a bare environment).
 try:
     from dotenv import load_dotenv
-    load_dotenv(MARKETING_DIR / ".env")
+    # override=True so the project .env wins over any stale key inherited from the
+    # launching shell's environment (a bare/old OPENAI_API_KEY otherwise causes 401s).
+    load_dotenv(MARKETING_DIR / ".env", override=True)
 except ImportError:
     pass
 
@@ -53,12 +55,19 @@ DEFAULT_IMAGE_MODEL = os.environ.get("IMAGE_MODEL", "") or "openai/gpt-5.4-image
 DEFAULT_IMAGE_PROVIDER = os.environ.get("IMAGE_PROVIDER", "openai")  # "openai" or "openrouter"
 EVALUATION_MODEL = "google/gemini-2.5-flash"
 
-STYLES = ["pop-art", "comic-book", "manga", "dragon-ball-z", "technical-blueprint", "8bit-video-game", "graphic-novel"]
+def list_styles() -> list:
+    """Available styles = subdirectories of prompts/styles/ that contain a positive.md.
+    Derived from the filesystem so adding a style is pure DATA — no code change, no
+    hardcoded list to keep in sync."""
+    if not STYLES_DIR.exists():
+        return []
+    return sorted(d.name for d in STYLES_DIR.iterdir()
+                  if d.is_dir() and (d / "positive.md").exists())
 LAYOUTS = ["postcard-4x6", "business-card", "individual-cut-images", "individual-panels", "full-page-flyer"]
 
 # Layout → image size (width x height for portrait orientation)
 LAYOUT_SIZES = {
-    "postcard-4x6": "1024x1536",         # 2:3 portrait postcard
+    "postcard-4x6": "1536x1024",         # 3:2 landscape postcard (OpenAI honors this size)
     "business-card": "1024x576",          # ~7:4 landscape
     "individual-cut-images": "1024x1024", # square assets
     "individual-panels": "1024x1024",     # square default
@@ -119,7 +128,7 @@ def list_available() -> str:
     """List all available styles, compositions, and layouts (and which style files exist)."""
     result = {"styles": {}, "compositions": list_compositions(),
               "palettes": list_palettes(), "layouts": LAYOUTS}
-    for style in STYLES:
+    for style in list_styles():
         files = {}
         for f in ["positive.md", "negative.md"]:
             p = STYLES_DIR / style / f
@@ -148,8 +157,8 @@ def assemble_prompt(
         scene_description: What should be depicted in the image
         custom_additions: Any extra prompt text to append
     """
-    if style not in STYLES:
-        return json.dumps({"error": f"Unknown style '{style}'. Available: {STYLES}"})
+    if style not in list_styles():
+        return json.dumps({"error": f"Unknown style '{style}'. Available: {list_styles()}"})
 
     # Positive prompt = full style component + full composition component + scene +
     # layout + custom additions, concatenated as-is from the markdown files.
@@ -266,9 +275,12 @@ async def _run_generation(full_text, model, reference_images, out_dir, base_name
     out_dir = Path(out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
 
-    # The OpenAI images API can't take image inputs, so it's only usable when there are
-    # no reference images and the provider is explicitly OpenAI.
-    if DEFAULT_IMAGE_PROVIDER == "openai" and not reference_images:
+    # OpenAI provider (the default): the /images/generations endpoint is text-only, but
+    # /images/edits accepts input images — so route reference-image jobs there instead of
+    # bouncing them to OpenRouter. This keeps everything on the OpenAI key + IMAGE_MODEL.
+    if DEFAULT_IMAGE_PROVIDER == "openai":
+        if reference_images:
+            return await _generate_openai_edits(full_text, model, reference_images, out_dir, base_name, size)
         return await _generate_openai_core(full_text, model, out_dir, base_name, size)
 
     if not OPENROUTER_API_KEY:
@@ -409,6 +421,67 @@ async def _generate_openai_core(full_text, model, out_dir, base_name, size="1024
         else:
             continue
 
+        suffix = f"_{i}" if len(data["data"]) > 1 else ""
+        filepath = out_dir / f"{base_name}{suffix}.png"
+        filepath.write_bytes(raw)
+        result["saved_paths"].append(str(filepath))
+        result["images"].append(str(filepath))
+
+    return result
+
+
+# OpenAI image sizes are a fixed set; anything else must snap to one of these (or "auto").
+_OPENAI_EDIT_SIZES = {"1024x1024", "1536x1024", "1024x1536"}
+
+
+async def _generate_openai_edits(full_text, model, reference_images, out_dir, base_name, size="1024x1024"):
+    """Generate via OpenAI's /images/edits endpoint, which (unlike /images/generations)
+    accepts input reference images. Multipart form upload. Saves into ``out_dir``."""
+    openai_key = os.environ.get("OPENAI_API_KEY", "")
+    if not openai_key:
+        return {"error": "OPENAI_API_KEY not set for OpenAI image generation"}
+    out_dir = Path(out_dir)
+
+    mime_map = {".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg",
+                ".webp": "image/webp"}
+    files = []
+    for img_path in reference_images:
+        if os.path.exists(img_path):
+            ext = os.path.splitext(img_path)[1].lower()
+            with open(img_path, "rb") as f:
+                files.append(("image[]", (os.path.basename(img_path), f.read(),
+                                          mime_map.get(ext, "image/png"))))
+    if not files:
+        return {"error": "No readable reference images for OpenAI edits"}
+
+    edit_size = size if size in _OPENAI_EDIT_SIZES else "auto"
+    form = {"model": model, "prompt": full_text[:32000], "size": edit_size, "n": "1"}
+
+    try:
+        async with httpx.AsyncClient(timeout=300.0) as client:
+            response = await client.post(
+                "https://api.openai.com/v1/images/edits",
+                headers={"Authorization": f"Bearer {openai_key}"},
+                data=form, files=files,
+            )
+            response.raise_for_status()
+            data = response.json()
+    except Exception as e:
+        return {"error": str(e)}
+
+    if "error" in data:
+        return {"error": data["error"]}
+
+    result = {"model": model, "provider": "openai", "images": [], "saved_paths": []}
+    for i, img in enumerate(data.get("data", [])):
+        if "b64_json" in img:
+            raw = base64.b64decode(img["b64_json"])
+        elif "url" in img:
+            import urllib.request
+            with urllib.request.urlopen(img["url"], timeout=60) as resp:
+                raw = resp.read()
+        else:
+            continue
         suffix = f"_{i}" if len(data["data"]) > 1 else ""
         filepath = out_dir / f"{base_name}{suffix}.png"
         filepath.write_bytes(raw)
@@ -678,7 +751,7 @@ def _render_project_html(data: dict) -> str:
     esc = html.escape
     cfg = data.get("config", {})
     chips = ""
-    for k in ("style", "composition", "layout", "model"):
+    for k in ("style", "composition", "palette", "layout", "model"):
         v = cfg.get(k)
         if v:
             chips += f'<span class="chip"><b>{esc(k)}</b> {esc(str(v))}</span>'
@@ -714,6 +787,7 @@ def create_project(
     name: str,
     style: str = "",
     composition: str = "",
+    palette: str = "",
     layout: str = "",
     theme: str = "",
     scene_description: str = "",
@@ -729,6 +803,7 @@ def create_project(
         name: Human-readable project name (also slugified for the directory).
         style: Default art style for this project (one of the 6 styles).
         composition: Default composition name (a file stem under prompts/compositions/).
+        palette: Default color palette (a file stem under prompts/palettes/, e.g. "orange-blue").
         layout: Default layout (postcard-4x6, business-card, …).
         theme: One-line description of the project's gist/theme.
         scene_description: Default scene to depict.
@@ -740,8 +815,8 @@ def create_project(
     slug = _slug(name)
     if not slug:
         return json.dumps({"error": "Invalid project name"})
-    if style and style not in STYLES:
-        return json.dumps({"error": f"Unknown style '{style}'. Available: {STYLES}"})
+    if style and style not in list_styles():
+        return json.dumps({"error": f"Unknown style '{style}'. Available: {list_styles()}"})
     pdir = PROJECTS_DIR / slug
     if (pdir / "project.json").exists():
         return json.dumps({"error": f"Project '{slug}' already exists. Use update_project or a new name."})
@@ -757,6 +832,7 @@ def create_project(
         "config": {
             "style": style,
             "composition": composition,
+            "palette": palette,
             "layout": layout,
             "theme": theme,
             "scene_description": scene_description,
@@ -816,6 +892,7 @@ def update_project(
     name: str,
     style: Optional[str] = None,
     composition: Optional[str] = None,
+    palette: Optional[str] = None,
     layout: Optional[str] = None,
     theme: Optional[str] = None,
     scene_description: Optional[str] = None,
@@ -829,13 +906,14 @@ def update_project(
     data = _load_project(name)
     if not data:
         return json.dumps({"error": f"No project named '{name}'"})
-    if style is not None and style and style not in STYLES:
-        return json.dumps({"error": f"Unknown style '{style}'. Available: {STYLES}"})
+    if style is not None and style and style not in list_styles():
+        return json.dumps({"error": f"Unknown style '{style}'. Available: {list_styles()}"})
     cfg = data["config"]
     for key, val in (
-        ("style", style), ("composition", composition), ("layout", layout),
-        ("theme", theme), ("scene_description", scene_description), ("model", model),
-        ("negative_prompt", negative_prompt), ("custom_additions", custom_additions),
+        ("style", style), ("composition", composition), ("palette", palette),
+        ("layout", layout), ("theme", theme), ("scene_description", scene_description),
+        ("model", model), ("negative_prompt", negative_prompt),
+        ("custom_additions", custom_additions),
     ):
         if val is not None:
             cfg[key] = val
@@ -855,6 +933,7 @@ async def generate_project_image(
     model: str = "",
     style: str = "",
     composition: str = "",
+    palette: str = "",
     layout: str = "",
     reference_images: Optional[list] = None,
     use_sources: bool = True,
@@ -878,6 +957,7 @@ async def generate_project_image(
 
     eff_style = style or cfg.get("style", "")
     eff_comp = composition or cfg.get("composition", "")
+    eff_palette = palette or cfg.get("palette", "")
     eff_layout = layout or cfg.get("layout", "")
     eff_scene = scene_description or cfg.get("scene_description", "")
     eff_custom = custom_additions or cfg.get("custom_additions", "")
@@ -893,6 +973,7 @@ async def generate_project_image(
             style=eff_style,
             layout=eff_layout or None,
             composition=eff_comp or None,
+            palette=eff_palette or None,
             scene_description=eff_scene,
             custom_additions=eff_custom,
         ))
@@ -947,6 +1028,7 @@ async def generate_project_image(
         "created": _now(),
         "style": eff_style,
         "composition": eff_comp,
+        "palette": eff_palette,
         "layout": eff_layout,
         "scene_description": eff_scene,
         "model": result.get("model", eff_model) if isinstance(result, dict) else eff_model,

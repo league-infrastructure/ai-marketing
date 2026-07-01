@@ -47,12 +47,666 @@
   <header class="top">
     <h1>Engineers Anywhere Postcard</h1>
     <p class="theme">Recruitment / mission postcard: engineering talent is everywhere in San Diego, and the League wants to find it. Cinematic graphic-novel energy.</p>
-    <p class="scene">WIDE LANDSCAPE (horizontal, ~3:2, wider than tall). Over-the-shoulder view FROM BEHIND of TWO mid-teen students (about 14–15, small youthful builds, casual student clothing) seated side by side at a wide desk, their backs to the viewer — a teenage boy on the LEFT (hoodie/t-shirt) and a teenage girl on the RIGHT — with TWO large monitors standing between and in front of them. The boy on the left leans in and points at the LEFT monitor. LEFT MONITOR: a stylized glowing MAP of San Diego as a HEAT MAP — several hot-spot blooms over different neighborhoods, the largest and most intense clustered in the SOUTH of the city toward the border. RIGHT MONITOR: simple bar charts and a rising line graph, in the same limited palette. Sharp, crisp, high-clarity inking. Limited palette (deep teal/navy, warm gold, muted red, black, cream), simple flat cel shading. Heavy black comic border.</p>
-    <div class="chips"><span class="chip"><b>style</b> graphic-novel</span><span class="chip"><b>composition</b> single-moment</span><span class="chip"><b>layout</b> postcard-4x6</span><span class="chip"><b>model</b> google/gemini-3-pro-image</span></div>
+    <p class="scene">WIDE LANDSCAPE 4x6 postcard (3:2). Over-the-shoulder view FROM BEHIND of TWO mid-teen students (about 14-15), large in the foreground and pushed to the extreme EDGES: a teenage boy at the FAR LEFT and a teenage girl at the FAR RIGHT, partly cropped off-page, bookending the shot. TWO large monitors dominate the CENTER on a wide desk spanning the full width. The boy leans in and points a pen at the LEFT monitor; the girl&#x27;s hands are on the keyboard. LEFT MONITOR: a San Diego HEAT MAP on a dark navy screen — a recognizable San Diego shape (Pacific coastline down the west side, city fanning east and south toward the Mexico border) with ONLY orange-and-red hot-spot blobs, densest in the SOUTH (no green, no rainbow colors). RIGHT MONITOR: a simple flat bar chart and one rising line graph in the same palette. NO code, numbers, or text on either screen — just the map and the chart. Leave headroom above the kids&#x27; heads for the title.</p>
+    <div class="chips"><span class="chip"><b>style</b> flat-poster</span><span class="chip"><b>composition</b>  </span><span class="chip"><b>palette</b> orange-blue</span><span class="chip"><b>layout</b> postcard-4x6</span><span class="chip"><b>model</b> chatgpt-image-latest</span></div>
   </header>
   <section class="sources"><h2>Source images</h2><div class="thumbs"><a href="sources/PairProgrammers.png" target="_blank"><img src="sources/PairProgrammers.png" alt="source"></a></div></section>
   <h2>Iterations</h2>
   
+    <article class="card ">
+      <div class="cardhead">
+        <span class="num">#15</span><span class="lab">— Draft 15 — text-only flat, composition removed (no robot pollution)</span>
+        <span class="meta">2026-07-01T08:45:36 &middot; chatgpt-image-latest</span>
+      </div>
+      <div class="imgwrap"><a href="iterations/iter-015.png" target="_blank"><img class="hero" src="iterations/iter-015.png" alt="iteration 15"></a></div>
+      
+      <details><summary>Prompt &amp; details</summary>
+        <div class="detail">
+          <div class="dl">positive prompt</div><pre># Art Style
+
+Render as a clean, modern, FLAT comic illustration in the style of the &quot;At His Command&quot;
+reference art: bold, sharp, high-contrast, and completely smooth. This is a crisp DIGITAL
+vector-style illustration — NOT a photograph, and NOT a textured, printed, or vintage page.
+
+## Rendering — this is the most important part
+- **Flat color fills:** Every shape is filled with ONE perfectly smooth, uniform, solid flat
+  color, like a flat vector fill. Large fields — the background, walls, clothing, desk, screens
+  — are each a single solid color, edge to edge. There is ABSOLUTELY NO surface texture
+  anywhere in the image: no grain, no noise, no speckle, no dithering, no paper / canvas /
+  newsprint / parchment / aged look, and no print or ink texture — including on the borders,
+  the background, and every panel. Surfaces are as clean and smooth as flat digital color.
+- **Linework:** Bold, confident, SHARP, clean black ink outlines with varied weight — heavy
+  contour lines around the forms, crisp interior lines. Detail is carried by LINE only, never
+  by texture or by rendered shading.
+- **Shading:** Simple hard-edged cel shading — at most TWO flat tones per surface (a base flat
+  color plus ONE darker flat tone), with clean hard shadow edges and solid black shadow shapes.
+  NO gradients, NO blends, NO airbrush, NO halftone or Ben-Day dots, NO cross-hatching.
+- **Borders &amp; background:** Panel borders and the background are solid flat color fields with
+  clean edges — flat and smooth, never textured.
+
+## Text &amp; Furniture
+- Render ONLY the text specified for the composition — exact wording, nothing else.
+- Caption boxes and banners are flat solid fills with clean black borders and bold, confident
+  hand-lettered type. The title is bold block lettering on a jagged burst, like the &quot;At His
+  Command&quot; masthead.
+
+## Mood
+Bold, clean, sharp, high-impact, optimistic — it reads instantly from across the room, exactly
+like the &quot;At His Command&quot; art.
+
+# Color Palette
+
+A warm-dominant, high-energy **orange-and-blue complementary palette** extracted from the
+&quot;At His Command&quot; comic cover: a glowing golden-amber field carries the image, burnt-orange
+shadows model the warm forms, and cool steel-blue and deep navy provide the complementary
+accent — borders, machine chassis, and the deepest shadows. Black ink anchors everything and
+cream carries any text furniture.
+
+**Balance:** roughly **70% warm / 30% cool** — orange and gold dominate the large areas; blue
+is the accent that frames, cools the shadows, and makes the warms pop by contrast. Red is a
+spark, used only for a few high-impact hits (title, a signal light). Do not let blue take over
+large fields — it belongs on edges, machinery, and shadow.
+
+## Swatches
+
+Warm (dominant):
+- **Golden Amber** `#F9C233` — the primary background field / lit warm surfaces; bright, sunny.
+- **Marigold** `#F9B41E` — secondary warm, warm midtones and glow.
+- **Burnt Orange** `#C96A10` — warm shadow and modeled form on the gold; the main orange.
+- **Sienna** `#9A4E12` — deep warm shadow, wood, grounded warmth.
+- **Signal Red** `#CC1616` — accent only: display type, a warning light, a spark. Use sparingly.
+
+Cool (complementary accent):
+- **Steel Blue** `#175E8C` — cool accent: panel borders, robot/machine chassis, cool props.
+- **Deep Navy** `#16223C` — the coolest, deepest shadows, panel gutters, a bottom bar.
+
+Neutrals / anchors:
+- **Ink Black** `#101010` — linework, heavy contour, panel borders. Anchors the whole image.
+- **Cream** `#FBE5A0` — caption boxes, paper highlights, text-furniture fill.
+- **Warm Wood Brown** `#6E451F` — supporting neutral for wood/surfaces; keeps neutrals warm.
+
+## How to apply
+- Build large areas out of the golden amber → burnt orange → sienna warm ramp; reserve steel
+  blue and deep navy for edges, machinery, and shadow so the complementary contrast stays sharp.
+- Keep shadows **warm-to-cool**: warm forms fall into burnt orange, then into deep navy at the
+  darkest core — never into muddy gray.
+- Let blue and orange sit directly against each other at focal points for maximum pop.
+- Red is a garnish, not a field — a couple of deliberate hits at most.
+- Keep neutrals warm (cream, wood brown, ink black); avoid cool grays, which flatten the scheme.
+
+# Composition
+
+ 
+
+# Scene
+
+WIDE LANDSCAPE 4x6 postcard (3:2). Over-the-shoulder view FROM BEHIND of TWO mid-teen students (about 14-15), large in the foreground and pushed to the extreme EDGES: a teenage boy at the FAR LEFT and a teenage girl at the FAR RIGHT, partly cropped off-page, bookending the shot. TWO large monitors dominate the CENTER on a wide desk spanning the full width. The boy leans in and points a pen at the LEFT monitor; the girl&#x27;s hands are on the keyboard. LEFT MONITOR: a San Diego HEAT MAP on a dark navy screen — a recognizable San Diego shape (Pacific coastline down the west side, city fanning east and south toward the Mexico border) with ONLY orange-and-red hot-spot blobs, densest in the SOUTH (no green, no rainbow colors). RIGHT MONITOR: a simple flat bar chart and one rising line graph in the same palette. NO code, numbers, or text on either screen — just the map and the chart. Leave headroom above the kids&#x27; heads for the title.
+
+# Layout
+
+&gt; Format as a 4×6 inch postcard in [portrait/landscape] orientation. Hero image fills
+&gt; 75% of the card with a bold headline [text] in [style-appropriate treatment] along
+&gt; the [top/bottom]. Small League logo in [corner]. Clean composition with generous
+&gt; margins. Print-ready quality.
+
+# Additional Direction
+
+STYLE: bold, sharp, high-contrast FLAT comic art like the &quot;At His Command&quot; poster — completely smooth solid-color fills, clean bold black outlines, and hard-edged two-tone cel shading. The ENTIRE image must be perfectly FLAT with NO texture, grain, speckle, or newsprint anywhere — including the border, the background, clothing, and skin.
+
+TEXT (render ONLY this, spelled EXACTLY, crisp):
+- TITLE over the kids&#x27; heads: &quot;ENGINEERS&quot; in huge bold RED 3D block comic letters, heavy black outline, on a jagged BLUE starburst masthead — the AT-HIS-COMMAND lettering style.
+- Cream caption box (black border, italic) just below the masthead: &quot;Can Come From Anywhere ...&quot;
+- Cream square caption box (black border) over the BOY&#x27;S BACK, left: &quot;... Help us find them&quot;
+- League logo over the GIRL&#x27;S BACK, right, ABOVE the bottom banner, sitting directly on the artwork with NO black or dark box behind it: &quot;THE LEAGUE OF AMAZING PROGRAMMERS&quot; stacked wordmark, orange &quot;AMAZING&quot;, small lightning bolts, bar-lines over &quot;OF&quot;.
+- Bottom BANNER: a single cream strip running the FULL WIDTH across the very bottom edge, edge to edge, in SENTENCE CASE exactly: &quot;Every student in San Diego should have a shot at a tech career.&quot;
+
+Deep navy comic border frame (solid flat navy — no texture). NO robots. Exactly two mid-teen figures.</pre>
+          <div class="dl">negative prompt</div><pre>Texture, grain, speckle, parchment, aged-paper, halftone, Ben-Day dots, gradients, or blends — every area must be a solid flat single color. More than ~7 colors. Blurry or muddy. Adults or business/office attire (the figures are mid-teen kids). Robots, weapons, lasers, explosions. Portrait/vertical orientation. Title-case in the bottom banner. A black or dark box behind the League logo. Invented signs, labels, or lettering beyond the exact text specified. Photorealism, photographic faces, 3D render, CGI.</pre>
+          
+          
+        </div>
+      </details>
+    </article>
+    <article class="card ">
+      <div class="cardhead">
+        <span class="num">#14</span><span class="lab">— Draft 14 — text-only (no reference), pure flat, no borrowed texture</span>
+        <span class="meta">2026-07-01T08:43:04 &middot; chatgpt-image-latest</span>
+      </div>
+      <div class="imgwrap"><a href="iterations/iter-014.png" target="_blank"><img class="hero" src="iterations/iter-014.png" alt="iteration 14"></a></div>
+      
+      <details><summary>Prompt &amp; details</summary>
+        <div class="detail">
+          <div class="dl">positive prompt</div><pre># Art Style
+
+Render as a clean, modern, FLAT comic illustration in the style of the &quot;At His Command&quot;
+reference art: bold, sharp, high-contrast, and completely smooth. This is a crisp DIGITAL
+vector-style illustration — NOT a photograph, and NOT a textured, printed, or vintage page.
+
+## Rendering — this is the most important part
+- **Flat color fills:** Every shape is filled with ONE perfectly smooth, uniform, solid flat
+  color, like a flat vector fill. Large fields — the background, walls, clothing, desk, screens
+  — are each a single solid color, edge to edge. There is ABSOLUTELY NO surface texture
+  anywhere in the image: no grain, no noise, no speckle, no dithering, no paper / canvas /
+  newsprint / parchment / aged look, and no print or ink texture — including on the borders,
+  the background, and every panel. Surfaces are as clean and smooth as flat digital color.
+- **Linework:** Bold, confident, SHARP, clean black ink outlines with varied weight — heavy
+  contour lines around the forms, crisp interior lines. Detail is carried by LINE only, never
+  by texture or by rendered shading.
+- **Shading:** Simple hard-edged cel shading — at most TWO flat tones per surface (a base flat
+  color plus ONE darker flat tone), with clean hard shadow edges and solid black shadow shapes.
+  NO gradients, NO blends, NO airbrush, NO halftone or Ben-Day dots, NO cross-hatching.
+- **Borders &amp; background:** Panel borders and the background are solid flat color fields with
+  clean edges — flat and smooth, never textured.
+
+## Text &amp; Furniture
+- Render ONLY the text specified for the composition — exact wording, nothing else.
+- Caption boxes and banners are flat solid fills with clean black borders and bold, confident
+  hand-lettered type. The title is bold block lettering on a jagged burst, like the &quot;At His
+  Command&quot; masthead.
+
+## Mood
+Bold, clean, sharp, high-impact, optimistic — it reads instantly from across the room, exactly
+like the &quot;At His Command&quot; art.
+
+# Color Palette
+
+A warm-dominant, high-energy **orange-and-blue complementary palette** extracted from the
+&quot;At His Command&quot; comic cover: a glowing golden-amber field carries the image, burnt-orange
+shadows model the warm forms, and cool steel-blue and deep navy provide the complementary
+accent — borders, machine chassis, and the deepest shadows. Black ink anchors everything and
+cream carries any text furniture.
+
+**Balance:** roughly **70% warm / 30% cool** — orange and gold dominate the large areas; blue
+is the accent that frames, cools the shadows, and makes the warms pop by contrast. Red is a
+spark, used only for a few high-impact hits (title, a signal light). Do not let blue take over
+large fields — it belongs on edges, machinery, and shadow.
+
+## Swatches
+
+Warm (dominant):
+- **Golden Amber** `#F9C233` — the primary background field / lit warm surfaces; bright, sunny.
+- **Marigold** `#F9B41E` — secondary warm, warm midtones and glow.
+- **Burnt Orange** `#C96A10` — warm shadow and modeled form on the gold; the main orange.
+- **Sienna** `#9A4E12` — deep warm shadow, wood, grounded warmth.
+- **Signal Red** `#CC1616` — accent only: display type, a warning light, a spark. Use sparingly.
+
+Cool (complementary accent):
+- **Steel Blue** `#175E8C` — cool accent: panel borders, robot/machine chassis, cool props.
+- **Deep Navy** `#16223C` — the coolest, deepest shadows, panel gutters, a bottom bar.
+
+Neutrals / anchors:
+- **Ink Black** `#101010` — linework, heavy contour, panel borders. Anchors the whole image.
+- **Cream** `#FBE5A0` — caption boxes, paper highlights, text-furniture fill.
+- **Warm Wood Brown** `#6E451F` — supporting neutral for wood/surfaces; keeps neutrals warm.
+
+## How to apply
+- Build large areas out of the golden amber → burnt orange → sienna warm ramp; reserve steel
+  blue and deep navy for edges, machinery, and shadow so the complementary contrast stays sharp.
+- Keep shadows **warm-to-cool**: warm forms fall into burnt orange, then into deep navy at the
+  darkest core — never into muddy gray.
+- Let blue and orange sit directly against each other at focal points for maximum pop.
+- Red is a garnish, not a field — a couple of deliberate hits at most.
+- Keep neutrals warm (cream, wood brown, ink black); avoid cool grays, which flatten the scheme.
+
+# Composition
+
+One kid, one robot, one big emotion — a poster-style hero shot built around a single beat.
+
+## Layout
+- A central figure in a bold, confident pose, with the robot as the second focal point.
+- Clean, uncluttered composition — nothing extraneous; purposeful negative space.
+- A burst / starburst speech balloon carrying one short, punchy line.
+- A thin caption strip along the bottom is available for a marketing line.
+
+## Feel
+Iconic and immediate — the viewer&#x27;s eye hits the face first, then the robot. Designed to
+work as a standalone social/web image or the front of a card.
+
+# Scene
+
+WIDE LANDSCAPE 4x6 postcard (3:2). Over-the-shoulder view FROM BEHIND of TWO mid-teen students (about 14-15), large in the foreground and pushed to the extreme EDGES: a teenage boy at the FAR LEFT and a teenage girl at the FAR RIGHT, partly cropped off-page, bookending the shot. TWO large monitors dominate the CENTER on a wide desk spanning the full width. The boy leans in and points a pen at the LEFT monitor; the girl&#x27;s hands are on the keyboard. LEFT MONITOR: a San Diego HEAT MAP on a dark navy screen — a recognizable San Diego shape (Pacific coastline down the west side, city fanning east and south toward the Mexico border) with ONLY orange-and-red hot-spot blobs, densest in the SOUTH (no green, no rainbow colors). RIGHT MONITOR: a simple flat bar chart and one rising line graph in the same palette. NO code, numbers, or text on either screen — just the map and the chart. Leave headroom above the kids&#x27; heads for the title.
+
+# Layout
+
+&gt; Format as a 4×6 inch postcard in [portrait/landscape] orientation. Hero image fills
+&gt; 75% of the card with a bold headline [text] in [style-appropriate treatment] along
+&gt; the [top/bottom]. Small League logo in [corner]. Clean composition with generous
+&gt; margins. Print-ready quality.
+
+# Additional Direction
+
+STYLE: bold, sharp, high-contrast FLAT comic art like the &quot;At His Command&quot; poster — completely smooth solid-color fills, clean bold black outlines, and hard-edged two-tone cel shading. The ENTIRE image must be perfectly FLAT with NO texture, grain, speckle, or newsprint anywhere — including the border, the background, clothing, and skin.
+
+TEXT (render ONLY this, spelled EXACTLY, crisp):
+- TITLE over the kids&#x27; heads: &quot;ENGINEERS&quot; in huge bold RED 3D block comic letters, heavy black outline, on a jagged BLUE starburst masthead — the AT-HIS-COMMAND lettering style.
+- Cream caption box (black border, italic) just below the masthead: &quot;Can Come From Anywhere ...&quot;
+- Cream square caption box (black border) over the BOY&#x27;S BACK, left: &quot;... Help us find them&quot;
+- League logo over the GIRL&#x27;S BACK, right, ABOVE the bottom banner, sitting directly on the artwork with NO black or dark box behind it: &quot;THE LEAGUE OF AMAZING PROGRAMMERS&quot; stacked wordmark, orange &quot;AMAZING&quot;, small lightning bolts, bar-lines over &quot;OF&quot;.
+- Bottom BANNER: a single cream strip running the FULL WIDTH across the very bottom edge, edge to edge, in SENTENCE CASE exactly: &quot;Every student in San Diego should have a shot at a tech career.&quot;
+
+Deep navy comic border frame (solid flat navy — no texture). NO robots. Exactly two mid-teen figures.</pre>
+          <div class="dl">negative prompt</div><pre>Texture, grain, speckle, parchment, aged-paper, halftone, Ben-Day dots, gradients, or blends — every area must be a solid flat single color. More than ~7 colors. Blurry or muddy. Adults or business/office attire (the figures are mid-teen kids). Robots, weapons, lasers, explosions. Portrait/vertical orientation. Title-case in the bottom banner. A black or dark box behind the League logo. Invented signs, labels, or lettering beyond the exact text specified. Photorealism, photographic faces, 3D render, CGI.</pre>
+          
+          
+        </div>
+      </details>
+    </article>
+    <article class="card ">
+      <div class="cardhead">
+        <span class="num">#13</span><span class="lab">— Draft 13 — revised flat-poster (no texture), At His Command style ref</span>
+        <span class="meta">2026-07-01T08:40:10 &middot; chatgpt-image-latest</span>
+      </div>
+      <div class="imgwrap"><a href="iterations/iter-013.png" target="_blank"><img class="hero" src="iterations/iter-013.png" alt="iteration 13"></a></div>
+      <div class="reflabel">references</div><div class="thumbs small"><a href="sources/PairProgrammers.png" target="_blank"><img src="sources/PairProgrammers.png"></a></div>
+      <details><summary>Prompt &amp; details</summary>
+        <div class="detail">
+          <div class="dl">positive prompt</div><pre># Art Style
+
+Render as a clean, modern, FLAT comic illustration in the style of the &quot;At His Command&quot;
+reference art: bold, sharp, high-contrast, and completely smooth. This is a crisp DIGITAL
+vector-style illustration — NOT a photograph, and NOT a textured, printed, or vintage page.
+
+## Rendering — this is the most important part
+- **Flat color fills:** Every shape is filled with ONE perfectly smooth, uniform, solid flat
+  color, like a flat vector fill. Large fields — the background, walls, clothing, desk, screens
+  — are each a single solid color, edge to edge. There is ABSOLUTELY NO surface texture
+  anywhere in the image: no grain, no noise, no speckle, no dithering, no paper / canvas /
+  newsprint / parchment / aged look, and no print or ink texture — including on the borders,
+  the background, and every panel. Surfaces are as clean and smooth as flat digital color.
+- **Linework:** Bold, confident, SHARP, clean black ink outlines with varied weight — heavy
+  contour lines around the forms, crisp interior lines. Detail is carried by LINE only, never
+  by texture or by rendered shading.
+- **Shading:** Simple hard-edged cel shading — at most TWO flat tones per surface (a base flat
+  color plus ONE darker flat tone), with clean hard shadow edges and solid black shadow shapes.
+  NO gradients, NO blends, NO airbrush, NO halftone or Ben-Day dots, NO cross-hatching.
+- **Borders &amp; background:** Panel borders and the background are solid flat color fields with
+  clean edges — flat and smooth, never textured.
+
+## Text &amp; Furniture
+- Render ONLY the text specified for the composition — exact wording, nothing else.
+- Caption boxes and banners are flat solid fills with clean black borders and bold, confident
+  hand-lettered type. The title is bold block lettering on a jagged burst, like the &quot;At His
+  Command&quot; masthead.
+
+## Mood
+Bold, clean, sharp, high-impact, optimistic — it reads instantly from across the room, exactly
+like the &quot;At His Command&quot; art.
+
+# Color Palette
+
+A warm-dominant, high-energy **orange-and-blue complementary palette** extracted from the
+&quot;At His Command&quot; comic cover: a glowing golden-amber field carries the image, burnt-orange
+shadows model the warm forms, and cool steel-blue and deep navy provide the complementary
+accent — borders, machine chassis, and the deepest shadows. Black ink anchors everything and
+cream carries any text furniture.
+
+**Balance:** roughly **70% warm / 30% cool** — orange and gold dominate the large areas; blue
+is the accent that frames, cools the shadows, and makes the warms pop by contrast. Red is a
+spark, used only for a few high-impact hits (title, a signal light). Do not let blue take over
+large fields — it belongs on edges, machinery, and shadow.
+
+## Swatches
+
+Warm (dominant):
+- **Golden Amber** `#F9C233` — the primary background field / lit warm surfaces; bright, sunny.
+- **Marigold** `#F9B41E` — secondary warm, warm midtones and glow.
+- **Burnt Orange** `#C96A10` — warm shadow and modeled form on the gold; the main orange.
+- **Sienna** `#9A4E12` — deep warm shadow, wood, grounded warmth.
+- **Signal Red** `#CC1616` — accent only: display type, a warning light, a spark. Use sparingly.
+
+Cool (complementary accent):
+- **Steel Blue** `#175E8C` — cool accent: panel borders, robot/machine chassis, cool props.
+- **Deep Navy** `#16223C` — the coolest, deepest shadows, panel gutters, a bottom bar.
+
+Neutrals / anchors:
+- **Ink Black** `#101010` — linework, heavy contour, panel borders. Anchors the whole image.
+- **Cream** `#FBE5A0` — caption boxes, paper highlights, text-furniture fill.
+- **Warm Wood Brown** `#6E451F` — supporting neutral for wood/surfaces; keeps neutrals warm.
+
+## How to apply
+- Build large areas out of the golden amber → burnt orange → sienna warm ramp; reserve steel
+  blue and deep navy for edges, machinery, and shadow so the complementary contrast stays sharp.
+- Keep shadows **warm-to-cool**: warm forms fall into burnt orange, then into deep navy at the
+  darkest core — never into muddy gray.
+- Let blue and orange sit directly against each other at focal points for maximum pop.
+- Red is a garnish, not a field — a couple of deliberate hits at most.
+- Keep neutrals warm (cream, wood brown, ink black); avoid cool grays, which flatten the scheme.
+
+# Composition
+
+One kid, one robot, one big emotion — a poster-style hero shot built around a single beat.
+
+## Layout
+- A central figure in a bold, confident pose, with the robot as the second focal point.
+- Clean, uncluttered composition — nothing extraneous; purposeful negative space.
+- A burst / starburst speech balloon carrying one short, punchy line.
+- A thin caption strip along the bottom is available for a marketing line.
+
+## Feel
+Iconic and immediate — the viewer&#x27;s eye hits the face first, then the robot. Designed to
+work as a standalone social/web image or the front of a card.
+
+# Scene
+
+WIDE LANDSCAPE 4x6 postcard (3:2). Over-the-shoulder view FROM BEHIND of TWO mid-teen students (about 14-15), large in the foreground and pushed to the extreme EDGES: a teenage boy at the FAR LEFT and a teenage girl at the FAR RIGHT, partly cropped off-page, bookending the shot. TWO large monitors dominate the CENTER on a wide desk spanning the full width. The boy leans in and points a pen at the LEFT monitor; the girl&#x27;s hands are on the keyboard. LEFT MONITOR: a San Diego HEAT MAP — a recognizable San Diego shape (Pacific coastline down the west side, the city fanning east and south toward the Mexico border), with orange/red hot-spot blobs, densest in the SOUTH. RIGHT MONITOR: a simple bar chart and one rising line graph. Leave headroom above the kids&#x27; heads for the title.
+
+# Layout
+
+&gt; Format as a 4×6 inch postcard in [portrait/landscape] orientation. Hero image fills
+&gt; 75% of the card with a bold headline [text] in [style-appropriate treatment] along
+&gt; the [top/bottom]. Small League logo in [corner]. Clean composition with generous
+&gt; margins. Print-ready quality.
+
+# Additional Direction
+
+STYLE: follow the FIRST reference (photo) for the composition and the SECOND reference (&quot;AT HIS COMMAND&quot;) for the ART STYLE — bold, sharp, high-contrast FLAT comic art with completely smooth solid-color fills and clean black outlines. The whole image must be FLAT with NO texture, grain, or newsprint anywhere (including the border and background), exactly like the At His Command reference.
+
+TEXT (render ONLY this, spelled EXACTLY, crisp):
+- TITLE over the kids&#x27; heads: &quot;ENGINEERS&quot; in huge bold RED 3D block comic letters, heavy black outline, on a jagged BLUE starburst masthead — the AT-HIS-COMMAND lettering style.
+- Cream caption box (black border, italic) just below the masthead: &quot;Can Come From Anywhere ...&quot;
+- Cream square caption box (black border) over the BOY&#x27;S BACK, left: &quot;... Help us find them&quot;
+- League logo over the GIRL&#x27;S BACK, right, ABOVE the bottom banner, sitting directly on the artwork with NO black or dark box behind it: &quot;THE LEAGUE OF AMAZING PROGRAMMERS&quot; stacked wordmark, orange &quot;AMAZING&quot;, small lightning bolts, bar-lines over &quot;OF&quot;.
+- Bottom BANNER: a single cream strip running the FULL WIDTH across the very bottom edge, edge to edge, in SENTENCE CASE exactly: &quot;Every student in San Diego should have a shot at a tech career.&quot;
+
+Deep navy comic border frame (solid flat navy — no texture). NO robots. Exactly two mid-teen figures.</pre>
+          <div class="dl">negative prompt</div><pre>Texture, grain, speckle, parchment, aged-paper, halftone, Ben-Day dots, gradients, or blends — every area must be a solid flat single color. More than ~7 colors. Blurry or muddy. Adults or business/office attire (the figures are mid-teen kids). Robots, weapons, lasers, explosions. Portrait/vertical orientation. Title-case in the bottom banner. A black or dark box behind the League logo. Invented signs, labels, or lettering beyond the exact text specified. Photorealism, photographic faces, 3D render, CGI.</pre>
+          
+          
+        </div>
+      </details>
+    </article>
+    <article class="card ">
+      <div class="cardhead">
+        <span class="num">#12</span><span class="lab">— Draft 12 — flat-poster style, texture removed</span>
+        <span class="meta">2026-07-01T08:23:28 &middot; chatgpt-image-latest</span>
+      </div>
+      <div class="imgwrap"><a href="iterations/iter-012.png" target="_blank"><img class="hero" src="iterations/iter-012.png" alt="iteration 12"></a></div>
+      <div class="reflabel">references</div><div class="thumbs small"><a href="iterations/iter-011.png" target="_blank"><img src="iterations/iter-011.png"></a></div>
+      <details><summary>Prompt &amp; details</summary>
+        <div class="detail">
+          <div class="dl">positive prompt</div><pre># Art Style
+
+Render as a bold, clean, FLAT comic/poster illustration — heavy black ink outlines filled with
+large areas of SOLID, uniform, perfectly smooth color. Think a modern silkscreen / vector
+poster: crisp, graphic, high-impact. Convert any provided photograph into this flat inked
+style — not a photograph, and NOT a textured or vintage print.
+
+## Rendering
+- **Linework:** Bold, confident, clean black ink outlines with varied weight — heavy contour
+  lines around major forms, simple interior lines. Sharp and deliberate.
+- **Color fills:** Every shape is ONE solid, uniform, perfectly smooth, flat color — like a
+  flat vector fill or a single pass of silkscreen ink. Absolutely NO texture, grain, speckle,
+  noise, newsprint / parchment / aged-paper look, NO gradients, NO blends, NO halftone or
+  Ben-Day dots, NO cross-hatching or stippling.
+- **Shading:** Minimal and graphic — at most ONE darker flat tone of a color, plus solid black
+  shadow shapes. Never blended or rendered. Reduce fussy detail; keep forms simple and bold.
+- **Background:** Simple flat color zones only — no rendered environment.
+
+## Text &amp; Furniture
+- Render ONLY the text specified for the composition — exact wording, nothing else. Do not
+  invent other signs, labels, or lettering.
+- Caption boxes, banners, and mastheads are flat solid fills with clean black borders and bold,
+  confident hand-lettered type.
+
+## Mood
+Bold, clean, high-impact, optimistic — a crisp printed poster that reads instantly from across
+the room.
+
+# Color Palette
+
+A warm-dominant, high-energy **orange-and-blue complementary palette** extracted from the
+&quot;At His Command&quot; comic cover: a glowing golden-amber field carries the image, burnt-orange
+shadows model the warm forms, and cool steel-blue and deep navy provide the complementary
+accent — borders, machine chassis, and the deepest shadows. Black ink anchors everything and
+cream carries any text furniture.
+
+**Balance:** roughly **70% warm / 30% cool** — orange and gold dominate the large areas; blue
+is the accent that frames, cools the shadows, and makes the warms pop by contrast. Red is a
+spark, used only for a few high-impact hits (title, a signal light). Do not let blue take over
+large fields — it belongs on edges, machinery, and shadow.
+
+## Swatches
+
+Warm (dominant):
+- **Golden Amber** `#F9C233` — the primary background field / lit warm surfaces; bright, sunny.
+- **Marigold** `#F9B41E` — secondary warm, warm midtones and glow.
+- **Burnt Orange** `#C96A10` — warm shadow and modeled form on the gold; the main orange.
+- **Sienna** `#9A4E12` — deep warm shadow, wood, grounded warmth.
+- **Signal Red** `#CC1616` — accent only: display type, a warning light, a spark. Use sparingly.
+
+Cool (complementary accent):
+- **Steel Blue** `#175E8C` — cool accent: panel borders, robot/machine chassis, cool props.
+- **Deep Navy** `#16223C` — the coolest, deepest shadows, panel gutters, a bottom bar.
+
+Neutrals / anchors:
+- **Ink Black** `#101010` — linework, heavy contour, panel borders. Anchors the whole image.
+- **Cream** `#FBE5A0` — caption boxes, paper highlights, text-furniture fill.
+- **Warm Wood Brown** `#6E451F` — supporting neutral for wood/surfaces; keeps neutrals warm.
+
+## How to apply
+- Build large areas out of the golden amber → burnt orange → sienna warm ramp; reserve steel
+  blue and deep navy for edges, machinery, and shadow so the complementary contrast stays sharp.
+- Keep shadows **warm-to-cool**: warm forms fall into burnt orange, then into deep navy at the
+  darkest core — never into muddy gray.
+- Let blue and orange sit directly against each other at focal points for maximum pop.
+- Red is a garnish, not a field — a couple of deliberate hits at most.
+- Keep neutrals warm (cream, wood brown, ink black); avoid cool grays, which flatten the scheme.
+
+# Composition
+
+One kid, one robot, one big emotion — a poster-style hero shot built around a single beat.
+
+## Layout
+- A central figure in a bold, confident pose, with the robot as the second focal point.
+- Clean, uncluttered composition — nothing extraneous; purposeful negative space.
+- A burst / starburst speech balloon carrying one short, punchy line.
+- A thin caption strip along the bottom is available for a marketing line.
+
+## Feel
+Iconic and immediate — the viewer&#x27;s eye hits the face first, then the robot. Designed to
+work as a standalone social/web image or the front of a card.
+
+# Scene
+
+WIDE LANDSCAPE 4x6 postcard (3:2). Over-the-shoulder view FROM BEHIND of TWO mid-teen students (about 14-15), large in the foreground and pushed to the extreme EDGES: a teenage boy at the FAR LEFT and a teenage girl at the FAR RIGHT, partly cropped off-page, bookending the shot. TWO large monitors dominate the CENTER on a wide desk spanning the full width. The boy leans in and points a pen at the LEFT monitor; the girl&#x27;s hands are on the keyboard. LEFT MONITOR: a San Diego HEAT MAP — reuse the exact San Diego map shape and coastline from the attached reference draft — with hot-spot blobs, densest in the SOUTH. RIGHT MONITOR: a simple bar chart and one rising line. Leave headroom above the kids&#x27; heads for the title.
+
+# Layout
+
+&gt; Format as a 4×6 inch postcard in [portrait/landscape] orientation. Hero image fills
+&gt; 75% of the card with a bold headline [text] in [style-appropriate treatment] along
+&gt; the [top/bottom]. Small League logo in [corner]. Clean composition with generous
+&gt; margins. Print-ready quality.
+
+# Additional Direction
+
+Refine the ATTACHED approved reference draft: keep its composition, its exact San Diego map shape, and its League logo; change ONLY the rendering to FLAT and the text as specified.
+
+RENDERING: reduce detail; large areas of SOLID FLAT color — each area ONE uniform color with NO texture, NO grain, NO speckle, NO parchment/aged look, NO gradients, NO halftone — smooth noiseless fills like a flat vector screen-print, with bold black outlines.
+
+TEXT (render ONLY this, spelled EXACTLY, crisp):
+- TITLE over the kids&#x27; heads: &quot;ENGINEERS&quot; in huge bold RED 3D block comic letters, heavy black outline, on a jagged BLUE starburst masthead (AT-HIS-COMMAND lettering style).
+- Cream caption box (black border, italic) just below the masthead: &quot;Can Come From Anywhere ...&quot;
+- Cream square caption box (black border) over the BOY&#x27;S BACK, left: &quot;... Help us find them&quot;
+- League logo over the GIRL&#x27;S BACK, right, ABOVE the bottom banner, sitting directly on the artwork with NO black or dark box behind it: &quot;THE LEAGUE OF AMAZING PROGRAMMERS&quot; stacked wordmark, orange &quot;AMAZING&quot;, small lightning bolts, bar-lines over &quot;OF&quot;.
+- Bottom BANNER: a single cream strip running the FULL WIDTH across the very bottom edge, edge to edge, in SENTENCE CASE exactly: &quot;Every student in San Diego should have a shot at a tech career.&quot;
+
+Deep navy comic border frame. NO robots. Exactly two mid-teen figures.</pre>
+          <div class="dl">negative prompt</div><pre>Texture, grain, speckle, parchment, aged-paper, halftone, Ben-Day dots, gradients, or blends — every area must be a solid flat single color. More than ~7 colors. Blurry or muddy. Adults or business/office attire (the figures are mid-teen kids). Robots, weapons, lasers, explosions. Portrait/vertical orientation. Title-case in the bottom banner. A black or dark box behind the League logo. Invented signs, labels, or lettering beyond the exact text specified. Photorealism, photographic faces, 3D render, CGI.</pre>
+          
+          
+        </div>
+      </details>
+    </article>
+    <article class="card ">
+      <div class="cardhead">
+        <span class="num">#11</span><span class="lab">— Draft 11 — flat orange-blue, full-width banner, logo over girl&#x27;s back (server, OpenAI edits)</span>
+        <span class="meta">2026-07-01T08:13:32 &middot; chatgpt-image-latest</span>
+      </div>
+      <div class="imgwrap"><a href="iterations/iter-011.png" target="_blank"><img class="hero" src="iterations/iter-011.png" alt="iteration 11"></a></div>
+      <div class="reflabel">references</div><div class="thumbs small"><a href="iterations/iter-009.png" target="_blank"><img src="iterations/iter-009.png"></a></div>
+      <details><summary>Prompt &amp; details</summary>
+        <div class="detail">
+          <div class="dl">positive prompt</div><pre># Art Style
+
+Render as a 1940s Golden-Age comic-book illustration in the style of early *Superman* and
+*Captain America* covers. Convert any provided photograph into hand-drawn cel-style art —
+this should read as a printed vintage comic, not a modern digital illustration or a
+photograph.
+
+## Rendering
+- **Linework:** Bold, confident black ink outlines with varied weight. Clean cel art —
+  shapes are drawn and filled, not painted.
+- **Color:** Large unbroken fields of solid FLAT color. Restricted four-color-press
+  palette — roughly 5–7 ink colors total: red, blue, yellow, flesh tone, black, and cream.
+  Flesh tones and warm browns (hair, skin, wood, robot metal) are allowed; this palette is
+  wider and warmer than pop-art.
+- **Shading:** Shadows are single flat black shapes. No hatching, no cross-hatching, no
+  rendered gradients, and NO Ben-Day dot halftones (dots are the pop-art style, not this
+  one).
+- **Background:** Not a detailed room — one or two flat color zones only. Warm aged-
+  newsprint / cream tone in cover mode, or a single saturated color field per panel in
+  story mode.
+
+## Focus &amp; Detail
+- Spend detail ONLY on (1) the child or children and (2) the invention/robot they are
+  working on. Everything else simplifies to flat color and bold outline.
+- Stylize faces and figures so they read as illustrated comic characters rather than
+  identifiable real people — simplified inked features, not photorealistic portraits.
+- Preserve the general action and the device from the source so the scene still reads as
+  kids building something real.
+
+## Text Rules
+- Render ONLY the text specified for the chosen composition — exact wording, nothing else.
+- Do NOT invent any other posters, signs, slogans, labels, or lettering. All other
+  background surfaces are blank.
+
+## Subject &amp; Brand
+- **Robots** are kept low-detail and iconic, like the characters — not engineering
+  diagrams. Give them physically plausible front grippers, pushers, hooks, or arms. When
+  robot reference photos are provided, keep the recognizable form of the real student-built
+  educational robots.
+- **Kids are the heroes** — proud, confident, exciting to look at.
+- **Code lives only on a laptop screen facing the viewer.** No text or code anywhere else.
+- **Mood:** heroic, optimistic, aspirational, exciting, competitive — kids proud of the
+  robots they created.
+
+# Color Palette
+
+A warm-dominant, high-energy **orange-and-blue complementary palette** extracted from the
+&quot;At His Command&quot; comic cover: a glowing golden-amber field carries the image, burnt-orange
+shadows model the warm forms, and cool steel-blue and deep navy provide the complementary
+accent — borders, machine chassis, and the deepest shadows. Black ink anchors everything and
+cream carries any text furniture.
+
+**Balance:** roughly **70% warm / 30% cool** — orange and gold dominate the large areas; blue
+is the accent that frames, cools the shadows, and makes the warms pop by contrast. Red is a
+spark, used only for a few high-impact hits (title, a signal light). Do not let blue take over
+large fields — it belongs on edges, machinery, and shadow.
+
+## Swatches
+
+Warm (dominant):
+- **Golden Amber** `#F9C233` — the primary background field / lit warm surfaces; bright, sunny.
+- **Marigold** `#F9B41E` — secondary warm, warm midtones and glow.
+- **Burnt Orange** `#C96A10` — warm shadow and modeled form on the gold; the main orange.
+- **Sienna** `#9A4E12` — deep warm shadow, wood, grounded warmth.
+- **Signal Red** `#CC1616` — accent only: display type, a warning light, a spark. Use sparingly.
+
+Cool (complementary accent):
+- **Steel Blue** `#175E8C` — cool accent: panel borders, robot/machine chassis, cool props.
+- **Deep Navy** `#16223C` — the coolest, deepest shadows, panel gutters, a bottom bar.
+
+Neutrals / anchors:
+- **Ink Black** `#101010` — linework, heavy contour, panel borders. Anchors the whole image.
+- **Cream** `#FBE5A0` — caption boxes, paper highlights, text-furniture fill.
+- **Warm Wood Brown** `#6E451F` — supporting neutral for wood/surfaces; keeps neutrals warm.
+
+## How to apply
+- Build large areas out of the golden amber → burnt orange → sienna warm ramp; reserve steel
+  blue and deep navy for edges, machinery, and shadow so the complementary contrast stays sharp.
+- Keep shadows **warm-to-cool**: warm forms fall into burnt orange, then into deep navy at the
+  darkest core — never into muddy gray.
+- Let blue and orange sit directly against each other at focal points for maximum pop.
+- Red is a garnish, not a field — a couple of deliberate hits at most.
+- Keep neutrals warm (cream, wood brown, ink black); avoid cool grays, which flatten the scheme.
+
+# Composition
+
+One kid, one robot, one big emotion — a poster-style hero shot built around a single beat.
+
+## Layout
+- A central figure in a bold, confident pose, with the robot as the second focal point.
+- Clean, uncluttered composition — nothing extraneous; purposeful negative space.
+- A burst / starburst speech balloon carrying one short, punchy line.
+- A thin caption strip along the bottom is available for a marketing line.
+
+## Feel
+Iconic and immediate — the viewer&#x27;s eye hits the face first, then the robot. Designed to
+work as a standalone social/web image or the front of a card.
+
+# Scene
+
+WIDE LANDSCAPE 4x6 postcard (3:2). Over-the-shoulder view FROM BEHIND of TWO mid-teen students (about 14-15), large in the foreground and pushed to the extreme EDGES: a teenage boy at the FAR LEFT and a teenage girl at the FAR RIGHT, partly cropped off-page, bookending the shot. TWO large monitors dominate the CENTER on a wide desk spanning the full width. The boy leans in and points a pen at the LEFT monitor; the girl&#x27;s hands are on the keyboard. LEFT MONITOR: a San Diego HEAT MAP — reuse the exact San Diego map shape and coastline from the attached reference draft — with hot-spot blobs, densest in the SOUTH. RIGHT MONITOR: a simple bar chart and one rising line. Leave headroom above the kids&#x27; heads for the title.
+
+# Layout
+
+&gt; Format as a 4×6 inch postcard in [portrait/landscape] orientation. Hero image fills
+&gt; 75% of the card with a bold headline [text] in [style-appropriate treatment] along
+&gt; the [top/bottom]. Small League logo in [corner]. Clean composition with generous
+&gt; margins. Print-ready quality.
+
+# Additional Direction
+
+Refine the ATTACHED approved reference draft: keep its composition, its exact San Diego map shape, and its League logo; change ONLY the rendering to FLAT and the text as specified.
+
+RENDERING: reduce detail; large areas of SOLID FLAT color — each area ONE uniform color with NO texture, NO grain, NO speckle, NO parchment/aged look, NO gradients, NO halftone — smooth noiseless fills like a flat vector screen-print, with bold black outlines.
+
+TEXT (render ONLY this, spelled EXACTLY, crisp):
+- TITLE over the kids&#x27; heads: &quot;ENGINEERS&quot; in huge bold RED 3D block comic letters, heavy black outline, on a jagged BLUE starburst masthead (AT-HIS-COMMAND lettering style).
+- Cream caption box (black border, italic) just below the masthead: &quot;Can Come From Anywhere ...&quot;
+- Cream square caption box (black border) over the BOY&#x27;S BACK, left: &quot;... Help us find them&quot;
+- League logo over the GIRL&#x27;S BACK, right, ABOVE the bottom banner, sitting directly on the artwork with NO black or dark box behind it: &quot;THE LEAGUE OF AMAZING PROGRAMMERS&quot; stacked wordmark, orange &quot;AMAZING&quot;, small lightning bolts, bar-lines over &quot;OF&quot;.
+- Bottom BANNER: a single cream strip running the FULL WIDTH across the very bottom edge, edge to edge, in SENTENCE CASE exactly: &quot;Every student in San Diego should have a shot at a tech career.&quot;
+
+Deep navy comic border frame. NO robots. Exactly two mid-teen figures.</pre>
+          <div class="dl">negative prompt</div><pre>Texture, grain, speckle, parchment, aged-paper, halftone, Ben-Day dots, gradients, or blends — every area must be a solid flat single color. More than ~7 colors. Blurry or muddy. Adults or business/office attire (the figures are mid-teen kids). Robots, weapons, lasers, explosions. Portrait/vertical orientation. Title-case in the bottom banner. A black or dark box behind the League logo. Invented signs, labels, or lettering beyond the exact text specified. Photorealism, photographic faces, 3D render, CGI.</pre>
+          
+          
+        </div>
+      </details>
+    </article>
+    <article class="card ">
+      <div class="cardhead">
+        <span class="num">#10</span><span class="lab">— Draft 10 — 7 flat colors, reduced detail, sentence-case banner (OpenAI edits)</span>
+        <span class="meta">2026-07-01T07:49:23 &middot; chatgpt-image-latest</span>
+      </div>
+      <div class="imgwrap"><a href="iterations/iter-010.png" target="_blank"><img class="hero" src="iterations/iter-010.png" alt="iteration 10"></a></div>
+      <div class="reflabel">references</div><div class="thumbs small"><a href="sources/PairProgrammers.png" target="_blank"><img src="sources/PairProgrammers.png"></a><a href="(style) HisMastersVoice/extra/Proto-AtHisCommand.png" target="_blank"><img src="(style) HisMastersVoice/extra/Proto-AtHisCommand.png"></a></div>
+      <details><summary>Prompt &amp; details</summary>
+        <div class="detail">
+          <div class="dl">positive prompt</div><pre>Direct OpenAI /v1/images/edits call (size 1536x1024). References: sources/PairProgrammers.png (composition) + HisMastersVoice At His Command (style/palette). Orange-blue palette per prompts/palettes/orange-blue.md; ENGINEERS in red 3D block letters on blue starburst; &#x27;...&#x27; ellipsis linking &#x27;Can Come From Anywhere ...&#x27; and &#x27;... Help us find them&#x27;; League logo over girl&#x27;s back; full-width bottom banner.</pre>
+          
+          <div class="dl">notes</div><p>OpenAI chatgpt-image-latest /images/edits. Sentence-case bottom banner; ~7 flat solid colors, reduced detail. Faint grain texture still present from the model.</p>
+          
+        </div>
+      </details>
+    </article>
+    <article class="card ">
+      <div class="cardhead">
+        <span class="num">#9</span><span class="lab">— Draft 9 — OpenAI chatgpt-image-latest (edits), orange-blue palette, AT-HIS-COMMAND lettering</span>
+        <span class="meta">2026-07-01T07:41:31 &middot; chatgpt-image-latest</span>
+      </div>
+      <div class="imgwrap"><a href="iterations/iter-009.png" target="_blank"><img class="hero" src="iterations/iter-009.png" alt="iteration 9"></a></div>
+      <div class="reflabel">references</div><div class="thumbs small"><a href="sources/PairProgrammers.png" target="_blank"><img src="sources/PairProgrammers.png"></a><a href="(style) HisMastersVoice/extra/Proto-AtHisCommand.png" target="_blank"><img src="(style) HisMastersVoice/extra/Proto-AtHisCommand.png"></a></div>
+      <details><summary>Prompt &amp; details</summary>
+        <div class="detail">
+          <div class="dl">positive prompt</div><pre>Direct OpenAI /v1/images/edits call (size 1536x1024). References: sources/PairProgrammers.png (composition) + HisMastersVoice At His Command (style/palette). Orange-blue palette per prompts/palettes/orange-blue.md; ENGINEERS in red 3D block letters on blue starburst; &#x27;...&#x27; ellipsis linking &#x27;Can Come From Anywhere ...&#x27; and &#x27;... Help us find them&#x27;; League logo over girl&#x27;s back; full-width bottom banner.</pre>
+          
+          <div class="dl">notes</div><p>Generated directly against the OpenAI API (chatgpt-image-latest) using the /images/edits endpoint so reference images are honored — no OpenRouter/Gemini.</p>
+          
+        </div>
+      </details>
+    </article>
     <article class="card ">
       <div class="cardhead">
         <span class="num">#8</span><span class="lab">— Draft 8 — deeper amber/gold palette, ellipsis between slogans</span>
@@ -545,10 +1199,10 @@ robots stay low-detail and iconic like the characters.</pre>
         </div>
       </details>
     </article>
-  <footer>Generated 2026-07-01T07:26:50 &middot; this page auto-reloads when a new iteration is added</footer>
+  <footer>Generated 2026-07-01T08:45:36 &middot; this page auto-reloads when a new iteration is added</footer>
 </div>
 <script>
- const CURRENT_VERSION = 9;
+ const CURRENT_VERSION = 23;
  const live = document.getElementById('live');
  // Only ever reload when state.json confirms a NEW version. We never blind-reload on a
  // timer: under file:// (fetch blocked) or with the server down we can't read the version,

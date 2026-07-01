@@ -16,6 +16,8 @@ marketing/
 │   │   ├── dragon-ball-z/     # DBZ / Toriyama anime
 │   │   ├── technical-blueprint/  # Blueprint/drafting style
 │   │   └── 8bit-video-game/      # NES pixel art
+│   ├── palettes/      # One markdown file per color palette (orange-blue.md, …)
+│   │                  #   — optional, layered on top of any style
 │   └── compositions/  # One markdown file per composition (arena-action.md,
 │                      #   vintage-cover.md, power-up.md, …) — shared across styles
 ├── layouts/           # Format/layout prompt components
@@ -85,13 +87,16 @@ uv run mcp-server/server.py       # syncs .venv from uv.lock, then starts the se
 
 ### `assemble_prompt`
 Assemble a complete prompt by concatenating the full markdown components:
-`styles/<style>/positive.md` + `compositions/<composition>.md` + scene + layout + custom.
-The `negative_prompt` returned is the full `styles/<style>/negative.md`. Whatever the
-markdown files say is exactly what goes to the model — edit those files to change output.
+`styles/<style>/positive.md` + `palettes/<palette>.md` + `compositions/<composition>.md` +
+scene + layout + custom. The `negative_prompt` returned is the full
+`styles/<style>/negative.md`. Whatever the markdown files say is exactly what goes to the
+model — edit those files to change output.
 - `style`: One of the 6 art styles (folder under `prompts/styles/`)
 - `layout`: One of the 5 layouts (optional)
 - `composition`: Composition name (a file stem under `prompts/compositions/`, e.g.
   "extreme-close-up", "vintage-cover")
+- `palette`: Color palette name (a file stem under `prompts/palettes/`, e.g. "orange-blue")
+  — optional; layered on top of the style as a `# Color Palette` section
 - `scene_description`: What should be depicted
 - `custom_additions`: Any extra prompt text
 
