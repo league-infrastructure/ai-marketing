@@ -1,21 +1,28 @@
-# League Logo — Angled (diagonal banner)
+# League Logo — Angled (structure)
 
-The same "THE LEAGUE OF AMAZING PROGRAMMERS" wordmark, but set on an **angled / diagonal
-banner** running up-to-the-right, as seen in the top-left corner of the "At His Command"
-cover (`projects/HisMastersVoice/extra/Proto-AtHisCommand.png`).
+The League wordmark set on a diagonal banner/ribbon that runs UP-TO-THE-RIGHT across a corner
+at a clean 45° angle. Same wordmark as the horizontal lock-up, re-arranged along the diagonal. See `example.png`. This describes the STRUCTURE (element placement and proportion)
+only — color and finish come from whichever style renders it.
 
-## Layout
-- A diagonal ribbon/banner across a corner. The wordmark reads along the diagonal:
-  **"THE LEAGUE OF"** (smaller) → **"AMAZING"** (largest) → **"PROGRAMMERS"**, stacked and
-  rotated to follow the banner angle.
-- Two upright **lightning bolts** flank the "THE LEAGUE OF" line.
+## Elements & placement (reading along the diagonal, everything rotated to the banner angle)
+1. **"THE LEAGUE OF":** small condensed caps — the leading/top line, set along the diagonal.
+2. **"AMAZING":** the dominant line — the largest lettering, condensed caps, bold, set along the
+   diagonal directly after "THE LEAGUE OF".
+3. **"PROGRAMMERS":** condensed caps, after "AMAZING" along the diagonal, narrower than
+   "AMAZING".
+4. **Subhead strip:** a narrow ribbon running along the LOWER edge of the banner (parallel to
+   the diagonal) carrying the tagline **"SMART MINDS · BOLD IDEAS · BRIGHT FUTURES"** in small
+   caps.
 
-## Lettering & color
-- Same treatment as the horizontal lock-up: bold condensed comic caps, heavy black keylines,
-  **cream** for "THE LEAGUE OF" / "PROGRAMMERS", **bold orange** for "AMAZING".
-- Banner field is a deep navy/blue with a subhead strip; bolts are yellow/gold.
+## Structural notes
+- The whole lock-up sits on a solid diagonal banner/ribbon filling a corner (a triangle), with
+  the wordmark rotated to match the banner's angle.
+- Two lightning bolts flank the wordmark (one near the start of the "THE LEAGUE OF" line, one
+  lower-left), drawn as short angled sparks.
+- "AMAZING" is the visual anchor, roughly 1.6–2× the cap height of the outer lines.
+- All lettering is bold and condensed with heavy keylines; exact fills, colors, and finish are
+  defined by the render style, not here.
 
-## Status
-- `example.png` — TODO: crop from the top-left corner of `Proto-AtHisCommand.png`.
-- Shares the type, colors, and bolts of [league-logo-horizontal]; only the layout (diagonal
-  banner vs. stacked badge) differs.
+## Relationship
+Shares the type, wordmark, bolts, and subhead of [[league-logo-horizontal]]; only the layout
+(diagonal corner banner vs. stacked badge) differs.
