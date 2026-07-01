@@ -47,6 +47,7 @@ LAYOUTS_DIR = MARKETING_DIR / "layouts"
 RUBRICS_DIR = MARKETING_DIR / "rubrics"
 OUTPUT_DIR = MARKETING_DIR / "output"
 PROJECTS_DIR = MARKETING_DIR / "projects"
+COMPONENTS_DIR = MARKETING_DIR / "components"
 
 OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY", "") or os.environ.get("OPENROUTER_API", "")
 OPENROUTER_BASE = "https://openrouter.ai/api/v1"
@@ -63,15 +64,21 @@ def list_styles() -> list:
         return []
     return sorted(d.name for d in STYLES_DIR.iterdir()
                   if d.is_dir() and (d / "positive.md").exists())
-LAYOUTS = ["postcard-4x6", "business-card", "individual-cut-images", "individual-panels", "full-page-flyer"]
+def list_layouts() -> list:
+    """Available layouts = markdown file stems under layouts/. Filesystem-derived so adding a
+    layout is pure DATA (no hardcoded list to keep in sync)."""
+    if not LAYOUTS_DIR.exists():
+        return []
+    return sorted(p.stem for p in LAYOUTS_DIR.glob("*.md"))
 
-# Layout → image size (width x height for portrait orientation)
+# Layout → image size (width x height). Unlisted layouts fall back to 1024x1024.
 LAYOUT_SIZES = {
     "postcard-4x6": "1536x1024",         # 3:2 landscape postcard (OpenAI honors this size)
     "business-card": "1024x576",          # ~7:4 landscape
     "individual-cut-images": "1024x1024", # square assets
     "individual-panels": "1024x1024",     # square default
     "full-page-flyer": "1024x1536",       # ~2:3 portrait flyer
+    "type-sample": "1536x1024",           # wide structural sample sheet
 }
 
 # ── FastMCP Server ────────────────────────────────────────────────────────
@@ -91,6 +98,8 @@ def load_prompt_file(category: str, name: str, file: str) -> str:
         path = PALETTES_DIR / file
     elif category == "layout":
         path = LAYOUTS_DIR / file
+    elif category == "component":
+        path = COMPONENTS_DIR / name / file
     else:
         return ""
     if not path.exists():
@@ -121,13 +130,23 @@ def list_palettes() -> list:
     return sorted(p.stem for p in PALETTES_DIR.glob("*.md"))
 
 
+def list_components() -> list:
+    """Available components = subdirectories of components/ that contain a description.md.
+    Each documents the STRUCTURE of a reusable brand element (logo, badge, masthead)."""
+    if not COMPONENTS_DIR.exists():
+        return []
+    return sorted(d.name for d in COMPONENTS_DIR.iterdir()
+                  if d.is_dir() and (d / "description.md").exists())
+
+
 # ── MCP Tools ──────────────────────────────────────────────────────────────
 
 @mcp.tool()
 def list_available() -> str:
     """List all available styles, compositions, and layouts (and which style files exist)."""
     result = {"styles": {}, "compositions": list_compositions(),
-              "palettes": list_palettes(), "layouts": LAYOUTS}
+              "palettes": list_palettes(), "layouts": list_layouts(),
+              "components": list_components()}
     for style in list_styles():
         files = {}
         for f in ["positive.md", "negative.md"]:
@@ -142,6 +161,7 @@ def assemble_prompt(
     style: str,
     layout: Optional[str] = None,
     composition: Optional[str] = None,
+    component: Optional[str] = None,
     palette: Optional[str] = None,
     scene_description: str = "",
     custom_additions: str = "",
@@ -177,6 +197,10 @@ def assemble_prompt(
         comp_md = _strip_heading(load_prompt_file("composition", "", f"{composition}.md"))
         parts.append(f"# Composition\n\n{comp_md or composition}")
 
+    if component:
+        comp_desc = _strip_heading(load_prompt_file("component", component, "description.md"))
+        parts.append(f"# Component\n\n{comp_desc or component}")
+
     if scene_description:
         parts.append(f"# Scene\n\n{scene_description}")
 
@@ -201,6 +225,7 @@ def assemble_prompt(
         "style": style,
         "layout": layout,
         "composition": composition,
+        "component": component,
         "palette": palette,
     }, indent=2)
 
@@ -392,7 +417,7 @@ async def _generate_openai_core(full_text, model, out_dir, base_name, size="1024
         return {"error": "OPENAI_API_KEY not set for OpenAI image generation"}
 
     headers = {"Authorization": f"Bearer {openai_key}", "Content-Type": "application/json"}
-    payload = {"model": model, "prompt": full_text[:4000], "n": 1, "size": size}
+    payload = {"model": model, "prompt": full_text[:32000], "n": 1, "size": size}
 
     try:
         async with httpx.AsyncClient(timeout=180.0) as client:
@@ -787,6 +812,7 @@ def create_project(
     name: str,
     style: str = "",
     composition: str = "",
+    component: str = "",
     palette: str = "",
     layout: str = "",
     theme: str = "",
@@ -832,6 +858,7 @@ def create_project(
         "config": {
             "style": style,
             "composition": composition,
+            "component": component,
             "palette": palette,
             "layout": layout,
             "theme": theme,
@@ -892,6 +919,7 @@ def update_project(
     name: str,
     style: Optional[str] = None,
     composition: Optional[str] = None,
+    component: Optional[str] = None,
     palette: Optional[str] = None,
     layout: Optional[str] = None,
     theme: Optional[str] = None,
@@ -910,7 +938,7 @@ def update_project(
         return json.dumps({"error": f"Unknown style '{style}'. Available: {list_styles()}"})
     cfg = data["config"]
     for key, val in (
-        ("style", style), ("composition", composition), ("palette", palette),
+        ("style", style), ("composition", composition), ("component", component), ("palette", palette),
         ("layout", layout), ("theme", theme), ("scene_description", scene_description),
         ("model", model), ("negative_prompt", negative_prompt),
         ("custom_additions", custom_additions),
@@ -933,6 +961,7 @@ async def generate_project_image(
     model: str = "",
     style: str = "",
     composition: str = "",
+    component: str = "",
     palette: str = "",
     layout: str = "",
     reference_images: Optional[list] = None,
@@ -957,6 +986,7 @@ async def generate_project_image(
 
     eff_style = style or cfg.get("style", "")
     eff_comp = composition or cfg.get("composition", "")
+    eff_component = component or cfg.get("component", "")
     eff_palette = palette or cfg.get("palette", "")
     eff_layout = layout or cfg.get("layout", "")
     eff_scene = scene_description or cfg.get("scene_description", "")
@@ -973,6 +1003,7 @@ async def generate_project_image(
             style=eff_style,
             layout=eff_layout or None,
             composition=eff_comp or None,
+            component=eff_component or None,
             palette=eff_palette or None,
             scene_description=eff_scene,
             custom_additions=eff_custom,
@@ -1028,6 +1059,7 @@ async def generate_project_image(
         "created": _now(),
         "style": eff_style,
         "composition": eff_comp,
+        "component": eff_component,
         "palette": eff_palette,
         "layout": eff_layout,
         "scene_description": eff_scene,

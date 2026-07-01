@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>League Logo Horizontal — League Image Project</title>
+<style>
+ :root{--ink:#141414;--paper:#f7f4ec;--accent:#d4202a;--blue:#173a6e;--chip:#eee7d6;}
+ *{box-sizing:border-box;}
+ body{margin:0;background:#101317;color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;}
+ .wrap{max-width:1100px;margin:0 auto;padding:24px;}
+ header.top{background:var(--paper);border:3px solid var(--ink);border-radius:10px;padding:20px 24px;box-shadow:0 8px 30px rgba(0,0,0,.4);}
+ h1{margin:0 0 6px;font-size:28px;}
+ .theme{font-size:17px;color:#333;margin:0 0 10px;}
+ .scene{font-size:14px;color:#555;margin:0 0 12px;font-style:italic;}
+ .chips{display:flex;flex-wrap:wrap;gap:8px;}
+ .chip{background:var(--chip);border:1px solid #cbb;border-radius:20px;padding:3px 12px;font-size:12px;}
+ .chip b{color:var(--blue);text-transform:uppercase;font-size:10px;letter-spacing:.5px;margin-right:4px;}
+ h2{color:#f7f4ec;font-size:15px;text-transform:uppercase;letter-spacing:1px;margin:24px 4px 10px;}
+ .thumbs{display:flex;flex-wrap:wrap;gap:10px;}
+ .thumbs img{height:90px;border:2px solid var(--ink);border-radius:6px;background:#fff;object-fit:cover;}
+ .thumbs.small img{height:56px;}
+ .card{background:var(--paper);border:3px solid var(--ink);border-radius:10px;padding:16px;margin:16px 0;box-shadow:0 6px 20px rgba(0,0,0,.35);}
+ .card.err{border-color:var(--accent);}
+ .cardhead{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin-bottom:12px;}
+ .num{font-weight:800;font-size:20px;color:var(--accent);}
+ .lab{font-weight:600;}
+ .meta{margin-left:auto;font-size:12px;color:#777;}
+ .badge.err{background:var(--accent);color:#fff;border-radius:4px;padding:1px 7px;font-size:11px;}
+ .imgwrap{text-align:center;}
+ img.hero{max-width:100%;max-height:70vh;border:2px solid var(--ink);border-radius:6px;background:#fff;}
+ .noimg{padding:30px;color:var(--accent);font-weight:600;text-align:center;border:2px dashed var(--accent);border-radius:6px;}
+ .reflabel,.dl{font-size:10px;text-transform:uppercase;letter-spacing:.6px;color:var(--blue);margin:12px 0 4px;font-weight:700;}
+ details{margin-top:12px;}
+ summary{cursor:pointer;font-size:13px;color:var(--blue);font-weight:600;}
+ pre{white-space:pre-wrap;word-wrap:break-word;background:#fbfaf5;border:1px solid #ddd;border-radius:6px;padding:10px;font-size:12px;line-height:1.5;max-height:340px;overflow:auto;}
+ pre.err{border-color:var(--accent);color:#a01;}
+ .empty{color:#889;text-align:center;padding:40px;}
+ footer{color:#667;font-size:11px;text-align:center;padding:20px;}
+ .live{position:fixed;top:10px;right:12px;background:#1a1;color:#fff;font-size:11px;padding:3px 9px;border-radius:12px;opacity:.85;z-index:10;}
+ .live.off{background:#555;}
+</style>
+</head>
+<body>
+<div class="live" id="live">&#9679; live</div>
+<div class="wrap">
+  <header class="top">
+    <h1>League Logo Horizontal</h1>
+    <p class="theme">Type sample (black-and-white structural reference) for the horizontal League of Amazing Programmers logo.</p>
+    <p class="scene">The horizontal &quot;THE LEAGUE OF AMAZING PROGRAMMERS&quot; wordmark logo, rendered as a black-and-white structural type sample per the component description.</p>
+    <div class="chips"><span class="chip"><b>style</b> type-sample</span><span class="chip"><b>composition</b> type-sample</span><span class="chip"><b>layout</b> type-sample</span><span class="chip"><b>model</b> chatgpt-image-latest</span></div>
+  </header>
+  <section class="sources"><h2>Source images</h2><div class="thumbs"><a href="sources/example.png" target="_blank"><img src="sources/example.png" alt="source"></a></div></section>
+  <h2>Iterations</h2>
+  
+    <article class="card ">
+      <div class="cardhead">
+        <span class="num">#2</span><span class="lab">— Type sample v2 — separate OF from AMAZING (gap so OF clears the Z)</span>
+        <span class="meta">2026-07-01T09:35:26 &middot; chatgpt-image-latest</span>
+      </div>
+      <div class="imgwrap"><a href="iterations/iter-002.png" target="_blank"><img class="hero" src="iterations/iter-002.png" alt="iteration 2"></a></div>
+      <div class="reflabel">references</div><div class="thumbs small"><a href="iterations/iter-001.png" target="_blank"><img src="iterations/iter-001.png"></a></div>
+      <details><summary>Prompt &amp; details</summary>
+        <div class="detail">
+          <div class="dl">positive prompt</div><pre># Art Style
+
+Render as a clean BLACK-AND-WHITE structural sample — pure line art, no color and no shading.
+The purpose is to DEMONSTRATE THE STRUCTURE and LAYOUT of a single component (a logo, badge, or
+masthead): where every element sits, not how it is finally colored or finished.
+
+## Rendering
+- **Black and white only.** Black linework and, where needed, solid black fills on a plain WHITE
+  background. No color of any kind. No gray, no gradients, no drop shadows, no glow, no texture.
+- **Line art / flat:** Every element is drawn as clean, confident black outlines, with at most
+  flat solid-black fills for emphasis. Think a crisp vector wireframe or a printer&#x27;s layout
+  sheet — precise and diagrammatic.
+- **Show the structure:** Make the placement and relative size of each element unmistakable —
+  the text lines and their stacking, the lightning bolts, rules/lines, and highlight shapes.
+  Highlights are indicated as clean outlined shapes, not as rendered light.
+- **Type:** Render the lettering in its correct layout, weight, and proportion (in black) so the
+  wordmark&#x27;s structure reads clearly.
+
+## Purpose
+This is a schematic/spec sample, not finished art. It exists to lock the LAYOUT of a component
+so the identical structure can later be re-skinned in any color style.
+
+# Composition
+
+A single component isolated and centered on a plain white field, presented as a structural
+layout sample.
+
+## Layout
+- ONE component (the logo / badge / masthead) centered, filling most of the frame with generous
+  white margins around it.
+- Nothing else in the frame — no scene, no extra graphics, no caption, no border.
+- Elements are arranged exactly per the component&#x27;s structure description so their placement
+  reads clearly: text stacking, lightning bolts, rules, and highlight shapes.
+
+## Feel
+Clean, precise, diagrammatic — a spec sheet that documents the component&#x27;s structure.
+
+# Component
+
+The horizontal lock-up of the League of Amazing Programmers wordmark: three centered, stacked
+lines of bold condensed caps with flanking lightning bolts. This describes the STRUCTURE
+(element placement and proportion) only — color and finish come from whichever style the
+component is rendered in.
+
+## Elements &amp; placement (top to bottom, centered)
+1. **Line 1 — &quot;THE LEAGUE OF&quot;:** top line. &quot;THE LEAGUE&quot; in condensed caps, with a small &quot;OF&quot;
+   centered on its own short line just below it (between &quot;THE LEAGUE&quot; and &quot;AMAZING&quot;). A small
+   lightning bolt sits just outside each end of this line (one left, one right).
+2. **Line 2 — &quot;AMAZING&quot;:** the dominant line — the largest lettering, condensed caps, centered,
+   with a slight energetic upward tilt. A small lightning bolt flanks each side of it.
+3. **Line 3 — &quot;PROGRAMMERS&quot;:** bottom line, condensed caps, centered, narrower than &quot;AMAZING&quot;.
+
+## Structural notes
+- The lines are stacked with CLEAR vertical separation — no line&#x27;s lettering touches or
+  overlaps the line above or below. In particular, leave a distinct gap between the small &quot;OF&quot;
+  and &quot;AMAZING&quot; so &quot;OF&quot; never cuts into or touches the tops of the &quot;AMAZING&quot; letters
+  (especially the &quot;Z&quot;). Nudge &quot;AMAZING&quot; down slightly if needed to keep that gap open.
+- &quot;AMAZING&quot; is roughly 1.6–2× the cap height of the two outer lines and is the visual anchor of
+  the mark.
+- There are four small lightning bolts total — two flanking Line 1 and two flanking Line 2 —
+  drawn as short angled sparks kept clear of the type.
+- The overall footprint is wider than tall (roughly 2.2 : 1), reading as a compact corner mark.
+- All lettering is bold and condensed with heavy keylines; exact fills, colors, and finish are
+  defined by the render style, not here.
+
+# Scene
+
+The horizontal &quot;THE LEAGUE OF AMAZING PROGRAMMERS&quot; wordmark logo, rendered as a black-and-white structural type sample per the component description.
+
+# Layout
+
+&gt; Present the single component centered on a plain white background with generous margins. No
+&gt; border, no scene, no extra text beyond the component itself. Crisp, high-resolution line art
+&gt; suitable as a reusable structural reference sheet.</pre>
+          <div class="dl">negative prompt</div><pre>Do NOT include any of the following:
+
+Color of any kind — this is strictly black and white. Gray tones, shading, gradients, drop
+shadows, glows, or rendered lighting. Texture, grain, noise, or halftone. A background scene,
+photo, props, or environment — plain white background only. Any element that is not part of the
+component itself. Photorealism or 3-D rendering.</pre>
+          
+          
+        </div>
+      </details>
+    </article>
+    <article class="card ">
+      <div class="cardhead">
+        <span class="num">#1</span><span class="lab">— Type sample v1 — B&amp;W structural (type-sample style + component structure)</span>
+        <span class="meta">2026-07-01T09:23:16 &middot; chatgpt-image-latest</span>
+      </div>
+      <div class="imgwrap"><a href="iterations/iter-001.png" target="_blank"><img class="hero" src="iterations/iter-001.png" alt="iteration 1"></a></div>
+      <div class="reflabel">references</div><div class="thumbs small"><a href="sources/example.png" target="_blank"><img src="sources/example.png"></a></div>
+      <details><summary>Prompt &amp; details</summary>
+        <div class="detail">
+          <div class="dl">positive prompt</div><pre># Art Style
+
+Render as a clean BLACK-AND-WHITE structural sample — pure line art, no color and no shading.
+The purpose is to DEMONSTRATE THE STRUCTURE and LAYOUT of a single component (a logo, badge, or
+masthead): where every element sits, not how it is finally colored or finished.
+
+## Rendering
+- **Black and white only.** Black linework and, where needed, solid black fills on a plain WHITE
+  background. No color of any kind. No gray, no gradients, no drop shadows, no glow, no texture.
+- **Line art / flat:** Every element is drawn as clean, confident black outlines, with at most
+  flat solid-black fills for emphasis. Think a crisp vector wireframe or a printer&#x27;s layout
+  sheet — precise and diagrammatic.
+- **Show the structure:** Make the placement and relative size of each element unmistakable —
+  the text lines and their stacking, the lightning bolts, rules/lines, and highlight shapes.
+  Highlights are indicated as clean outlined shapes, not as rendered light.
+- **Type:** Render the lettering in its correct layout, weight, and proportion (in black) so the
+  wordmark&#x27;s structure reads clearly.
+
+## Purpose
+This is a schematic/spec sample, not finished art. It exists to lock the LAYOUT of a component
+so the identical structure can later be re-skinned in any color style.
+
+# Composition
+
+A single component isolated and centered on a plain white field, presented as a structural
+layout sample.
+
+## Layout
+- ONE component (the logo / badge / masthead) centered, filling most of the frame with generous
+  white margins around it.
+- Nothing else in the frame — no scene, no extra graphics, no caption, no border.
+- Elements are arranged exactly per the component&#x27;s structure description so their placement
+  reads clearly: text stacking, lightning bolts, rules, and highlight shapes.
+
+## Feel
+Clean, precise, diagrammatic — a spec sheet that documents the component&#x27;s structure.
+
+# Component
+
+The horizontal lock-up of the League of Amazing Programmers wordmark: three centered, stacked
+lines of bold condensed caps with flanking lightning bolts. This describes the STRUCTURE
+(element placement and proportion) only — color and finish come from whichever style the
+component is rendered in.
+
+## Elements &amp; placement (top to bottom, centered)
+1. **Line 1 — &quot;THE LEAGUE OF&quot;:** top line. &quot;THE LEAGUE&quot; in condensed caps, with a small &quot;OF&quot;
+   set to the right of / just beneath &quot;LEAGUE&quot;. A small lightning bolt sits just outside each
+   end of this line (one left, one right).
+2. **Line 2 — &quot;AMAZING&quot;:** the dominant line — the largest lettering, condensed caps, centered,
+   with a slight energetic upward tilt. A small lightning bolt flanks each side of it.
+3. **Line 3 — &quot;PROGRAMMERS&quot;:** bottom line, condensed caps, centered, narrower than &quot;AMAZING&quot;.
+
+## Structural notes
+- The vertical stack is tight. &quot;AMAZING&quot; is roughly 1.6–2× the cap height of the two outer
+  lines and is the visual anchor of the mark.
+- There are four small lightning bolts total — two flanking Line 1 and two flanking Line 2 —
+  drawn as short angled sparks kept clear of the type.
+- The overall footprint is wider than tall (roughly 2.2 : 1), reading as a compact corner mark.
+- All lettering is bold and condensed with heavy keylines; exact fills, colors, and finish are
+  defined by the render style, not here.
+
+# Scene
+
+The horizontal &quot;THE LEAGUE OF AMAZING PROGRAMMERS&quot; wordmark logo, rendered as a black-and-white structural type sample per the component description.
+
+# Layout
+
+&gt; Present the single component centered on a plain white background with generous margins. No
+&gt; border, no scene, no extra text beyond the component itself. Crisp, high-resolution line art
+&gt; suitable as a reusable structural reference sheet.</pre>
+          <div class="dl">negative prompt</div><pre>Do NOT include any of the following:
+
+Color of any kind — this is strictly black and white. Gray tones, shading, gradients, drop
+shadows, glows, or rendered lighting. Texture, grain, noise, or halftone. A background scene,
+photo, props, or environment — plain white background only. Any element that is not part of the
+component itself. Photorealism or 3-D rendering.</pre>
+          
+          
+        </div>
+      </details>
+    </article>
+  <footer>Generated 2026-07-01T09:35:26 &middot; this page auto-reloads when a new iteration is added</footer>
+</div>
+<script>
+ const CURRENT_VERSION = 3;
+ const live = document.getElementById('live');
+ // Only ever reload when state.json confirms a NEW version. We never blind-reload on a
+ // timer: under file:// (fetch blocked) or with the server down we can't read the version,
+ // so reloading would just flicker the page without knowing anything changed. In that case
+ // show a hint and keep quietly retrying — a live server will be picked up automatically.
+ async function poll(){
+   let served = true;
+   try{
+     const r = await fetch('state.json?ts=' + Date.now(), {cache:'no-store'});
+     if(r.ok){
+       const s = await r.json();
+       if(s.version > CURRENT_VERSION){ location.reload(); return; }
+     }else{
+       served = false;
+     }
+   }catch(e){
+     served = false;
+   }
+   if(served){
+     live.className='live'; live.innerHTML='&#9679; live';
+     setTimeout(poll, 1500);
+   }else{
+     // No live server (e.g. opened via file://). Stop flickering; just retry slowly.
+     live.className='live off'; live.innerHTML='&#9679; open via server for live reload';
+     setTimeout(poll, 4000);
+   }
+ }
+ poll();
+</script>
+</body>
+</html>
