@@ -1,0 +1,115 @@
+{
+  "name": "Hello World Postcard",
+  "slug": "Hello-World-Postcard",
+  "created": "2026-07-01T06:08:34",
+  "config": {
+    "style": "technical-blueprint",
+    "composition": "single-plan",
+    "layout": "postcard-4x6",
+    "theme": "Learning to code is the start of a great career — and it's fun. Postcard for The League of Amazing Programmers.",
+    "scene_description": "Over-the-shoulder view of a young child seated at a desk, both hands on the keyboard of an open laptop computer. The laptop screen shows a block-based coding / flowchart program. The child leans in, engaged. Composition mirrors the reference photo: child in lower-left foreground, laptop angled toward center-right.",
+    "model": "chatgpt-image-latest",
+    "negative_prompt": "",
+    "custom_additions": "This is a marketing postcard, so include the finished text. HEADLINE (top of card, clean drafting all-caps lettering): A GREAT CAREER STARTS WITH \"HELLO WORLD\". Include exactly TWO drafting-style annotation callouts, each a labeled leader line with a bubble/arrow terminator pointing to a specific feature:\n1) A leader line pointing to the LAPTOP / SCREEN, labeled: \"PROBLEM-SOLVING SKILLS\".\n2) A leader line pointing to the CHILD'S HEAD, labeled: \"HAVING FUN\".\nKeep only these two callouts prominent so the message is legible; other minor dimension marks are fine but subtle. Title block lower-right reads \"THE LEAGUE OF AMAZING PROGRAMMERS\". Spelling must be correct and text crisp."
+  },
+  "sources": [
+    "sources/istockphoto-1254050848-612x612.jpg"
+  ],
+  "iterations": [
+    {
+      "n": 1,
+      "label": "First draft — two callouts",
+      "created": "2026-07-01T06:08:52",
+      "style": "technical-blueprint",
+      "composition": "single-plan",
+      "layout": "postcard-4x6",
+      "scene_description": "Over-the-shoulder view of a young child seated at a desk, both hands on the keyboard of an open laptop computer. The laptop screen shows a block-based coding / flowchart program. The child leans in, engaged. Composition mirrors the reference photo: child in lower-left foreground, laptop angled toward center-right.",
+      "model": "chatgpt-image-latest",
+      "prompt": "# Art Style\n\nRender as a technical drafting / blueprint drawing — white linework on deep blue paper with\nprecise geometric drafting conventions. It should resemble a detailed patent illustration or\narchitectural blueprint: clean, precise, measured.\n\n## Rendering\n- **Paper:** Deep blue background (roughly #1a3a5c to #0d2b45) — authentic blueprint paper\n  color, with subtle texture or aging.\n- **Linework:** Clean white or very light cyan lines. Consistent thin weight, with slightly\n  thicker outlines for major forms and the thinnest lines for dimensions. Drafting precision\n  — straight edges, perfect circles, measured proportions.\n- **Style:** Technical line art only — wireframe, orthographic projection, or isometric\n  views. No filled surfaces, no shading, no color beyond white lines on blue paper.\n- **Annotations:** Technical callouts with leader lines, dimension marks, part numbers, and\n  notes in a drafting font (all-caps, monospace feel). Title block in the lower-right corner\n  with project name, scale, date, and revision. A border frame around the sheet.\n- **Grid:** Optional faint drafting-paper grid for authenticity — subtle, never competing\n  with the linework.\n\n## Subject Rendering\n- **Robots** are drawn as engineering drawings — orthographic views (front/side/top),\n  exploded assembly views, or isometric projections, with parts labeled via leader lines and\n  key dimensions annotated. When robot reference photos are provided, base the drawing on the\n  real student-built educational robot (Micro:bit board, two-wheel-drive chassis, batteries,\n  wiring, servos, grabbers) so the blueprint documents the actual machine.\n- **Kids/characters** appear as simplified technical figure outlines — stick-figure or\n  mannequin proportions built from geometric shapes, for scale reference. Not realistic\n  portraits.\n- **Scenes/arenas** use architectural conventions — floor plans, elevations, or isometric\n  layouts.\n\n## Brand\nThe drawing documents the ingenuity of a real student-built machine. Any code, if shown,\nappears as a labeled callout referencing a laptop/controller, never as free-floating text.\n\n# Composition\n\nOne large, detailed view filling the sheet — patent-drawing-style focus on a single subject.\n\n## Layout\n- Centered composition with generous margins.\n- Detailed callouts and annotations arranged around the perimeter, each on a leader line\n  pointing to a specific feature.\n- Dimension marks for the key measurements.\n- Title block lower-right; a border frame around the sheet.\n\n## Subject\nThe robot (or a key subassembly) as the single hero of the drawing, rendered as a precise\nwireframe with no shading.\n\n# Scene\n\nOver-the-shoulder view of a young child seated at a desk, both hands on the keyboard of an open laptop computer. The laptop screen shows a block-based coding / flowchart program. The child leans in, engaged. Composition mirrors the reference photo: child in lower-left foreground, laptop angled toward center-right.\n\n# Layout\n\n> Format as a 4×6 inch postcard in [portrait/landscape] orientation. Hero image fills\n> 75% of the card with a bold headline [text] in [style-appropriate treatment] along\n> the [top/bottom]. Small League logo in [corner]. Clean composition with generous\n> margins. Print-ready quality.\n\n# Additional Direction\n\nThis is a marketing postcard, so include the finished text. HEADLINE (top of card, clean drafting all-caps lettering): A GREAT CAREER STARTS WITH \"HELLO WORLD\". Include exactly TWO drafting-style annotation callouts, each a labeled leader line with a bubble/arrow terminator pointing to a specific feature:\n1) A leader line pointing to the LAPTOP / SCREEN, labeled: \"PROBLEM-SOLVING SKILLS\".\n2) A leader line pointing to the CHILD'S HEAD, labeled: \"HAVING FUN\".\nKeep only these two callouts prominent so the message is legible; other minor dimension marks are fine but subtle. Title block lower-right reads \"THE LEAGUE OF AMAZING PROGRAMMERS\". Spelling must be correct and text crisp.",
+      "negative_prompt": "Do NOT include any of the following:\n\nFull color, filled surfaces, solid color fills, or rendered surfaces. Shading, gradients, or\nsoft rendering of any kind. Shaded isometric rendering — keep it wireframe. Metallic\nshading, drop shadows, beveled edges, glossy surfaces.\n\nPhotorealism, photography, realistic rendering, 3D rendered objects with surface textures.\nHand-drawn or sketch quality — lines must be clean drafting-precision, not loose. Cartoon,\ncomic, or illustrative style. Painterly or \"artistic\" line quality.\n\nPurple or pink blueprint variants — stay true to traditional cyan-blue. Organic or flowing\nlines — everything geometric and measured. Decorative, non-functional elements. Realistic\nportraits of people — figures are simplified technical outlines.",
+      "custom_additions": "This is a marketing postcard, so include the finished text. HEADLINE (top of card, clean drafting all-caps lettering): A GREAT CAREER STARTS WITH \"HELLO WORLD\". Include exactly TWO drafting-style annotation callouts, each a labeled leader line with a bubble/arrow terminator pointing to a specific feature:\n1) A leader line pointing to the LAPTOP / SCREEN, labeled: \"PROBLEM-SOLVING SKILLS\".\n2) A leader line pointing to the CHILD'S HEAD, labeled: \"HAVING FUN\".\nKeep only these two callouts prominent so the message is legible; other minor dimension marks are fine but subtle. Title block lower-right reads \"THE LEAGUE OF AMAZING PROGRAMMERS\". Spelling must be correct and text crisp.",
+      "references": [
+        "sources/istockphoto-1254050848-612x612.jpg"
+      ],
+      "images": [],
+      "image": null,
+      "notes": "",
+      "status": "error",
+      "error": "Client error '400 Bad Request' for url 'https://openrouter.ai/api/v1/chat/completions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400",
+      "text_response": "",
+      "usage": {}
+    },
+    {
+      "n": 2,
+      "label": "First draft — two callouts",
+      "created": "2026-07-01T06:09:06",
+      "style": "technical-blueprint",
+      "composition": "single-plan",
+      "layout": "postcard-4x6",
+      "scene_description": "Over-the-shoulder view of a young child seated at a desk, both hands on the keyboard of an open laptop computer. The laptop screen shows a block-based coding / flowchart program. The child leans in, engaged. Composition mirrors the reference photo: child in lower-left foreground, laptop angled toward center-right.",
+      "model": "chatgpt-image-latest",
+      "prompt": "# Art Style\n\nRender as a technical drafting / blueprint drawing — white linework on deep blue paper with\nprecise geometric drafting conventions. It should resemble a detailed patent illustration or\narchitectural blueprint: clean, precise, measured.\n\n## Rendering\n- **Paper:** Deep blue background (roughly #1a3a5c to #0d2b45) — authentic blueprint paper\n  color, with subtle texture or aging.\n- **Linework:** Clean white or very light cyan lines. Consistent thin weight, with slightly\n  thicker outlines for major forms and the thinnest lines for dimensions. Drafting precision\n  — straight edges, perfect circles, measured proportions.\n- **Style:** Technical line art only — wireframe, orthographic projection, or isometric\n  views. No filled surfaces, no shading, no color beyond white lines on blue paper.\n- **Annotations:** Technical callouts with leader lines, dimension marks, part numbers, and\n  notes in a drafting font (all-caps, monospace feel). Title block in the lower-right corner\n  with project name, scale, date, and revision. A border frame around the sheet.\n- **Grid:** Optional faint drafting-paper grid for authenticity — subtle, never competing\n  with the linework.\n\n## Subject Rendering\n- **Robots** are drawn as engineering drawings — orthographic views (front/side/top),\n  exploded assembly views, or isometric projections, with parts labeled via leader lines and\n  key dimensions annotated. When robot reference photos are provided, base the drawing on the\n  real student-built educational robot (Micro:bit board, two-wheel-drive chassis, batteries,\n  wiring, servos, grabbers) so the blueprint documents the actual machine.\n- **Kids/characters** appear as simplified technical figure outlines — stick-figure or\n  mannequin proportions built from geometric shapes, for scale reference. Not realistic\n  portraits.\n- **Scenes/arenas** use architectural conventions — floor plans, elevations, or isometric\n  layouts.\n\n## Brand\nThe drawing documents the ingenuity of a real student-built machine. Any code, if shown,\nappears as a labeled callout referencing a laptop/controller, never as free-floating text.\n\n# Composition\n\nOne large, detailed view filling the sheet — patent-drawing-style focus on a single subject.\n\n## Layout\n- Centered composition with generous margins.\n- Detailed callouts and annotations arranged around the perimeter, each on a leader line\n  pointing to a specific feature.\n- Dimension marks for the key measurements.\n- Title block lower-right; a border frame around the sheet.\n\n## Subject\nThe robot (or a key subassembly) as the single hero of the drawing, rendered as a precise\nwireframe with no shading.\n\n# Scene\n\nOver-the-shoulder view of a young child seated at a desk, both hands on the keyboard of an open laptop computer. The laptop screen shows a block-based coding / flowchart program. The child leans in, engaged. Composition mirrors the reference photo: child in lower-left foreground, laptop angled toward center-right.\n\n# Layout\n\n> Format as a 4×6 inch postcard in [portrait/landscape] orientation. Hero image fills\n> 75% of the card with a bold headline [text] in [style-appropriate treatment] along\n> the [top/bottom]. Small League logo in [corner]. Clean composition with generous\n> margins. Print-ready quality.\n\n# Additional Direction\n\nThis is a marketing postcard, so include the finished text. HEADLINE (top of card, clean drafting all-caps lettering): A GREAT CAREER STARTS WITH \"HELLO WORLD\". Include exactly TWO drafting-style annotation callouts, each a labeled leader line with a bubble/arrow terminator pointing to a specific feature:\n1) A leader line pointing to the LAPTOP / SCREEN, labeled: \"PROBLEM-SOLVING SKILLS\".\n2) A leader line pointing to the CHILD'S HEAD, labeled: \"HAVING FUN\".\nKeep only these two callouts prominent so the message is legible; other minor dimension marks are fine but subtle. Title block lower-right reads \"THE LEAGUE OF AMAZING PROGRAMMERS\". Spelling must be correct and text crisp.",
+      "negative_prompt": "Do NOT include any of the following:\n\nFull color, filled surfaces, solid color fills, or rendered surfaces. Shading, gradients, or\nsoft rendering of any kind. Shaded isometric rendering — keep it wireframe. Metallic\nshading, drop shadows, beveled edges, glossy surfaces.\n\nPhotorealism, photography, realistic rendering, 3D rendered objects with surface textures.\nHand-drawn or sketch quality — lines must be clean drafting-precision, not loose. Cartoon,\ncomic, or illustrative style. Painterly or \"artistic\" line quality.\n\nPurple or pink blueprint variants — stay true to traditional cyan-blue. Organic or flowing\nlines — everything geometric and measured. Decorative, non-functional elements. Realistic\nportraits of people — figures are simplified technical outlines.",
+      "custom_additions": "This is a marketing postcard, so include the finished text. HEADLINE (top of card, clean drafting all-caps lettering): A GREAT CAREER STARTS WITH \"HELLO WORLD\". Include exactly TWO drafting-style annotation callouts, each a labeled leader line with a bubble/arrow terminator pointing to a specific feature:\n1) A leader line pointing to the LAPTOP / SCREEN, labeled: \"PROBLEM-SOLVING SKILLS\".\n2) A leader line pointing to the CHILD'S HEAD, labeled: \"HAVING FUN\".\nKeep only these two callouts prominent so the message is legible; other minor dimension marks are fine but subtle. Title block lower-right reads \"THE LEAGUE OF AMAZING PROGRAMMERS\". Spelling must be correct and text crisp.",
+      "references": [
+        "sources/istockphoto-1254050848-612x612.jpg"
+      ],
+      "images": [],
+      "image": null,
+      "notes": "",
+      "status": "error",
+      "error": "Client error '400 Bad Request' for url 'https://openrouter.ai/api/v1/chat/completions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400",
+      "text_response": "",
+      "usage": {}
+    },
+    {
+      "n": 3,
+      "label": "Draft 1 — gemini image model, two callouts",
+      "created": "2026-07-01T06:10:30",
+      "style": "technical-blueprint",
+      "composition": "single-plan",
+      "layout": "postcard-4x6",
+      "scene_description": "Over-the-shoulder view of a young child seated at a desk, both hands on the keyboard of an open laptop computer. The laptop screen shows a block-based coding / flowchart program. The child leans in, engaged. Composition mirrors the reference photo: child in lower-left foreground, laptop angled toward center-right.",
+      "model": "google/gemini-3-pro-image-20260528",
+      "prompt": "# Art Style\n\nRender as a technical drafting / blueprint drawing — white linework on deep blue paper with\nprecise geometric drafting conventions. It should resemble a detailed patent illustration or\narchitectural blueprint: clean, precise, measured.\n\n## Rendering\n- **Paper:** Deep blue background (roughly #1a3a5c to #0d2b45) — authentic blueprint paper\n  color, with subtle texture or aging.\n- **Linework:** Clean white or very light cyan lines. Consistent thin weight, with slightly\n  thicker outlines for major forms and the thinnest lines for dimensions. Drafting precision\n  — straight edges, perfect circles, measured proportions.\n- **Style:** Technical line art only — wireframe, orthographic projection, or isometric\n  views. No filled surfaces, no shading, no color beyond white lines on blue paper.\n- **Annotations:** Technical callouts with leader lines, dimension marks, part numbers, and\n  notes in a drafting font (all-caps, monospace feel). Title block in the lower-right corner\n  with project name, scale, date, and revision. A border frame around the sheet.\n- **Grid:** Optional faint drafting-paper grid for authenticity — subtle, never competing\n  with the linework.\n\n## Subject Rendering\n- **Robots** are drawn as engineering drawings — orthographic views (front/side/top),\n  exploded assembly views, or isometric projections, with parts labeled via leader lines and\n  key dimensions annotated. When robot reference photos are provided, base the drawing on the\n  real student-built educational robot (Micro:bit board, two-wheel-drive chassis, batteries,\n  wiring, servos, grabbers) so the blueprint documents the actual machine.\n- **Kids/characters** appear as simplified technical figure outlines — stick-figure or\n  mannequin proportions built from geometric shapes, for scale reference. Not realistic\n  portraits.\n- **Scenes/arenas** use architectural conventions — floor plans, elevations, or isometric\n  layouts.\n\n## Brand\nThe drawing documents the ingenuity of a real student-built machine. Any code, if shown,\nappears as a labeled callout referencing a laptop/controller, never as free-floating text.\n\n# Composition\n\nOne large, detailed view filling the sheet — patent-drawing-style focus on a single subject.\n\n## Layout\n- Centered composition with generous margins.\n- Detailed callouts and annotations arranged around the perimeter, each on a leader line\n  pointing to a specific feature.\n- Dimension marks for the key measurements.\n- Title block lower-right; a border frame around the sheet.\n\n## Subject\nThe robot (or a key subassembly) as the single hero of the drawing, rendered as a precise\nwireframe with no shading.\n\n# Scene\n\nOver-the-shoulder view of a young child seated at a desk, both hands on the keyboard of an open laptop computer. The laptop screen shows a block-based coding / flowchart program. The child leans in, engaged. Composition mirrors the reference photo: child in lower-left foreground, laptop angled toward center-right.\n\n# Layout\n\n> Format as a 4×6 inch postcard in [portrait/landscape] orientation. Hero image fills\n> 75% of the card with a bold headline [text] in [style-appropriate treatment] along\n> the [top/bottom]. Small League logo in [corner]. Clean composition with generous\n> margins. Print-ready quality.\n\n# Additional Direction\n\nThis is a marketing postcard, so include the finished text. HEADLINE (top of card, clean drafting all-caps lettering): A GREAT CAREER STARTS WITH \"HELLO WORLD\". Include exactly TWO drafting-style annotation callouts, each a labeled leader line with a bubble/arrow terminator pointing to a specific feature:\n1) A leader line pointing to the LAPTOP / SCREEN, labeled: \"PROBLEM-SOLVING SKILLS\".\n2) A leader line pointing to the CHILD'S HEAD, labeled: \"HAVING FUN\".\nKeep only these two callouts prominent so the message is legible; other minor dimension marks are fine but subtle. Title block lower-right reads \"THE LEAGUE OF AMAZING PROGRAMMERS\". Spelling must be correct and text crisp.",
+      "negative_prompt": "Do NOT include any of the following:\n\nFull color, filled surfaces, solid color fills, or rendered surfaces. Shading, gradients, or\nsoft rendering of any kind. Shaded isometric rendering — keep it wireframe. Metallic\nshading, drop shadows, beveled edges, glossy surfaces.\n\nPhotorealism, photography, realistic rendering, 3D rendered objects with surface textures.\nHand-drawn or sketch quality — lines must be clean drafting-precision, not loose. Cartoon,\ncomic, or illustrative style. Painterly or \"artistic\" line quality.\n\nPurple or pink blueprint variants — stay true to traditional cyan-blue. Organic or flowing\nlines — everything geometric and measured. Decorative, non-functional elements. Realistic\nportraits of people — figures are simplified technical outlines.",
+      "custom_additions": "This is a marketing postcard, so include the finished text. HEADLINE (top of card, clean drafting all-caps lettering): A GREAT CAREER STARTS WITH \"HELLO WORLD\". Include exactly TWO drafting-style annotation callouts, each a labeled leader line with a bubble/arrow terminator pointing to a specific feature:\n1) A leader line pointing to the LAPTOP / SCREEN, labeled: \"PROBLEM-SOLVING SKILLS\".\n2) A leader line pointing to the CHILD'S HEAD, labeled: \"HAVING FUN\".\nKeep only these two callouts prominent so the message is legible; other minor dimension marks are fine but subtle. Title block lower-right reads \"THE LEAGUE OF AMAZING PROGRAMMERS\". Spelling must be correct and text crisp.",
+      "references": [
+        "sources/istockphoto-1254050848-612x612.jpg"
+      ],
+      "images": [
+        "iterations/iter-003_0.jpeg",
+        "iterations/iter-003_1.jpeg"
+      ],
+      "image": "iterations/iter-003_0.jpeg",
+      "notes": "",
+      "status": "ok",
+      "error": null,
+      "text_response": "",
+      "usage": {
+        "prompt_tokens": 1329,
+        "completion_tokens": 1679,
+        "total_tokens": 3008,
+        "cost": 0.139614,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.139614,
+          "upstream_inference_prompt_cost": 0.002658,
+          "upstream_inference_completions_cost": 0.136956
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 213,
+          "image_tokens": 1120,
+          "audio_tokens": 0
+        }
+      }
+    }
+  ],
+  "state_version": 4
+}

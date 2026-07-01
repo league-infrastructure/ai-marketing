@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>His Master's Voice &mdash; League Labs</title>
+<meta name="description" content="The story of Valente and League Labs &mdash; a summer program where students use AI to program robots, from LEGO builds to FIRST Tech Challenge machines.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Bangers&family=Spectral:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --comic-yellow: #f6c41b;
+    --comic-yellow-deep: #f1a81a;
+    --comic-red: #d4202a;
+    --comic-blue: #173a6e;
+    --comic-blue-deep: #102a52;
+    --paper: #f7efdd;
+    --paper-edge: #efe2c5;
+    --ink: #1b1714;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background-color: var(--comic-blue-deep);
+    /* Ben-Day halftone dots over the deep blue field */
+    background-image:
+      radial-gradient(circle at center, rgba(255,255,255,0.10) 1.6px, transparent 1.8px);
+    background-size: 14px 14px;
+    color: var(--ink);
+    font-family: 'Spectral', Georgia, 'Times New Roman', serif;
+    font-size: 19px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 1080px;
+    margin: 0 auto;
+    background-color: var(--paper);
+    /* faint warm halftone on the paper */
+    background-image:
+      radial-gradient(circle at center, rgba(212,32,42,0.05) 1.1px, transparent 1.3px);
+    background-size: 10px 10px;
+    border-left: 6px solid var(--ink);
+    border-right: 6px solid var(--ink);
+    box-shadow: 0 0 60px rgba(0,0,0,0.5);
+  }
+
+  /* ---------- Masthead ---------- */
+  .masthead {
+    display: block;
+    border-bottom: 6px solid var(--ink);
+  }
+  .masthead img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  /* ---------- Story body ---------- */
+  .story {
+    padding: 38px 46px 30px;
+  }
+
+  /* clearfix so floated panels are contained */
+  .story::after { content: ""; display: table; clear: both; }
+
+  .story p {
+    margin: 0 0 1.15em;
+    hyphens: auto;
+  }
+
+  .story p.lead {
+    font-size: 1.18em;
+  }
+
+  .drop::first-letter {
+    font-family: 'Anton', sans-serif;
+    float: left;
+    font-size: 3.4em;
+    line-height: 0.74;
+    padding: 6px 12px 4px 0;
+    color: var(--comic-red);
+    text-shadow: 2px 2px 0 var(--comic-yellow);
+  }
+
+  /* ---------- Comic panels ---------- */
+  .panel {
+    display: block;
+    height: auto;
+    border: 5px solid var(--ink);
+    box-shadow: 7px 7px 0 rgba(27,23,20,0.85);
+    background: #fff;
+  }
+
+  /* Panel 4 spans the full width as a finale banner */
+  .panel.full {
+    clear: both;
+    width: 100%;
+    margin: 22px 0 28px;
+  }
+
+  /* Square panels (1, 2, 3) sit at ~400px — a left/right "third" of the page */
+  .panel.left {
+    float: left;
+    clear: both;
+    width: min(400px, 42%);
+    margin: 8px 34px 22px 0;
+  }
+
+  .panel.right {
+    float: right;
+    clear: both;
+    width: min(400px, 42%);
+    margin: 8px 0 22px 34px;
+  }
+
+  /* ---------- Comic caption / narration box ---------- */
+  .caption {
+    background: var(--comic-yellow);
+    border: 4px solid var(--ink);
+    box-shadow: 5px 5px 0 rgba(27,23,20,0.8);
+    padding: 16px 22px;
+    margin: 0 0 26px;
+    font-style: italic;
+    font-weight: 600;
+    font-size: 1.25em;
+    line-height: 1.4;
+    color: var(--ink);
+  }
+  .caption strong { font-style: normal; }
+
+  /* ---------- Section headings ---------- */
+  .kicker {
+    font-family: 'Anton', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    line-height: 1.02;
+    text-transform: uppercase;
+    color: var(--comic-blue);
+    margin: 30px 0 14px;
+    font-size: 2.0em;
+    clear: none;
+  }
+  .kicker .pow {
+    color: var(--comic-red);
+    text-shadow: 2px 2px 0 var(--comic-yellow);
+  }
+
+  /* ---------- Tech list as comic "burst" chips ---------- */
+  .skills {
+    list-style: none;
+    margin: 6px 0 18px;
+    padding: 0;
+  }
+  .skills li {
+    position: relative;
+    padding: 8px 6px 8px 40px;
+    margin: 0 0 6px;
+    border-bottom: 2px dotted rgba(27,23,20,0.25);
+    font-weight: 600;
+  }
+  .skills li::before {
+    content: "\25B6";
+    position: absolute;
+    left: 6px;
+    top: 8px;
+    color: var(--comic-red);
+    font-size: 0.85em;
+  }
+  .skills li span {
+    display: block;
+    font-weight: 400;
+    font-style: italic;
+    color: #5a5147;
+    font-size: 0.92em;
+  }
+
+  /* ---------- Call-to-action ---------- */
+  .cta {
+    clear: both;
+    background: var(--comic-red);
+    border: 5px solid var(--ink);
+    box-shadow: 7px 7px 0 rgba(27,23,20,0.85);
+    color: #fff;
+    text-align: center;
+    padding: 28px 24px;
+    margin: 34px 0 8px;
+  }
+  .cta .cta-kick {
+    font-family: 'Bangers', 'Anton', sans-serif;
+    letter-spacing: 2px;
+    font-size: 2.4em;
+    line-height: 1;
+    color: var(--comic-yellow);
+    text-shadow: 3px 3px 0 var(--ink);
+    margin: 0 0 8px;
+  }
+  .cta p { margin: 0 0 16px; font-size: 1.05em; }
+  .cta a.btn {
+    display: inline-block;
+    background: var(--comic-yellow);
+    color: var(--ink);
+    text-decoration: none;
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 1.15em;
+    padding: 12px 26px;
+    border: 4px solid var(--ink);
+    box-shadow: 4px 4px 0 rgba(0,0,0,0.4);
+    transition: transform 0.08s ease;
+  }
+  .cta a.btn:hover { transform: translate(2px, 2px); box-shadow: 2px 2px 0 rgba(0,0,0,0.4); }
+
+  /* ---------- Footer ---------- */
+  footer {
+    clear: both;
+    background: var(--comic-blue);
+    border-top: 6px solid var(--ink);
+    color: #dfe7f3;
+    text-align: center;
+    padding: 22px 24px;
+    font-size: 0.9em;
+  }
+  footer a { color: var(--comic-yellow); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 720px) {
+    body { font-size: 17px; }
+    .story { padding: 24px 22px 18px; }
+    .panel.left, .panel.right {
+      float: none;
+      clear: both;
+      width: 100%;
+      margin: 8px 0 24px;
+    }
+    .kicker { font-size: 1.6em; }
+    .drop::first-letter { font-size: 3em; }
+  }
+</style>
+</head>
+<body>
+  <main class="page">
+
+    <!-- Masthead -->
+    <header class="masthead">
+      <img src="Head.png" alt="The League of Amazing Programmers presents: His Master's Voice">
+    </header>
+
+    <article class="story">
+
+      <!-- Panel 1: square, float left -->
+      <img class="panel left" src="panel1.png"
+           alt="Valente enters The League's Robot Garage and surveys the robots he built with his own hands.">
+
+      <div class="caption">
+        Valente had an idea. He walked into The League&rsquo;s Robot Garage, looked
+        over the machines he&rsquo;d built with his own hands, and wondered&hellip;
+        <strong>what if I could just <em>tell</em> them what to do?</strong>
+      </div>
+
+      <p class="lead drop">That single question is the heart of <strong>League Labs</strong> &mdash;
+        a summer program at The League of Amazing Programmers where students learn to
+        use artificial intelligence to bring robots to life. From small LEGO builds to
+        full-size <strong>FIRST Tech Challenge (FTC)</strong> competition machines, the goal is
+        the same: understand a robot down to the metal, then teach it to listen.</p>
+
+      <!-- Panel 2: square, float right -->
+      <img class="panel right" src="panel2.png"
+           alt="Valente connects to an AI assistant and describes every robot he owns.">
+
+      <h2 class="kicker">Teaching the machine <span class="pow">to teach itself</span></h2>
+
+      <p>At League Labs, students don&rsquo;t just write code <em>for</em> robots &mdash; they
+        work alongside <strong>Claude Code</strong>, an AI assistant, teaching it to discover
+        what hardware a robot actually has and to figure out how to drive it around. It&rsquo;s
+        a blend of many technologies woven together, with the student as the architect and
+        the AI as a tireless pair of hands.</p>
+
+      <p>The group meets online once a week to compare notes and tackle problems together.
+        On weekends, everyone gathers in the Robot Garage &mdash; a real workshop full of
+        robots, tools, serial cables, and half-finished experiments &mdash; to get their
+        hands dirty.</p>
+
+      <!-- Panel 3: square, float left -->
+      <img class="panel left" src="panel3.png"
+           alt="A wave of Valente's hand, and the machine answers.">
+
+      <h2 class="kicker">Real robotics, <span class="pow">all the way down</span></h2>
+
+      <p>This is hands-on, low-level engineering &mdash; the kind of detail most robotics
+        teams never slow down to teach. League Labs students dig into the systems that make
+        a robot actually <em>know where it is</em> and <em>do what it&rsquo;s told</em>:</p>
+
+      <ul class="skills">
+        <li>Radio communications &amp; serial ports
+          <span>How robots and computers really talk to each other.</span></li>
+        <li>The Robot Operating System (ROS)
+          <span>The framework that ties a robot&rsquo;s many parts together.</span></li>
+        <li>FIRST Robotics (FRC) code architecture
+          <span>Studying real competition code to see how robotic systems are designed.</span></li>
+        <li>Odometry &mdash; especially optical-flow odometry
+          <span>Measuring motion to track a robot&rsquo;s position over time.</span></li>
+        <li>Encoders &amp; localization
+          <span>Knowing exactly where your robot is, not just roughly.</span></li>
+        <li>Kinematics
+          <span>The math that turns &ldquo;go there&rdquo; into wheel and motor commands.</span></li>
+        <li>Robotic vision &mdash; and later, stereo vision &amp; point-cloud LiDAR
+          <span>Giving robots eyes, then depth, then a 3-D map of the world.</span></li>
+      </ul>
+
+      <!-- Panel 4: full-width finale banner; text sits entirely below it -->
+      <img class="panel full" src="panel4.png"
+           alt="Valente points, and the robot obeys, dead on target.">
+
+      <h2 class="kicker">Built by students, <span class="pow">driven by curiosity</span></h2>
+
+      <p>League Labs isn&rsquo;t a class &mdash; it&rsquo;s a workshop. The program is deeply
+        project-based and flexible: students pick their own projects and chase the questions
+        that fascinate them, with mentors there to guide rather than lecture.</p>
+
+      <p>The payoff is a much more sophisticated, solid foundation in how robotics really
+        works &mdash; the low-level, hands-on understanding that turns a kid who follows a
+        build guide into an engineer who can design a robot from scratch. He points &mdash;
+        and the robot obeys, dead on target.</p>
+
+      <div class="cta">
+        <div class="cta-kick">Want to build robots like this?</div>
+        <p>League Labs runs all summer, online every week and in the Robot Garage on weekends.</p>
+        <a class="btn" href="https://labs.jointheleague.org">Explore League Labs &raquo;</a>
+      </div>
+
+    </article>
+
+    <footer>
+      <p><strong>His Master&rsquo;s Voice</strong> &middot; A League Labs story, starring Valente.<br>
+      The League of Amazing Programmers &mdash; Smart Minds &middot; Bold Ideas &middot; Bright Futures.<br>
+      Learn more at <a href="https://labs.jointheleague.org">labs.jointheleague.org</a></p>
+    </footer>
+
+  </main>
+</body>
+</html>

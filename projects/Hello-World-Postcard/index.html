@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hello World Postcard — League Image Project</title>
+<style>
+ :root{--ink:#141414;--paper:#f7f4ec;--accent:#d4202a;--blue:#173a6e;--chip:#eee7d6;}
+ *{box-sizing:border-box;}
+ body{margin:0;background:#101317;color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;}
+ .wrap{max-width:1100px;margin:0 auto;padding:24px;}
+ header.top{background:var(--paper);border:3px solid var(--ink);border-radius:10px;padding:20px 24px;box-shadow:0 8px 30px rgba(0,0,0,.4);}
+ h1{margin:0 0 6px;font-size:28px;}
+ .theme{font-size:17px;color:#333;margin:0 0 10px;}
+ .scene{font-size:14px;color:#555;margin:0 0 12px;font-style:italic;}
+ .chips{display:flex;flex-wrap:wrap;gap:8px;}
+ .chip{background:var(--chip);border:1px solid #cbb;border-radius:20px;padding:3px 12px;font-size:12px;}
+ .chip b{color:var(--blue);text-transform:uppercase;font-size:10px;letter-spacing:.5px;margin-right:4px;}
+ h2{color:#f7f4ec;font-size:15px;text-transform:uppercase;letter-spacing:1px;margin:24px 4px 10px;}
+ .thumbs{display:flex;flex-wrap:wrap;gap:10px;}
+ .thumbs img{height:90px;border:2px solid var(--ink);border-radius:6px;background:#fff;object-fit:cover;}
+ .thumbs.small img{height:56px;}
+ .card{background:var(--paper);border:3px solid var(--ink);border-radius:10px;padding:16px;margin:16px 0;box-shadow:0 6px 20px rgba(0,0,0,.35);}
+ .card.err{border-color:var(--accent);}
+ .cardhead{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin-bottom:12px;}
+ .num{font-weight:800;font-size:20px;color:var(--accent);}
+ .lab{font-weight:600;}
+ .meta{margin-left:auto;font-size:12px;color:#777;}
+ .badge.err{background:var(--accent);color:#fff;border-radius:4px;padding:1px 7px;font-size:11px;}
+ .imgwrap{text-align:center;}
+ img.hero{max-width:100%;max-height:70vh;border:2px solid var(--ink);border-radius:6px;background:#fff;}
+ .noimg{padding:30px;color:var(--accent);font-weight:600;text-align:center;border:2px dashed var(--accent);border-radius:6px;}
+ .reflabel,.dl{font-size:10px;text-transform:uppercase;letter-spacing:.6px;color:var(--blue);margin:12px 0 4px;font-weight:700;}
+ details{margin-top:12px;}
+ summary{cursor:pointer;font-size:13px;color:var(--blue);font-weight:600;}
+ pre{white-space:pre-wrap;word-wrap:break-word;background:#fbfaf5;border:1px solid #ddd;border-radius:6px;padding:10px;font-size:12px;line-height:1.5;max-height:340px;overflow:auto;}
+ pre.err{border-color:var(--accent);color:#a01;}
+ .empty{color:#889;text-align:center;padding:40px;}
+ footer{color:#667;font-size:11px;text-align:center;padding:20px;}
+ .live{position:fixed;top:10px;right:12px;background:#1a1;color:#fff;font-size:11px;padding:3px 9px;border-radius:12px;opacity:.85;z-index:10;}
+ .live.off{background:#555;}
+</style>
+</head>
+<body>
+<div class="live" id="live">&#9679; live</div>
+<div class="wrap">
+  <header class="top">
+    <h1>Hello World Postcard</h1>
+    <p class="theme">Learning to code is the start of a great career — and it&#x27;s fun. Postcard for The League of Amazing Programmers.</p>
+    <p class="scene">Over-the-shoulder view of a young child seated at a desk, both hands on the keyboard of an open laptop computer. The laptop screen shows a block-based coding / flowchart program. The child leans in, engaged. Composition mirrors the reference photo: child in lower-left foreground, laptop angled toward center-right.</p>
+    <div class="chips"><span class="chip"><b>style</b> technical-blueprint</span><span class="chip"><b>composition</b> single-plan</span><span class="chip"><b>layout</b> postcard-4x6</span><span class="chip"><b>model</b> chatgpt-image-latest</span></div>
+  </header>
+  <section class="sources"><h2>Source images</h2><div class="thumbs"><a href="sources/istockphoto-1254050848-612x612.jpg" target="_blank"><img src="sources/istockphoto-1254050848-612x612.jpg" alt="source"></a></div></section>
+  <h2>Iterations</h2>
+  
+    <article class="card ">
+      <div class="cardhead">
+        <span class="num">#3</span><span class="lab">— Draft 1 — gemini image model, two callouts</span>
+        <span class="meta">2026-07-01T06:10:30 &middot; google/gemini-3-pro-image-20260528</span>
+      </div>
+      <div class="imgwrap"><a href="iterations/iter-003_0.jpeg" target="_blank"><img class="hero" src="iterations/iter-003_0.jpeg" alt="iteration 3"></a><a href="iterations/iter-003_1.jpeg" target="_blank"><img class="hero" src="iterations/iter-003_1.jpeg" alt="iteration 3"></a></div>
+      <div class="reflabel">references</div><div class="thumbs small"><a href="sources/istockphoto-1254050848-612x612.jpg" target="_blank"><img src="sources/istockphoto-1254050848-612x612.jpg"></a></div>
+      <details><summary>Prompt &amp; details</summary>
+        <div class="detail">
+          <div class="dl">positive prompt</div><pre># Art Style
+
+Render as a technical drafting / blueprint drawing — white linework on deep blue paper with
+precise geometric drafting conventions. It should resemble a detailed patent illustration or
+architectural blueprint: clean, precise, measured.
+
+## Rendering
+- **Paper:** Deep blue background (roughly #1a3a5c to #0d2b45) — authentic blueprint paper
+  color, with subtle texture or aging.
+- **Linework:** Clean white or very light cyan lines. Consistent thin weight, with slightly
+  thicker outlines for major forms and the thinnest lines for dimensions. Drafting precision
+  — straight edges, perfect circles, measured proportions.
+- **Style:** Technical line art only — wireframe, orthographic projection, or isometric
+  views. No filled surfaces, no shading, no color beyond white lines on blue paper.
+- **Annotations:** Technical callouts with leader lines, dimension marks, part numbers, and
+  notes in a drafting font (all-caps, monospace feel). Title block in the lower-right corner
+  with project name, scale, date, and revision. A border frame around the sheet.
+- **Grid:** Optional faint drafting-paper grid for authenticity — subtle, never competing
+  with the linework.
+
+## Subject Rendering
+- **Robots** are drawn as engineering drawings — orthographic views (front/side/top),
+  exploded assembly views, or isometric projections, with parts labeled via leader lines and
+  key dimensions annotated. When robot reference photos are provided, base the drawing on the
+  real student-built educational robot (Micro:bit board, two-wheel-drive chassis, batteries,
+  wiring, servos, grabbers) so the blueprint documents the actual machine.
+- **Kids/characters** appear as simplified technical figure outlines — stick-figure or
+  mannequin proportions built from geometric shapes, for scale reference. Not realistic
+  portraits.
+- **Scenes/arenas** use architectural conventions — floor plans, elevations, or isometric
+  layouts.
+
+## Brand
+The drawing documents the ingenuity of a real student-built machine. Any code, if shown,
+appears as a labeled callout referencing a laptop/controller, never as free-floating text.
+
+# Composition
+
+One large, detailed view filling the sheet — patent-drawing-style focus on a single subject.
+
+## Layout
+- Centered composition with generous margins.
+- Detailed callouts and annotations arranged around the perimeter, each on a leader line
+  pointing to a specific feature.
+- Dimension marks for the key measurements.
+- Title block lower-right; a border frame around the sheet.
+
+## Subject
+The robot (or a key subassembly) as the single hero of the drawing, rendered as a precise
+wireframe with no shading.
+
+# Scene
+
+Over-the-shoulder view of a young child seated at a desk, both hands on the keyboard of an open laptop computer. The laptop screen shows a block-based coding / flowchart program. The child leans in, engaged. Composition mirrors the reference photo: child in lower-left foreground, laptop angled toward center-right.
+
+# Layout
+
+&gt; Format as a 4×6 inch postcard in [portrait/landscape] orientation. Hero image fills
+&gt; 75% of the card with a bold headline [text] in [style-appropriate treatment] along
+&gt; the [top/bottom]. Small League logo in [corner]. Clean composition with generous
+&gt; margins. Print-ready quality.
+
+# Additional Direction
+
+This is a marketing postcard, so include the finished text. HEADLINE (top of card, clean drafting all-caps lettering): A GREAT CAREER STARTS WITH &quot;HELLO WORLD&quot;. Include exactly TWO drafting-style annotation callouts, each a labeled leader line with a bubble/arrow terminator pointing to a specific feature:
+1) A leader line pointing to the LAPTOP / SCREEN, labeled: &quot;PROBLEM-SOLVING SKILLS&quot;.
+2) A leader line pointing to the CHILD&#x27;S HEAD, labeled: &quot;HAVING FUN&quot;.
+Keep only these two callouts prominent so the message is legible; other minor dimension marks are fine but subtle. Title block lower-right reads &quot;THE LEAGUE OF AMAZING PROGRAMMERS&quot;. Spelling must be correct and text crisp.</pre>
+          <div class="dl">negative prompt</div><pre>Do NOT include any of the following:
+
+Full color, filled surfaces, solid color fills, or rendered surfaces. Shading, gradients, or
+soft rendering of any kind. Shaded isometric rendering — keep it wireframe. Metallic
+shading, drop shadows, beveled edges, glossy surfaces.
+
+Photorealism, photography, realistic rendering, 3D rendered objects with surface textures.
+Hand-drawn or sketch quality — lines must be clean drafting-precision, not loose. Cartoon,
+comic, or illustrative style. Painterly or &quot;artistic&quot; line quality.
+
+Purple or pink blueprint variants — stay true to traditional cyan-blue. Organic or flowing
+lines — everything geometric and measured. Decorative, non-functional elements. Realistic
+portraits of people — figures are simplified technical outlines.</pre>
+          
+          
+        </div>
+      </details>
+    </article>
+    <article class="card err">
+      <div class="cardhead">
+        <span class="num">#2</span><span class="lab">— First draft — two callouts</span><span class="badge err">error</span>
+        <span class="meta">2026-07-01T06:09:06 &middot; chatgpt-image-latest</span>
+      </div>
+      <div class="imgwrap"><div class="noimg">&#9888; No image — Client error &#x27;400 Bad Request&#x27; for url &#x27;https://openrouter.ai/api/v1/chat/completions&#x27;
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400</div></div>
+      <div class="reflabel">references</div><div class="thumbs small"><a href="sources/istockphoto-1254050848-612x612.jpg" target="_blank"><img src="sources/istockphoto-1254050848-612x612.jpg"></a></div>
+      <details><summary>Prompt &amp; details</summary>
+        <div class="detail">
+          <div class="dl">positive prompt</div><pre># Art Style
+
+Render as a technical drafting / blueprint drawing — white linework on deep blue paper with
+precise geometric drafting conventions. It should resemble a detailed patent illustration or
+architectural blueprint: clean, precise, measured.
+
+## Rendering
+- **Paper:** Deep blue background (roughly #1a3a5c to #0d2b45) — authentic blueprint paper
+  color, with subtle texture or aging.
+- **Linework:** Clean white or very light cyan lines. Consistent thin weight, with slightly
+  thicker outlines for major forms and the thinnest lines for dimensions. Drafting precision
+  — straight edges, perfect circles, measured proportions.
+- **Style:** Technical line art only — wireframe, orthographic projection, or isometric
+  views. No filled surfaces, no shading, no color beyond white lines on blue paper.
+- **Annotations:** Technical callouts with leader lines, dimension marks, part numbers, and
+  notes in a drafting font (all-caps, monospace feel). Title block in the lower-right corner
+  with project name, scale, date, and revision. A border frame around the sheet.
+- **Grid:** Optional faint drafting-paper grid for authenticity — subtle, never competing
+  with the linework.
+
+## Subject Rendering
+- **Robots** are drawn as engineering drawings — orthographic views (front/side/top),
+  exploded assembly views, or isometric projections, with parts labeled via leader lines and
+  key dimensions annotated. When robot reference photos are provided, base the drawing on the
+  real student-built educational robot (Micro:bit board, two-wheel-drive chassis, batteries,
+  wiring, servos, grabbers) so the blueprint documents the actual machine.
+- **Kids/characters** appear as simplified technical figure outlines — stick-figure or
+  mannequin proportions built from geometric shapes, for scale reference. Not realistic
+  portraits.
+- **Scenes/arenas** use architectural conventions — floor plans, elevations, or isometric
+  layouts.
+
+## Brand
+The drawing documents the ingenuity of a real student-built machine. Any code, if shown,
+appears as a labeled callout referencing a laptop/controller, never as free-floating text.
+
+# Composition
+
+One large, detailed view filling the sheet — patent-drawing-style focus on a single subject.
+
+## Layout
+- Centered composition with generous margins.
+- Detailed callouts and annotations arranged around the perimeter, each on a leader line
+  pointing to a specific feature.
+- Dimension marks for the key measurements.
+- Title block lower-right; a border frame around the sheet.
+
+## Subject
+The robot (or a key subassembly) as the single hero of the drawing, rendered as a precise
+wireframe with no shading.
+
+# Scene
+
+Over-the-shoulder view of a young child seated at a desk, both hands on the keyboard of an open laptop computer. The laptop screen shows a block-based coding / flowchart program. The child leans in, engaged. Composition mirrors the reference photo: child in lower-left foreground, laptop angled toward center-right.
+
+# Layout
+
+&gt; Format as a 4×6 inch postcard in [portrait/landscape] orientation. Hero image fills
+&gt; 75% of the card with a bold headline [text] in [style-appropriate treatment] along
+&gt; the [top/bottom]. Small League logo in [corner]. Clean composition with generous
+&gt; margins. Print-ready quality.
+
+# Additional Direction
+
+This is a marketing postcard, so include the finished text. HEADLINE (top of card, clean drafting all-caps lettering): A GREAT CAREER STARTS WITH &quot;HELLO WORLD&quot;. Include exactly TWO drafting-style annotation callouts, each a labeled leader line with a bubble/arrow terminator pointing to a specific feature:
+1) A leader line pointing to the LAPTOP / SCREEN, labeled: &quot;PROBLEM-SOLVING SKILLS&quot;.
+2) A leader line pointing to the CHILD&#x27;S HEAD, labeled: &quot;HAVING FUN&quot;.
+Keep only these two callouts prominent so the message is legible; other minor dimension marks are fine but subtle. Title block lower-right reads &quot;THE LEAGUE OF AMAZING PROGRAMMERS&quot;. Spelling must be correct and text crisp.</pre>
+          <div class="dl">negative prompt</div><pre>Do NOT include any of the following:
+
+Full color, filled surfaces, solid color fills, or rendered surfaces. Shading, gradients, or
+soft rendering of any kind. Shaded isometric rendering — keep it wireframe. Metallic
+shading, drop shadows, beveled edges, glossy surfaces.
+
+Photorealism, photography, realistic rendering, 3D rendered objects with surface textures.
+Hand-drawn or sketch quality — lines must be clean drafting-precision, not loose. Cartoon,
+comic, or illustrative style. Painterly or &quot;artistic&quot; line quality.
+
+Purple or pink blueprint variants — stay true to traditional cyan-blue. Organic or flowing
+lines — everything geometric and measured. Decorative, non-functional elements. Realistic
+portraits of people — figures are simplified technical outlines.</pre>
+          
+          <div class="dl">error</div><pre class="err">Client error &#x27;400 Bad Request&#x27; for url &#x27;https://openrouter.ai/api/v1/chat/completions&#x27;
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400</pre>
+        </div>
+      </details>
+    </article>
+    <article class="card err">
+      <div class="cardhead">
+        <span class="num">#1</span><span class="lab">— First draft — two callouts</span><span class="badge err">error</span>
+        <span class="meta">2026-07-01T06:08:52 &middot; chatgpt-image-latest</span>
+      </div>
+      <div class="imgwrap"><div class="noimg">&#9888; No image — Client error &#x27;400 Bad Request&#x27; for url &#x27;https://openrouter.ai/api/v1/chat/completions&#x27;
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400</div></div>
+      <div class="reflabel">references</div><div class="thumbs small"><a href="sources/istockphoto-1254050848-612x612.jpg" target="_blank"><img src="sources/istockphoto-1254050848-612x612.jpg"></a></div>
+      <details><summary>Prompt &amp; details</summary>
+        <div class="detail">
+          <div class="dl">positive prompt</div><pre># Art Style
+
+Render as a technical drafting / blueprint drawing — white linework on deep blue paper with
+precise geometric drafting conventions. It should resemble a detailed patent illustration or
+architectural blueprint: clean, precise, measured.
+
+## Rendering
+- **Paper:** Deep blue background (roughly #1a3a5c to #0d2b45) — authentic blueprint paper
+  color, with subtle texture or aging.
+- **Linework:** Clean white or very light cyan lines. Consistent thin weight, with slightly
+  thicker outlines for major forms and the thinnest lines for dimensions. Drafting precision
+  — straight edges, perfect circles, measured proportions.
+- **Style:** Technical line art only — wireframe, orthographic projection, or isometric
+  views. No filled surfaces, no shading, no color beyond white lines on blue paper.
+- **Annotations:** Technical callouts with leader lines, dimension marks, part numbers, and
+  notes in a drafting font (all-caps, monospace feel). Title block in the lower-right corner
+  with project name, scale, date, and revision. A border frame around the sheet.
+- **Grid:** Optional faint drafting-paper grid for authenticity — subtle, never competing
+  with the linework.
+
+## Subject Rendering
+- **Robots** are drawn as engineering drawings — orthographic views (front/side/top),
+  exploded assembly views, or isometric projections, with parts labeled via leader lines and
+  key dimensions annotated. When robot reference photos are provided, base the drawing on the
+  real student-built educational robot (Micro:bit board, two-wheel-drive chassis, batteries,
+  wiring, servos, grabbers) so the blueprint documents the actual machine.
+- **Kids/characters** appear as simplified technical figure outlines — stick-figure or
+  mannequin proportions built from geometric shapes, for scale reference. Not realistic
+  portraits.
+- **Scenes/arenas** use architectural conventions — floor plans, elevations, or isometric
+  layouts.
+
+## Brand
+The drawing documents the ingenuity of a real student-built machine. Any code, if shown,
+appears as a labeled callout referencing a laptop/controller, never as free-floating text.
+
+# Composition
+
+One large, detailed view filling the sheet — patent-drawing-style focus on a single subject.
+
+## Layout
+- Centered composition with generous margins.
+- Detailed callouts and annotations arranged around the perimeter, each on a leader line
+  pointing to a specific feature.
+- Dimension marks for the key measurements.
+- Title block lower-right; a border frame around the sheet.
+
+## Subject
+The robot (or a key subassembly) as the single hero of the drawing, rendered as a precise
+wireframe with no shading.
+
+# Scene
+
+Over-the-shoulder view of a young child seated at a desk, both hands on the keyboard of an open laptop computer. The laptop screen shows a block-based coding / flowchart program. The child leans in, engaged. Composition mirrors the reference photo: child in lower-left foreground, laptop angled toward center-right.
+
+# Layout
+
+&gt; Format as a 4×6 inch postcard in [portrait/landscape] orientation. Hero image fills
+&gt; 75% of the card with a bold headline [text] in [style-appropriate treatment] along
+&gt; the [top/bottom]. Small League logo in [corner]. Clean composition with generous
+&gt; margins. Print-ready quality.
+
+# Additional Direction
+
+This is a marketing postcard, so include the finished text. HEADLINE (top of card, clean drafting all-caps lettering): A GREAT CAREER STARTS WITH &quot;HELLO WORLD&quot;. Include exactly TWO drafting-style annotation callouts, each a labeled leader line with a bubble/arrow terminator pointing to a specific feature:
+1) A leader line pointing to the LAPTOP / SCREEN, labeled: &quot;PROBLEM-SOLVING SKILLS&quot;.
+2) A leader line pointing to the CHILD&#x27;S HEAD, labeled: &quot;HAVING FUN&quot;.
+Keep only these two callouts prominent so the message is legible; other minor dimension marks are fine but subtle. Title block lower-right reads &quot;THE LEAGUE OF AMAZING PROGRAMMERS&quot;. Spelling must be correct and text crisp.</pre>
+          <div class="dl">negative prompt</div><pre>Do NOT include any of the following:
+
+Full color, filled surfaces, solid color fills, or rendered surfaces. Shading, gradients, or
+soft rendering of any kind. Shaded isometric rendering — keep it wireframe. Metallic
+shading, drop shadows, beveled edges, glossy surfaces.
+
+Photorealism, photography, realistic rendering, 3D rendered objects with surface textures.
+Hand-drawn or sketch quality — lines must be clean drafting-precision, not loose. Cartoon,
+comic, or illustrative style. Painterly or &quot;artistic&quot; line quality.
+
+Purple or pink blueprint variants — stay true to traditional cyan-blue. Organic or flowing
+lines — everything geometric and measured. Decorative, non-functional elements. Realistic
+portraits of people — figures are simplified technical outlines.</pre>
+          
+          <div class="dl">error</div><pre class="err">Client error &#x27;400 Bad Request&#x27; for url &#x27;https://openrouter.ai/api/v1/chat/completions&#x27;
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400</pre>
+        </div>
+      </details>
+    </article>
+  <footer>Generated 2026-07-01T06:10:30 &middot; this page auto-reloads when a new iteration is added</footer>
+</div>
+<script>
+ const CURRENT_VERSION = 4;
+ const live = document.getElementById('live');
+ // Only ever reload when state.json confirms a NEW version. We never blind-reload on a
+ // timer: under file:// (fetch blocked) or with the server down we can't read the version,
+ // so reloading would just flicker the page without knowing anything changed. In that case
+ // show a hint and keep quietly retrying — a live server will be picked up automatically.
+ async function poll(){
+   let served = true;
+   try{
+     const r = await fetch('state.json?ts=' + Date.now(), {cache:'no-store'});
+     if(r.ok){
+       const s = await r.json();
+       if(s.version > CURRENT_VERSION){ location.reload(); return; }
+     }else{
+       served = false;
+     }
+   }catch(e){
+     served = false;
+   }
+   if(served){
+     live.className='live'; live.innerHTML='&#9679; live';
+     setTimeout(poll, 1500);
+   }else{
+     // No live server (e.g. opened via file://). Stop flickering; just retry slowly.
+     live.className='live off'; live.innerHTML='&#9679; open via server for live reload';
+     setTimeout(poll, 4000);
+   }
+ }
+ poll();
+</script>
+</body>
+</html>
