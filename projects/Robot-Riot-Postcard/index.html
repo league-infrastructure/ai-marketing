@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Robot Riot Postcard — League Image Project</title>
+<style>
+ :root{--ink:#141414;--paper:#f7f4ec;--accent:#d4202a;--blue:#173a6e;--chip:#eee7d6;}
+ *{box-sizing:border-box;}
+ body{margin:0;background:#101317;color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;}
+ .wrap{max-width:1100px;margin:0 auto;padding:24px;}
+ header.top{background:var(--paper);border:3px solid var(--ink);border-radius:10px;padding:20px 24px;box-shadow:0 8px 30px rgba(0,0,0,.4);}
+ h1{margin:0 0 6px;font-size:28px;}
+ .theme{font-size:17px;color:#333;margin:0 0 10px;}
+ .scene{font-size:14px;color:#555;margin:0 0 12px;font-style:italic;}
+ .chips{display:flex;flex-wrap:wrap;gap:8px;}
+ .chip{background:var(--chip);border:1px solid #cbb;border-radius:20px;padding:3px 12px;font-size:12px;}
+ .chip b{color:var(--blue);text-transform:uppercase;font-size:10px;letter-spacing:.5px;margin-right:4px;}
+ h2{color:#f7f4ec;font-size:15px;text-transform:uppercase;letter-spacing:1px;margin:24px 4px 10px;}
+ .thumbs{display:flex;flex-wrap:wrap;gap:10px;}
+ .thumbs img{height:90px;border:2px solid var(--ink);border-radius:6px;background:#fff;object-fit:cover;}
+ .thumbs.small img{height:56px;}
+ .card{background:var(--paper);border:3px solid var(--ink);border-radius:10px;padding:16px;margin:16px 0;box-shadow:0 6px 20px rgba(0,0,0,.35);}
+ .card.err{border-color:var(--accent);}
+ .cardhead{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin-bottom:12px;}
+ .num{font-weight:800;font-size:20px;color:var(--accent);}
+ .lab{font-weight:600;}
+ .meta{margin-left:auto;font-size:12px;color:#777;}
+ .badge.err{background:var(--accent);color:#fff;border-radius:4px;padding:1px 7px;font-size:11px;}
+ .imgwrap{text-align:center;}
+ img.hero{max-width:100%;max-height:70vh;border:2px solid var(--ink);border-radius:6px;background:#fff;}
+ .noimg{padding:30px;color:var(--accent);font-weight:600;text-align:center;border:2px dashed var(--accent);border-radius:6px;}
+ .reflabel,.dl{font-size:10px;text-transform:uppercase;letter-spacing:.6px;color:var(--blue);margin:12px 0 4px;font-weight:700;}
+ details{margin-top:12px;}
+ summary{cursor:pointer;font-size:13px;color:var(--blue);font-weight:600;}
+ pre{white-space:pre-wrap;word-wrap:break-word;background:#fbfaf5;border:1px solid #ddd;border-radius:6px;padding:10px;font-size:12px;line-height:1.5;max-height:340px;overflow:auto;}
+ pre.err{border-color:var(--accent);color:#a01;}
+ .empty{color:#889;text-align:center;padding:40px;}
+ footer{color:#667;font-size:11px;text-align:center;padding:20px;}
+ .live{position:fixed;top:10px;right:12px;background:#1a1;color:#fff;font-size:11px;padding:3px 9px;border-radius:12px;opacity:.85;z-index:10;}
+ .live.off{background:#555;}
+</style>
+</head>
+<body>
+<div class="live" id="live">&#9679; live</div>
+<div class="wrap">
+  <header class="top">
+    <h1>Robot Riot Postcard</h1>
+    <p class="theme">Robot Riot — combat-robotics event postcard; classic fight-night ring composition with battling Cutebots and modern kids</p>
+    <p class="scene">A bright, warmly lit sporting-hall interior on tournament night — a modern kids&#x27; combat-robotics event staged like an old-school fight night: a low circular spindle-railed pit on the plank floor at center, slightly below the viewer, with FOUR stylized blue Cutebot robots battling inside it — two crashing head-on, one knocked spinning into the air, a wheel and LEGO beams popping off. Four excited modern kids in hoodies, t-shirts, and sneakers lean on the pit rail driving the robots with handheld joystick controllers; behind them only about ten distinct, individually posed spectators plus a few flat silhouettes on the balcony above. Headline &quot;ROBOT RIOT&quot; across the top.</p>
+    <div class="chips"><span class="chip"><b>style</b> graphic-novel</span><span class="chip"><b>composition</b> arena-action</span><span class="chip"><b>palette</b> orange-blue</span><span class="chip"><b>layout</b> postcard-4x6</span><span class="chip"><b>model</b> gpt-image-2</span></div>
+  </header>
+  <section class="sources"><h2>Source images</h2><div class="thumbs"><a href="sources/cutebots.png" target="_blank"><img src="sources/cutebots.png" alt="source"></a></div></section>
+  <h2>Iterations</h2>
+  
+    <article class="card ">
+      <div class="cardhead">
+        <span class="num">#4</span><span class="lab">— draft-4 flat 7-color, bright</span>
+        <span class="meta">2026-07-02T09:05:18 &middot; gpt-image-2</span>
+      </div>
+      <div class="imgwrap"><a href="iterations/iter-004.png" target="_blank"><img class="hero" src="iterations/iter-004.png" alt="iteration 4"></a></div>
+      
+      <details><summary>Prompt &amp; details</summary>
+        <div class="detail">
+          <div class="dl">positive prompt</div><pre>A bold graphic-novel illustration rendered in FLAT POSTER COLOR — the confident inking and dramatic staging of a premium graphic-novel cover, but with color laid down in broad, flat swathes. Bold black ink outlines with strong varied weight: heavy contour lines around major forms, finer strokes for interior detail on the hero subjects. Every surface is ONE solid, saturated color field with crisp hard edges — NO gradients, no painted modeling, no soft shadows, no glossy highlights, no rendered volume. Where a shadow is essential, it is a single crisp flat shape of the darker neighboring color. The whole image is BRIGHT, warm, and open — a sunny golden-amber field carries the scene; nothing is murky or moody. Not a generic thin-lined vector poster: the linework stays muscular and hand-inked, the hero subjects stay richly drawn, the composition stays dramatic.
+
+COLOR — EXACTLY SEVEN solid colors, used flat, warm-dominant (about 70% warm / 30% cool):
+1. Golden amber #F9C233 — the dominant field: the lit pit floor, the hall&#x27;s warm walls and glow.
+2. Burnt orange #C96A10 — warm shadow shapes, wood tones, darker skin tones, hair.
+3. Cream #FBE5A0 — headline letters, light skin tones, the robots&#x27; plate decks, brightest accents.
+4. Steel blue #175E8C — the robots&#x27; bodies, clothing pieces, cool accents.
+5. Deep navy #16223C — the background wall field behind the crowd, foreground silhouettes, darkest cool shapes.
+6. Ink black #101010 — linework, hair, wheels, the darkest anchors.
+7. Signal red #CC1616 — the title inline, controller grips, one hoodie; a few deliberate hits only.
+No other colors anywhere. Skin tones come only from cream, golden amber, and burnt orange.
+
+DETAIL BUDGET — reduced overall. Fine drawing lives FIRST in the four driver kids at the rail (expressive faces, hands, controllers), SECOND in the four battling robots. Everything else is simplified into broad flat color shapes: the arena floor is one flat amber field with a single flat burnt-orange shadow shape, the railing is simple dark spindles, the back wall is one flat deep-navy field, and the nearest foreground spectators along the bottom edge are flat navy silhouettes with no interior detail.
+
+THE CROWD — small and distinct: only about TEN spectators behind the rail, each one individually posed and clearly different — different hair, heights, and clothing built from the seven colors — with visible space between them, drawn simply with a few confident lines. A handful more lean over the balcony rail above as flat dark shapes. NO dense wall of tiny faces.
+
+THE ROBOTS — four battling classroom robots drawn as stylized comic characters in flat color: each a palm-sized two-wheeled fighter — a round cream plate deck, a chunky steel-blue slab body, a black square face with four big glowing amber LED squares, a fat steel-blue battery cylinder on top, two oversized black wheels with simple cream hubs, and one simple LEGO-beam attachment each (a pusher blade, pincher arms, a flipper, a ball scoop). Same muscular ink contours as the kids; tilted, exaggerated brawling poses with motion smears. Smallest robot detail no finer than a kid&#x27;s hand — no screws, no circuit traces, no product precision.
+
+SCENE — a present-day kids&#x27; combat-robotics tournament staged like an old-school fight night in a bright warm hall. At center, a low circular pit fenced with thin dark spindles and a wooden top rail. Inside, ALL FOUR robots battle: two crash head-on at center with a small flat comic impact starburst (cream and red), a LEGO beam and one wheel flying off; a third robot is knocked spinning into the air above them; a fourth charges in from the side trailing flat speed lines. Playful toy mayhem — no fire, no smoke. Four thrilled modern kids, ages 10–14, mixed boys and girls, in hoodies, plain unlettered t-shirts, jeans, and sneakers — one with a backwards cap — lean on the rail at four points around the ring, each gripping a small joystick controller (a board with a white knob on a curved red-and-blue grip frame, never a gamepad), shouting, laughing, one punching the air. Faces are Western graphic-novel faces — realistic proportions, normal-sized expressive eyes, individualized — never anime. Mood: electric, joyful, bright — fight-night energy at a school robot derby, unmistakably today.
+
+COMPOSITION — STRICT: the camera is elevated at the back of the crowd, looking across and slightly DOWN into the circular pit; the ring sits at the center of the frame just below the midline; the crowd wraps the ring, with the nearest spectators seen from behind as flat silhouettes along the bottom edge; the balcony runs across the top of the back wall. Landscape orientation, filling the 3:2 frame.
+
+TEXT — across the TOP of the card: &quot;ROBOT RIOT&quot; in huge hand-lettered playbill display type, cream letters with a heavy black outline and a thin red inline, arched slightly, sitting on the flat deep-navy upper field. The words are spelled exactly: ROBOT RIOT. No other lettering, signs, posters, labels, numbers, or captions anywhere.
+
+FORMAT — 4×6 inch landscape postcard, full-bleed hero image, print-ready quality.</pre>
+          <div class="dl">negative prompt</div><pre>Gradients, airbrushed or painted shading, soft shadows, glossy highlights, rendered 3D volume, cinematic gloom, dark underexposed moody lighting, heavy black darkness. Newsprint texture, parchment, aged or yellowed paper, film grain, speckle, stipple, halftone, Ben-Day dots, print-dot texture, crosshatch etching texture, monochrome or sepia image, pencil sketch. Washed-out, muddy, or pastel color; more than seven colors; generic flat vector-poster blandness with thin uniform lines. Photorealism, photographic faces, 3D render, CGI; photorealistic product-photo robots; fine mechanical micro-detail — tiny screws, readable circuit traces, port pins. A dense wall of tiny identical background faces. Victorian or 19th-century period costume and gas lamps. Anime or manga cel style, chibi, Funko-Pop proportions, oversized heads. Roosters, chickens, birds, or any live animals; blood, cruelty, money, cigars, smoking, alcohol. Weapons, lasers, fire, smoke, explosions, military imagery. Video-game gamepads, invented extra buttons or screens. Spare robot modules on the floor. Any lettering beyond ROBOT RIOT — no signs, posters, banners, numbers, or captions. Portrait orientation.</pre>
+          <div class="dl">notes</div><p>Delta from draft 3: flat poster color — exactly 7 solid colors from orange-blue, no gradients or painted shading, broad swathes with hard edges; palette lightened (amber field, no gloom); crowd cut to ~10 distinct spectators + flat silhouettes; detail concentrated in the four drivers, then the robots. Graphic-novel inking kept. use_sources=false.</p>
+          
+        </div>
+      </details>
+    </article>
+    <article class="card ">
+      <div class="cardhead">
+        <span class="num">#3</span><span class="lab">— draft-3 stylized bots, no photo ref</span>
+        <span class="meta">2026-07-01T22:40:23 &middot; gpt-image-2</span>
+      </div>
+      <div class="imgwrap"><a href="iterations/iter-003.png" target="_blank"><img class="hero" src="iterations/iter-003.png" alt="iteration 3"></a></div>
+      
+      <details><summary>Prompt &amp; details</summary>
+        <div class="detail">
+          <div class="dl">positive prompt</div><pre>A richly illustrated modern graphic-novel scene — the polished, painted look of a premium hardcover comic cover. Bold, confident black ink outlines with strong varied weight: heavy contour lines around major forms, finer lines for interior detail. Fully rendered dimensional shading — smooth cel-to-painted modeling with clear light and shadow, glossy highlights, and deep inky black shadow shapes that give every surface volume. This is NOT flat color, NOT a vintage newsprint comic, and NOT a photograph. EVERYTHING in the frame — the kids, the crowd, the hall, and especially the robots — is drawn by the same artist&#x27;s hand in one inked-and-painted style. Dramatic cinematic lighting: warm arena spotlights pool amber light down onto the pit floor, a warm rim light catches the hero kids, and the edges of the hall sink into deep navy shadow.
+
+COLOR — a warm-dominant orange-and-blue complementary palette, roughly 70% warm / 30% cool. Golden amber #F9C233 and marigold #F9B41E carry the warmly lit hall and lit faces; burnt orange #C96A10 and sienna #9A4E12 model the warm shadows, wooden benches, and plank floor; steel blue #175E8C is reserved for the robot chassis and cool accents; deep navy #16223C holds the deepest shadows and the balcony gloom; ink black #101010 linework anchors everything; cream #FBE5A0 is for the headline letters; signal red #CC1616 appears only as a rare spark — a controller grip, one glowing LED.
+
+DETAIL BUDGET — spend visual detail ONLY on: the four robots in the pit, the four kid drivers and their controllers at the rail, and the circular spindle railing. The surrounding crowd is expressive but simplified into bolder shapes; the balcony and back wall dissolve into darker, simpler masses.
+
+THE ROBOTS — four battling classroom robots, drawn as STYLIZED COMIC CHARACTERS, not products. Each is a palm-sized two-wheeled fighter simplified into bold cartoon shapes: a round white deck like a dinner plate, a chunky steel-blue slab body, a black square face with a handful of big glowing amber LED squares, a fat blue battery cylinder perched on top, two oversized chunky black wheels with simple silver hubs, and one simple LEGO-beam attachment each — a pusher blade, a pair of pincher arms, an orange flipper, a ball scoop. Draw them with the SAME thick ink contours, painted highlights, squash-and-stretch energy, and motion smears as the kids; tilt and exaggerate their poses like brawling characters. HARD RULE: the smallest detail drawn on any robot is no finer than the detail in a kid&#x27;s hand — no tiny screws, no readable circuit traces, no port pins, no photographic precision anywhere.
+
+SCENE — a packed sporting-hall interior on tournament night: a present-day kids&#x27; combat-robotics event staged like an old-school fight night. On the plank floor at center sits a low circular pit fenced by thin vertical iron spindles with a wooden top rail. Inside the ring ALL FOUR robots are clearly visible battling: two crash head-on at center with a small comic impact starburst, a LEGO beam and a wheel flying off; a third robot is knocked spinning into the air above them; a fourth charges in from the side trailing speed lines. The only loose debris is a few small flying beams and one wheel — no spare robots or extra modules sitting on the floor. This is playful toy mayhem — racing energy, no fire, no smoke. Four thrilled present-day kids, ages 10–14, a mix of boys and girls, in modern casual clothes — hoodies, plain unlettered t-shirts, jeans, sneakers, one with a backwards baseball cap — lean on the pit rail at four points around the ring: the drivers, each gripping a handheld joystick controller (a small board with a white joystick knob mounted on a curved blue-and-red grip frame — never a video-game gamepad), faces lit warm from the pit, shouting, laughing, one punching the air. Around them a dense crowd of more modern kids and a few adult mentors presses in, cheering; one kid in the front row points dramatically at the airborne robot. Across the back, a mezzanine balcony overflows with more spectators leaning over its rail. Faces are Western graphic-novel faces — realistic proportions, normal-sized expressive eyes, individualized features — never anime. Mood: electric, joyful, slightly rowdy — fight-night energy poured into a school robot derby, unmistakably today, not the past.
+
+COMPOSITION — STRICT: the camera is elevated at the back of the crowd, looking across and slightly DOWN into the circular pit; the ring sits at the center of the frame just below the midline; the crowd wraps the ring in a full circle, with the nearest spectators seen from behind as darker foreground shapes along the bottom edge; the balcony runs across the top of the back wall. Landscape orientation, the crowd extending wider to the left and right to fill the 3:2 frame.
+
+TEXT — across the TOP of the card: &quot;ROBOT RIOT&quot; in huge hand-lettered playbill display type, cream letters with a heavy black outline and a thin red inline, arched slightly, sitting over the darker upper wall of the hall. The words are spelled exactly: ROBOT RIOT. No other lettering, signs, posters, labels, numbers, or captions anywhere.
+
+FORMAT — 4×6 inch landscape postcard, full-bleed hero image, print-ready quality.</pre>
+          <div class="dl">negative prompt</div><pre>Newsprint texture, parchment, aged or yellowed paper, film grain, speckle, stipple, halftone, Ben-Day dots, print-dot texture, crosshatch etching texture, black-and-white wood-engraving rendering, monochrome or sepia image, pencil sketch, airbrushed haze. Flat unshaded cel fills, vintage four-color newsprint comic look, washed-out, muddy, or pastel color. Photorealism, photographic faces, 3D render, CGI; photorealistic or 3D-rendered product-photo robots pasted into an illustrated scene; fine mechanical micro-detail on robots — tiny screws, readable circuit traces, port pins, precise product-render surfaces. Victorian or 19th-century period costume — top hats, bowler hats, newsboy caps, waistcoats, suspenders, cravats — and gas lamps or candle chandeliers. Anime or manga cel style, chibi, Funko-Pop or vinyl-toy proportions, oversized heads. Roosters, chickens, birds, or any live animals in the pit; blood, cruelty, money changing hands, cigars, smoking, alcohol. Weapons, lasers, fire, smoke, explosions, military imagery. Video-game gamepads, invented extra buttons, triggers, or screens. Spare robot modules or extra mini-robots on the floor. Any lettering beyond ROBOT RIOT — no signs, posters, banners, numbers, or captions. Portrait orientation.</pre>
+          <div class="dl">notes</div><p>Delta from draft 2: photo collage NOT attached (use_sources=false) so the model stops copying photographic rendering; robots described in words as stylized comic versions — bold cartoon shapes, thick ink contours, detail-parity rule (no finer than a kid&#x27;s hand), no screws/PCB traces. Also banned stray spare modules on the floor.</p>
+          
+        </div>
+      </details>
+    </article>
+    <article class="card ">
+      <div class="cardhead">
+        <span class="num">#2</span><span class="lab">— draft-2 modern kids, illustrated bots</span>
+        <span class="meta">2026-07-01T22:18:21 &middot; gpt-image-2</span>
+      </div>
+      <div class="imgwrap"><a href="iterations/iter-002.png" target="_blank"><img class="hero" src="iterations/iter-002.png" alt="iteration 2"></a></div>
+      <div class="reflabel">references</div><div class="thumbs small"><a href="sources/cutebots.png" target="_blank"><img src="sources/cutebots.png"></a></div>
+      <details><summary>Prompt &amp; details</summary>
+        <div class="detail">
+          <div class="dl">positive prompt</div><pre>A richly illustrated modern graphic-novel scene — the polished, painted look of a premium hardcover comic cover. Bold, confident black ink outlines with strong varied weight: heavy contour lines around major forms, finer lines for interior detail. Fully rendered dimensional shading — smooth cel-to-painted modeling with clear light and shadow, glossy highlights, and deep inky black shadow shapes that give every surface volume. This is NOT flat color, NOT a vintage newsprint comic, and NOT a photograph. EVERYTHING in the frame — the kids, the crowd, the hall, and especially the robots — is drawn by the same artist&#x27;s hand in this one inked-and-painted style: the robots get the same bold black contour lines and painted shading as the characters, and must never look like photographic product shots composited into the illustration. Dramatic cinematic lighting: warm arena spotlights pool amber light down onto the pit floor, a warm rim light catches the hero kids, and the edges of the hall sink into deep navy shadow.
+
+COLOR — a warm-dominant orange-and-blue complementary palette, roughly 70% warm / 30% cool. Golden amber #F9C233 and marigold #F9B41E carry the warmly lit hall and lit faces; burnt orange #C96A10 and sienna #9A4E12 model the warm shadows, wooden benches, and plank floor; steel blue #175E8C is reserved for the Cutebot chassis and cool accents; deep navy #16223C holds the deepest shadows and the balcony gloom; ink black #101010 linework anchors everything; cream #FBE5A0 is for the headline letters; signal red #CC1616 appears only as a rare spark — a controller grip, one glowing LED.
+
+DETAIL BUDGET — spend fine detail ONLY on: the four Cutebot robots in the pit, the four kid drivers and their controllers at the rail, and the circular spindle railing. The surrounding crowd is expressive but simplified into bolder shapes; the balcony and back wall dissolve into darker, simpler masses.
+
+SCENE — a packed sporting-hall interior on tournament night: a present-day kids&#x27; combat-robotics event staged like an old-school fight night. On the plank floor at center sits a low circular pit fenced by thin vertical iron spindles with a wooden top rail. Inside the ring ALL FOUR Cutebot robots are clearly visible battling: two crash head-on at center with a small comic impact starburst, LEGO beams and a wheel flying off; a third robot is knocked spinning into the air above them; a fourth charges in from the side trailing speed lines. This is playful toy mayhem — racing energy, no fire, no smoke. Four thrilled present-day kids, ages 10–14, a mix of boys and girls, in modern casual clothes — hoodies, plain unlettered t-shirts, jeans, sneakers, one with a backwards baseball cap — lean on the pit rail at four points around the ring: the drivers, each gripping a handheld joystick controller, faces lit warm from the pit, shouting, laughing, one punching the air. Around them a dense crowd of more modern kids and a few adult mentors presses in, cheering; one kid in the front row points dramatically at the airborne robot. Across the back, a mezzanine balcony overflows with more spectators leaning over its rail. Mood: electric, joyful, slightly rowdy — fight-night energy poured into a school robot derby, unmistakably today, not the past.
+
+COMPOSITION — STRICT: the camera is elevated at the back of the crowd, looking across and slightly DOWN into the circular pit; the ring sits at the center of the frame just below the midline; the crowd wraps the ring in a full circle, with the nearest spectators seen from behind as darker foreground shapes along the bottom edge; the balcony runs across the top of the back wall. Landscape orientation, the crowd extending wider to the left and right to fill the 3:2 frame.
+
+REFERENCES — the attached photo collage governs ONLY the physical construction of the robots and controllers: each Cutebot is a small palm-sized two-wheeled robot with a round white chassis deck, a blue circuit-board body, a black micro:bit face with a glowing LED matrix, a blue battery cylinder mounted on top between brass-yellow posts, two chunky black rubber wheels with silver five-spoke hubs, and small LEGO Technic beam attachments — pushers, pinchers, an orange flipper — bolted to the front. Reproduce that construction faithfully but DRAW it — same ink outlines, same painted light, fully part of the illustration. The kids&#x27; controllers match the collage&#x27;s joystick controller: a micro:bit board mounted on a curved blue-and-red grip frame with a white joystick knob and small round black buttons — never a video-game gamepad. Do NOT copy the collage&#x27;s grid layout, white studio background, or any of its labels.
+
+TEXT — across the TOP of the card: &quot;ROBOT RIOT&quot; in huge hand-lettered playbill display type, cream letters with a heavy black outline and a thin red inline, arched slightly, sitting over the darker upper wall of the hall. The words are spelled exactly: ROBOT RIOT. No other lettering, signs, posters, labels, numbers, or captions anywhere.
+
+FORMAT — 4×6 inch landscape postcard, full-bleed hero image, print-ready quality.</pre>
+          <div class="dl">negative prompt</div><pre>Newsprint texture, parchment, aged or yellowed paper, film grain, speckle, stipple, halftone, Ben-Day dots, print-dot texture, crosshatch etching texture, black-and-white wood-engraving rendering, monochrome or sepia image, pencil sketch, airbrushed haze. Flat unshaded cel fills, vintage four-color newsprint comic look, washed-out, muddy, or pastel color. Photorealism, photographic faces, 3D render, CGI; photorealistic or 3D-rendered product-photo robots pasted into an illustrated scene. Victorian or 19th-century period costume — top hats, bowler hats, newsboy caps, waistcoats, suspenders, cravats — and gas lamps or candle chandeliers. Anime or manga cel style, chibi, Funko-Pop or vinyl-toy proportions, oversized heads. Roosters, chickens, birds, or any live animals in the pit; blood, cruelty, money changing hands, cigars, smoking, alcohol. Weapons, lasers, fire, smoke, explosions, military imagery. Video-game gamepads, invented extra buttons, triggers, or screens. The reference collage&#x27;s grid layout, white studio background, or label text. Any lettering beyond ROBOT RIOT — no signs, posters, banners, numbers, or captions. Portrait orientation.</pre>
+          <div class="dl">notes</div><p>Delta from draft 1: contemporary kids/venue (hoodies, sneakers, mezzanine; period costume + gas lamps banned in negative), robots forced into the same inked/painted style as the figures instead of photo-real product renders. Composition geometry unchanged; also asked for all four bots readable in the ring.</p>
+          
+        </div>
+      </details>
+    </article>
+    <article class="card ">
+      <div class="cardhead">
+        <span class="num">#1</span><span class="lab">— draft-1 engraving composition</span>
+        <span class="meta">2026-07-01T22:11:10 &middot; gpt-image-2</span>
+      </div>
+      <div class="imgwrap"><a href="iterations/iter-001.png" target="_blank"><img class="hero" src="iterations/iter-001.png" alt="iteration 1"></a></div>
+      <div class="reflabel">references</div><div class="thumbs small"><a href="sources/cutebots.png" target="_blank"><img src="sources/cutebots.png"></a></div>
+      <details><summary>Prompt &amp; details</summary>
+        <div class="detail">
+          <div class="dl">positive prompt</div><pre>A richly illustrated modern graphic-novel scene — the polished, painted look of a premium hardcover comic cover. Bold, confident black ink outlines with strong varied weight: heavy contour lines around major forms, finer lines for interior detail. Fully rendered dimensional shading — smooth cel-to-painted modeling with clear light and shadow, glossy highlights, and deep inky black shadow shapes that give every surface volume. This is NOT flat color, NOT a vintage newsprint comic, and NOT a photograph. Dramatic cinematic lighting: warm gaslight pools amber light down onto the pit floor, a warm rim light catches the hero kids, and the edges of the hall sink into deep navy shadow.
+
+COLOR — a warm-dominant orange-and-blue complementary palette, roughly 70% warm / 30% cool. Golden amber #F9C233 and marigold #F9B41E carry the gaslit hall and lit faces; burnt orange #C96A10 and sienna #9A4E12 model the warm shadows, wooden benches, and plank floor; steel blue #175E8C is reserved for the Cutebot chassis and cool accents; deep navy #16223C holds the deepest shadows and the gallery gloom; ink black #101010 linework anchors everything; cream #FBE5A0 is for the headline letters; signal red #CC1616 appears only as a rare spark — a controller grip, one glowing LED.
+
+DETAIL BUDGET — spend fine detail ONLY on: the four Cutebot robots in the pit, the four kid drivers and their controllers at the rail, and the circular spindle railing. The surrounding crowd is expressive but simplified into bolder shapes; the balcony gallery and back wall dissolve into darker, simpler masses.
+
+SCENE — a packed 19th-century sporting-hall interior on fight night, joyfully reimagined as a kids&#x27; combat-robotics event. On the plank floor at center sits a low circular pit fenced by thin vertical iron spindles with a wooden top rail. Inside the ring FOUR Cutebot robots battle: two crash head-on at center with a small comic impact starburst, LEGO beams and a wheel flying off; a third robot is knocked spinning into the air above them; a fourth charges in from the side trailing speed lines. This is playful toy mayhem — racing energy, no fire, no smoke. Four thrilled kids, ages 10–14, a mix of boys and girls, lean on the pit rail at four points around the ring — the drivers — each gripping a handheld joystick controller, faces lit warm from the pit: shouting, laughing, one punching the air. Around them a dense crowd of more kids and a few adult mentors presses in on wooden benches, cheering; one kid in the front row points dramatically at the airborne robot. Across the back, a balcony gallery with curtained boxes overflows with spectators leaning over the rail. Mood: electric, joyful, slightly rowdy — a Victorian prizefight&#x27;s energy poured into a school robot derby.
+
+COMPOSITION — STRICT, matching a classic 19th-century cockfight engraving: the camera is elevated at the back of the crowd, looking across and slightly DOWN into the circular pit; the ring sits at the center of the frame just below the midline; the crowd wraps the ring in a full circle, with the nearest spectators seen from behind as darker foreground shapes along the bottom edge; the balcony gallery runs across the top of the back wall. Landscape orientation, the crowd extending wider to the left and right to fill the 3:2 frame.
+
+REFERENCES — the attached photo collage governs ONLY the physical construction of the robots and controllers, reproduced faithfully: each Cutebot is a small palm-sized two-wheeled robot with a round white chassis deck, a blue circuit-board body, a black micro:bit face with a glowing LED matrix, a blue battery cylinder mounted on top between brass-yellow posts, two chunky black rubber wheels with silver five-spoke hubs, and small LEGO Technic beam attachments — pushers, pinchers, an orange flipper — bolted to the front. The kids&#x27; controllers match the collage&#x27;s joystick controller: a micro:bit board mounted on a curved blue-and-red grip frame with a white joystick knob and small round black buttons — never a video-game gamepad. Do NOT copy the collage&#x27;s grid layout, white studio background, or any of its labels.
+
+TEXT — across the TOP of the card: &quot;ROBOT RIOT&quot; in huge hand-lettered Victorian playbill display type, cream letters with a heavy black outline and a thin red inline, arched slightly like a circus poster, sitting over the darker upper wall of the hall. The words are spelled exactly: ROBOT RIOT. No other lettering, signs, posters, labels, numbers, or captions anywhere.
+
+FORMAT — 4×6 inch landscape postcard, full-bleed hero image, print-ready quality.</pre>
+          <div class="dl">negative prompt</div><pre>Newsprint texture, parchment, aged or yellowed paper, film grain, speckle, stipple, halftone, Ben-Day dots, print-dot texture, crosshatch etching texture, black-and-white wood-engraving rendering, monochrome or sepia image, pencil sketch, airbrushed haze. Flat unshaded cel fills, vintage four-color newsprint comic look, washed-out, muddy, or pastel color. Photorealism, photographic faces, 3D render, CGI. Anime or manga cel style, chibi, Funko-Pop or vinyl-toy proportions, oversized heads. Roosters, chickens, birds, or any live animals in the pit; blood, cruelty, money changing hands, cigars, smoking, alcohol. Weapons, lasers, fire, smoke, explosions, military imagery. Video-game gamepads, invented extra buttons, triggers, or screens. The reference collage&#x27;s grid layout, white studio background, or label text. Any lettering beyond ROBOT RIOT — no signs, posters, banners, numbers, or captions. Portrait orientation.</pre>
+          <div class="dl">notes</div><p>First pass: cockfight-engraving composition described in words (elevated camera into circular spindle-rail pit, wraparound crowd, gallery above), four Cutebots battling with parts flying, four kid drivers with joystick controllers, ROBOT RIOT playbill headline. Cutebot collage attached as build reference only.</p>
+          
+        </div>
+      </details>
+    </article>
+  <footer>Generated 2026-07-02T09:18:24 &middot; this page auto-reloads when a new iteration is added</footer>
+</div>
+<script>
+ const CURRENT_VERSION = 12;
+ const live = document.getElementById('live');
+ // Only ever reload when state.json confirms a NEW version. We never blind-reload on a
+ // timer: under file:// (fetch blocked) or with the server down we can't read the version,
+ // so reloading would just flicker the page without knowing anything changed. In that case
+ // show a hint and keep quietly retrying — a live server will be picked up automatically.
+ async function poll(){
+   let served = true;
+   try{
+     const r = await fetch('state.json?ts=' + Date.now(), {cache:'no-store'});
+     if(r.ok){
+       const s = await r.json();
+       if(s.version > CURRENT_VERSION){ location.reload(); return; }
+     }else{
+       served = false;
+     }
+   }catch(e){
+     served = false;
+   }
+   if(served){
+     live.className='live'; live.innerHTML='&#9679; live';
+     setTimeout(poll, 1500);
+   }else{
+     // No live server (e.g. opened via file://). Stop flickering; just retry slowly.
+     live.className='live off'; live.innerHTML='&#9679; open via server for live reload';
+     setTimeout(poll, 4000);
+   }
+ }
+ poll();
+</script>
+</body>
+</html>

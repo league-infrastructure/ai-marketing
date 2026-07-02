@@ -38,5 +38,5 @@ the SOURCE of recurring visual flaws in the shared prompt files, not to fix one 
 
 Return a findings list ordered by severity. For each: the file and line, the offending
 text, why it's a problem (tie it to the house rules above), and the exact replacement
-text you propose. Do NOT edit files — the main agent applies fixes so Eric can review
+text you propose. Do NOT edit files — the main agent applies fixes so the designer can review
 them. If everything is clean, say so explicitly per category.

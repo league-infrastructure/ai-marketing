@@ -40,7 +40,7 @@ the deliverable is a rewritten, single-voice prompt.
 3. **Write the negative prompt.** Texture prohibitions go FIRST: grain, speckle,
    stipple, halftone, newsprint, parchment, aged/yellowed paper, print-dot texture,
    soft glows, airbrush gradients. Then: photorealism/CGI/3D render, wrong
-   orientation, extra figures, invented lettering, and anything Eric has vetoed in
+   orientation, extra figures, invented lettering, and anything the designer has vetoed in
    this project.
 4. **Send** via `generate_project_image(prompt=..., negative_prompt=..., ...)` with the
    right `size` (`1536x1024` landscape postcard, `1024x1536` portrait, `1024x1024` square).

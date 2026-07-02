@@ -1,30 +1,32 @@
 # Graphic Novel — Style
 
-Render as a richly illustrated modern graphic-novel / cinematic comic panel — the polished,
-dramatic look of a premium hardcover graphic novel or a painted comic cover. Convert any
-provided photograph into hand-illustrated comic artwork with real depth and lighting: this
-should read as a masterfully drawn-and-painted comic panel, NOT a flat vintage comic and NOT
-a photograph.
+The HisMastersVoice look (see `projects/HisMastersVoice/panel1.png`): Golden-Age comic
+illustration in which COLOR stays in broad, flat fields and ALL of the detail lives in the
+pen strokes. Convert any provided photograph into hand-inked comic artwork: the result reads
+as a masterfully inked and flatted comic page — NOT a painted digital illustration, NOT a
+flat minimal vector poster, and NOT a photograph.
 
 ## Rendering
-- **Linework:** Bold, confident black ink outlines with strong varied weight — heavy contour
-  lines around major forms, finer lines for interior detail. Crisp, deliberate inking.
-- **Shading:** Fully rendered, dimensional form. Smooth cel-to-painted shading with clear
-  light and shadow, soft gradients, glossy highlights, and deep black shadow shapes that give
-  every surface real volume and weight. This is NOT flat color — surfaces are modeled.
-- **Color:** Rich, saturated, cinematic palette with warm/cool contrast. Strong local color
-  plus atmospheric lighting tints. Deep inky blacks anchor the image.
-- **Lighting:** Dramatic, directional, cinematic — a clear key light with a warm rim / back
-  light, pooled shadows, and glowing emissive light from screens where appropriate. High
-  contrast; moody or heroic.
-- **Detail:** High detail throughout — both the characters AND any machines, screens, and
-  props are drawn with careful, believable detail and texture (wires, panels, wheels,
-  buttons, wood grain). This style rewards intricate rendering.
+- **Color — broad flat swathes:** Large, solid, saturated color fields with crisp hard
+  edges. A wall is one color, a shirt is one color, a floor is one color. No gradients, no
+  airbrush, no painted modeling, no glossy rendered highlights. Where a shadow is essential
+  it is a single flat darker shape or solid ink.
+- **Linework — where ALL the detail lives:** Dense, confident, varied pen strokes. Heavy
+  tapered brush contours around major forms; fine flexible-nib strokes inside them:
+  feathered hatching where cloth folds, hair built from many fine tapered strokes, knuckle
+  and crease lines on hands, mechanical detail drawn line by line. Form is modeled by
+  STROKES — hatching, feathering, spotted blacks — never by gradients or painted light.
+- **Detail hierarchy:** "Reducing detail" means BROADER color areas, never simpler drawing.
+  Hero subjects (kids, robots, machines) get intricate, loving ink detail — bolt holes,
+  wires, wheel treads rendered in line — and they pop because the backgrounds stay broad
+  and flat.
+- **Lighting:** Implied by the ink — spotted blacks and hatching density over flat local
+  color. High graphic contrast, not rendered chiaroscuro.
 
 ## Figures & Faces
-- Characters are illustrated with realistic proportions and expressive, individualized faces
-  — detailed hair, believable anatomy, genuine emotion — but clearly hand-drawn comic art,
-  idealized and heroic, never photographic.
+- Realistic Western comic proportions and expressive, individualized faces — detailed hair
+  drawn stroke by stroke, believable anatomy, genuine emotion — clearly hand-drawn, heroic,
+  never anime and never photographic.
 
 ## Comic Furniture (only when the composition calls for it)
 - When the composition is a panel or a story beat, frame it with a heavy black comic panel
@@ -35,10 +37,9 @@ a photograph.
   NOT invent other posters, signs, slogans, or labels.
 
 ## Subject & Brand
-- **Robots / machines** are rendered as detailed, believable builds — keep the recognizable
-  form of any real student-built educational robot from the reference, with visible
-  structure, wiring, and wheels.
-- Screens glow with their own light; any code or data lives only on a screen facing the
+- **Robots / machines** are drawn as detailed, believable builds — keep the recognizable
+  form of any real student-built educational robot from the reference, its structure, wiring,
+  and wheels rendered in hand-inked line, sitting on flat color.
+- Screens glow as flat bright shapes; any code or data lives only on a screen facing the
   viewer.
-- **Mood:** cinematic, heroic, aspirational, dramatic — a hero moment lifted from a graphic
-  novel.
+- **Mood:** heroic Golden-Age adventure — rich, dramatic, unmistakably hand-made.

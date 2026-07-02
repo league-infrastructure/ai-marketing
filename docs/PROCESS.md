@@ -124,8 +124,8 @@ Recurring designer phrasings and what they require:
 | "That's trash" / "boy, that's ass" | Dead end — don't tweak, change approach and ask what direction if unclear. |
 | "Refer to <project/draft>" | That artifact is the ground truth; use it as a reference image and mine its prompt. |
 | "Get rid of the texture" | Flat solid color fields; texture terms go in the negative; also purge the shared style files. |
-| "Why did you…?" (process question) | He wants the root-cause explanation *before* any fix. Answer the question; don't touch code first. |
-| "Do it right now" | Explicit permission to hack. Absent these words, build the real solution. |
+| "Why did you…?" (process question) | They want the root-cause explanation *before* any fix. Answer the question; don't touch code first. |
+
 
 ## Environment facts
 
