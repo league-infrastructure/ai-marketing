@@ -1,0 +1,107 @@
+{
+  "name": "League Figures Emblem",
+  "slug": "League-Figures-Emblem",
+  "created": "2026-07-01T19:33:29",
+  "config": {
+    "style": "type-sample",
+    "composition": "type-sample",
+    "component": "league-logo-horizontal",
+    "palette": "",
+    "layout": "type-sample",
+    "theme": "Emblem lock-up: the five-figures-with-flag silhouette in the center, \"THE LEAGUE\" arced above, \"AMAZING PROGRAMMERS\" arced below in curved text.",
+    "scene_description": "",
+    "model": "chatgpt-image-latest",
+    "negative_prompt": "",
+    "custom_additions": ""
+  },
+  "sources": [
+    "sources/figures_girl.png"
+  ],
+  "iterations": [
+    {
+      "n": 1,
+      "label": "v1 — figures center, THE LEAGUE arced above, AMAZING PROGRAMMERS arced below",
+      "created": "2026-07-01T19:34:44",
+      "style": "type-sample",
+      "composition": "type-sample",
+      "component": "league-logo-horizontal",
+      "palette": "",
+      "layout": "type-sample",
+      "background": "",
+      "scene_description": "",
+      "model": "chatgpt-image-latest",
+      "prompt": "A clean single-color emblem logo on a plain pure-white background. One flat solid ORANGE color only (matching the reference silhouette's orange) — no other colors, no gray, no gradients, no shadows, no texture.\n\nCENTER: the group of five stylized figures standing together, one of them raising a flag that carries a lightning bolt — reproduced faithfully from the reference image as a flat orange silhouette. This artwork is the centerpiece and fills the middle of the emblem.\n\nABOVE the figures: the words \"THE LEAGUE\" set in bold condensed caps on a gentle UPWARD arc (curving like the top of a circle), centered over the figures, following the crown of the emblem.\n\nBELOW the figures: the words \"AMAZING PROGRAMMERS\" set in bold condensed caps on a gentle DOWNWARD arc (curving like the bottom of a circle, smile-shaped), centered under the figures, mirroring the top text.\n\nThe two curved text lines and the central figures together compose a balanced circular badge / emblem lock-up — text hugging the top and bottom, figures in the middle. All type is the same flat orange as the figures. Bold, condensed, heavy letterforms, evenly spaced along each arc. Generous white margins around the whole emblem. Crisp vector edges.",
+      "negative_prompt": "multiple colors, gray tones, shading, gradient, drop shadow, glow, texture, grain, halftone, dark background, photo background, outer ring outline or circle border (unless implied only by the text), straight horizontal text, extra words, misspellings, lightning bolts outside the flag, decorative marks, photorealism, 3D",
+      "custom_additions": "",
+      "references": [
+        "sources/figures_girl.png"
+      ],
+      "images": [
+        "iterations/iter-001.png"
+      ],
+      "image": "iterations/iter-001.png",
+      "notes": "First pass: orange five-figures-with-flag silhouette (from source) centered, curved text above and below forming a round emblem lockup.",
+      "status": "ok",
+      "error": null,
+      "text_response": "",
+      "usage": {}
+    },
+    {
+      "n": 2,
+      "label": "v2 — fix duplicate AMAZING; bottom arc reads AMAZING PROGRAMMERS once",
+      "created": "2026-07-01T19:35:58",
+      "style": "type-sample",
+      "composition": "type-sample",
+      "component": "league-logo-horizontal",
+      "palette": "",
+      "layout": "type-sample",
+      "background": "",
+      "scene_description": "",
+      "model": "chatgpt-image-latest",
+      "prompt": "A clean single-color emblem logo on a plain pure-white background. One flat solid ORANGE color only (matching the reference silhouette's orange) — no other colors, no gray, no gradients, no shadows, no texture.\n\nThe emblem has EXACTLY TWO pieces of text and nothing else — one curved line above the figures and one curved line below them. Do not repeat any word.\n\nCENTER: the group of five stylized figures standing together, one of them raising a flag that carries a lightning bolt — reproduced faithfully from the reference image as a flat orange silhouette. This is the centerpiece filling the middle of the emblem. No text touches or sits directly beneath the figures' feet.\n\nTOP text (one line only): \"THE LEAGUE\" in bold condensed caps on a gentle UPWARD arc (curving like the top of a circle), centered above the figures.\n\nBOTTOM text (one line only): \"AMAZING PROGRAMMERS\" in bold condensed caps on a single gentle DOWNWARD arc (smile-shaped, curving like the bottom of a circle), centered below the figures. The words \"AMAZING\" and \"PROGRAMMERS\" sit side by side on this ONE curved line. Do NOT add a second \"AMAZING\", and do NOT place any straight (non-curved) text under the figures.\n\nTogether the top arc, the figures, and the bottom arc form a balanced circular badge / emblem lock-up. All type is the same flat orange as the figures — bold, condensed, heavy letterforms evenly spaced along each arc. Generous white margins. Crisp vector edges.",
+      "negative_prompt": "duplicate words, repeated \"AMAZING\", extra text line, straight horizontal text under the figures, three or more text lines, multiple colors, gray tones, shading, gradient, drop shadow, glow, texture, grain, halftone, dark background, photo background, misspellings, decorative marks, photorealism, 3D",
+      "custom_additions": "",
+      "references": [
+        "sources/figures_girl.png"
+      ],
+      "images": [
+        "iterations/iter-002.png"
+      ],
+      "image": "iterations/iter-002.png",
+      "notes": "v1 duplicated \"AMAZING\" (straight line under figures + curved line). This pass: exactly two text lines total — THE LEAGUE arced above, AMAZING PROGRAMMERS arced below, no straight text.",
+      "status": "ok",
+      "error": null,
+      "text_response": "",
+      "usage": {}
+    },
+    {
+      "n": 3,
+      "label": "v3 — bold League caps, NO ring, text hugs figures",
+      "created": "2026-07-01T19:40:35",
+      "style": "type-sample",
+      "composition": "type-sample",
+      "component": "league-logo-horizontal",
+      "palette": "",
+      "layout": "type-sample",
+      "background": "",
+      "scene_description": "",
+      "model": "chatgpt-image-latest",
+      "prompt": "A bold, modern single-color logo lockup on a plain pure-white background. One flat solid ORANGE color only (matching the reference silhouette) — no other colors, no gray, no gradients, no shadows, no texture. This is NOT a round seal or badge — there is absolutely NO circle, ring, or enclosing border of any kind.\n\nCENTER: the group of five stylized figures standing together, one raising a flag with a lightning bolt — reproduced faithfully from the reference image as a flat orange silhouette, the hero of the lockup.\n\nABOVE the figures: the words \"THE LEAGUE\" in VERY BOLD, heavy, tightly-spaced CONDENSED caps — a muscular athletic display typeface (think compressed, chunky letterforms with slight energy). Set on a shallow gentle upward curve, wide enough to span the group, sitting close above the figures' heads.\n\nBELOW the figures: the words \"AMAZING PROGRAMMERS\" in the SAME bold condensed caps on a shallow downward curve (one line, side by side), tucked in tight just beneath the figures' feet.\n\nThe type should feel powerful and contemporary — heavy condensed caps like a sports/streetwear wordmark, hugging the artwork closely so the whole thing reads as one compact mark. Same flat orange throughout. Generous white margins around the outside. Crisp vector edges. No ring, no circle, no banner, no outline.",
+      "negative_prompt": "circle, ring, circular border, round seal, badge outline, enclosing outline, banner, ribbon, thin dainty lettering, serif type, multiple colors, gray tones, shading, gradient, drop shadow, glow, texture, grain, halftone, dark background, duplicate words, repeated AMAZING, extra text, misspellings, photorealism, 3D",
+      "custom_additions": "",
+      "references": [
+        "sources/figures_girl.png"
+      ],
+      "images": [
+        "iterations/iter-003.png"
+      ],
+      "image": "iterations/iter-003.png",
+      "notes": "Direction change: kill the round badge. Heavy condensed brand caps, no circular border, tight text lockup around the figures.",
+      "status": "ok",
+      "error": null,
+      "text_response": "",
+      "usage": {}
+    }
+  ],
+  "state_version": 4
+}

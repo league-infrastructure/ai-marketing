@@ -231,7 +231,85 @@
       "error": null,
       "text_response": "",
       "usage": {}
+    },
+    {
+      "n": 9,
+      "label": "Type sample v9 — text-only, no frame/bars/bolts (based on v4)",
+      "created": "2026-07-01T19:13:55",
+      "style": "type-sample",
+      "composition": "type-sample",
+      "component": "league-logo-horizontal",
+      "palette": "",
+      "layout": "type-sample",
+      "background": "",
+      "scene_description": "The horizontal \"THE LEAGUE OF AMAZING PROGRAMMERS\" wordmark logo, rendered as a black-and-white structural type sample per the component description.",
+      "model": "chatgpt-image-latest",
+      "prompt": "# Art Style\n\nRender as a clean BLACK-AND-WHITE structural type sample — pure line art, no color and no shading. The purpose is to demonstrate the LAYOUT and letterforms of a wordmark: where every line of text sits and how it is proportioned.\n\n## Rendering\n- **Black and white only.** Black lettering on a plain WHITE background. No color of any kind. No gray, no gradients, no drop shadows, no glow, no texture, no grain, no halftone.\n- **Flat and crisp:** letters are clean, confident solid black with heavy keylines — a precise vector wireframe / printer's layout sheet look.\n- **Type-first:** render the lettering in its correct layout, weight, and proportion so the wordmark's structure reads clearly.\n\n# Composition\n\nThe wordmark alone, isolated and centered on a plain white field with generous white margins. Nothing else in the frame — no scene, no border, no caption.\n\n# Component — TEXT ONLY\n\nThe horizontal lock-up of the League of Amazing Programmers wordmark, reduced to JUST THE THREE LINES OF TEXT. No badge, no shield, no banner, no frame or enclosing outline of any kind. No horizontal bars or rules. No lightning bolts. No decorative marks whatsoever — only the letters.\n\n## Elements & placement (top to bottom, centered)\n1. **Line 1 — \"THE LEAGUE OF\" on ONE line:** \"LEAGUE\" is the largest word on the line, centered; the small word \"THE\" sits immediately to its left and the small word \"OF\" immediately to its right, all on the same line. Plain letters only — NO bars above or below \"THE\" or \"OF\", and NO bolts at the ends of the line.\n2. **Line 2 — \"AMAZING\":** the dominant line — the largest lettering, condensed caps, centered, with a slight energetic upward tilt. No bolts flanking it.\n3. **Line 3 — \"PROGRAMMERS\":** bottom line, condensed caps, centered, narrower than \"AMAZING\".\n\n## Structural notes\n- Exactly THREE text lines — \"THE LEAGUE OF\", \"AMAZING\", \"PROGRAMMERS\". The word \"OF\" appears ONLY ONCE, on the top line; there is NO separate standalone \"OF\" line.\n- \"AMAZING\" is roughly 1.6–2× the cap height of the two outer lines and is the visual anchor.\n- Lines are stacked with clear vertical separation — no line's lettering touches or overlaps the line above or below.\n- The overall footprint is wider than tall (roughly 2.2 : 1).\n- All lettering is bold and condensed with heavy keylines.\n\n# Layout\n\nPresent the wordmark centered on a plain white background with generous margins. No border, no scene, no extra text beyond the three lines themselves. Crisp, high-resolution line art suitable as a reusable structural reference sheet.",
+      "negative_prompt": "Do NOT include any of the following:\n\nA badge, shield, banner, frame, border, box, or any enclosing outline around the text. Any horizontal bars, rules, lines, or dashes — including the short bars that would bracket \"THE\" or \"OF\". Any lightning bolts, sparks, stars, or decorative marks. Color of any kind — this is strictly black and white. Gray tones, shading, gradients, drop shadows, glows, or rendered lighting. Texture, grain, noise, or halftone. A background scene, photo, props, or environment — plain white background only. A separate standalone \"OF\" line. Photorealism or 3-D rendering.",
+      "custom_additions": "",
+      "references": [],
+      "images": [
+        "iterations/iter-009.png"
+      ],
+      "image": "iterations/iter-009.png",
+      "notes": "Version of iteration 4 with the badge/banner frame, all horizontal bracket bars, and all lightning bolts removed — just the three lines of type.",
+      "status": "ok",
+      "error": null,
+      "text_response": "",
+      "usage": {}
+    },
+    {
+      "n": 10,
+      "label": "Type sample v10 — pure text, no dashes/swoosh (based on v4)",
+      "created": "2026-07-01T19:18:43",
+      "style": "type-sample",
+      "composition": "type-sample",
+      "component": "league-logo-horizontal",
+      "palette": "",
+      "layout": "type-sample",
+      "background": "",
+      "scene_description": "The horizontal \"THE LEAGUE OF AMAZING PROGRAMMERS\" wordmark logo, rendered as a black-and-white structural type sample per the component description.",
+      "model": "chatgpt-image-latest",
+      "prompt": "# Art Style\n\nRender as a clean BLACK-AND-WHITE wordmark — flat solid black lettering on a plain WHITE background. No color, no gray, no gradients, no shadows, no glow, no texture, no grain, no halftone.\n\n# Composition\n\nONLY THE LETTERS. Three lines of type, centered, isolated on a plain white field with generous margins. Absolutely nothing in the image except the letterforms themselves — no lines, no marks, no ornaments of any kind.\n\n# Component — LETTERS ONLY\n\nThe League of Amazing Programmers wordmark reduced to pure typography: three centered lines of bold condensed black caps and nothing else.\n\n## The three lines (top to bottom, centered)\n1. **\"THE LEAGUE OF\"** — all on one line. \"LEAGUE\" is the largest word, centered; \"THE\" is small to its left, \"OF\" is small to its right. IMPORTANT: there are NO short dashes, hyphens, or horizontal bars at either end of this line and none above or below \"THE\" or \"OF\" — the line begins and ends with a letter.\n2. **\"AMAZING\"** — the largest line, condensed caps, centered, with a slight upward tilt. IMPORTANT: there is NO curved line, arc, swoosh, or underline beneath \"AMAZING\". The space between \"AMAZING\" and \"PROGRAMMERS\" is empty white — just a gap.\n3. **\"PROGRAMMERS\"** — bottom line, condensed caps, centered, narrower than \"AMAZING\".\n\n## Rules\n- Exactly THREE text lines and NOTHING else. No frame, no badge, no shield, no banner, no border. No horizontal bars, dashes, rules, or underlines. No curved lines, arcs, or swooshes. No lightning bolts, sparks, stars, dots, or decorative marks. If it is not a letter of one of the three words, it does not belong in the image.\n- The word \"OF\" appears only once, on the top line.\n- \"AMAZING\" is roughly 1.6–2× the cap height of the outer two lines.\n- Lines are stacked with clear white space between them; no lettering touches or overlaps.\n- Overall footprint wider than tall (~2.2 : 1). Bold, condensed, heavy letterforms.",
+      "negative_prompt": "Do NOT include ANYTHING that is not a letter of the three words. Specifically NONE of: short dashes, hyphens, or horizontal bars at the ends of the top line or around \"THE\"/\"OF\"; any curved line, arc, swoosh, or underline beneath \"AMAZING\"; any frame, badge, shield, banner, border, or box; any lightning bolts, sparks, stars, dots, or decorative marks. No color, gray tones, shading, gradients, drop shadows, glows, texture, grain, or halftone. No background scene, props, or environment — plain white only. No separate standalone \"OF\" line. No photorealism or 3-D.",
+      "custom_additions": "",
+      "references": [],
+      "images": [
+        "iterations/iter-010.png"
+      ],
+      "image": "iterations/iter-010.png",
+      "notes": "Text-only wordmark. Explicitly removing the two short dashes flanking the top line and the curved swoosh line under AMAZING that persisted in iter-009.",
+      "status": "ok",
+      "error": null,
+      "text_response": "",
+      "usage": {}
+    },
+    {
+      "n": 11,
+      "label": "Type sample v11 — pure text only (retry, no dashes/swoosh)",
+      "created": "2026-07-01T19:19:46",
+      "style": "type-sample",
+      "composition": "type-sample",
+      "component": "league-logo-horizontal",
+      "palette": "",
+      "layout": "type-sample",
+      "background": "",
+      "scene_description": "The horizontal \"THE LEAGUE OF AMAZING PROGRAMMERS\" wordmark logo, rendered as a black-and-white structural type sample per the component description.",
+      "model": "chatgpt-image-latest",
+      "prompt": "A clean black-and-white typographic wordmark: flat solid black lettering, crisp vector edges, on a plain pure-white background. Nothing but the letters.\n\nThree centered lines of bold, condensed sans-serif caps, stacked top to bottom:\n\nLine 1: \"THE LEAGUE OF\" — all on one line. \"LEAGUE\" is the largest word, centered; \"THE\" small to its left, \"OF\" small to its right. The line starts and ends with a letter — no dashes or bars at the ends.\n\nLine 2: \"AMAZING\" — the biggest line, condensed caps, slight upward tilt. Plain empty white space below it — no curved line, swoosh, arc, or underline.\n\nLine 3: \"PROGRAMMERS\" — condensed caps, centered, narrower than AMAZING.\n\nOnly these three words appear. No frame, badge, banner, border, bars, dashes, underlines, arcs, swooshes, lightning bolts, or any decorative marks — just the letters. \"AMAZING\" is about 1.7× the height of the other two lines. Wider than tall, roughly 2.2 to 1. Generous white margins.",
+      "negative_prompt": "color, gray tones, shading, gradient, drop shadow, glow, blur, texture, grain, halftone, dark background, frame, badge, shield, banner, border, box, horizontal bars, dashes, hyphens, rules, underline, curved line, arc, swoosh, lightning bolt, spark, star, dot, ornament, decorative marks, extra \"OF\" line, photorealism, 3D",
+      "custom_additions": "",
+      "references": [],
+      "images": [
+        "iterations/iter-011.png"
+      ],
+      "image": "iterations/iter-011.png",
+      "notes": "Retry after iter-010 render glitch. Clean crisp black type on white, three lines, no dashes flanking top line, no swoosh under AMAZING.",
+      "status": "ok",
+      "error": null,
+      "text_response": "",
+      "usage": {}
     }
   ],
-  "state_version": 9
+  "state_version": 12
 }

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>League Figures Emblem — League Image Project</title>
+<style>
+ :root{--ink:#141414;--paper:#f7f4ec;--accent:#d4202a;--blue:#173a6e;--chip:#eee7d6;}
+ *{box-sizing:border-box;}
+ body{margin:0;background:#101317;color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;}
+ .wrap{max-width:1100px;margin:0 auto;padding:24px;}
+ header.top{background:var(--paper);border:3px solid var(--ink);border-radius:10px;padding:20px 24px;box-shadow:0 8px 30px rgba(0,0,0,.4);}
+ h1{margin:0 0 6px;font-size:28px;}
+ .theme{font-size:17px;color:#333;margin:0 0 10px;}
+ .scene{font-size:14px;color:#555;margin:0 0 12px;font-style:italic;}
+ .chips{display:flex;flex-wrap:wrap;gap:8px;}
+ .chip{background:var(--chip);border:1px solid #cbb;border-radius:20px;padding:3px 12px;font-size:12px;}
+ .chip b{color:var(--blue);text-transform:uppercase;font-size:10px;letter-spacing:.5px;margin-right:4px;}
+ h2{color:#f7f4ec;font-size:15px;text-transform:uppercase;letter-spacing:1px;margin:24px 4px 10px;}
+ .thumbs{display:flex;flex-wrap:wrap;gap:10px;}
+ .thumbs img{height:90px;border:2px solid var(--ink);border-radius:6px;background:#fff;object-fit:cover;}
+ .thumbs.small img{height:56px;}
+ .card{background:var(--paper);border:3px solid var(--ink);border-radius:10px;padding:16px;margin:16px 0;box-shadow:0 6px 20px rgba(0,0,0,.35);}
+ .card.err{border-color:var(--accent);}
+ .cardhead{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin-bottom:12px;}
+ .num{font-weight:800;font-size:20px;color:var(--accent);}
+ .lab{font-weight:600;}
+ .meta{margin-left:auto;font-size:12px;color:#777;}
+ .badge.err{background:var(--accent);color:#fff;border-radius:4px;padding:1px 7px;font-size:11px;}
+ .imgwrap{text-align:center;}
+ img.hero{max-width:100%;max-height:70vh;border:2px solid var(--ink);border-radius:6px;background:#fff;}
+ .noimg{padding:30px;color:var(--accent);font-weight:600;text-align:center;border:2px dashed var(--accent);border-radius:6px;}
+ .reflabel,.dl{font-size:10px;text-transform:uppercase;letter-spacing:.6px;color:var(--blue);margin:12px 0 4px;font-weight:700;}
+ details{margin-top:12px;}
+ summary{cursor:pointer;font-size:13px;color:var(--blue);font-weight:600;}
+ pre{white-space:pre-wrap;word-wrap:break-word;background:#fbfaf5;border:1px solid #ddd;border-radius:6px;padding:10px;font-size:12px;line-height:1.5;max-height:340px;overflow:auto;}
+ pre.err{border-color:var(--accent);color:#a01;}
+ .empty{color:#889;text-align:center;padding:40px;}
+ footer{color:#667;font-size:11px;text-align:center;padding:20px;}
+ .live{position:fixed;top:10px;right:12px;background:#1a1;color:#fff;font-size:11px;padding:3px 9px;border-radius:12px;opacity:.85;z-index:10;}
+ .live.off{background:#555;}
+</style>
+</head>
+<body>
+<div class="live" id="live">&#9679; live</div>
+<div class="wrap">
+  <header class="top">
+    <h1>League Figures Emblem</h1>
+    <p class="theme">Emblem lock-up: the five-figures-with-flag silhouette in the center, &quot;THE LEAGUE&quot; arced above, &quot;AMAZING PROGRAMMERS&quot; arced below in curved text.</p>
+    <p class="scene"></p>
+    <div class="chips"><span class="chip"><b>style</b> type-sample</span><span class="chip"><b>composition</b> type-sample</span><span class="chip"><b>layout</b> type-sample</span><span class="chip"><b>model</b> chatgpt-image-latest</span></div>
+  </header>
+  <section class="sources"><h2>Source images</h2><div class="thumbs"><a href="sources/figures_girl.png" target="_blank"><img src="sources/figures_girl.png" alt="source"></a></div></section>
+  <h2>Iterations</h2>
+  
+    <article class="card ">
+      <div class="cardhead">
+        <span class="num">#3</span><span class="lab">— v3 — bold League caps, NO ring, text hugs figures</span>
+        <span class="meta">2026-07-01T19:40:35 &middot; chatgpt-image-latest</span>
+      </div>
+      <div class="imgwrap"><a href="iterations/iter-003.png" target="_blank"><img class="hero" src="iterations/iter-003.png" alt="iteration 3"></a></div>
+      <div class="reflabel">references</div><div class="thumbs small"><a href="sources/figures_girl.png" target="_blank"><img src="sources/figures_girl.png"></a></div>
+      <details><summary>Prompt &amp; details</summary>
+        <div class="detail">
+          <div class="dl">positive prompt</div><pre>A bold, modern single-color logo lockup on a plain pure-white background. One flat solid ORANGE color only (matching the reference silhouette) — no other colors, no gray, no gradients, no shadows, no texture. This is NOT a round seal or badge — there is absolutely NO circle, ring, or enclosing border of any kind.
+
+CENTER: the group of five stylized figures standing together, one raising a flag with a lightning bolt — reproduced faithfully from the reference image as a flat orange silhouette, the hero of the lockup.
+
+ABOVE the figures: the words &quot;THE LEAGUE&quot; in VERY BOLD, heavy, tightly-spaced CONDENSED caps — a muscular athletic display typeface (think compressed, chunky letterforms with slight energy). Set on a shallow gentle upward curve, wide enough to span the group, sitting close above the figures&#x27; heads.
+
+BELOW the figures: the words &quot;AMAZING PROGRAMMERS&quot; in the SAME bold condensed caps on a shallow downward curve (one line, side by side), tucked in tight just beneath the figures&#x27; feet.
+
+The type should feel powerful and contemporary — heavy condensed caps like a sports/streetwear wordmark, hugging the artwork closely so the whole thing reads as one compact mark. Same flat orange throughout. Generous white margins around the outside. Crisp vector edges. No ring, no circle, no banner, no outline.</pre>
+          <div class="dl">negative prompt</div><pre>circle, ring, circular border, round seal, badge outline, enclosing outline, banner, ribbon, thin dainty lettering, serif type, multiple colors, gray tones, shading, gradient, drop shadow, glow, texture, grain, halftone, dark background, duplicate words, repeated AMAZING, extra text, misspellings, photorealism, 3D</pre>
+          <div class="dl">notes</div><p>Direction change: kill the round badge. Heavy condensed brand caps, no circular border, tight text lockup around the figures.</p>
+          
+        </div>
+      </details>
+    </article>
+    <article class="card ">
+      <div class="cardhead">
+        <span class="num">#2</span><span class="lab">— v2 — fix duplicate AMAZING; bottom arc reads AMAZING PROGRAMMERS once</span>
+        <span class="meta">2026-07-01T19:35:58 &middot; chatgpt-image-latest</span>
+      </div>
+      <div class="imgwrap"><a href="iterations/iter-002.png" target="_blank"><img class="hero" src="iterations/iter-002.png" alt="iteration 2"></a></div>
+      <div class="reflabel">references</div><div class="thumbs small"><a href="sources/figures_girl.png" target="_blank"><img src="sources/figures_girl.png"></a></div>
+      <details><summary>Prompt &amp; details</summary>
+        <div class="detail">
+          <div class="dl">positive prompt</div><pre>A clean single-color emblem logo on a plain pure-white background. One flat solid ORANGE color only (matching the reference silhouette&#x27;s orange) — no other colors, no gray, no gradients, no shadows, no texture.
+
+The emblem has EXACTLY TWO pieces of text and nothing else — one curved line above the figures and one curved line below them. Do not repeat any word.
+
+CENTER: the group of five stylized figures standing together, one of them raising a flag that carries a lightning bolt — reproduced faithfully from the reference image as a flat orange silhouette. This is the centerpiece filling the middle of the emblem. No text touches or sits directly beneath the figures&#x27; feet.
+
+TOP text (one line only): &quot;THE LEAGUE&quot; in bold condensed caps on a gentle UPWARD arc (curving like the top of a circle), centered above the figures.
+
+BOTTOM text (one line only): &quot;AMAZING PROGRAMMERS&quot; in bold condensed caps on a single gentle DOWNWARD arc (smile-shaped, curving like the bottom of a circle), centered below the figures. The words &quot;AMAZING&quot; and &quot;PROGRAMMERS&quot; sit side by side on this ONE curved line. Do NOT add a second &quot;AMAZING&quot;, and do NOT place any straight (non-curved) text under the figures.
+
+Together the top arc, the figures, and the bottom arc form a balanced circular badge / emblem lock-up. All type is the same flat orange as the figures — bold, condensed, heavy letterforms evenly spaced along each arc. Generous white margins. Crisp vector edges.</pre>
+          <div class="dl">negative prompt</div><pre>duplicate words, repeated &quot;AMAZING&quot;, extra text line, straight horizontal text under the figures, three or more text lines, multiple colors, gray tones, shading, gradient, drop shadow, glow, texture, grain, halftone, dark background, photo background, misspellings, decorative marks, photorealism, 3D</pre>
+          <div class="dl">notes</div><p>v1 duplicated &quot;AMAZING&quot; (straight line under figures + curved line). This pass: exactly two text lines total — THE LEAGUE arced above, AMAZING PROGRAMMERS arced below, no straight text.</p>
+          
+        </div>
+      </details>
+    </article>
+    <article class="card ">
+      <div class="cardhead">
+        <span class="num">#1</span><span class="lab">— v1 — figures center, THE LEAGUE arced above, AMAZING PROGRAMMERS arced below</span>
+        <span class="meta">2026-07-01T19:34:44 &middot; chatgpt-image-latest</span>
+      </div>
+      <div class="imgwrap"><a href="iterations/iter-001.png" target="_blank"><img class="hero" src="iterations/iter-001.png" alt="iteration 1"></a></div>
+      <div class="reflabel">references</div><div class="thumbs small"><a href="sources/figures_girl.png" target="_blank"><img src="sources/figures_girl.png"></a></div>
+      <details><summary>Prompt &amp; details</summary>
+        <div class="detail">
+          <div class="dl">positive prompt</div><pre>A clean single-color emblem logo on a plain pure-white background. One flat solid ORANGE color only (matching the reference silhouette&#x27;s orange) — no other colors, no gray, no gradients, no shadows, no texture.
+
+CENTER: the group of five stylized figures standing together, one of them raising a flag that carries a lightning bolt — reproduced faithfully from the reference image as a flat orange silhouette. This artwork is the centerpiece and fills the middle of the emblem.
+
+ABOVE the figures: the words &quot;THE LEAGUE&quot; set in bold condensed caps on a gentle UPWARD arc (curving like the top of a circle), centered over the figures, following the crown of the emblem.
+
+BELOW the figures: the words &quot;AMAZING PROGRAMMERS&quot; set in bold condensed caps on a gentle DOWNWARD arc (curving like the bottom of a circle, smile-shaped), centered under the figures, mirroring the top text.
+
+The two curved text lines and the central figures together compose a balanced circular badge / emblem lock-up — text hugging the top and bottom, figures in the middle. All type is the same flat orange as the figures. Bold, condensed, heavy letterforms, evenly spaced along each arc. Generous white margins around the whole emblem. Crisp vector edges.</pre>
+          <div class="dl">negative prompt</div><pre>multiple colors, gray tones, shading, gradient, drop shadow, glow, texture, grain, halftone, dark background, photo background, outer ring outline or circle border (unless implied only by the text), straight horizontal text, extra words, misspellings, lightning bolts outside the flag, decorative marks, photorealism, 3D</pre>
+          <div class="dl">notes</div><p>First pass: orange five-figures-with-flag silhouette (from source) centered, curved text above and below forming a round emblem lockup.</p>
+          
+        </div>
+      </details>
+    </article>
+  <footer>Generated 2026-07-01T19:40:35 &middot; this page auto-reloads when a new iteration is added</footer>
+</div>
+<script>
+ const CURRENT_VERSION = 4;
+ const live = document.getElementById('live');
+ // Only ever reload when state.json confirms a NEW version. We never blind-reload on a
+ // timer: under file:// (fetch blocked) or with the server down we can't read the version,
+ // so reloading would just flicker the page without knowing anything changed. In that case
+ // show a hint and keep quietly retrying — a live server will be picked up automatically.
+ async function poll(){
+   let served = true;
+   try{
+     const r = await fetch('state.json?ts=' + Date.now(), {cache:'no-store'});
+     if(r.ok){
+       const s = await r.json();
+       if(s.version > CURRENT_VERSION){ location.reload(); return; }
+     }else{
+       served = false;
+     }
+   }catch(e){
+     served = false;
+   }
+   if(served){
+     live.className='live'; live.innerHTML='&#9679; live';
+     setTimeout(poll, 1500);
+   }else{
+     // No live server (e.g. opened via file://). Stop flickering; just retry slowly.
+     live.className='live off'; live.innerHTML='&#9679; open via server for live reload';
+     setTimeout(poll, 4000);
+   }
+ }
+ poll();
+</script>
+</body>
+</html>

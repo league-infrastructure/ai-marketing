@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fun Friends In A Future — League Image Project</title>
+<style>
+ :root{--ink:#141414;--paper:#f7f4ec;--accent:#d4202a;--blue:#173a6e;--chip:#eee7d6;}
+ *{box-sizing:border-box;}
+ body{margin:0;background:#101317;color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;}
+ .wrap{max-width:1100px;margin:0 auto;padding:24px;}
+ header.top{background:var(--paper);border:3px solid var(--ink);border-radius:10px;padding:20px 24px;box-shadow:0 8px 30px rgba(0,0,0,.4);}
+ h1{margin:0 0 6px;font-size:28px;}
+ .theme{font-size:17px;color:#333;margin:0 0 10px;}
+ .scene{font-size:14px;color:#555;margin:0 0 12px;font-style:italic;}
+ .chips{display:flex;flex-wrap:wrap;gap:8px;}
+ .chip{background:var(--chip);border:1px solid #cbb;border-radius:20px;padding:3px 12px;font-size:12px;}
+ .chip b{color:var(--blue);text-transform:uppercase;font-size:10px;letter-spacing:.5px;margin-right:4px;}
+ h2{color:#f7f4ec;font-size:15px;text-transform:uppercase;letter-spacing:1px;margin:24px 4px 10px;}
+ .thumbs{display:flex;flex-wrap:wrap;gap:10px;}
+ .thumbs img{height:90px;border:2px solid var(--ink);border-radius:6px;background:#fff;object-fit:cover;}
+ .thumbs.small img{height:56px;}
+ .card{background:var(--paper);border:3px solid var(--ink);border-radius:10px;padding:16px;margin:16px 0;box-shadow:0 6px 20px rgba(0,0,0,.35);}
+ .card.err{border-color:var(--accent);}
+ .cardhead{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin-bottom:12px;}
+ .num{font-weight:800;font-size:20px;color:var(--accent);}
+ .lab{font-weight:600;}
+ .meta{margin-left:auto;font-size:12px;color:#777;}
+ .badge.err{background:var(--accent);color:#fff;border-radius:4px;padding:1px 7px;font-size:11px;}
+ .imgwrap{text-align:center;}
+ img.hero{max-width:100%;max-height:70vh;border:2px solid var(--ink);border-radius:6px;background:#fff;}
+ .noimg{padding:30px;color:var(--accent);font-weight:600;text-align:center;border:2px dashed var(--accent);border-radius:6px;}
+ .reflabel,.dl{font-size:10px;text-transform:uppercase;letter-spacing:.6px;color:var(--blue);margin:12px 0 4px;font-weight:700;}
+ details{margin-top:12px;}
+ summary{cursor:pointer;font-size:13px;color:var(--blue);font-weight:600;}
+ pre{white-space:pre-wrap;word-wrap:break-word;background:#fbfaf5;border:1px solid #ddd;border-radius:6px;padding:10px;font-size:12px;line-height:1.5;max-height:340px;overflow:auto;}
+ pre.err{border-color:var(--accent);color:#a01;}
+ .empty{color:#889;text-align:center;padding:40px;}
+ footer{color:#667;font-size:11px;text-align:center;padding:20px;}
+ .live{position:fixed;top:10px;right:12px;background:#1a1;color:#fff;font-size:11px;padding:3px 9px;border-radius:12px;opacity:.85;z-index:10;}
+ .live.off{background:#555;}
+</style>
+</head>
+<body>
+<div class="live" id="live">&#9679; live</div>
+<div class="wrap">
+  <header class="top">
+    <h1>Fun Friends In A Future</h1>
+    <p class="theme">Branding image: two kids coding together at a laptop, reimagined as a warm 1940s golden-age comic panel. Headline &quot;FUN FRIENDS IN A FUTURE&quot;, a kid&#x27;s speech balloon about coding being fun and building real skills, and a large League of Amazing Programmers wordmark in the lower right.</p>
+    <p class="scene">Two happy kids side by side at a laptop, coding together. In the foreground an East Asian girl with straight black hair in a ponytail, wearing a bright magenta-pink long-sleeve top, leans in and points at the glowing laptop screen; beside her a boy in a blue plaid/checked shirt watches intently, chin resting on his hand. Warm, focused, joyful collaboration; code glows on the laptop screen facing them.</p>
+    <div class="chips"><span class="chip"><b>style</b> comic-book</span><span class="chip"><b>composition</b> single-moment</span><span class="chip"><b>palette</b> orange-blue</span><span class="chip"><b>layout</b> postcard-4x6</span><span class="chip"><b>model</b> chatgpt-image-latest</span></div>
+  </header>
+  <section class="sources"><h2>Source images</h2><div class="thumbs"><a href="sources/istockphoto-996990848-612x612.jpg" target="_blank"><img src="sources/istockphoto-996990848-612x612.jpg" alt="source"></a><a href="sources/type-sample-01.png" target="_blank"><img src="sources/type-sample-01.png" alt="source"></a></div></section>
+  <h2>Iterations</h2>
+  
+    <article class="card ">
+      <div class="cardhead">
+        <span class="num">#7</span><span class="lab">— Draft 7 — content LOCKED from draft 6; sole goal = kill the grain, perfectly flat clean fills</span>
+        <span class="meta">2026-07-01T18:21:21 &middot; chatgpt-image-latest</span>
+      </div>
+      <div class="imgwrap"><a href="iterations/iter-007.png" target="_blank"><img class="hero" src="iterations/iter-007.png" alt="iteration 7"></a></div>
+      <div class="reflabel">references</div><div class="thumbs small"><a href="sources/istockphoto-996990848-612x612.jpg" target="_blank"><img src="sources/istockphoto-996990848-612x612.jpg"></a><a href="sources/type-sample-01.png" target="_blank"><img src="sources/type-sample-01.png"></a></div>
+      <details><summary>Prompt &amp; details</summary>
+        <div class="detail">
+          <div class="dl">positive prompt</div><pre>A WIDE LANDSCAPE 4x6 postcard in a clean flat-color comic-book style (bold hand-inked black outlines, large flat solid color areas).
+
+THE SINGLE MOST IMPORTANT REQUIREMENT: the coloring is PERFECTLY FLAT and SMOOTH like clean digital vector art or an Adobe Illustrator flat fill — every colored region is ONE uniform solid color with hard clean edges. There is absolutely NO texture of any kind: no grain, no noise, no speckle, no dithering, no film grain, no paper texture, no canvas texture, no halftone, no Ben-Day dots, no stipple, no cross-hatching, nothing aged/weathered/yellowed. Even the border and background must be pure smooth flat color. It must look like a crisp modern digital flat-color illustration, not a printed or scanned page.
+
+Everything inset with a clean smooth border margin on all four edges — nothing bleeds off any edge.
+
+WIDE LAYOUT in three horizontal bands:
+- TOP BAND (upper ~22%): flat golden-amber background with the HEADLINE on ONE arching line of bold outlined curved comic display lettering, centered, clear empty space above and to the sides so no letter touches any edge. Reads EXACTLY: FUN, FRIENDS AND A FUTURE  (keep the comma; do not repeat or add words).
+- MIDDLE BAND (center ~58%): two happy kids side by side at a laptop, coding together, warm three-quarter angle (follow the attached PHOTO reference for poses). Foreground: an EAST ASIAN girl with straight black hair in a ponytail, in a bright magenta-pink long-sleeve top, leaning in and pointing one finger at the glowing laptop screen. Beside her a boy in a blue plaid shirt watches intently, chin on his hand. The laptop faces us enough to show code glowing on the screen. Kids are the richly-inked heroes with proud, focused, expressive faces; the warm classroom behind them is bold flat shapes.
+- BOTTOM BAND (lower ~20%): LEFT = a cream comic speech balloon (tail to the girl) reading EXACTLY &quot;Coding is SO much FUN — and we&#x27;re building real skills for our future!&quot;; RIGHT = the League wordmark badge, whole shape and all three text lines fully inside the frame.
+
+COLOR — warm orange-and-blue complementary palette (~70% warm / 30% cool): golden-amber and marigold fields, burnt-orange and sienna warm shadows, steel-blue and deep-navy cool accents, ink-black linework, cream balloon fills, girl&#x27;s top vivid magenta-pink. Vivid printed-comic color. Shadows are flat hard-edged black shapes — no gradients, no soft shading — every fill perfectly smooth and texture-free.
+
+LOGO detail: reproduce the attached black-and-white LOGO reference faithfully — a curved double-outline banner with EXACTLY THREE stacked text lines and nothing more: (1) &quot;THE LEAGUE OF&quot;, (2) large &quot;AMAZING&quot;, (3) &quot;PROGRAMMERS&quot;, small lightning bolts flanking. The word &quot;OF&quot; appears only ONCE, at the end of line 1 — do NOT add any separate standalone &quot;OF&quot; line above AMAZING. Recolor to the orange-blue treatment (cream/gold lettering, steel-blue banner, black keylines); every letter crisp and correct.
+
+Render ONLY the headline, the one speech balloon, and the logo as text — no other posters, signs, slogans, labels, or lettering; code only on the laptop screen. Optimistic, cheerful, aspirational.</pre>
+          <div class="dl">negative prompt</div><pre>grain, noise, speckle, stipple, dithering, film grain, paper texture, canvas texture, halftone, Ben-Day dots, cross-hatching, hatching, print-dot texture, vintage print overlay, aged, weathered, distressed, yellowed, foxed, crumbling paper, newsprint, parchment, scanned page look. Square or vertical format. Headline clipped or touching any edge, logo or balloon clipped, full-bleed with no border, elements bleeding off any edge. Duplicated or repeated words, a second standalone &quot;OF&quot; line, a &quot;THE LEAGUE OF / OF / AMAZING&quot; stack. Photorealism, painterly, airbrush, soft gradients, soft/blended shading, 3D, CGI. Faded, muddy, washed-out color. Non-Asian girl. Photorealistic identifiable faces. Cool gray shadows. Extra invented text, wall text, or code anywhere except the laptop screen. Misspelled or garbled logo lettering. Frightened or menacing mood.</pre>
+          
+          
+        </div>
+      </details>
+    </article>
+    <article class="card ">
+      <div class="cardhead">
+        <span class="num">#6</span><span class="lab">— Draft 6 — WIDE postcard 4x6; girl is East Asian; band layout (headline top / scene / balloon+logo bottom); flat/no-texture</span>
+        <span class="meta">2026-07-01T18:18:45 &middot; chatgpt-image-latest</span>
+      </div>
+      <div class="imgwrap"><a href="iterations/iter-006.png" target="_blank"><img class="hero" src="iterations/iter-006.png" alt="iteration 6"></a></div>
+      <div class="reflabel">references</div><div class="thumbs small"><a href="sources/istockphoto-996990848-612x612.jpg" target="_blank"><img src="sources/istockphoto-996990848-612x612.jpg"></a><a href="sources/type-sample-01.png" target="_blank"><img src="sources/type-sample-01.png"></a></div>
+      <details><summary>Prompt &amp; details</summary>
+        <div class="detail">
+          <div class="dl">positive prompt</div><pre>A WIDE LANDSCAPE 4x6 postcard — a clean flat-colored comic-book poster (1940s Golden-Age spirit: bold hand-inked black outlines and large flat solid color areas) with COMPLETELY SMOOTH, TEXTURE-FREE coloring — every fill is one uniform solid color like modern digital flat coloring or vector art. NO grain, noise, speckle, dithering, film grain, paper texture, halftone, or Ben-Day dots anywhere; nothing aged or weathered. Freshly-printed, glassy-clean. Everything inset with a clear border margin on all four edges — nothing bleeds off any edge.
+
+WIDE LAYOUT in three horizontal bands:
+- TOP BAND (upper ~22%): plain golden-amber background carrying the HEADLINE on ONE arching line of bold outlined curved comic display lettering, centered, with clear empty golden space above AND to the left/right so no letters touch any edge. It reads EXACTLY: FUN, FRIENDS AND A FUTURE  (keep the comma; do not repeat or add any word).
+- MIDDLE BAND (center ~58%, the wide main scene): two happy kids side by side at a laptop, coding together, warm three-quarter angle (follow the attached PHOTO reference for their poses). In the foreground an EAST ASIAN girl with straight black hair in a ponytail, wearing a bright magenta-pink long-sleeve top, leans in and points one finger at the glowing laptop screen. Beside her a boy in a blue plaid shirt watches intently, chin on his hand. The laptop faces us enough to show code glowing on the screen. The kids are the richly-inked heroes with proud, focused, expressive faces; the warm classroom behind them simplifies into bold flat shapes. The wide format gives room on both sides of the pair.
+- BOTTOM BAND (lower ~20%): on the LEFT a cream comic speech balloon (tail pointing to the girl) reading EXACTLY &quot;Coding is SO much FUN — and we&#x27;re building real skills for our future!&quot;; on the RIGHT the League wordmark badge, its whole shape and all three text lines fully inside the frame with margin around it.
+
+COLOR — warm orange-and-blue complementary palette (~70% warm / 30% cool): golden-amber and marigold fields, burnt-orange and sienna warm shadows, steel-blue and deep-navy cool accents on edges and deepest shadows, ink-black linework, cream balloon fills, girl&#x27;s top vivid magenta-pink. Vivid printed-comic color. Shadows are flat hard-edged black shapes — no gradients, no soft shading — every fill perfectly smooth.
+
+LOGO detail: reproduce the attached black-and-white LOGO reference faithfully — a curved double-outline banner with EXACTLY THREE stacked text lines and NOTHING more: (1) &quot;THE LEAGUE OF&quot;, (2) large &quot;AMAZING&quot;, (3) &quot;PROGRAMMERS&quot;, with small lightning bolts flanking. The word &quot;OF&quot; appears only ONCE, at the end of line 1 — do NOT add any separate standalone &quot;OF&quot; line above AMAZING. Recolor to the orange-blue treatment (cream/gold lettering, steel-blue banner, black keylines); every letter crisp and correct.
+
+Render ONLY the headline, the one speech balloon, and the logo as text — no other posters, signs, slogans, labels, or lettering; code only on the laptop screen. Optimistic, cheerful, aspirational.</pre>
+          <div class="dl">negative prompt</div><pre>Square or vertical format (must be wide landscape), headline clipped or touching any edge, oversized headline, logo or balloon clipped, full-bleed with no border, elements bleeding off any edge. Duplicated or repeated words, a second standalone &quot;OF&quot; line in the logo, a &quot;THE LEAGUE OF / OF / AMAZING&quot; stack. TEXTURE OF ANY KIND, grain, noise, speckle, stipple, dithering, film grain, paper/canvas texture, halftone, Ben-Day dots, cross-hatching. Aged, weathered, distressed, yellowed, foxed, crumbling paper. Photorealism, painterly, airbrush, soft gradients, soft/blended shading, 3D, CGI. Faded, muddy, washed-out color. Non-Asian girl. Photorealistic identifiable faces. Cool gray shadows. Extra invented text, wall text, or code anywhere except the laptop screen. Misspelled or garbled logo lettering. Frightened or menacing mood.</pre>
+          
+          
+        </div>
+      </details>
+    </article>
+    <article class="card ">
+      <div class="cardhead">
+        <span class="num">#5</span><span class="lab">— Draft 5 — layout by vertical thirds; smaller headline sitting in an empty top band; complete correct logo; flat/no-texture</span>
+        <span class="meta">2026-07-01T18:16:41 &middot; chatgpt-image-latest</span>
+      </div>
+      <div class="imgwrap"><a href="iterations/iter-005.png" target="_blank"><img class="hero" src="iterations/iter-005.png" alt="iteration 5"></a></div>
+      <div class="reflabel">references</div><div class="thumbs small"><a href="sources/istockphoto-996990848-612x612.jpg" target="_blank"><img src="sources/istockphoto-996990848-612x612.jpg"></a><a href="sources/type-sample-01.png" target="_blank"><img src="sources/type-sample-01.png"></a></div>
+      <details><summary>Prompt &amp; details</summary>
+        <div class="detail">
+          <div class="dl">positive prompt</div><pre>A clean flat-colored comic-book poster (1940s Golden-Age spirit: bold hand-inked black outlines and large flat solid color areas) with COMPLETELY SMOOTH, TEXTURE-FREE coloring — every fill is one uniform solid color like modern digital flat coloring or vector art. NO grain, noise, speckle, dithering, film grain, paper texture, halftone, or Ben-Day dots anywhere; nothing aged or weathered. Freshly-printed, glassy-clean.
+
+LAYOUT — build the canvas in horizontal bands, everything inset with a clear border margin on all four edges (comic-cover style, nothing bleeds off any edge):
+- TOP BAND (upper ~30% of the canvas): plain golden-amber background. The HEADLINE sits in the LOWER part of this band as TWO arching lines of bold outlined curved comic display lettering — with clear EMPTY golden space ABOVE line 1 so the letter-tops never touch the top edge. Make the headline modest in size so it comfortably fits with that space above. It reads EXACTLY:
+   Line 1: FUN, FRIENDS
+   Line 2: AND A FUTURE
+   (keep the comma; do not repeat or add any word.)
+- MIDDLE BAND (center ~50%): the SCENE. Two happy kids side by side at a laptop, coding together, warm three-quarter angle (follow the attached PHOTO reference for their poses). Foreground girl in a bright magenta-pink long-sleeve top leans in and points one finger at the glowing laptop screen; beside her a boy in a blue plaid shirt watches intently, chin on his hand. The laptop faces us enough to show code glowing on the screen. Kids are the richly-inked heroes with proud, focused, expressive faces; the warm classroom behind them is simplified into bold flat shapes.
+- BOTTOM BAND (lower ~20%): on the LEFT a cream speech balloon (tail to the girl) reading EXACTLY &quot;Coding is SO much FUN — and we&#x27;re building real skills for our future!&quot;; on the RIGHT the League wordmark badge, its whole shape and all three text lines fully inside the frame with margin below &quot;PROGRAMMERS&quot;.
+
+COLOR — warm orange-and-blue complementary palette (~70% warm / 30% cool): golden-amber and marigold fields, burnt-orange and sienna warm shadows, steel-blue and deep-navy cool accents on edges and deepest shadows, ink-black linework, cream balloon fills, girl&#x27;s top vivid magenta-pink. Vivid printed-comic color. Shadows are flat hard-edged black shapes — no gradients, no soft shading — every fill perfectly smooth.
+
+LOGO detail: reproduce the attached black-and-white LOGO reference faithfully — a curved double-outline banner with EXACTLY THREE stacked lines: top line &quot;THE LEAGUE OF&quot; (the word OF appears ONLY ONCE, here), then large &quot;AMAZING&quot;, then &quot;PROGRAMMERS&quot;, with small lightning bolts flanking. Do NOT add a second standalone &quot;OF&quot; line. Recolor to the orange-blue treatment (cream/gold lettering, steel-blue banner, black keylines); every letter crisp and correct.
+
+Render ONLY the headline, the one speech balloon, and the logo as text — no other posters, signs, slogans, labels, or lettering; code only on the laptop screen. Optimistic, cheerful, aspirational.</pre>
+          <div class="dl">negative prompt</div><pre>Headline clipped or touching the top edge, no empty space above the headline, oversized headline filling to the top, logo or its bottom line clipped, balloon clipped, full-bleed with no border, elements bleeding off any edge. Duplicated or repeated words, a second standalone &quot;OF&quot; line in the logo. TEXTURE OF ANY KIND, grain, noise, speckle, stipple, dithering, film grain, paper/canvas texture, halftone, Ben-Day dots, cross-hatching. Aged, weathered, distressed, yellowed, foxed, crumbling paper. Photorealism, painterly, airbrush, soft gradients, soft/blended shading, 3D, CGI. Faded, muddy, washed-out color. Photorealistic identifiable faces. Cool gray shadows. Extra invented text, wall text, or code anywhere except the laptop screen. Misspelled or garbled logo lettering. Frightened or menacing mood.</pre>
+          
+          
+        </div>
+      </details>
+    </article>
+    <article class="card ">
+      <div class="cardhead">
+        <span class="num">#4</span><span class="lab">— Draft 4 — drop headline down with an empty band above it (stop clipping the top); keep everything else, flat/no-texture</span>
+        <span class="meta">2026-07-01T18:15:03 &middot; chatgpt-image-latest</span>
+      </div>
+      <div class="imgwrap"><a href="iterations/iter-004.png" target="_blank"><img class="hero" src="iterations/iter-004.png" alt="iteration 4"></a></div>
+      <div class="reflabel">references</div><div class="thumbs small"><a href="sources/istockphoto-996990848-612x612.jpg" target="_blank"><img src="sources/istockphoto-996990848-612x612.jpg"></a><a href="sources/type-sample-01.png" target="_blank"><img src="sources/type-sample-01.png"></a></div>
+      <details><summary>Prompt &amp; details</summary>
+        <div class="detail">
+          <div class="dl">positive prompt</div><pre>ABSOLUTE TOP PRIORITY — ZERO TEXTURE: every colored area is a PERFECTLY CLEAN, SMOOTH, UNIFORM FLAT solid color, exactly like modern digital flat-color comic coloring or clean vector art. NO grain, NO noise, NO speckle, NO stipple, NO dithering, NO film grain, NO paper texture, NO halftone, NO Ben-Day dots, NO aged/weathered/yellowed look anywhere. Each fill is a single smooth solid ink. The whole image looks freshly digitally printed and glassy-clean.
+
+SECOND PRIORITY — HEADLINE MUST NOT BE CLIPPED AT THE TOP: leave a WIDE EMPTY BAND of plain golden background across the very top of the image, and place the entire headline BELOW that empty band so the tops of the letters have clear space above them and do not touch or cross the top edge. Also keep a clear margin on the left, right, and bottom edges — the whole composition is inset like a comic cover with a visible border, nothing bleeding off any edge.
+
+Render a single comic-book poster panel in a 1940s Golden-Age spirit — bold hand-inked black contour lines of varied weight, large unbroken areas of flat solid color — but with COMPLETELY SMOOTH, CLEAN, TEXTURE-FREE flat coloring. NOT a photo, NOT painterly, NOT airbrushed.
+
+COMPOSITION (use the attached PHOTO reference for staging/poses), framed so everything fits with margins: two happy kids side by side at a laptop, coding together, at a warm three-quarter angle. In the foreground a girl in a bright pink/magenta long-sleeve top leans in and points one finger at the glowing laptop screen. Beside her a boy in a plaid/checked shirt watches intently, chin resting on his hand. The laptop is turned so we glimpse code glowing on the screen. The two kids are the richly-inked heroes with expressive, proud, focused faces; simplify the warm classroom background into bold flat graphic shapes.
+
+COLOR — warm orange-and-blue complementary palette (about 70% warm / 30% cool): golden-amber and marigold field, burnt-orange and sienna warm shadows, steel-blue and deep-navy cool accents on edges and deepest shadows; ink black linework; cream balloon/caption fills; girl&#x27;s top vivid magenta-pink. VIVID printed-comic color. Shadows are flat black hard-edged shapes — no gradients, no soft shading — every fill perfectly smooth and texture-free.
+
+TEXT — render EXACTLY these three elements and nothing else, spelled correctly and FULLY inside the frame:
+1. HEADLINE (placed below the empty top band, NOT touching the top edge) in a big dramatic curved comic-book display font (bold, outlined, subtle clean 3-D pop), reading exactly, on two arching lines:
+   Line 1: FUN, FRIENDS
+   Line 2: AND A FUTURE
+   (full phrase &quot;FUN, FRIENDS AND A FUTURE&quot; — keep the comma, do not repeat or add words.)
+2. A cream comic SPEECH BALLOON in the lower-LEFT near the girl&#x27;s shoulder, hand-lettered, tail pointing to the girl, entirely inside the frame, reading exactly: &quot;Coding is SO much FUN — and we&#x27;re building real skills for our future!&quot;
+3. In the LOWER-RIGHT, the League of Amazing Programmers wordmark badge, whole badge inside the frame, reproduced faithfully from the attached black-and-white LOGO reference: a curved double-outline banner with EXACTLY THREE stacked text lines — top line &quot;THE LEAGUE OF&quot; (the word OF appears only ONCE, on this top line), then big &quot;AMAZING&quot;, then &quot;PROGRAMMERS&quot; — with small flanking lightning bolts. Do NOT add a second separate &quot;OF&quot;. Re-color into this comic&#x27;s orange-blue treatment (cream/gold lettering, steel-blue banner, black keylines), every letter crisp and correctly spelled.
+
+No other posters, signs, slogans, labels, or lettering anywhere. Code appears only on the laptop screen. Optimistic, cheerful, aspirational mood.</pre>
+          <div class="dl">negative prompt</div><pre>Headline clipped or cut off at the top, letters touching or crossing the top edge, no empty space above the headline, full-bleed composition with no border. TEXTURE OF ANY KIND, grain, noise, speckle, stipple, dithering, film grain, paper texture, canvas texture, halftone, Ben-Day dots, cross-hatching, hatching. Aged, weathered, distressed, yellowed, foxed, crumbling paper; newsprint/parchment texture. Cropped or cut-off text, logo or balloon cut off, elements bleeding off any border. Duplicated or repeated words, a second standalone &quot;OF&quot; line in the logo. Photorealism, painterly rendering, airbrush, soft gradients, soft/blended shading, 3D render, CGI. Faded, muddy, washed-out color. Photorealistic identifiable faces. Cool gray shadows. Extra invented posters, signs, slogans, labels, wall text, or code anywhere except the laptop screen. Misspelled or garbled logo lettering. Frightened or menacing mood.</pre>
+          
+          
+        </div>
+      </details>
+    </article>
+    <article class="card ">
+      <div class="cardhead">
+        <span class="num">#3</span><span class="lab">— Draft 3 — zoom out for clear margin all 4 edges (headline top + logo bottom fully inside); fix logo doubled OF; keep flat/no-texture</span>
+        <span class="meta">2026-07-01T18:13:29 &middot; chatgpt-image-latest</span>
+      </div>
+      <div class="imgwrap"><a href="iterations/iter-003.png" target="_blank"><img class="hero" src="iterations/iter-003.png" alt="iteration 3"></a></div>
+      <div class="reflabel">references</div><div class="thumbs small"><a href="sources/istockphoto-996990848-612x612.jpg" target="_blank"><img src="sources/istockphoto-996990848-612x612.jpg"></a><a href="sources/type-sample-01.png" target="_blank"><img src="sources/type-sample-01.png"></a></div>
+      <details><summary>Prompt &amp; details</summary>
+        <div class="detail">
+          <div class="dl">positive prompt</div><pre>ABSOLUTE TOP PRIORITY — ZERO TEXTURE: every colored area is a PERFECTLY CLEAN, SMOOTH, UNIFORM FLAT solid color, exactly like modern digital flat-color comic coloring or clean vector art. NO grain, NO noise, NO speckle, NO stipple, NO dithering, NO film grain, NO paper texture, NO halftone, NO Ben-Day dots, NO aged/weathered/yellowed look anywhere. Each fill is a single smooth solid ink. The whole image looks freshly digitally printed and glassy-clean.
+
+SECOND PRIORITY — FRAMING WITH MARGINS: zoom the whole composition OUT so there is a clear EMPTY MARGIN of blank border around ALL FOUR edges, like the border of a comic cover. Every element must sit fully inside that margin: there must be empty space ABOVE the headline (its top edge not touching the top border) and empty space BELOW the logo (its bottom edge not touching the bottom border). Nothing is cropped, clipped, or bleeds off any edge — headline, both kids, speech balloon, and the entire logo badge all float inside with breathing room.
+
+Render a single comic-book poster panel in a 1940s Golden-Age spirit — bold hand-inked black contour lines of varied weight, large unbroken areas of flat solid color — but with COMPLETELY SMOOTH, CLEAN, TEXTURE-FREE flat coloring. NOT a photo, NOT painterly, NOT airbrushed.
+
+COMPOSITION (use the attached PHOTO reference for staging/poses), framed WIDER and smaller so it all fits with margins: two happy kids side by side at a laptop, coding together, at a warm three-quarter angle. In the foreground a girl in a bright pink/magenta long-sleeve top leans in and points one finger at the glowing laptop screen. Beside her a boy in a plaid/checked shirt watches intently, chin resting on his hand. The laptop is turned so we glimpse code glowing on the screen. The two kids are the richly-inked heroes with expressive, proud, focused faces; simplify the warm classroom background into bold flat graphic shapes.
+
+COLOR — warm orange-and-blue complementary palette (about 70% warm / 30% cool): golden-amber and marigold field, burnt-orange and sienna warm shadows, steel-blue and deep-navy cool accents on edges and deepest shadows; ink black linework; cream balloon/caption fills; girl&#x27;s top vivid magenta-pink. VIVID printed-comic color. Shadows are flat black hard-edged shapes — no gradients, no soft shading — every fill perfectly smooth and texture-free.
+
+TEXT — render EXACTLY these three elements and nothing else, spelled correctly and FULLY inside the margin:
+1. HEADLINE across the TOP (with empty space above it) in a big dramatic curved comic-book display font (bold, outlined, subtle clean 3-D pop), reading exactly, on two arching lines:
+   Line 1: FUN, FRIENDS
+   Line 2: AND A FUTURE
+   (full phrase &quot;FUN, FRIENDS AND A FUTURE&quot; — keep the comma, do not repeat or add words.)
+2. A cream comic SPEECH BALLOON in the lower-LEFT near the girl&#x27;s shoulder, hand-lettered, tail pointing to the girl, entirely inside the frame, reading exactly: &quot;Coding is SO much FUN — and we&#x27;re building real skills for our future!&quot;
+3. In the LOWER-RIGHT, the League of Amazing Programmers wordmark badge, sized so the WHOLE badge including the bottom &quot;PROGRAMMERS&quot; line sits inside the frame with margin below it, reproduced faithfully from the attached black-and-white LOGO reference: a curved double-outline banner with EXACTLY THREE stacked text lines — top line &quot;THE LEAGUE OF&quot; (the word OF appears only ONCE, on this top line), then big &quot;AMAZING&quot;, then &quot;PROGRAMMERS&quot; — with small flanking lightning bolts. Do NOT add a second separate &quot;OF&quot;. Re-color into this comic&#x27;s orange-blue treatment (cream/gold lettering, steel-blue banner, black keylines), every letter crisp and correctly spelled.
+
+No other posters, signs, slogans, labels, or lettering anywhere. Code appears only on the laptop screen. Optimistic, cheerful, aspirational mood.</pre>
+          <div class="dl">negative prompt</div><pre>TEXTURE OF ANY KIND, grain, noise, speckle, stipple, dithering, film grain, paper texture, canvas texture, halftone, Ben-Day dots, cross-hatching, hatching. Aged, weathered, distressed, yellowed, foxed, crumbling paper; newsprint/parchment texture. Cropped or cut-off text, headline touching or running off the top edge, logo touching or running off the bottom/right edge, speech balloon cut off, elements bleeding off the border, full-bleed composition with no margin. Duplicated or repeated words, a second standalone &quot;OF&quot; line in the logo. Photorealism, painterly rendering, airbrush, soft gradients, soft/blended shading, 3D render, CGI. Faded, muddy, washed-out color. Photorealistic identifiable faces. Cool gray shadows. Extra invented posters, signs, slogans, labels, wall text, or code anywhere except the laptop screen. Misspelled or garbled logo lettering. Frightened or menacing mood.</pre>
+          
+          
+        </div>
+      </details>
+    </article>
+    <article class="card ">
+      <div class="cardhead">
+        <span class="num">#2</span><span class="lab">— Draft 2 — title fixed to &quot;FUN, FRIENDS AND A FUTURE&quot;; ZERO texture (flat smooth solid fills); nothing cropped</span>
+        <span class="meta">2026-07-01T18:11:55 &middot; chatgpt-image-latest</span>
+      </div>
+      <div class="imgwrap"><a href="iterations/iter-002.png" target="_blank"><img class="hero" src="iterations/iter-002.png" alt="iteration 2"></a></div>
+      <div class="reflabel">references</div><div class="thumbs small"><a href="sources/istockphoto-996990848-612x612.jpg" target="_blank"><img src="sources/istockphoto-996990848-612x612.jpg"></a><a href="sources/type-sample-01.png" target="_blank"><img src="sources/type-sample-01.png"></a></div>
+      <details><summary>Prompt &amp; details</summary>
+        <div class="detail">
+          <div class="dl">positive prompt</div><pre>ABSOLUTE TOP PRIORITY — ZERO TEXTURE: every colored area must be a PERFECTLY CLEAN, SMOOTH, UNIFORM FLAT solid color, exactly like modern digital flat-color comic coloring or clean vector art. NO grain, NO noise, NO speckle, NO stipple, NO dithering, NO film grain, NO paper texture, NO halftone, NO Ben-Day dots, NO aged/weathered/yellowed look anywhere. Each fill is a single smooth solid ink. The whole image must look freshly digitally printed and glassy-clean.
+
+Render a single comic-book poster panel in a 1940s Golden-Age spirit — bold hand-inked black contour lines of varied weight and large unbroken areas of flat solid color — but with COMPLETELY SMOOTH, CLEAN, TEXTURE-FREE fills (clean flat coloring over the ink lines). NOT a photo, NOT painterly, NOT airbrushed.
+
+FRAMING: full poster — pull the camera BACK to a medium shot and keep EVERY element FULLY INSIDE the frame with a comfortable margin. Nothing may be cropped or run off any edge: the complete headline, both kids, the whole speech balloon, and the entire logo badge all fit with breathing room.
+
+COMPOSITION (use the attached PHOTO reference for staging/poses): two happy kids side by side at a laptop, coding together, at a warm three-quarter angle, framed WIDER so they sit lower in the frame. In the foreground a girl in a bright pink/magenta long-sleeve top leans in and points one finger at the glowing laptop screen. Beside her a boy in a plaid/checked shirt watches intently, chin resting on his hand. The laptop is turned so we glimpse code glowing on the screen. The two kids are the richly-inked heroes with expressive, proud, focused faces; simplify the warm classroom background into bold flat graphic shapes. Reserve clear open space along the TOP for the headline and in the LOWER-RIGHT for the logo.
+
+COLOR — warm orange-and-blue complementary palette (about 70% warm / 30% cool): golden-amber and marigold field, burnt-orange and sienna warm shadows, steel-blue and deep-navy cool accents on edges and deepest shadows; ink black linework; cream balloon/caption fills; girl&#x27;s top vivid magenta-pink. VIVID printed-comic color. Shadows are flat black hard-edged shapes — no gradients, no soft shading — but remember every fill stays perfectly smooth and texture-free.
+
+TEXT — render EXACTLY these three elements and nothing else, spelled correctly and fully within the frame:
+1. HEADLINE across the TOP in a big dramatic curved comic-book display font (bold, outlined, subtle clean 3-D pop), reading exactly, on two arching lines:
+   Line 1: FUN, FRIENDS
+   Line 2: AND A FUTURE
+   (full phrase &quot;FUN, FRIENDS AND A FUTURE&quot; — keep the comma, do not repeat or add words.)
+2. A cream comic SPEECH BALLOON in the lower-LEFT near the girl&#x27;s shoulder, hand-lettered, tail pointing to the girl, entirely inside the frame, reading exactly: &quot;Coding is SO much FUN — and we&#x27;re building real skills for our future!&quot;
+3. In the LOWER-RIGHT, a League of Amazing Programmers wordmark badge, sized so the WHOLE badge is visible inside the frame, reproduced faithfully from the attached black-and-white LOGO reference (curved double-outline banner, three stacked lines — &quot;THE LEAGUE OF&quot;, big &quot;AMAZING&quot;, &quot;PROGRAMMERS&quot; — with small flanking lightning bolts), re-colored into this comic&#x27;s orange-blue treatment (cream/gold lettering, steel-blue banner, black keylines), every letter crisp and correctly spelled.
+
+No other posters, signs, slogans, labels, or lettering anywhere. Code appears only on the laptop screen. Optimistic, cheerful, aspirational mood.</pre>
+          <div class="dl">negative prompt</div><pre>TEXTURE OF ANY KIND, grain, noise, speckle, stipple, dithering, film grain, paper texture, canvas texture, halftone, Ben-Day dots, cross-hatching, hatching. Aged, weathered, distressed, yellowed, foxed, or crumbling paper; newsprint/parchment texture. Cropped or cut-off text, headline running off the edge, logo cut off, speech balloon cut off, elements touching the border. Duplicated or repeated words. Photorealism, painterly rendering, airbrush, soft gradients, soft/blended shading, 3D render, CGI. Faded, muddy, washed-out color. Photorealistic identifiable faces. Cool gray shadows. Extra invented posters, signs, slogans, labels, wall text, or code anywhere except the laptop screen. Misspelled or garbled logo lettering. Frightened or menacing mood.</pre>
+          
+          
+        </div>
+      </details>
+    </article>
+    <article class="card ">
+      <div class="cardhead">
+        <span class="num">#1</span><span class="lab">— Draft 1 — comic-book / orange-blue, photo-driven, headline + kid balloon + LEAGUE wordmark lower-right</span>
+        <span class="meta">2026-07-01T18:08:57 &middot; chatgpt-image-latest</span>
+      </div>
+      <div class="imgwrap"><a href="iterations/iter-001.png" target="_blank"><img class="hero" src="iterations/iter-001.png" alt="iteration 1"></a></div>
+      <div class="reflabel">references</div><div class="thumbs small"><a href="sources/istockphoto-996990848-612x612.jpg" target="_blank"><img src="sources/istockphoto-996990848-612x612.jpg"></a><a href="sources/type-sample-01.png" target="_blank"><img src="sources/type-sample-01.png"></a></div>
+      <details><summary>Prompt &amp; details</summary>
+        <div class="detail">
+          <div class="dl">positive prompt</div><pre>Render a single landscape 1940s Golden-Age American comic-book panel — bold hand-inked black contour lines of varied weight, large unbroken areas of flat solid color, dramatic four-color printing look. This is authentic hand-drawn/inked comic art: NOT a photo, NOT painterly, NOT modern digital illustration.
+
+COMPOSITION (follow the attached PHOTO reference for the staging): two happy kids side by side at a laptop, coding together, seen at a warm close three-quarter angle. In the FOREGROUND a girl in a bright pink/magenta long-sleeve top leans in and points one finger at the glowing laptop screen. Beside her a boy in a plaid/checked shirt watches the screen intently, resting his chin thoughtfully on his hand. The laptop is turned so we glimpse code glowing on the screen. Keep the two kids as the richly-inked heroes with expressive, proud, focused faces; simplify the background (a warm classroom nook) into bold graphic shapes. Leave clear open space in the UPPER-LEFT above the kids&#x27; heads for a headline, and clear space in the LOWER-RIGHT for a logo.
+
+COLOR — warm orange-and-blue complementary palette (about 70% warm / 30% cool): a golden-amber and marigold field, burnt-orange and sienna warm shadows modeling the forms, steel-blue and deep-navy as the cool accent on edges and the deepest shadows; ink black anchors all linework; cream for the caption/balloon fills; the girl&#x27;s top a vivid magenta-pink accent. Colors printed-comic VIVID, never muddy. Shadows are flat black hard-edged shapes — no gradients, no airbrush, no soft shading, and absolutely NO Ben-Day / halftone dots.
+
+TEXT — render EXACTLY these three elements and nothing else:
+1. HEADLINE, upper-left, arching in a big dramatic curved comic-book display font (bold, outlined, with a subtle 3-D pop), reading: FUN FRIENDS IN A FUTURE
+2. A cream comic SPEECH BALLOON near the girl&#x27;s shoulder, hand-lettered, with its tail pointing to the girl, reading: &quot;Coding is SO much FUN — and we&#x27;re building real skills for our future!&quot;
+3. In the LOWER-RIGHT, a LARGE, clean League of Amazing Programmers wordmark badge, reproduced faithfully from the attached black-and-white LOGO reference (the curved double-outline banner with three stacked lines — &quot;THE LEAGUE OF&quot;, big &quot;AMAZING&quot;, &quot;PROGRAMMERS&quot; — and the small flanking lightning bolts), re-colored into this comic&#x27;s orange-blue four-color treatment (cream/gold lettering, steel-blue banner, black keylines). Keep every letter crisp and correctly spelled.
+
+No other posters, signs, slogans, labels, or lettering anywhere. Code appears only on the laptop screen. Optimistic, cheerful, aspirational mood.</pre>
+          <div class="dl">negative prompt</div><pre>Photorealism, painterly rendering, airbrush, soft gradients, soft or blended shading, glossy modern digital coloring, 3D render, CGI, modern flat-vector poster look. Ben-Day dots, halftone patterns, cross-hatching, stippling, fine line texture. ANY surface grain, noise, speckle, dithering, film grain, or print-dot texture. Aged, weathered, distressed, yellowed, or foxed paper; newsprint/parchment texture; crumbling old-comic look. Faded, muddy, washed-out color. Photorealistic identifiable faces. Cool gray shadows. Extra invented posters, signs, slogans, labels, wall text, or code anywhere except the laptop screen. Misspelled or garbled logo lettering. Frightened or menacing mood.</pre>
+          
+          
+        </div>
+      </details>
+    </article>
+  <footer>Generated 2026-07-01T18:21:21 &middot; this page auto-reloads when a new iteration is added</footer>
+</div>
+<script>
+ const CURRENT_VERSION = 9;
+ const live = document.getElementById('live');
+ // Only ever reload when state.json confirms a NEW version. We never blind-reload on a
+ // timer: under file:// (fetch blocked) or with the server down we can't read the version,
+ // so reloading would just flicker the page without knowing anything changed. In that case
+ // show a hint and keep quietly retrying — a live server will be picked up automatically.
+ async function poll(){
+   let served = true;
+   try{
+     const r = await fetch('state.json?ts=' + Date.now(), {cache:'no-store'});
+     if(r.ok){
+       const s = await r.json();
+       if(s.version > CURRENT_VERSION){ location.reload(); return; }
+     }else{
+       served = false;
+     }
+   }catch(e){
+     served = false;
+   }
+   if(served){
+     live.className='live'; live.innerHTML='&#9679; live';
+     setTimeout(poll, 1500);
+   }else{
+     // No live server (e.g. opened via file://). Stop flickering; just retry slowly.
+     live.className='live off'; live.innerHTML='&#9679; open via server for live reload';
+     setTimeout(poll, 4000);
+   }
+ }
+ poll();
+</script>
+</body>
+</html>
