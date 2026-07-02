@@ -101,7 +101,91 @@
       "error": null,
       "text_response": "",
       "usage": {}
+    },
+    {
+      "n": 4,
+      "label": "v4 — THE LEAGUE OF above, AMAZING PROGRAMMERS below (bold caps, no ring)",
+      "created": "2026-07-01T19:50:36",
+      "style": "type-sample",
+      "composition": "type-sample",
+      "component": "league-logo-horizontal",
+      "palette": "",
+      "layout": "type-sample",
+      "background": "",
+      "scene_description": "",
+      "model": "chatgpt-image-latest",
+      "prompt": "A bold, modern single-color logo lockup on a plain pure-white background. One flat solid ORANGE color only (matching the reference silhouette) — no other colors, no gray, no gradients, no shadows, no texture. This is NOT a round seal or badge — there is absolutely NO circle, ring, or enclosing border of any kind.\n\nCENTER: the group of five stylized figures standing together, one raising a flag with a lightning bolt — reproduced faithfully from the reference image as a flat orange silhouette, the hero of the lockup.\n\nABOVE the figures: the words \"THE LEAGUE OF\" in VERY BOLD, heavy, tightly-spaced CONDENSED caps — a muscular athletic display typeface (compressed, chunky letterforms with slight energy). All three words on ONE line, set on a shallow gentle upward curve, spanning the width of the group, sitting close above the figures' heads.\n\nBELOW the figures: the words \"AMAZING PROGRAMMERS\" in the SAME bold condensed caps on a shallow downward curve (one line, side by side), tucked in tight just beneath the figures' feet.\n\nRead as a whole, the mark spells \"THE LEAGUE OF AMAZING PROGRAMMERS\". The type should feel powerful and contemporary — heavy condensed caps like a sports/streetwear wordmark, hugging the artwork closely so it reads as one compact mark. Same flat orange throughout. Generous white margins around the outside. Crisp vector edges. No ring, no circle, no banner, no outline.",
+      "negative_prompt": "missing \"OF\", dropped word, circle, ring, circular border, round seal, badge outline, enclosing outline, banner, ribbon, thin dainty lettering, serif type, multiple colors, gray tones, shading, gradient, drop shadow, glow, texture, grain, halftone, dark background, duplicate words, repeated AMAZING, extra text, misspellings, photorealism, 3D",
+      "custom_additions": "",
+      "references": [
+        "sources/figures_girl.png"
+      ],
+      "images": [
+        "iterations/iter-004.png"
+      ],
+      "image": "iterations/iter-004.png",
+      "notes": "Full name: THE LEAGUE OF arced above the figures, AMAZING PROGRAMMERS curved below. Same iter-003 direction — heavy condensed caps, no circle.",
+      "status": "ok",
+      "error": null,
+      "text_response": "",
+      "usage": {}
+    },
+    {
+      "n": 5,
+      "label": "v5 — TOP: THE LEAGUE OF only; BOTTOM: AMAZING PROGRAMMERS",
+      "created": "2026-07-01T19:51:43",
+      "style": "type-sample",
+      "composition": "type-sample",
+      "component": "league-logo-horizontal",
+      "palette": "",
+      "layout": "type-sample",
+      "background": "",
+      "scene_description": "",
+      "model": "chatgpt-image-latest",
+      "prompt": "A bold, modern single-color logo lockup on a plain pure-white background. One flat solid ORANGE color only (matching the reference silhouette) — no other colors, no gray, no gradients, no shadows, no texture. NOT a round seal or badge — absolutely NO circle, ring, or enclosing border of any kind.\n\nThe mark has EXACTLY TWO lines of text total — one short line above the figures and one line below them. Read together they spell \"THE LEAGUE OF AMAZING PROGRAMMERS\". Do not repeat any word.\n\nCENTER: the group of five stylized figures standing together, one raising a flag with a lightning bolt — reproduced faithfully from the reference image as a flat orange silhouette, the hero of the lockup.\n\nTOP line — ONLY the three words \"THE LEAGUE OF\" (nothing else) in VERY BOLD, heavy, tightly-spaced CONDENSED caps, a muscular athletic display face. All three words on ONE single line, set on a shallow gentle upward curve, centered above the figures' heads. The words \"AMAZING\" and \"PROGRAMMERS\" do NOT appear on the top — the top line ends after the word \"OF\".\n\nBOTTOM line — ONLY the two words \"AMAZING PROGRAMMERS\" in the SAME bold condensed caps, on ONE line on a shallow downward curve, centered just beneath the figures' feet.\n\nHeavy condensed caps like a sports/streetwear wordmark, hugging the artwork closely. Same flat orange throughout. Generous white margins. Crisp vector edges. No ring, no circle, no banner, no outline.",
+      "negative_prompt": "\"AMAZING\" on the top line, \"PROGRAMMERS\" on the top line, whole name repeated, duplicate AMAZING PROGRAMMERS, more than two text lines, missing \"OF\", circle, ring, circular border, round seal, badge outline, enclosing outline, banner, ribbon, thin dainty lettering, serif type, multiple colors, gray tones, shading, gradient, drop shadow, glow, texture, grain, halftone, dark background, misspellings, photorealism, 3D",
+      "custom_additions": "",
+      "references": [
+        "sources/figures_girl.png"
+      ],
+      "images": [
+        "iterations/iter-005.png"
+      ],
+      "image": "iterations/iter-005.png",
+      "notes": "v4 duplicated AMAZING PROGRAMMERS (whole name on top + again on bottom). Lock it: top arc is ONLY the three words THE LEAGUE OF; bottom arc is ONLY AMAZING PROGRAMMERS.",
+      "status": "ok",
+      "error": null,
+      "text_response": "",
+      "usage": {}
+    },
+    {
+      "n": 6,
+      "label": "v6 — no ground strip, faithful original silhouettes",
+      "created": "2026-07-01T20:05:25",
+      "style": "type-sample",
+      "composition": "type-sample",
+      "component": "league-logo-horizontal",
+      "palette": "",
+      "layout": "type-sample",
+      "background": "",
+      "scene_description": "",
+      "model": "chatgpt-image-latest",
+      "prompt": "A bold, modern single-color logo lockup on a plain pure-white background. One flat solid ORANGE color only (matching the reference silhouette) — no other colors, no gray, no gradients, no shadows, no texture. NOT a round seal or badge — absolutely NO circle, ring, or enclosing border.\n\nCENTER: the group of five stylized figures with the flag (lightning bolt on it), reproduced EXACTLY as they appear in the reference image — identical poses, proportions, and outlines, unchanged. Do NOT redraw, restyle, or distort the figures. The figures stand on nothing — there is NO ground line, NO baseline, NO horizontal strip, NO platform, NO shadow, and NO orange bar beneath their feet. Their feet sit directly on the plain white background with empty white space between them and the bottom text.\n\nTOP line — ONLY the three words \"THE LEAGUE OF\" in VERY BOLD, heavy, tightly-spaced CONDENSED caps (muscular athletic display face), all on ONE line on a shallow gentle upward curve, centered above the figures' heads. The top line ends after the word \"OF\".\n\nBOTTOM line — ONLY the two words \"AMAZING PROGRAMMERS\" in the SAME bold condensed caps, on ONE line on a shallow downward curve, centered below the figures with clear white space above it (not touching their feet).\n\nSame flat orange throughout. Generous white margins. Crisp vector edges. No ground, no ring, no circle, no banner, no outline, no shadow.",
+      "negative_prompt": "ground line, baseline, floor, horizontal strip under figures, orange bar under feet, platform, pedestal, shadow, ground shadow, redrawn figures, altered silhouettes, extra limbs, distorted figures, \"AMAZING\" on top line, whole name repeated, duplicate AMAZING PROGRAMMERS, missing \"OF\", circle, ring, circular border, round seal, banner, ribbon, thin dainty lettering, serif type, multiple colors, gray tones, shading, gradient, glow, texture, grain, halftone, dark background, misspellings, photorealism, 3D",
+      "custom_additions": "",
+      "references": [
+        "sources/figures_girl.png"
+      ],
+      "images": [
+        "iterations/iter-006.png"
+      ],
+      "image": "iterations/iter-006.png",
+      "notes": "Remove the orange ground/baseline under the figures; reproduce the source silhouettes exactly (model had been redrawing them). Same THE LEAGUE OF / AMAZING PROGRAMMERS curved lockup.",
+      "status": "ok",
+      "error": null,
+      "text_response": "",
+      "usage": {}
     }
   ],
-  "state_version": 4
+  "state_version": 7
 }

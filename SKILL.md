@@ -1,5 +1,10 @@
 # League Marketing Image Generator
 
+> This file is the MCP **tool reference**. For how we actually work — the content-project
+> process, prompt-writing method, and show-your-work rules — read `CLAUDE.md`,
+> `docs/PROCESS.md`, and the skills in `.claude/skills/` (content-project, image-prompts,
+> show-work).
+
 Generate marketing images for The League of Amazing Programmers in multiple art styles and layouts.
 Uses OpenRouter image generation models (Gemini 3 Pro Image, GPT-5.4 Image, etc.) and evaluates
 output with vision models.
