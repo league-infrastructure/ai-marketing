@@ -55,6 +55,175 @@
   
     <article class="card ">
       <div class="cardhead">
+        <span class="num">#8</span><span class="lab">— 8-bit COLOR type sample — midnight-arcade re-skin of grayscale 8-bit sample</span>
+        <span class="meta">2026-07-01T11:12:01 &middot; chatgpt-image-latest</span>
+      </div>
+      <div class="imgwrap"><a href="iterations/iter-008.png" target="_blank"><img class="hero" src="iterations/iter-008.png" alt="iteration 8"></a></div>
+      
+      <details><summary>Prompt &amp; details</summary>
+        <div class="detail">
+          <div class="dl">positive prompt</div><pre># Art Style
+
+Render as authentic 8-bit video-game pixel art — the look of late-1980s NES / Famicom games.
+Blocky pixel rendering with limited color palettes, crisp pixel edges, and the charm of
+8-bit sprite art. The image should look like a direct screen capture from an NES.
+
+## Rendering
+- **Pixel grid:** Visible pixel grid — everything rendered at the sprite/block level, with
+  individual pixels discernible as colored squares. No anti-aliasing, no sub-pixel rendering.
+- **Resolution:** NES-resolution feel (256×240 equivalent), characters at 16×16 to 32×32
+  sprite sizes. If scaled up, use nearest-neighbor scaling — no interpolation or blur.
+- **Color palette:** Authentic NES palette limitations — roughly 4 colors per sprite
+  (3 colors + transparency) drawn from the NES 54-color master palette, with the distinctive
+  NES color cast. Backgrounds use a 4-color palette per 16×16 tile block.
+- **Shading:** Flat pixel colors. Dithering patterns (checkerboard, stripes) may suggest
+  extra colors or shading. No smooth lighting, glows, or drop shadows.
+- **Outlines:** Sprites use black or dark outlines for readability — the classic NES look.
+
+## Background &amp; UI
+- Tile-based backgrounds from repeating 16×16 tiles; simple parallax layers (distant
+  mountains → mid-ground → foreground). Sky is a solid color or simple dither gradient.
+- Optional HUD: score (top-left), lives/health (top-right), level indicator. Text in an
+  8×8 pixel all-caps NES font. Dialog boxes: black background, white border, pixel text.
+
+## Subject &amp; Brand
+- **Robots** become NES sprites — blocky, readable, black-outlined — but keep the
+  recognizable silhouette of the real student-built educational robot (chassis, wheels,
+  grabber/arm). Not a generic sci-fi mech.
+- **Kids are the heroes** — expressive sprite poses, proud and determined.
+- Any code or readable text appears only in a pixel dialog/HUD box or on a sprite screen,
+  never as free-floating modern text. The image celebrates kids who build real robots.
+
+# Color Palette
+
+An invented **dark-mode neon** palette built from the League&#x27;s own accent hues: deep
+indigo-navy and near-black backgrounds lit by electric orange, cyan, violet, and lime. High
+energy, high contrast — a nighttime arcade / game-screen / hackathon glow. Great for 8-bit,
+game-screenshot, and impact-frame compositions where you want light to *emit*.
+
+**Balance:** dark navy/black fields dominate (60–70%); the neons are concentrated light
+sources — glows, edges, screens, energy — against that darkness. Orange remains the lead
+neon so it still reads as League brand.
+
+## Swatches
+
+Dark grounds (dominant):
+- **Near Black** `#0B0E1A` — deepest background / void.
+- **Midnight Navy** `#141845` — the League heading navy, here as the primary dark field.
+- **Indigo Shadow** `#232961` — lifted navy for panels and mid shadow.
+
+Neon accents (emissive):
+- **Electric Orange** `#F37121` — the lead neon; the brand orange as a glowing light source.
+- **Amber Glow** `#F89820` — warm secondary glow, sparks, highlights.
+- **Cyan** `#3498DB` — cool electric blue for screen light and rim glow.
+- **Violet** `#9B59B6` — purple neon for depth and contrast.
+- **Lime** `#2ECC71` — acid-green pops for terminals, LEDs, power-ups.
+- **Signal Red** `#E74C3C` — hot red for warnings and rare high-impact hits.
+
+Anchors:
+- **Ink Black** `#08080C` — linework and the darkest edges.
+- **Off-White Glow** `#F5F3FF` — the white-hot core of a light, brightest highlights, UI text.
+
+## How to apply
+- Start dark: fill large areas with near-black and midnight navy, then treat each color as a
+  *light* — glows, rim lights, emissive screens, energy trails — not as flat fill.
+- Keep orange as the dominant neon so the brand still reads; use cyan/violet/lime as
+  supporting light in smaller doses.
+- Push contrast hard: neon edges against black, white-hot cores where light is most intense.
+- Red is rare and deliberate — a single hot accent, never a field.
+
+# Composition
+
+A single component isolated and centered on a plain white field, presented as a structural
+layout sample.
+
+## Layout
+- ONE component (the logo / badge / masthead) centered, filling most of the frame with generous
+  white margins around it.
+- Nothing else in the frame — no scene, no extra graphics, no caption, no border.
+- Elements are arranged exactly per the component&#x27;s structure description so their placement
+  reads clearly: text stacking, lightning bolts, rules, and highlight shapes.
+
+## Feel
+Clean, precise, diagrammatic — a spec sheet that documents the component&#x27;s structure.
+
+# Component
+
+The horizontal lock-up of the League of Amazing Programmers wordmark: three centered, stacked
+lines of bold condensed caps with flanking lightning bolts. This describes the STRUCTURE
+(element placement and proportion) only — color and finish come from whichever style the
+component is rendered in.
+
+## Elements &amp; placement (top to bottom, centered)
+1. **Line 1 — &quot;THE LEAGUE OF&quot; (all on ONE line):** &quot;LEAGUE&quot; is the main word of this line,
+   centered and the largest word on the line. The small word &quot;THE&quot; sits immediately to its left
+   and the small word &quot;OF&quot; immediately to its right, all on the same line. Each small word
+   (&quot;THE&quot; and &quot;OF&quot;) is bracketed by a SHORT horizontal bar directly above it and directly below
+   it. A small lightning bolt sits just outside each end of the whole line (one left, one right).
+2. **Line 2 — &quot;AMAZING&quot;:** the dominant line — the largest lettering, condensed caps, centered,
+   with a slight energetic upward tilt. A small lightning bolt flanks each side of it.
+3. **Line 3 — &quot;PROGRAMMERS&quot;:** bottom line, condensed caps, centered, narrower than &quot;AMAZING&quot;.
+
+## Structural notes
+- The wordmark has exactly THREE text lines — &quot;THE LEAGUE OF&quot;, &quot;AMAZING&quot;, &quot;PROGRAMMERS&quot;. The
+  word &quot;OF&quot; appears ONLY ONCE, on the top line; there is NO separate standalone &quot;OF&quot; line.
+- The whole mark is enclosed in a curved banner/shield frame: a rounded rectangle whose top and
+  bottom edges arch gently upward, drawn as a double outline (a thin inner rule just inside a
+  heavier outer rule). All elements sit inside this frame.
+- The ONLY horizontal bars in the mark are the short ones bracketing &quot;THE&quot; and &quot;OF&quot; (one above
+  and one below each small word). There is NO horizontal rule between &quot;AMAZING&quot; and
+  &quot;PROGRAMMERS&quot;, and NO rules running out to the left/right sides of &quot;OF&quot;.
+- The lines are stacked with clear vertical separation — no line&#x27;s lettering touches or overlaps
+  the line above or below.
+- &quot;AMAZING&quot; is roughly 1.6–2× the cap height of the two outer lines and is the visual anchor of
+  the mark.
+- Small lightning bolts flank the mark (one at each end of the top line and of the &quot;PROGRAMMERS&quot;
+  line), drawn as short angled sparks kept clear of the type.
+- The overall footprint is wider than tall (roughly 2.2 : 1), reading as a compact corner mark.
+- All lettering is bold and condensed with heavy keylines; exact fills, colors, and finish are
+  defined by the render style, not here.
+
+# Scene
+
+The horizontal &quot;THE LEAGUE OF AMAZING PROGRAMMERS&quot; wordmark logo, rendered as a black-and-white structural type sample per the component description.
+
+# Layout
+
+&gt; Present the single component centered on a plain white background with generous margins. No
+&gt; border, no scene, no extra text beyond the component itself. Crisp, high-resolution line art
+&gt; suitable as a reusable structural reference sheet.
+
+# Additional Direction
+
+COLORIZE the attached GRAYSCALE 8-bit type sample into full color using the Midnight Arcade palette. This is a re-skin: keep the EXACT pixel structure of the reference unchanged — same chunky pixel lettering &quot;THE LEAGUE OF&quot; / &quot;AMAZING&quot; / &quot;PROGRAMMERS&quot;, same letter shapes and stacking, same bracket bars around &quot;THE&quot; and &quot;OF&quot;, same pixel lightning bolts and small pixel spaceships flanking the top line, same starfield, same 2.2:1 footprint. Change ONLY the colors.
+
+Color mapping (Midnight Arcade):
+- Background: deep near-black / midnight navy starfield with tiny white/cyan pixel stars.
+- &quot;AMAZING&quot; (dominant word): map its top-to-bottom grayscale shading bands to a glowing neon gradient — Off-White/Amber hot at the top → Electric Orange in the middle → deep Indigo/Violet at the bottom, with the hard offset drop-shadow/extrude in near-black. Orange stays the lead so the brand reads.
+- &quot;THE LEAGUE OF&quot; and &quot;PROGRAMMERS&quot;: bright emissive Off-White / Cyan pixel fills with dark keylines, reading like lit arcade text.
+- Bracket bars, lightning bolts: Amber/Electric Orange glow. Spaceships: Cyan/Lime pixel sprites.
+- Keep bold dark pixel outlines around all lettering. Treat every color as emitted LIGHT against the dark field. No smooth gradients — express shading as flat pixel color bands / dithering only.
+No badge frame, no arcade HUD/score panel, no robot — only the wordmark with its bolts, spaceships, and stars.</pre>
+          <div class="dl">negative prompt</div><pre>Do NOT include any of the following:
+
+Anti-aliasing, smooth edges, sub-pixel rendering, transparency/alpha-blending effects.
+Modern HD or &quot;16-bit/32-bit&quot; pixel art, SNES/Genesis-era look (more colors, smooth
+gradients, mode-7 effects), modern indie-pixel-art polish (too smooth, too many colors),
+too many colors per sprite (more than ~5–6 indicates the wrong era).
+
+3D voxel art — strictly 2D flat pixel art. Full-color gradient backgrounds — limited NES
+palette only. Smooth lighting, soft glows, drop shadows, or modern visual effects.
+
+Photorealism, 3D rendering, realistic textures, painterly or illustrative style, cel
+shading, vector art, flat-vector illustration, hand-drawn or sketch quality. Animated
+sprites — this is a single static image. Any free-floating modern (non-pixel) text.</pre>
+          
+          
+        </div>
+      </details>
+    </article>
+    <article class="card ">
+      <div class="cardhead">
         <span class="num">#7</span><span class="lab">— 8-bit shaded type sample — grayscale, AMAZING shading layers, bolts + spaceships</span>
         <span class="meta">2026-07-01T10:11:17 &middot; chatgpt-image-latest</span>
       </div>
@@ -781,10 +950,10 @@ component itself. Photorealism or 3-D rendering.</pre>
         </div>
       </details>
     </article>
-  <footer>Generated 2026-07-01T10:11:17 &middot; this page auto-reloads when a new iteration is added</footer>
+  <footer>Generated 2026-07-01T11:12:01 &middot; this page auto-reloads when a new iteration is added</footer>
 </div>
 <script>
- const CURRENT_VERSION = 8;
+ const CURRENT_VERSION = 9;
  const live = document.getElementById('live');
  // Only ever reload when state.json confirms a NEW version. We never blind-reload on a
  // timer: under file:// (fetch blocked) or with the server down we can't read the version,

@@ -54,6 +54,10 @@ OPENROUTER_BASE = "https://openrouter.ai/api/v1"
 
 DEFAULT_IMAGE_MODEL = os.environ.get("IMAGE_MODEL", "") or "openai/gpt-5.4-image-2"
 DEFAULT_IMAGE_PROVIDER = os.environ.get("IMAGE_PROVIDER", "openai")  # "openai" or "openrouter"
+# OpenAI's images API defaults to quality="medium"; the ChatGPT app renders at "high".
+# Medium is visibly softer (weaker linework, less hero detail, more grain on flat fields),
+# so default to "high" here to match app-quality output. Override via IMAGE_QUALITY.
+DEFAULT_IMAGE_QUALITY = os.environ.get("IMAGE_QUALITY", "") or "high"
 EVALUATION_MODEL = "google/gemini-2.5-flash"
 
 def list_styles() -> list:
@@ -291,7 +295,7 @@ async def generate_image(
     return json.dumps(result, indent=2)
 
 
-async def _run_generation(full_text, model, reference_images, out_dir, base_name, size="1024x1024"):
+async def _run_generation(full_text, model, reference_images, out_dir, base_name, size="1024x1024", background=""):
     """Route to OpenAI or OpenRouter, save resulting images into ``out_dir`` using
     ``base_name`` as the filename stem, and return a result dict (not a JSON string).
 
@@ -305,8 +309,8 @@ async def _run_generation(full_text, model, reference_images, out_dir, base_name
     # bouncing them to OpenRouter. This keeps everything on the OpenAI key + IMAGE_MODEL.
     if DEFAULT_IMAGE_PROVIDER == "openai":
         if reference_images:
-            return await _generate_openai_edits(full_text, model, reference_images, out_dir, base_name, size)
-        return await _generate_openai_core(full_text, model, out_dir, base_name, size)
+            return await _generate_openai_edits(full_text, model, reference_images, out_dir, base_name, size, background)
+        return await _generate_openai_core(full_text, model, out_dir, base_name, size, background)
 
     if not OPENROUTER_API_KEY:
         return {"error": "OPENROUTER_API_KEY environment variable not set"}
@@ -410,14 +414,18 @@ async def _run_generation(full_text, model, reference_images, out_dir, base_name
     return result
 
 
-async def _generate_openai_core(full_text, model, out_dir, base_name, size="1024x1024"):
+async def _generate_openai_core(full_text, model, out_dir, base_name, size="1024x1024", background=""):
     """Generate an image via OpenAI's images API, saving into ``out_dir``. Returns a dict."""
     openai_key = os.environ.get("OPENAI_API_KEY", "")
     if not openai_key:
         return {"error": "OPENAI_API_KEY not set for OpenAI image generation"}
 
     headers = {"Authorization": f"Bearer {openai_key}", "Content-Type": "application/json"}
-    payload = {"model": model, "prompt": full_text[:32000], "n": 1, "size": size}
+    payload = {"model": model, "prompt": full_text[:32000], "n": 1, "size": size,
+               "quality": DEFAULT_IMAGE_QUALITY}
+    # gpt-image-1 emits a real alpha channel only when told to; prompting alone won't do it.
+    if background:
+        payload["background"] = background
 
     try:
         async with httpx.AsyncClient(timeout=180.0) as client:
@@ -459,7 +467,7 @@ async def _generate_openai_core(full_text, model, out_dir, base_name, size="1024
 _OPENAI_EDIT_SIZES = {"1024x1024", "1536x1024", "1024x1536"}
 
 
-async def _generate_openai_edits(full_text, model, reference_images, out_dir, base_name, size="1024x1024"):
+async def _generate_openai_edits(full_text, model, reference_images, out_dir, base_name, size="1024x1024", background=""):
     """Generate via OpenAI's /images/edits endpoint, which (unlike /images/generations)
     accepts input reference images. Multipart form upload. Saves into ``out_dir``."""
     openai_key = os.environ.get("OPENAI_API_KEY", "")
@@ -480,7 +488,11 @@ async def _generate_openai_edits(full_text, model, reference_images, out_dir, ba
         return {"error": "No readable reference images for OpenAI edits"}
 
     edit_size = size if size in _OPENAI_EDIT_SIZES else "auto"
-    form = {"model": model, "prompt": full_text[:32000], "size": edit_size, "n": "1"}
+    form = {"model": model, "prompt": full_text[:32000], "size": edit_size, "n": "1",
+            "quality": DEFAULT_IMAGE_QUALITY}
+    # gpt-image-1 emits a real alpha channel only when told to; prompting alone won't do it.
+    if background:
+        form["background"] = background
 
     try:
         async with httpx.AsyncClient(timeout=300.0) as client:
@@ -927,6 +939,7 @@ def update_project(
     model: Optional[str] = None,
     negative_prompt: Optional[str] = None,
     custom_additions: Optional[str] = None,
+    background: Optional[str] = None,
     add_sources: Optional[list] = None,
 ) -> str:
     """Update a project's default config (any subset of fields) and/or add source images.
@@ -941,7 +954,7 @@ def update_project(
         ("style", style), ("composition", composition), ("component", component), ("palette", palette),
         ("layout", layout), ("theme", theme), ("scene_description", scene_description),
         ("model", model), ("negative_prompt", negative_prompt),
-        ("custom_additions", custom_additions),
+        ("custom_additions", custom_additions), ("background", background),
     ):
         if val is not None:
             cfg[key] = val
@@ -966,6 +979,7 @@ async def generate_project_image(
     layout: str = "",
     reference_images: Optional[list] = None,
     use_sources: bool = True,
+    background: str = "",
     label: str = "",
     notes: str = "",
 ) -> str:
@@ -992,6 +1006,7 @@ async def generate_project_image(
     eff_scene = scene_description or cfg.get("scene_description", "")
     eff_custom = custom_additions or cfg.get("custom_additions", "")
     eff_model = model or cfg.get("model") or DEFAULT_IMAGE_MODEL
+    eff_background = background or cfg.get("background", "")
 
     if prompt:
         positive = prompt
@@ -1043,7 +1058,7 @@ async def generate_project_image(
     base_name = f"iter-{n:03d}"
     size = LAYOUT_SIZES.get(eff_layout, "1024x1024")
     iters_dir = PROJECTS_DIR / data["slug"] / "iterations"
-    result = await _run_generation(full_text, eff_model, refs or None, iters_dir, base_name, size)
+    result = await _run_generation(full_text, eff_model, refs or None, iters_dir, base_name, size, eff_background)
 
     status, err = "ok", None
     if isinstance(result, dict) and result.get("error"):
@@ -1062,6 +1077,7 @@ async def generate_project_image(
         "component": eff_component,
         "palette": eff_palette,
         "layout": eff_layout,
+        "background": eff_background,
         "scene_description": eff_scene,
         "model": result.get("model", eff_model) if isinstance(result, dict) else eff_model,
         "prompt": positive,

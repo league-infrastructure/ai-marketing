@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+<rect x="0" y="0" width="1024" height="1024" fill="#ffffff"/>
+<text x="512" y="26" text-anchor="middle" font-family="sans-serif" font-size="18" fill="#333">Peachjar multi-event - B (big art band, content in lower third)</text>
+<rect x="124" y="10" width="775" height="1004" fill="none" stroke="#8a8a8a" stroke-width="2" stroke-dasharray="10 8"/>
+<text x="130" y="40" font-family="sans-serif" font-size="13" fill="#8a8a8a">safe region (kept by every crop)</text>
+<rect x="124" y="10" width="775" height="1004" fill="none" stroke="#1e6fff" stroke-width="2" stroke-dasharray="4 6"/>
+<text x="893" y="28" text-anchor="end" font-family="sans-serif" font-size="13" fill="#1e6fff">crop: peachjar 8.5:11</text>
+<rect x="154" y="51" width="123" height="46" fill="#00FF00" stroke="#0aa60a" stroke-width="2"/>
+<text x="215" y="70" text-anchor="middle" font-family="sans-serif" font-size="17" font-weight="bold" fill="#0a2a0a">logo</text>
+<text x="215" y="90" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#0a2a0a">[tiny]</text>
+<rect x="317" y="51" width="389" height="72" fill="#00FF00" stroke="#0aa60a" stroke-width="2"/>
+<text x="511" y="83" text-anchor="middle" font-family="sans-serif" font-size="17" font-weight="bold" fill="#0a2a0a">title</text>
+<text x="511" y="103" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#0a2a0a">[small strip]</text>
+<rect x="737" y="51" width="133" height="133" fill="#00FF00" stroke="#0aa60a" stroke-width="2"/>
+<text x="803" y="113" text-anchor="middle" font-family="sans-serif" font-size="17" font-weight="bold" fill="#0a2a0a">QR</text>
+<text x="803" y="133" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#0a2a0a">[small square]</text>
+<rect x="154" y="563" width="717" height="246" fill="#00FF00" stroke="#0aa60a" stroke-width="2"/>
+<text x="512" y="682" text-anchor="middle" font-family="sans-serif" font-size="17" font-weight="bold" fill="#0a2a0a">EVENT LIST (title+teaser rows)</text>
+<text x="512" y="702" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#0a2a0a">[compact]</text>
+<rect x="154" y="840" width="717" height="61" fill="#00FF00" stroke="#0aa60a" stroke-width="2"/>
+<text x="512" y="866" text-anchor="middle" font-family="sans-serif" font-size="17" font-weight="bold" fill="#0a2a0a">org + location</text>
+<text x="512" y="886" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#0a2a0a">[small]</text>
+<rect x="154" y="922" width="717" height="36" fill="#00FF00" stroke="#0aa60a" stroke-width="2"/>
+<text x="512" y="936" text-anchor="middle" font-family="sans-serif" font-size="17" font-weight="bold" fill="#0a2a0a">nonprofit line</text>
+<text x="512" y="956" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#0a2a0a">[thin strip]</text>
+</svg>
