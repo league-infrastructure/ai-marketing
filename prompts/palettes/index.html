@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>League Marketing — Palette Index</title>
+<style>
+  :root {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  }
+  body {
+    margin: 0;
+    padding: 40px 32px 80px;
+    background: #f3f3f1;
+    color: #1b1c1d;
+  }
+  header {
+    max-width: 1040px;
+    margin: 0 auto 40px;
+  }
+  header h1 {
+    font-size: 28px;
+    margin: 0 0 6px;
+  }
+  header p {
+    margin: 0;
+    color: #55585c;
+    font-size: 14px;
+  }
+  main {
+    max-width: 1040px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+  }
+  section.palette {
+    background: #fff;
+    border: 1px solid #e2e2e0;
+    border-radius: 10px;
+    padding: 24px 28px 28px;
+  }
+  .palette-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+    margin-bottom: 6px;
+  }
+  .palette-head h2 {
+    margin: 0;
+    font-size: 20px;
+  }
+  .palette-head code {
+    font-size: 12px;
+    color: #85888c;
+    background: #f3f3f1;
+    padding: 2px 8px;
+    border-radius: 4px;
+  }
+  .palette-desc {
+    margin: 6px 0 4px;
+    font-size: 13.5px;
+    color: #494c4e;
+    max-width: 760px;
+    line-height: 1.5;
+  }
+  .balance {
+    margin: 4px 0 18px;
+    font-size: 12.5px;
+    color: #85888c;
+    font-style: italic;
+  }
+  .group {
+    margin-top: 16px;
+  }
+  .group:first-of-type {
+    margin-top: 4px;
+  }
+  .group-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #85888c;
+    margin: 0 0 10px;
+  }
+  .swatch-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 12px;
+  }
+  .swatch {
+    border: 1px solid #e2e2e0;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #fff;
+  }
+  .swatch-color {
+    height: 64px;
+  }
+  .swatch-info {
+    padding: 8px 10px 10px;
+  }
+  .swatch-name {
+    font-size: 12.5px;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+  .swatch-hex {
+    font-size: 11.5px;
+    color: #85888c;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    margin-top: 2px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>League Marketing — Palette Index</h1>
+  <p>Every palette in <code>prompts/palettes/</code>, with swatches pulled from each file's Swatches section. Source of truth is the corresponding <code>.md</code> file — regenerate this page by hand if a palette changes.</p>
+</header>
+
+<main>
+
+  <section class="palette">
+    <div class="palette-head">
+      <h2>Orange &amp; Blue</h2>
+      <code>orange-blue.md</code>
+    </div>
+    <p class="palette-desc">A warm-dominant, high-energy orange-and-blue complementary palette extracted from the "At His Command" comic cover: a glowing golden-amber field carries the image, burnt-orange shadows model the warm forms, and cool steel-blue and deep navy provide the complementary accent.</p>
+    <p class="balance">Balance: ~70% warm / 30% cool — orange and gold dominate large areas; blue is the accent that frames, cools shadows, and makes warms pop.</p>
+
+    <div class="group">
+      <p class="group-label">Warm (dominant)</p>
+      <div class="swatch-row">
+        <div class="swatch"><div class="swatch-color" style="background:#F9C233"></div><div class="swatch-info"><div class="swatch-name">Golden Amber</div><div class="swatch-hex">#F9C233</div></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#F9B41E"></div><div class="swatch-info"><div class="swatch-name">Marigold</div><div class="swatch-hex">#F9B41E</div></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#C96A10"></div><div class="swatch-info"><div class="swatch-name">Burnt Orange</div><div class="swatch-hex">#C96A10</div></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#9A4E12"></div><div class="swatch-info"><div class="swatch-name">Sienna</div><div class="swatch-hex">#9A4E12</div></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#CC1616"></div><div class="swatch-info"><div class="swatch-name">Signal Red</div><div class="swatch-hex">#CC1616</div></div></div>
+      </div>
+    </div>
+
+    <div class="group">
+      <p class="group-label">Cool (complementary accent)</p>
+      <div class="swatch-row">
+        <div class="swatch"><div class="swatch-color" style="background:#175E8C"></div><div class="swatch-info"><div class="swatch-name">Steel Blue</div><div class="swatch-hex">#175E8C</div></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#16223C"></div><div class="swatch-info"><div class="swatch-name">Deep Navy</div><div class="swatch-hex">#16223C</div></div></div>
+      </div>
+    </div>
+
+    <div class="group">
+      <p class="group-label">Neutrals / anchors</p>
+      <div class="swatch-row">
+        <div class="swatch"><div class="swatch-color" style="background:#101010"></div><div class="swatch-info"><div class="swatch-name">Ink Black</div><div class="swatch-hex">#101010</div></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#FBE5A0"></div><div class="swatch-info"><div class="swatch-name">Cream</div><div class="swatch-hex">#FBE5A0</div></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#6E451F"></div><div class="swatch-info"><div class="swatch-name">Warm Wood Brown</div><div class="swatch-hex">#6E451F</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="palette">
+    <div class="palette-head">
+      <h2>Circuit Teal</h2>
+      <code>circuit-teal.md</code>
+    </div>
+    <p class="palette-desc">An invented cool-dominant palette — the inverse balance of orange-blue. Teal, steel blue, and deep navy own the image, fresh green threads through as a supporting cool, and League orange is the single warm spark that makes the coolness pop.</p>
+    <p class="balance">Balance: ~70% cool / 30% warm-neutral, with orange as a deliberate &lt;10% spark.</p>
+
+    <div class="group">
+      <p class="group-label">Cool (dominant)</p>
+      <div class="swatch-row">
+        <div class="swatch"><div class="swatch-color" style="background:#1FA3A3"></div><div class="swatch-info"><div class="swatch-name">Teal</div><div class="swatch-hex">#1FA3A3</div></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#306998"></div><div class="swatch-info"><div class="swatch-name">Steel Blue</div><div class="swatch-hex">#306998</div></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#132A45"></div><div class="swatch-info"><div class="swatch-name">Deep Navy</div><div class="swatch-hex">#132A45</div></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#2ECC71"></div><div class="swatch-info"><div class="swatch-name">Circuit Green</div><div class="swatch-hex">#2ECC71</div></div></div>
+      </div>
+    </div>
+
+    <div class="group">
+      <p class="group-label">Warm spark &amp; neutrals</p>
+      <div class="swatch-row">
+        <div class="swatch"><div class="swatch-color" style="background:#F37121"></div><div class="swatch-info"><div class="swatch-name">League Orange</div><div class="swatch-hex">#F37121</div></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#E6F4F3"></div><div class="swatch-info"><div class="swatch-name">Pale Aqua</div><div class="swatch-hex">#E6F4F3</div></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#F6F8FA"></div><div class="swatch-info"><div class="swatch-name">Off-White</div><div class="swatch-hex">#F6F8FA</div></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#12202B"></div><div class="swatch-info"><div class="swatch-name">Ink Slate</div><div class="swatch-hex">#12202B</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="palette">
+    <div class="palette-head">
+      <h2>Midnight Arcade</h2>
+      <code>midnight-arcade.md</code>
+    </div>
+    <p class="palette-desc">An invented dark-mode neon palette built from the League's own accent hues: deep indigo-navy and near-black backgrounds lit by electric orange, cyan, violet, and lime. High energy, high contrast — a nighttime arcade / game-screen / hackathon glow.</p>
+    <p class="balance">Balance: dark navy/black fields dominate (60–70%); neons are concentrated light sources against that darkness. Orange remains the lead neon.</p>
+
+    <div class="group">
+      <p class="group-label">Dark grounds (dominant)</p>
+      <div class="swatch-row">
+        <div class="swatch"><div class="swatch-color" style="background:#0B0E1A"></div><div class="swatch-info"><div class="swatch-name">Near Black</div><div class="swatch-hex">#0B0E1A</div></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#141845"></div><div class="swatch-info"><div class="swatch-name">Midnight Navy</div><div class="swatch-hex">#141845</div></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#232961"></div><div class="swatch-info"><div class="swatch-name">Indigo Shadow</div><div class="swatch-hex">#232961</div></div></div>
+      </div>
+    </div>
+
+    <div class="group">
+      <p class="group-label">Neon accents (emissive)</p>
+      <div class="swatch-row">
+        <div class="swatch"><div class="swatch-color" style="background:#F37121"></div><div class="swatch-info"><div class="swatch-name">Electric Orange</div><div class="swatch-hex">#F37121</div></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#F89820"></div><div class="swatch-info"><div class="swatch-name">Amber Glow</div><div class="swatch-hex">#F89820</div></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#3498DB"></div><div class="swatch-info"><div class="swatch-name">Cyan</div><div class="swatch-hex">#3498DB</div></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#9B59B6"></div><div class="swatch-info"><div class="swatch-name">Violet</div><div class="swatch-hex">#9B59B6</div></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#2ECC71"></div><div class="swatch-info"><div class="swatch-name">Lime</div><div class="swatch-hex">#2ECC71</div></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#E74C3C"></div><div class="swatch-info"><div class="swatch-name">Signal Red</div><div class="swatch-hex">#E74C3C</div></div></div>
+      </div>
+    </div>
+
+    <div class="group">
+      <p class="group-label">Anchors</p>
+      <div class="swatch-row">
+        <div class="swatch"><div class="swatch-color" style="background:#08080C"></div><div class="swatch-info"><div class="swatch-name">Ink Black</div><div class="swatch-hex">#08080C</div></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#F5F3FF"></div><div class="swatch-info"><div class="swatch-name">Off-White Glow</div><div class="swatch-hex">#F5F3FF</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="palette">
+    <div class="palette-head">
+      <h2>Brand Guide</h2>
+      <code>brand-guide.md</code>
+    </div>
+    <p class="palette-desc">The core palette from the League's 2025 Website Style Guide: bold League orange over cream backgrounds, anchored by a deep navy for headings and a soft charcoal for text. Extended with a related blue, green, and red so the accents harmonize.</p>
+    <p class="balance">Balance: orange + cream own the large areas; navy anchors headings; blue/green/red accents used sparingly and one at a time.</p>
+
+    <div class="group">
+      <p class="group-label">Core (from the style guide)</p>
+      <div class="swatch-row">
+        <div class="swatch"><div class="swatch-color" style="background:#F37121"></div><div class="swatch-info"><div class="swatch-name">Primary Orange</div><div class="swatch-hex">#F37121</div></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#E15600"></div><div class="swatch-info"><div class="swatch-name">Secondary Orange</div><div class="swatch-hex">#E15600</div></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#FFFBF5"></div><div class="swatch-info"><div class="swatch-name">Cream Background</div><div class="swatch-hex">#FFFBF5</div></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#FFFFFF"></div><div class="swatch-info"><div class="swatch-name">White</div><div class="swatch-hex">#FFFFFF</div></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#FCE9DB"></div><div class="swatch-info"><div class="swatch-name">Pale Peach</div><div class="swatch-hex">#FCE9DB</div></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#F8C09B"></div><div class="swatch-info"><div class="swatch-name">Apricot</div><div class="swatch-hex">#F8C09B</div></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#141845"></div><div class="swatch-info"><div class="swatch-name">Heading Navy</div><div class="swatch-hex">#141845</div></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#333333"></div><div class="swatch-info"><div class="swatch-name">Text Charcoal</div><div class="swatch-hex">#333333</div></div></div>
+      </div>
+    </div>
+
+    <div class="group">
+      <p class="group-label">Added accents</p>
+      <div class="swatch-row">
+        <div class="swatch"><div class="swatch-color" style="background:#2E6FB5"></div><div class="swatch-info"><div class="swatch-name">Brand Blue</div><div class="swatch-hex">#2E6FB5</div></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#306998"></div><div class="swatch-info"><div class="swatch-name">Deep Blue</div><div class="swatch-hex">#306998</div></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#27AE60"></div><div class="swatch-info"><div class="swatch-name">Brand Green</div><div class="swatch-hex">#27AE60</div></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#E74C3C"></div><div class="swatch-info"><div class="swatch-name">Accent Red</div><div class="swatch-hex">#E74C3C</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="palette">
+    <div class="palette-head">
+      <h2>Website</h2>
+      <code>website.md</code>
+    </div>
+    <p class="palette-desc">The official League of Amazing Programmers website palette, taken directly from the design tokens on jointheleague.org. Clean, bright, and modern: League orange leads, warm peach and cream carry large surfaces, near-black text anchors, and saturated subject-accent colors provide vivid highlights.</p>
+    <p class="balance">Balance: orange + warm neutrals dominate surfaces; saturated accents used sparingly for highlights, tags, and focal pops.</p>
+
+    <div class="group">
+      <p class="group-label">Core brand</p>
+      <div class="swatch-row">
+        <div class="swatch"><div class="swatch-color" style="background:#F37121"></div><div class="swatch-info"><div class="swatch-name">Primary Orange</div><div class="swatch-hex">#F37121</div></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#C35512"></div><div class="swatch-info"><div class="swatch-name">Primary Dark</div><div class="swatch-hex">#C35512</div></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#FFD4A3"></div><div class="swatch-info"><div class="swatch-name">Primary Light</div><div class="swatch-hex">#FFD4A3</div></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#5D5FEF"></div><div class="swatch-info"><div class="swatch-name">Indigo (Secondary)</div><div class="swatch-hex">#5D5FEF</div></div></div>
+      </div>
+    </div>
+
+    <div class="group">
+      <p class="group-label">Surfaces &amp; neutrals</p>
+      <div class="swatch-row">
+        <div class="swatch"><div class="swatch-color" style="background:#FFFFFF"></div><div class="swatch-info"><div class="swatch-name">White</div><div class="swatch-hex">#FFFFFF</div></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#FDF4EC"></div><div class="swatch-info"><div class="swatch-name">Cream</div><div class="swatch-hex">#FDF4EC</div></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#FFF2E8"></div><div class="swatch-info"><div class="swatch-name">Peach</div><div class="swatch-hex">#FFF2E8</div></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#FCDAC5"></div><div class="swatch-info"><div class="swatch-name">Peach Strong</div><div class="swatch-hex">#FCDAC5</div></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#1B1C1D"></div><div class="swatch-info"><div class="swatch-name">Text (near-black)</div><div class="swatch-hex">#1B1C1D</div></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#494C4E"></div><div class="swatch-info"><div class="swatch-name">Body Gray</div><div class="swatch-hex">#494C4E</div></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#85888C"></div><div class="swatch-info"><div class="swatch-name">Muted Gray</div><div class="swatch-hex">#85888C</div></div></div>
+      </div>
+    </div>
+
+    <div class="group">
+      <p class="group-label">Subject accents (use sparingly)</p>
+      <div class="swatch-row">
+        <div class="swatch"><div class="swatch-color" style="background:#3498DB"></div><div class="swatch-info"><div class="swatch-name">Web Blue</div><div class="swatch-hex">#3498DB</div></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#306998"></div><div class="swatch-info"><div class="swatch-name">Python Blue</div><div class="swatch-hex">#306998</div></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#2ECC71"></div><div class="swatch-info"><div class="swatch-name">Games Green</div><div class="swatch-hex">#2ECC71</div></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#E74C3C"></div><div class="swatch-info"><div class="swatch-name">Robotics Red</div><div class="swatch-hex">#E74C3C</div></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#9B59B6"></div><div class="swatch-info"><div class="swatch-name">Electronics Purple</div><div class="swatch-hex">#9B59B6</div></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#F89820"></div><div class="swatch-info"><div class="swatch-name">Java Amber</div><div class="swatch-hex">#F89820</div></div></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+</body>
+</html>

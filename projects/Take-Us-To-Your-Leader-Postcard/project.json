@@ -9,9 +9,9 @@
     "palette": "orange-blue",
     "layout": "postcard-4x6",
     "theme": "Advocate campaign postcard, retro flying-saucer gag. A little spaceship has landed and opened in a warm office; the 'aliens' who step out are recognizably a LEAGUE KID and a friendly HUMANOID ROBOT. They greet a bemused adult and ask to be taken to the leader. Second read: the 'aliens' are your kid and the robot they built — and they want to meet your boss. The ask is one warm introduction.",
-    "scene_description": "On the landscaped central lawn of a sleek modern corporate research campus (glass-and-concrete engineering building simplified in the background, grassy plaza, sidewalks, a few trees and flowers), a classic 1950s flying saucer has just landed with its ramp lowered. A confident young inventor (about 13) has stepped out beside a friendly humanoid robot companion; the child stands with one hand extended toward a passing engineer, the robot politely attentive just behind. The engineer, carrying a briefcase and notebook on his way into work, has stopped on the sidewalk — surprised and amused, not frightened. The joke: the visitors have mistaken an ordinary engineer for someone who can take them to the leader of Earth's technological civilization. Low heroic angle, strong diagonals, the saucer dominating center, the three figures in a strong triangular arrangement.",
+    "scene_description": "On the landscaped central lawn of a sleek modern corporate research campus (glass-and-concrete engineering building simplified in the background, grassy plaza, sidewalks, a few trees and flowers, with the word \\\"TechnoCorp\\\" mounted on the building in the same clean bold sans-serif signage lettering style previously used for QUALCOMM), a classic 1950s flying saucer has just landed with its ramp lowered. A confident young inventor (about 13) has stepped out beside a friendly humanoid robot companion; the child stands with one hand extended toward a passing engineer, the robot politely attentive just behind. The engineer, carrying a briefcase and notebook on his way into work, has stopped on the sidewalk — surprised and amused, not frightened.",
     "model": "gpt-image-2",
-    "negative_prompt": "Generic smooth chrome flying saucer or Hollywood UFO. Little green men, aliens, alien creatures, extraterrestrials. A sleek finished disc with no visible wires or circuit boards. Scary, dark, menacing, or invasion mood. Death rays, weapons, explosions, city destruction. Children (the human is a friendly adult 'leader'). More than one robot or more than one adult. Photorealism, 3D render, CGI, photographic faces. Portrait/vertical orientation. A black or dark box behind the League logo. Invented signs, labels, or lettering beyond the exact text specified. Blurry or muddy.",
+    "negative_prompt": "Generic smooth chrome flying saucer or Hollywood UFO. Little green men, aliens, alien creatures, extraterrestrials. A sleek finished disc with no visible wires or circuit boards. Scary, dark, menacing, or invasion mood. Death rays, weapons, explosions, city destruction. Children (the human is a friendly adult 'leader'). More than one robot or more than one adult. Photorealism, 3D render, CGI, photographic faces. Portrait/vertical orientation. A black or dark box behind the League logo. Invented signs, labels, or lettering beyond the exact text specified. The word QUALCOMM or any other real company name/trademark on the building. Misspelled TechnoCorp. Blurry or muddy.",
     "custom_additions": "STYLE: bold retro 1950s PULP SCI-FI COMIC-BOOK cover art — heavy confident black ink outlines, hard-edged cel shading, punchy high-contrast flat comic color, light and playful (this is a friendly gag, not a scary invasion).\n\nROBOT BUILD — CRITICAL: use the reference photo ONLY for the ROBOT'S physical construction — the maker-built metal-beam kit chassis with bolt-holes, tangled red/yellow/blue wires, small circuit boards, and the ultrasonic-sensor two-round-eye 'face'. Do NOT copy the reference's composition. The finished robot must read as 'the thing a kid built in class, now flying' — a home-made saucer, obviously hand-assembled, NOT a sleek chrome Hollywood UFO and NOT a metal alien.\n\nTEXT (render ONLY this, spelled EXACTLY, crisp — no other lettering anywhere):\n- TITLE masthead across the TOP: \"TAKE US TO YOUR LEADER\" in huge bold retro pulp comic letters (red with heavy black outline) on a jagged burst — 1950s sci-fi movie-poster lettering.\n- League logo in the BOTTOM-RIGHT corner, sitting directly on the art with NO black or dark box behind it: \"THE LEAGUE OF AMAZING PROGRAMMERS\" stacked wordmark, orange \"AMAZING\", small lightning bolts, bar-lines over \"OF\".\n\nDeep navy comic border frame (solid flat navy). Exactly ONE robot-saucer and ONE friendly adult. Keep it warm, friendly, and funny."
   },
   "sources": [],
@@ -519,7 +519,63 @@
       "error": null,
       "text_response": "",
       "usage": {}
+    },
+    {
+      "n": 20,
+      "label": "Draft 20 — TechnoCorp signage (was QUALCOMM)",
+      "created": "2026-07-05T10:11:11",
+      "style": "comic-book",
+      "composition": "single-moment",
+      "component": "",
+      "palette": "orange-blue",
+      "layout": "postcard-4x6",
+      "background": "",
+      "scene_description": "On the landscaped central lawn of a sleek modern corporate research campus (glass-and-concrete engineering building simplified in the background, grassy plaza, sidewalks, a few trees and flowers, with the word \\\"TechnoCorp\\\" mounted on the building in the same clean bold sans-serif signage lettering style previously used for QUALCOMM), a classic 1950s flying saucer has just landed with its ramp lowered. A confident young inventor (about 13) has stepped out beside a friendly humanoid robot companion; the child stands with one hand extended toward a passing engineer, the robot politely attentive just behind. The engineer, carrying a briefcase and notebook on his way into work, has stopped on the sidewalk — surprised and amused, not frightened.",
+      "model": "gpt-image-2",
+      "prompt": "Use the reference image as the EXACT base for this postcard and reproduce it faithfully: the SAME wide 3:2 landscape composition, the SAME clean flat 1950s pulp comic-book inking (heavy confident black outlines, hard-edged cel shading, punchy flat color, absolutely NO grain/newsprint/paper texture), the SAME characters and props in the SAME positions — the tall friendly silver kit-built robot at left, the classic flying saucer behind it on the grassy corporate campus lawn, the young red-shirted boy in the center with his arm extended presenting, the bemused adult engineer at right in a blue shirt with lanyard and laptop, the modern glass office building at right, and the same energetic inked action callout above the boy reading \"TAKE US TO YOUR LEADER!\". Keep every face, color, shape, and the callout exactly the same.\n\nChange ONE thing only: the building signage. Replace the word \"QUALCOMM\" mounted on the side of the building with the word \"TechnoCorp\" — spelled EXACTLY T-e-c-h-n-o-C-o-r-p, in the SAME clean bold sans-serif lettering style, size, color, and mounting position on the building that \"QUALCOMM\" previously used. This is a fictional company name for a fictional building — do not render any real company name or trademark.\n\nRender ONLY the existing action callout text and the \"TechnoCorp\" building sign — no other text, signs, or labels anywhere. Leave the very bottom strip of the image as plain art (a branding bar will be added later).",
+      "negative_prompt": "The word QUALCOMM or any other real company name or trademark anywhere in the image. A rounded oval speech balloon or classic comic word bubble. A spiky jagged POW/BAM explosion starburst. A flat pasted-on vector sticker that does not match the inked line art. Changing the composition, characters, robot, saucer, engineer, callout, or building shape. Misspelled or garbled lettering, misspelled TechnoCorp. Extra text, signs, prices, badges, or labels. Grain, noise, newsprint, aged-paper or vintage texture. Photorealism, 3D render, CGI, photographic faces. Portrait/vertical orientation. Blurry or muddy.",
+      "custom_additions": "STYLE: bold retro 1950s PULP SCI-FI COMIC-BOOK cover art — heavy confident black ink outlines, hard-edged cel shading, punchy high-contrast flat comic color, light and playful (this is a friendly gag, not a scary invasion).\n\nROBOT BUILD — CRITICAL: use the reference photo ONLY for the ROBOT'S physical construction — the maker-built metal-beam kit chassis with bolt-holes, tangled red/yellow/blue wires, small circuit boards, and the ultrasonic-sensor two-round-eye 'face'. Do NOT copy the reference's composition. The finished robot must read as 'the thing a kid built in class, now flying' — a home-made saucer, obviously hand-assembled, NOT a sleek chrome Hollywood UFO and NOT a metal alien.\n\nTEXT (render ONLY this, spelled EXACTLY, crisp — no other lettering anywhere):\n- TITLE masthead across the TOP: \"TAKE US TO YOUR LEADER\" in huge bold retro pulp comic letters (red with heavy black outline) on a jagged burst — 1950s sci-fi movie-poster lettering.\n- League logo in the BOTTOM-RIGHT corner, sitting directly on the art with NO black or dark box behind it: \"THE LEAGUE OF AMAZING PROGRAMMERS\" stacked wordmark, orange \"AMAZING\", small lightning bolts, bar-lines over \"OF\".\n\nDeep navy comic border frame (solid flat navy). Exactly ONE robot-saucer and ONE friendly adult. Keep it warm, friendly, and funny.",
+      "references": [
+        "iterations/iter-018.png"
+      ],
+      "images": [
+        "iterations/iter-020.png"
+      ],
+      "image": "iterations/iter-020.png",
+      "notes": "Delta from the approved iter-018 art: the building signage now reads \"TechnoCorp\" instead of the real company name QUALCOMM, rendered in the same clean bold sans-serif lettering style/color as before. Everything else (composition, characters, robot, saucer, engineer, ZOOM callout) held via reference image. Banner will need re-compositing on top of whichever draft is approved.",
+      "status": "ok",
+      "error": null,
+      "text_response": "",
+      "usage": {}
+    },
+    {
+      "n": 21,
+      "label": "Draft 21 — FINAL: TechnoCorp art (iter-020) + approved League branding banner (composited)",
+      "created": "2026-07-05T10:18:22",
+      "style": "comic-book",
+      "composition": "single-moment",
+      "component": "",
+      "palette": "orange-blue",
+      "layout": "postcard-4x6",
+      "scene_description": "On the landscaped central lawn of a sleek modern corporate research campus (glass-and-concrete engineering building simplified in the background, grassy plaza, sidewalks, a few trees and flowers, with the word \\\"TechnoCorp\\\" mounted on the building in the same clean bold sans-serif signage lettering style previously used for QUALCOMM), a classic 1950s flying saucer has just landed with its ramp lowered. A confident young inventor (about 13) has stepped out beside a friendly humanoid robot companion; the child stands with one hand extended toward a passing engineer, the robot politely attentive just behind. The engineer, carrying a briefcase and notebook on his way into work, has stopped on the sidewalk — surprised and amused, not frightened.",
+      "model": "composite-pil",
+      "prompt": "",
+      "negative_prompt": "Generic smooth chrome flying saucer or Hollywood UFO. Little green men, aliens, alien creatures, extraterrestrials. A sleek finished disc with no visible wires or circuit boards. Scary, dark, menacing, or invasion mood. Death rays, weapons, explosions, city destruction. Children (the human is a friendly adult 'leader'). More than one robot or more than one adult. Photorealism, 3D render, CGI, photographic faces. Portrait/vertical orientation. A black or dark box behind the League logo. Invented signs, labels, or lettering beyond the exact text specified. The word QUALCOMM or any other real company name/trademark on the building. Misspelled TechnoCorp. Blurry or muddy.",
+      "custom_additions": "Composite of iter-020 (TechnoCorp art, regenerated from iter-018 with the building signage changed from QUALCOMM to TechnoCorp) + the approved bottom branding banner cropped directly from iter-019 (navy bar, orange top rule, League wordmark). Banner region: rows 860-1024 of the 1536x1024 canvas, pasted unchanged.",
+      "references": [
+        "iterations/iter-020.png",
+        "iterations/iter-019.png"
+      ],
+      "images": [
+        "iterations/iter-021.png"
+      ],
+      "image": "iterations/iter-021.png",
+      "notes": "Per Eric: keep the TechnoCorp art from draft 20, restore the League of Amazing Programmers branding banner from draft 19 on the bottom.",
+      "status": "ok",
+      "error": null,
+      "text_response": "",
+      "usage": {}
     }
   ],
-  "state_version": 26
+  "state_version": 29
 }

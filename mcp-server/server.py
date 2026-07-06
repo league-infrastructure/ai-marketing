@@ -7,16 +7,17 @@ Uses FastMCP for modern MCP protocol support.
 """
 
 import base64
+import functools
 import html
 import json
 import os
 import re
 import shutil
 import socket
-import subprocess
-import sys
+import threading
 import webbrowser
 from datetime import datetime, timezone
+from http.server import ThreadingHTTPServer, SimpleHTTPRequestHandler
 from pathlib import Path
 from typing import Optional
 
@@ -664,7 +665,32 @@ Output ONLY valid JSON, no other text."""
 
 import atexit
 
-_SERVERS: dict = {}  # slug -> (subprocess.Popen, port) for open_project static servers
+# A single in-process static file server, rooted at PROJECTS_DIR, shared by every project.
+# Because the slug is now the first path element (http://127.0.0.1:<port>/<slug>/index.html),
+# one server can serve and link between all projects instead of one subprocess per project.
+# Runs as a daemon thread (not a subprocess) so a killed/restarted MCP server can never leave
+# an orphaned process squatting on a port — the thread dies with its parent unconditionally.
+_STATIC_SERVER: Optional[dict] = None  # {"httpd": ThreadingHTTPServer, "thread": Thread, "port": int}
+
+
+class _StaticHandler(SimpleHTTPRequestHandler):
+    def log_message(self, format, *args):
+        pass  # state.json is polled every ~1.5s per open tab — don't spam stderr with GETs
+
+
+def _ensure_static_server(port: int = 0) -> int:
+    """Start the shared static server on first use (or return its existing port).
+    `port` is a whole-process setting honored only the first time the server boots."""
+    global _STATIC_SERVER
+    if _STATIC_SERVER and _STATIC_SERVER["thread"].is_alive():
+        return _STATIC_SERVER["port"]
+    chosen = port or _free_port()
+    handler = functools.partial(_StaticHandler, directory=str(PROJECTS_DIR))
+    httpd = ThreadingHTTPServer(("127.0.0.1", chosen), handler)
+    t = threading.Thread(target=httpd.serve_forever, daemon=True, name="static-server")
+    t.start()
+    _STATIC_SERVER = {"httpd": httpd, "thread": t, "port": chosen}
+    return chosen
 
 
 def _now() -> str:
@@ -724,13 +750,19 @@ def _free_port() -> int:
 
 
 def _save_project(data: dict) -> None:
-    """Persist project.json, bump state.json (triggers browser reload), rewrite index.html."""
+    """Persist project.json, bump state.json (triggers browser reload), rewrite index.html.
+    Also rewrites postcard.html when this project has postcard data, and refreshes the
+    projects-home page/listing so it never goes stale — same 'always re-render from data'
+    rule as the rest of this file, so nothing here can drift out of sync."""
     pdir = PROJECTS_DIR / data["slug"]
     pdir.mkdir(parents=True, exist_ok=True)
     data["state_version"] = int(data.get("state_version", 0)) + 1
     (pdir / "project.json").write_text(json.dumps(data, indent=2, ensure_ascii=False))
     (pdir / "state.json").write_text(json.dumps({"version": data["state_version"]}))
     (pdir / "index.html").write_text(_render_project_html(data), encoding="utf-8")
+    if data.get("postcard"):
+        (pdir / "postcard.html").write_text(_render_postcard_html(data), encoding="utf-8")
+    _save_projects_home()
 
 
 def _render_iteration_card(it: dict) -> str:
@@ -806,6 +838,11 @@ def _render_project_html(data: dict) -> str:
     if not cards:
         cards = '<p class="empty">No iterations yet. Generate the first image to see it appear here.</p>'
 
+    postcard_link = (
+        '<p><a class="postcardlink" href="postcard.html">&#128444; Postcard front/back preview &rarr;</a></p>'
+        if data.get("postcard") else ""
+    )
+
     return (
         _HTML_TEMPLATE
         .replace("{{NAME}}", esc(data.get("name", "")))
@@ -814,7 +851,93 @@ def _render_project_html(data: dict) -> str:
         .replace("{{THEME}}", esc(cfg.get("theme", "") or ""))
         .replace("{{SCENE}}", esc(cfg.get("scene_description", "") or ""))
         .replace("{{SOURCES}}", src_block)
+        .replace("{{POSTCARD_LINK}}", postcard_link)
         .replace("{{CARDS}}", cards)
+        .replace("{{GENERATED}}", esc(_now()))
+    )
+
+
+def _render_projects_home(projects: list) -> str:
+    esc = html.escape
+    cards = ""
+    for p in projects:
+        thumb = (
+            f'<img src="{esc(p["thumbnail"])}" alt="">'
+            if p.get("thumbnail") else '<div class="nothumb">no image yet</div>'
+        )
+        chips = ""
+        for k in ("style", "layout"):
+            v = p.get(k)
+            if v:
+                chips += f'<span class="chip"><b>{esc(k)}</b> {esc(str(v))}</span>'
+        theme = esc((p.get("theme") or "")[:160])
+        cards += f'''
+        <a class="pcard" href="{esc(p["project"])}/index.html">
+          <div class="pthumb">{thumb}</div>
+          <div class="pbody">
+            <h3>{esc(p.get("name") or p["project"])}</h3>
+            <p class="ptheme">{theme}</p>
+            <div class="chips">{chips}<span class="chip"><b>iterations</b> {p.get("iterations", 0)}</span></div>
+          </div>
+        </a>'''
+    if not cards:
+        cards = '<p class="empty">No projects yet. Create one to see it appear here.</p>'
+    # The palette reference page lives under prompts/, a sibling of projects/ — outside the
+    # static server's root — so link to it via file:// rather than trying to serve it.
+    palette_index = PALETTES_DIR / "index.html"
+    palette_url = palette_index.as_uri() if palette_index.exists() else "#"
+    return (
+        _HOME_TEMPLATE
+        .replace("{{CARDS}}", cards)
+        .replace("{{COUNT}}", str(len(projects)))
+        .replace("{{PALETTE_URL}}", esc(palette_url))
+        .replace("{{GENERATED}}", esc(_now()))
+    )
+
+
+def _save_projects_home() -> None:
+    """Rewrite the projects-home index.html + bump its state.json. Called from _save_project
+    so the home listing (thumbnails, iteration counts, theme text) never goes stale."""
+    PROJECTS_DIR.mkdir(parents=True, exist_ok=True)
+    version = 0
+    state_path = PROJECTS_DIR / "state.json"
+    if state_path.exists():
+        try:
+            version = int(json.loads(state_path.read_text()).get("version", 0))
+        except Exception:
+            version = 0
+    version += 1
+    (PROJECTS_DIR / "index.html").write_text(
+        _render_projects_home(_list_projects_data()).replace("{{VERSION}}", str(version)),
+        encoding="utf-8",
+    )
+    state_path.write_text(json.dumps({"version": version}))
+
+
+def _render_postcard_html(data: dict) -> str:
+    """Render projects/<slug>/postcard.html: front + back pages, each a full-bleed iteration
+    image with the designer's overlay HTML absolutely positioned on top. Sized to the real
+    6x4in print target; also used directly by generate_postcard_pdf via Playwright."""
+    esc = html.escape
+    pc = data.get("postcard", {}) or {}
+
+    def _page(label: str, image: str, overlay_html: str) -> str:
+        img_tag = f'<img class="bg" src="{esc(image)}" alt="{label}">' if image else '<div class="nothumb">no image selected</div>'
+        return f'''
+        <section class="page">
+          <div class="pagelabel">{label}</div>
+          {img_tag}
+          <div class="overlay">{overlay_html or ""}</div>
+        </section>'''
+
+    pages = _page("FRONT", pc.get("front_image", ""), pc.get("front_overlay_html", "")) + \
+        _page("BACK", pc.get("back_image", ""), pc.get("back_overlay_html", ""))
+
+    return (
+        _POSTCARD_TEMPLATE
+        .replace("{{NAME}}", esc(data.get("name", "")))
+        .replace("{{VERSION}}", str(int(data.get("state_version", 0))))
+        .replace("{{PAGES}}", pages)
         .replace("{{GENERATED}}", esc(_now()))
     )
 
@@ -894,9 +1017,9 @@ def create_project(
     }, indent=2)
 
 
-@mcp.tool()
-def list_projects() -> str:
-    """List all image projects with their style and iteration count."""
+def _list_projects_data() -> list:
+    """Scan projects/ for every project.json, returning the fields both `list_projects`
+    and the projects-home page need. Filesystem-derived so the two never drift apart."""
     projs = []
     if PROJECTS_DIR.exists():
         for d in sorted(PROJECTS_DIR.iterdir()):
@@ -907,13 +1030,34 @@ def list_projects() -> str:
                 data = json.loads(pj.read_text())
             except Exception:
                 continue
+            cfg = data.get("config", {})
+            iterations = data.get("iterations", [])
+            thumb = None
+            for it in reversed(iterations):
+                imgs = it.get("images") or ([it["image"]] if it.get("image") else [])
+                if imgs:
+                    thumb = f"{data.get('slug', d.name)}/{imgs[0]}"
+                    break
             projs.append({
                 "project": data.get("slug", d.name),
                 "name": data.get("name"),
-                "style": data.get("config", {}).get("style"),
-                "iterations": len(data.get("iterations", [])),
+                "style": cfg.get("style"),
+                "layout": cfg.get("layout"),
+                "theme": cfg.get("theme"),
+                "iterations": len(iterations),
+                "thumbnail": thumb,
                 "dir": str(d),
             })
+    return projs
+
+
+@mcp.tool()
+def list_projects() -> str:
+    """List all image projects with their style and iteration count."""
+    projs = [
+        {k: p[k] for k in ("project", "name", "style", "iterations", "dir")}
+        for p in _list_projects_data()
+    ]
     return json.dumps({"projects": projs}, indent=2)
 
 
@@ -1107,9 +1251,10 @@ async def generate_project_image(
 
 
 def _cleanup_servers():
-    for proc, _ in _SERVERS.values():
+    if _STATIC_SERVER:
         try:
-            proc.terminate()
+            _STATIC_SERVER["httpd"].shutdown()
+            _STATIC_SERVER["httpd"].server_close()
         except Exception:
             pass
 
@@ -1121,10 +1266,12 @@ atexit.register(_cleanup_servers)
 def open_project(name: str, serve: bool = True, port: int = 0) -> str:
     """Open a project's gallery in the browser.
 
-    With serve=True (default) a small local static server is started for the project so the
-    page's fetch-based auto-reload works flicker-free; the browser opens the http URL.
-    With serve=False the index.html is opened directly via file:// (auto-reload falls back
-    to a periodic refresh). The server is reused across calls for the same project."""
+    With serve=True (default) the shared local static server (rooted at the projects/
+    directory, so URLs are http://127.0.0.1:<port>/<slug>/...) is started if not already
+    running, and the browser opens this project's page on it. With serve=False the
+    index.html is opened directly via file:// (auto-reload falls back to a periodic
+    refresh). `port` only takes effect the first time the shared server starts; once
+    running, every project (and open_projects_home) reuses the same port."""
     data = _load_project(name)
     if not data:
         return json.dumps({"error": f"No project named '{name}'"})
@@ -1141,25 +1288,28 @@ def open_project(name: str, serve: bool = True, port: int = 0) -> str:
             pass
         return json.dumps({"url": url, "served": False, "dir": str(pdir)}, indent=2)
 
-    existing = _SERVERS.get(data["slug"])
-    if existing and existing[0].poll() is None:
-        chosen = existing[1]
-    else:
-        chosen = port or _free_port()
-        proc = subprocess.Popen(
-            [sys.executable, "-m", "http.server", str(chosen), "--bind", "127.0.0.1"],
-            cwd=str(pdir),
-            stdout=subprocess.DEVNULL,
-            stderr=subprocess.DEVNULL,
-        )
-        _SERVERS[data["slug"]] = (proc, chosen)
-
-    url = f"http://127.0.0.1:{chosen}/index.html"
+    chosen = _ensure_static_server(port)
+    url = f"http://127.0.0.1:{chosen}/{data['slug']}/index.html"
     try:
         webbrowser.open(url)
     except Exception:
         pass
     return json.dumps({"url": url, "served": True, "port": chosen, "dir": str(pdir)}, indent=2)
+
+
+@mcp.tool()
+def open_projects_home(port: int = 0) -> str:
+    """Open the projects home page in the browser: a landing page listing every project
+    (name, theme, style, iteration count, thumbnail) linking to its gallery. Uses the same
+    shared static server as open_project — `port` only takes effect on first boot."""
+    _save_projects_home()
+    chosen = _ensure_static_server(port)
+    url = f"http://127.0.0.1:{chosen}/"
+    try:
+        webbrowser.open(url)
+    except Exception:
+        pass
+    return json.dumps({"url": url, "served": True, "port": chosen, "dir": str(PROJECTS_DIR)}, indent=2)
 
 
 @mcp.tool()
@@ -1171,6 +1321,121 @@ def render_project_html(name: str) -> str:
         return json.dumps({"error": f"No project named '{name}'"})
     _save_project(data)
     return json.dumps({"project": data["slug"], "html": str(PROJECTS_DIR / data["slug"] / "index.html")})
+
+
+# ── Postcard front/back + PDF export ────────────────────────────────────────
+#
+# A project can designate two of its own iteration images as a postcard's front/back and
+# carry designer-authored HTML overlay content (address block, headline, logo placement,
+# whatever the piece needs) positioned on top of each. Selection is chat-driven: the
+# designer looks at the project's existing gallery (already lists every iteration) and
+# tells Claude which iteration to use for which side — there is no separate interactive
+# picker UI. See _render_postcard_html / _POSTCARD_TEMPLATE above _save_project for the
+# preview page, and generate_postcard_pdf below for the print export.
+
+@mcp.tool()
+def set_postcard_sides(name: str, front_image: str, back_image: str) -> str:
+    """Choose which of a project's existing images are the postcard's front and back.
+
+    Args:
+        name: Project name.
+        front_image: Project-relative path to an existing image, e.g. "iterations/iter-020.png".
+        back_image: Project-relative path to an existing image, e.g. "iterations/iter-013.png".
+    """
+    data = _load_project(name)
+    if not data:
+        return json.dumps({"error": f"No project named '{name}'"})
+    pdir = PROJECTS_DIR / data["slug"]
+    for label, rel in (("front_image", front_image), ("back_image", back_image)):
+        if not (pdir / rel).exists():
+            return json.dumps({"error": f"{label} '{rel}' does not exist under {pdir}"})
+    pc = data.setdefault("postcard", {})
+    pc["front_image"] = front_image
+    pc["back_image"] = back_image
+    _save_project(data)
+    return json.dumps({
+        "project": data["slug"],
+        "postcard": data["postcard"],
+        "preview": str(pdir / "postcard.html"),
+    }, indent=2)
+
+
+@mcp.tool()
+def set_postcard_overlay(name: str, side: str, html_content: str) -> str:
+    """Set the HTML overlay content drawn on top of one side of the postcard.
+
+    Args:
+        name: Project name.
+        side: "front" or "back".
+        html_content: An HTML fragment (e.g. <div style="position:absolute;...">…</div>)
+            positioned inside a full-bleed, inset:0 overlay container on top of that side's
+            image. Use inline positioning/styles in the fragment itself.
+    """
+    if side not in ("front", "back"):
+        return json.dumps({"error": "side must be 'front' or 'back'"})
+    data = _load_project(name)
+    if not data:
+        return json.dumps({"error": f"No project named '{name}'"})
+    pc = data.setdefault("postcard", {})
+    pc[f"{side}_overlay_html"] = html_content
+    _save_project(data)
+    return json.dumps({
+        "project": data["slug"],
+        "side": side,
+        "preview": str(PROJECTS_DIR / data["slug"] / "postcard.html"),
+    }, indent=2)
+
+
+@mcp.tool()
+async def generate_postcard_pdf(name: str, out_path: str = "") -> str:
+    """Render the project's postcard.html (front + back) to a print-ready, 2-page PDF at
+    exact 6x4in page size, using headless Chromium (Playwright) so the PDF matches the
+    browser preview exactly. Requires set_postcard_sides to have been called first.
+
+    Args:
+        name: Project name.
+        out_path: Optional output path; defaults to projects/<slug>/postcard.pdf.
+    """
+    data = _load_project(name)
+    if not data:
+        return json.dumps({"error": f"No project named '{name}'"})
+    pc = data.get("postcard") or {}
+    if not pc.get("front_image") or not pc.get("back_image"):
+        return json.dumps({"error": "Set front/back images first via set_postcard_sides."})
+
+    try:
+        from playwright.async_api import async_playwright
+    except ImportError:
+        return json.dumps({
+            "error": "playwright not installed. Run: uv add playwright && uv run playwright install chromium"
+        })
+
+    slug = data["slug"]
+    port = _ensure_static_server()
+    out = Path(out_path) if out_path else PROJECTS_DIR / slug / "postcard.pdf"
+    out.parent.mkdir(parents=True, exist_ok=True)
+
+    try:
+        async with async_playwright() as p:
+            browser = await p.chromium.launch()
+            try:
+                page = await browser.new_page()
+                await page.goto(f"http://127.0.0.1:{port}/{slug}/postcard.html", wait_until="networkidle")
+                await page.emulate_media(media="print")
+                await page.pdf(
+                    path=str(out),
+                    width="6in",
+                    height="4in",
+                    margin={"top": "0in", "right": "0in", "bottom": "0in", "left": "0in"},
+                    print_background=True,
+                    prefer_css_page_size=False,
+                )
+            finally:
+                await browser.close()
+    except Exception as e:
+        return json.dumps({"error": f"PDF generation failed: {e}"})
+
+    return json.dumps({"project": slug, "pdf": str(out)}, indent=2)
 
 
 # ── HTML gallery template (auto-reloads via state.json polling) ─────────────
@@ -1216,11 +1481,16 @@ _HTML_TEMPLATE = """<!DOCTYPE html>
  footer{color:#667;font-size:11px;text-align:center;padding:20px;}
  .live{position:fixed;top:10px;right:12px;background:#1a1;color:#fff;font-size:11px;padding:3px 9px;border-radius:12px;opacity:.85;z-index:10;}
  .live.off{background:#555;}
+ .allprojects{display:inline-block;font-size:12px;color:#9db4d8;text-decoration:none;font-weight:700;margin-bottom:10px;}
+ .allprojects:hover{text-decoration:underline;}
+ a.postcardlink{color:#f7f4ec;background:var(--blue);display:inline-block;margin:14px 4px;padding:6px 14px;border-radius:20px;font-size:13px;font-weight:700;text-decoration:none;}
+ a.postcardlink:hover{opacity:.85;}
 </style>
 </head>
 <body>
 <div class="live" id="live">&#9679; live</div>
 <div class="wrap">
+  <a class="allprojects" href="../">&larr; All projects</a>
   <header class="top">
     <h1>{{NAME}}</h1>
     <p class="theme">{{THEME}}</p>
@@ -1228,6 +1498,7 @@ _HTML_TEMPLATE = """<!DOCTYPE html>
     <div class="chips">{{CHIPS}}</div>
   </header>
   {{SOURCES}}
+  {{POSTCARD_LINK}}
   <h2>Iterations</h2>
   {{CARDS}}
   <footer>Generated {{GENERATED}} &middot; this page auto-reloads when a new iteration is added</footer>
@@ -1257,6 +1528,161 @@ _HTML_TEMPLATE = """<!DOCTYPE html>
      setTimeout(poll, 1500);
    }else{
      // No live server (e.g. opened via file://). Stop flickering; just retry slowly.
+     live.className='live off'; live.innerHTML='&#9679; open via server for live reload';
+     setTimeout(poll, 4000);
+   }
+ }
+ poll();
+</script>
+</body>
+</html>
+"""
+
+
+# ── Projects-home HTML template (lists every project, links to its gallery) ────────────
+
+_HOME_TEMPLATE = """<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>League Image Projects</title>
+<style>
+ :root{--ink:#141414;--paper:#f7f4ec;--accent:#d4202a;--blue:#173a6e;--chip:#eee7d6;}
+ *{box-sizing:border-box;}
+ body{margin:0;background:#101317;color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;}
+ .wrap{max-width:1100px;margin:0 auto;padding:24px;}
+ header.top{background:var(--paper);border:3px solid var(--ink);border-radius:10px;padding:20px 24px;box-shadow:0 8px 30px rgba(0,0,0,.4);margin-bottom:20px;}
+ .headrow{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+ h1{margin:0 0 6px;font-size:28px;}
+ .sub{font-size:14px;color:#555;margin:0;}
+ a.palettelink{color:#f7f4ec;background:var(--blue);display:inline-block;padding:6px 14px;border-radius:20px;font-size:13px;font-weight:700;text-decoration:none;white-space:nowrap;}
+ a.palettelink:hover{opacity:.85;}
+ .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;}
+ .pcard{background:var(--paper);border:3px solid var(--ink);border-radius:10px;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,.35);text-decoration:none;color:var(--ink);display:flex;flex-direction:column;transition:transform .1s;}
+ .pcard:hover{transform:translateY(-2px);}
+ .pthumb{height:150px;background:#e8e4d8;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+ .pthumb img{width:100%;height:100%;object-fit:cover;display:block;}
+ .nothumb{color:#999;font-size:12px;font-style:italic;}
+ .pbody{padding:12px 14px;}
+ .pbody h3{margin:0 0 6px;font-size:16px;}
+ .ptheme{font-size:12px;color:#555;margin:0 0 10px;line-height:1.4;}
+ .chips{display:flex;flex-wrap:wrap;gap:6px;}
+ .chip{background:var(--chip);border:1px solid #cbb;border-radius:20px;padding:3px 10px;font-size:11px;}
+ .chip b{color:var(--blue);text-transform:uppercase;font-size:9px;letter-spacing:.5px;margin-right:4px;}
+ .empty{color:#889;text-align:center;padding:60px;}
+ footer{color:#667;font-size:11px;text-align:center;padding:20px;}
+ .live{position:fixed;top:10px;right:12px;background:#1a1;color:#fff;font-size:11px;padding:3px 9px;border-radius:12px;opacity:.85;z-index:10;}
+ .live.off{background:#555;}
+</style>
+</head>
+<body>
+<div class="live" id="live">&#9679; live</div>
+<div class="wrap">
+  <header class="top">
+    <div class="headrow">
+      <h1>League Image Projects</h1>
+      <a class="palettelink" href="{{PALETTE_URL}}" target="_blank">&#127912; Palette reference &rarr;</a>
+    </div>
+    <p class="sub">{{COUNT}} project(s) &middot; click a card to open its gallery</p>
+  </header>
+  <div class="grid">{{CARDS}}</div>
+  <footer>Generated {{GENERATED}} &middot; this page auto-reloads when a project changes</footer>
+</div>
+<script>
+ const CURRENT_VERSION = {{VERSION}};
+ const live = document.getElementById('live');
+ async function poll(){
+   let served = true;
+   try{
+     const r = await fetch('state.json?ts=' + Date.now(), {cache:'no-store'});
+     if(r.ok){
+       const s = await r.json();
+       if(s.version > CURRENT_VERSION){ location.reload(); return; }
+     }else{
+       served = false;
+     }
+   }catch(e){
+     served = false;
+   }
+   if(served){
+     live.className='live'; live.innerHTML='&#9679; live';
+     setTimeout(poll, 1500);
+   }else{
+     live.className='live off'; live.innerHTML='&#9679; open via server for live reload';
+     setTimeout(poll, 4000);
+   }
+ }
+ poll();
+</script>
+</body>
+</html>
+"""
+
+
+# ── Postcard front/back preview + print HTML template ──────────────────────
+#
+# Doubles as (a) an in-browser live preview (auto-reloads, screen-only "FRONT"/"BACK"
+# labels and gap between pages) and (b) the literal page generate_postcard_pdf loads in
+# Playwright to produce the print PDF (@media print strips the screen-only chrome and
+# sizes each .page to the real 6x4in postcard). Page size on the PDF is set explicitly by
+# the Playwright page.pdf(width=, height=) call, not by the @page rule below — the CSS
+# @page stays only as a manual Ctrl+P fallback.
+
+_POSTCARD_TEMPLATE = """<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{NAME}} — Postcard Preview</title>
+<style>
+ *{box-sizing:border-box;}
+ body{margin:0;background:#101317;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;}
+ .wrap{max-width:900px;margin:0 auto;padding:24px;display:flex;flex-direction:column;gap:24px;align-items:center;}
+ .page{width:6in;height:4in;position:relative;overflow:hidden;box-sizing:border-box;background:#fff;box-shadow:0 8px 30px rgba(0,0,0,.5);border:1px solid #333;}
+ .page img.bg{width:100%;height:100%;object-fit:cover;display:block;}
+ .page .nothumb{width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:#999;font-size:14px;font-style:italic;background:#eee;}
+ .overlay{position:absolute;inset:0;}
+ .pagelabel{position:absolute;top:-22px;left:0;color:#889;font-size:11px;letter-spacing:1px;text-transform:uppercase;font-weight:700;}
+ .live{position:fixed;top:10px;right:12px;background:#1a1;color:#fff;font-size:11px;padding:3px 9px;border-radius:12px;opacity:.85;z-index:10;}
+ .live.off{background:#555;}
+ .allprojects{position:fixed;top:10px;left:12px;font-size:12px;color:#9db4d8;text-decoration:none;font-weight:700;}
+ @media print {
+   html, body { margin:0; padding:0; background:#fff; }
+   @page { size: 6in 4in; margin: 0; }
+   .wrap{padding:0;gap:0;max-width:none;}
+   .page { margin:0; border:none; box-shadow:none; page-break-after: always; break-after: page; }
+   .page:last-child { page-break-after: auto; break-after: auto; }
+   .pagelabel, .live, .allprojects { display:none !important; }
+ }
+</style>
+</head>
+<body>
+<div class="live" id="live">&#9679; live</div>
+<a class="allprojects" href="index.html">&larr; Back to gallery</a>
+<div class="wrap">
+  {{PAGES}}
+</div>
+<script>
+ const CURRENT_VERSION = {{VERSION}};
+ const live = document.getElementById('live');
+ async function poll(){
+   let served = true;
+   try{
+     const r = await fetch('state.json?ts=' + Date.now(), {cache:'no-store'});
+     if(r.ok){
+       const s = await r.json();
+       if(s.version > CURRENT_VERSION){ location.reload(); return; }
+     }else{
+       served = false;
+     }
+   }catch(e){
+     served = false;
+   }
+   if(served){
+     live.className='live'; live.innerHTML='&#9679; live';
+     setTimeout(poll, 1500);
+   }else{
      live.className='live off'; live.innerHTML='&#9679; open via server for live reload';
      setTimeout(poll, 4000);
    }
