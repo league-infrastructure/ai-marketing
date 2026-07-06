@@ -43,6 +43,19 @@
  .allprojects:hover{text-decoration:underline;}
  a.postcardlink{color:#f7f4ec;background:var(--blue);display:inline-block;margin:14px 4px;padding:6px 14px;border-radius:20px;font-size:13px;font-weight:700;text-decoration:none;}
  a.postcardlink:hover{opacity:.85;}
+ .delbtn{margin-left:auto;background:none;border:1px solid var(--accent);color:var(--accent);border-radius:6px;padding:3px 10px;font-size:11px;font-weight:700;cursor:pointer;}
+ .delbtn:hover{background:var(--accent);color:#fff;}
+ .cardhead .meta{margin-left:0;}
+ .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:100;align-items:center;justify-content:center;}
+ .modal-overlay.open{display:flex;}
+ .modal-box{background:var(--paper);border-radius:10px;padding:24px 28px;max-width:380px;box-shadow:0 12px 40px rgba(0,0,0,.5);}
+ .modal-box h3{margin:0 0 10px;font-size:17px;color:var(--accent);}
+ .modal-box p{margin:0 0 20px;font-size:14px;line-height:1.5;color:#333;}
+ .modal-actions{display:flex;gap:10px;justify-content:flex-end;}
+ .modal-actions button{border-radius:6px;padding:8px 16px;font-size:13px;font-weight:700;cursor:pointer;border:1px solid #ccc;background:#fff;}
+ .modal-actions button.confirm{background:var(--accent);border-color:var(--accent);color:#fff;}
+ .modal-actions button.confirm:disabled{opacity:.6;cursor:default;}
+ .modal-error{color:var(--accent);font-size:12px;margin-top:10px;}
 </style>
 </head>
 <body>
@@ -59,10 +72,73 @@
   <p><a class="postcardlink" href="postcard.html">&#128444; Postcard front/back preview &rarr;</a></p>
   <h2>Iterations</h2>
   
-    <article class="card ">
+    <article class="card " data-iteration="4">
+      <div class="cardhead">
+        <span class="num">#4</span><span class="lab">— Back v2 — navy behind masthead, single cream zone below</span>
+        <span class="meta">2026-07-05T20:42:45 &middot; gpt-image-2</span>
+        <button class="delbtn" data-n="4" data-label="Back v2 — navy behind masthead, single cream zone below" title="Delete this iteration">&#128465; Delete</button>
+      </div>
+      <div class="imgwrap"><a href="iterations/iter-004.png" target="_blank"><img class="hero" src="iterations/iter-004.png" alt="iteration 4"></a></div>
+      <div class="reflabel">references</div><div class="thumbs small"><a href="iterations/iter-003.png" target="_blank"><img src="iterations/iter-003.png"></a></div>
+      <details><summary>Prompt &amp; details</summary>
+        <div class="detail">
+          <div class="dl">positive prompt</div><pre>A Golden-Age graphic-novel comic illustration — the same HisMastersVoice look as the front of this postcard: bold tapered brush contours, dense flexible-nib ink work, broad FLAT swathes of solid color with crisp hard edges, NO gradients, NO painted modeling, NO airbrush. This is the BACK of a postcard: a clean branded template, NOT a scene — no characters, no robots, no crowd, no illustration of any action.
+
+The attached reference image is the EXACT BASE — reproduce its masthead wording, lettering style, and proportions faithfully, with ONE change to the color layout:
+
+LAYOUT — two horizontal zones filling a 4×6 inch landscape card (3:2 frame), stacked top to bottom:
+
+1. TOP MASTHEAD BAND (about the top 20% of the card): now a flat deep NAVY (#16223C) field — NOT cream — carrying the exact same masthead lettering &quot;The League of Amazing Programmers&quot; set across it in ONE horizontal line, same bold hand-inked vintage comic display lettering, condensed caps, heavy black keyline, filled in the same burnt orange (#C96A10) and signal red (#CC1616) accents as the reference. The same small flat orange lightning bolt flanks each end of the line. Confident, energetic ink linework matching the front&#x27;s style.
+
+2. EVERYTHING BELOW THE MASTHEAD (the remaining ~80% of the card): ONE single, completely FLAT, EMPTY cream (#FBE5A0) field spanning all the way to the bottom edge of the card — no texture, no gradient, no illustration, no decorative elements, and ABSOLUTELY NO TEXT of any kind. There is NO separate navy band at the bottom anymore — the navy only appears once, behind the masthead at the top. This whole lower area is intentionally left blank; message text will be added separately afterward.
+
+A thin flat ink-black rule separates the navy masthead band from the cream field below it.
+
+TEXT — the ONLY lettering anywhere on this card is the masthead line &quot;The League of Amazing Programmers&quot;, spelled exactly as given. No other words, no placeholder text, no lorem ipsum, no addresses, no stamps box, no postal markings, nothing else anywhere on the card.
+
+FORMAT — 4×6 inch landscape postcard back, full-bleed, print-ready quality.</pre>
+          <div class="dl">negative prompt</div><pre>A navy or blue band anywhere at the bottom of the card. Any cream color behind the masthead lettering at the top — that band must be navy. Any characters, people, robots, crowd, vehicles, or illustrated scene of any kind. Any text, lettering, numbers, or symbols in the cream field below the masthead — it must be completely empty and flat. Placeholder text, lorem ipsum, &quot;your message here&quot;, sample address lines, a postage stamp box, postal cancellation marks, a QR code, barcodes. Texture, grain, gradient, noise, speckle, halftone, Ben-Day dots, newsprint, parchment, aged paper. Painted or airbrushed shading, soft glows, glossy highlights, 3D render, CGI, photorealism. A three-line stacked wordmark — the masthead must be ONE single horizontal line, not stacked. Misspelled or reworded masthead text. Illegible masthead lettering against the navy field. Anime or manga style, chibi proportions, Funko-Pop style. Portrait orientation. Any element from the front-of-card scene (arena, robots, drivers, crowd, ROBOT RIOT title) appearing on this back template.</pre>
+          <div class="dl">notes</div><p>Delta from iter-003: moved the navy blue field from the bottom band up to the top masthead band (masthead now sits on navy instead of cream). The bottom navy band is eliminated — everything below the masthead is now one continuous blank cream zone (previously split into a cream middle + navy bottom). Masthead wording/lettering style/lightning bolts unchanged.</p>
+          
+        </div>
+      </details>
+    </article>
+    <article class="card " data-iteration="3">
+      <div class="cardhead">
+        <span class="num">#3</span><span class="lab">— Back — masthead + open cream/blue zones</span>
+        <span class="meta">2026-07-05T20:06:00 &middot; gpt-image-2</span>
+        <button class="delbtn" data-n="3" data-label="Back — masthead + open cream/blue zones" title="Delete this iteration">&#128465; Delete</button>
+      </div>
+      <div class="imgwrap"><a href="iterations/iter-003.png" target="_blank"><img class="hero" src="iterations/iter-003.png" alt="iteration 3"></a></div>
+      
+      <details><summary>Prompt &amp; details</summary>
+        <div class="detail">
+          <div class="dl">positive prompt</div><pre>A Golden-Age graphic-novel comic illustration — the same HisMastersVoice look as the front of this postcard: bold tapered brush contours, dense flexible-nib ink work, broad FLAT swathes of solid color with crisp hard edges, NO gradients, NO painted modeling, NO airbrush. This is the BACK of a postcard: a clean branded template, NOT a scene — no characters, no robots, no crowd, no illustration of any action.
+
+LAYOUT — three horizontal zones filling a 4×6 inch landscape card (3:2 frame), stacked top to bottom:
+
+1. TOP MASTHEAD BAND (about the top 20% of the card): a flat cream (#FBE5A0) field carrying the masthead lettering &quot;The League of Amazing Programmers&quot; set across it in ONE horizontal line — bold, hand-inked vintage comic display lettering, condensed caps, heavy black keyline, filled in burnt orange (#C96A10) and signal red (#CC1616) accents matching the front&#x27;s palette. A small flat orange lightning bolt flanks each end of the line, kept clear of the letters. Confident, energetic ink linework matching the front&#x27;s style — this is the only densely-inked element on the whole back.
+
+2. MIDDLE ZONE (about the middle 55% of the card): a single, completely FLAT, EMPTY cream (#FBE5A0) field — no texture, no gradient, no illustration, no decorative elements, and ABSOLUTELY NO TEXT of any kind. This area is intentionally left blank; message text will be added separately afterward. Do not invent any lettering, lines, boxes, or graphics here.
+
+3. BOTTOM BAND (about the bottom 20-25% of the card): a single, completely FLAT, EMPTY deep navy (#16223C) band spanning the full width of the card — no texture, no gradient, no icons, and ABSOLUTELY NO TEXT. This band is intentionally left blank; text will be added separately afterward.
+
+A thin flat ink-black rule may separate the masthead band from the cream middle zone, and another thin flat ink-black rule may separate the cream middle zone from the navy bottom band — simple, crisp, hairline dividers only, matching the flat-color house style.
+
+TEXT — the ONLY lettering anywhere on this card is the masthead line &quot;The League of Amazing Programmers&quot;, spelled exactly as given. No other words, no placeholder text, no lorem ipsum, no addresses, no lines, no stamps box, no postal markings, nothing else anywhere on the card.
+
+FORMAT — 4×6 inch landscape postcard back, full-bleed, print-ready quality.</pre>
+          <div class="dl">negative prompt</div><pre>Any characters, people, robots, crowd, vehicles, or illustrated scene of any kind — this is a blank branded template, not artwork. Any text, lettering, numbers, or symbols in the middle cream zone or the bottom navy band — those two zones must be completely empty and flat. Placeholder text, lorem ipsum, &quot;your message here&quot;, sample address lines, a postage stamp box, postal cancellation marks, a QR code, barcodes. Texture, grain, gradient, noise, speckle, halftone, Ben-Day dots, newsprint, parchment, aged paper. Painted or airbrushed shading, soft glows, glossy highlights, 3D render, CGI, photorealism. More than three color fields for the large zones (cream masthead band, cream middle, navy bottom band) — the masthead lettering&#x27;s own ink black/burnt orange/signal red/bolt-orange accents are the only exception, confined to the masthead band. A three-line stacked wordmark — the masthead must be ONE single horizontal line, not stacked. Misspelled or reworded masthead text. Anime or manga style, chibi proportions, Funko-Pop style. Portrait orientation. Any element from the front-of-card scene (arena, robots, drivers, crowd, ROBOT RIOT title) appearing on this back template.</pre>
+          <div class="dl">notes</div><p>First pass at the postcard BACK: not a scene — a branded template with &quot;The League of Amazing Programmers&quot; masthead across the top, a large open cream middle area (intentionally blank, message text to be added later via postcard overlay), and a solid navy band across the bottom (also intentionally blank, for text to be added later). Same graphic-novel/HisMastersVoice ink style and orange-blue palette as the front for a matching set.</p>
+          
+        </div>
+      </details>
+    </article>
+    <article class="card " data-iteration="2">
       <div class="cardhead">
         <span class="num">#2</span><span class="lab">— draft-22 fix robot logo overuse, add THE LEAGUE text</span>
         <span class="meta">2026-07-05T18:40:32 &middot; gpt-image-2</span>
+        <button class="delbtn" data-n="2" data-label="draft-22 fix robot logo overuse, add THE LEAGUE text" title="Delete this iteration">&#128465; Delete</button>
       </div>
       <div class="imgwrap"><a href="iterations/iter-002.png" target="_blank"><img class="hero" src="iterations/iter-002.png" alt="iteration 2"></a></div>
       <div class="reflabel">references</div><div class="thumbs small"><a href="iterations/iter-021.png" target="_blank"><img src="iterations/iter-021.png"></a></div>
@@ -96,10 +172,11 @@ FORMAT — 4×6 inch landscape postcard, full-bleed hero image, print-ready qual
         </div>
       </details>
     </article>
-    <article class="card ">
+    <article class="card " data-iteration="1">
       <div class="cardhead">
         <span class="num">#1</span><span class="lab">— draft-1 engraving composition</span>
         <span class="meta">2026-07-01T22:11:10 &middot; gpt-image-2</span>
+        <button class="delbtn" data-n="1" data-label="draft-1 engraving composition" title="Delete this iteration">&#128465; Delete</button>
       </div>
       <div class="imgwrap"><a href="iterations/iter-001.png" target="_blank"><img class="hero" src="iterations/iter-001.png" alt="iteration 1"></a></div>
       <div class="reflabel">references</div><div class="thumbs small"><a href="sources/cutebots.png" target="_blank"><img src="sources/cutebots.png"></a></div>
@@ -126,10 +203,22 @@ FORMAT — 4×6 inch landscape postcard, full-bleed hero image, print-ready qual
         </div>
       </details>
     </article>
-  <footer>Generated 2026-07-05T19:35:59 &middot; this page auto-reloads when a new iteration is added</footer>
+  <footer>Generated 2026-07-06T13:48:58 &middot; this page auto-reloads when a new iteration is added</footer>
+</div>
+<div class="modal-overlay" id="delModal">
+  <div class="modal-box">
+    <h3>Delete this iteration?</h3>
+    <p>Delete <strong id="delModalLabel"></strong>? This removes its image file(s) permanently and cannot be undone.</p>
+    <div class="modal-actions">
+      <button id="delModalCancel">Cancel</button>
+      <button class="confirm" id="delModalConfirm">Delete</button>
+    </div>
+    <div class="modal-error" id="delModalError"></div>
+  </div>
 </div>
 <script>
- const CURRENT_VERSION = 50;
+ const CURRENT_VERSION = 68;
+ const SLUG = "Robot-Riot-Postcard";
  const live = document.getElementById('live');
  // Only ever reload when state.json confirms a NEW version. We never blind-reload on a
  // timer: under file:// (fetch blocked) or with the server down we can't read the version,
@@ -158,6 +247,54 @@ FORMAT — 4×6 inch landscape postcard, full-bleed hero image, print-ready qual
    }
  }
  poll();
+
+ // Delete button + confirm modal. A destructive, irreversible action (removes the image
+ // file(s) too) — always requires an explicit confirm click, never just the initial button.
+ const modal = document.getElementById('delModal');
+ const modalLabel = document.getElementById('delModalLabel');
+ const modalConfirm = document.getElementById('delModalConfirm');
+ const modalCancel = document.getElementById('delModalCancel');
+ const modalError = document.getElementById('delModalError');
+ let pendingN = null;
+
+ function closeModal(){
+   modal.classList.remove('open');
+   pendingN = null;
+   modalError.textContent = '';
+   modalConfirm.disabled = false;
+   modalConfirm.textContent = 'Delete';
+ }
+
+ document.querySelectorAll('.delbtn').forEach(btn => {
+   btn.addEventListener('click', () => {
+     pendingN = btn.dataset.n;
+     modalLabel.textContent = '#' + pendingN + ' — ' + btn.dataset.label;
+     modalError.textContent = '';
+     modal.classList.add('open');
+   });
+ });
+ modalCancel.addEventListener('click', closeModal);
+ modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+
+ modalConfirm.addEventListener('click', async () => {
+   if (pendingN === null) return;
+   modalConfirm.disabled = true;
+   modalConfirm.textContent = 'Deleting…';
+   try {
+     const res = await fetch(`/${SLUG}/iterations/delete`, {
+       method: 'POST',
+       headers: {'Content-Type': 'application/json'},
+       body: JSON.stringify({n: parseInt(pendingN, 10)})
+     });
+     const body = await res.json();
+     if (!res.ok) throw new Error(body.error || res.statusText);
+     location.reload();
+   } catch (err) {
+     modalError.textContent = 'Delete failed: ' + err.message;
+     modalConfirm.disabled = false;
+     modalConfirm.textContent = 'Delete';
+   }
+ });
 </script>
 </body>
 </html>

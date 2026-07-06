@@ -39,11 +39,29 @@
  footer{color:#667;font-size:11px;text-align:center;padding:20px;}
  .live{position:fixed;top:10px;right:12px;background:#1a1;color:#fff;font-size:11px;padding:3px 9px;border-radius:12px;opacity:.85;z-index:10;}
  .live.off{background:#555;}
+ .allprojects{display:inline-block;font-size:12px;color:#9db4d8;text-decoration:none;font-weight:700;margin-bottom:10px;}
+ .allprojects:hover{text-decoration:underline;}
+ a.postcardlink{color:#f7f4ec;background:var(--blue);display:inline-block;margin:14px 4px;padding:6px 14px;border-radius:20px;font-size:13px;font-weight:700;text-decoration:none;}
+ a.postcardlink:hover{opacity:.85;}
+ .delbtn{margin-left:auto;background:none;border:1px solid var(--accent);color:var(--accent);border-radius:6px;padding:3px 10px;font-size:11px;font-weight:700;cursor:pointer;}
+ .delbtn:hover{background:var(--accent);color:#fff;}
+ .cardhead .meta{margin-left:0;}
+ .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:100;align-items:center;justify-content:center;}
+ .modal-overlay.open{display:flex;}
+ .modal-box{background:var(--paper);border-radius:10px;padding:24px 28px;max-width:380px;box-shadow:0 12px 40px rgba(0,0,0,.5);}
+ .modal-box h3{margin:0 0 10px;font-size:17px;color:var(--accent);}
+ .modal-box p{margin:0 0 20px;font-size:14px;line-height:1.5;color:#333;}
+ .modal-actions{display:flex;gap:10px;justify-content:flex-end;}
+ .modal-actions button{border-radius:6px;padding:8px 16px;font-size:13px;font-weight:700;cursor:pointer;border:1px solid #ccc;background:#fff;}
+ .modal-actions button.confirm{background:var(--accent);border-color:var(--accent);color:#fff;}
+ .modal-actions button.confirm:disabled{opacity:.6;cursor:default;}
+ .modal-error{color:var(--accent);font-size:12px;margin-top:10px;}
 </style>
 </head>
 <body>
 <div class="live" id="live">&#9679; live</div>
 <div class="wrap">
+  <a class="allprojects" href="../">&larr; All projects</a>
   <header class="top">
     <h1>Hello World Postcard</h1>
     <p class="theme">Learning to code is the start of a great career — and it&#x27;s fun. Postcard for The League of Amazing Programmers.</p>
@@ -51,12 +69,14 @@
     <div class="chips"><span class="chip"><b>style</b> technical-blueprint</span><span class="chip"><b>composition</b> single-plan</span><span class="chip"><b>layout</b> postcard-4x6</span><span class="chip"><b>model</b> chatgpt-image-latest</span></div>
   </header>
   <section class="sources"><h2>Source images</h2><div class="thumbs"><a href="sources/istockphoto-1254050848-612x612.jpg" target="_blank"><img src="sources/istockphoto-1254050848-612x612.jpg" alt="source"></a></div></section>
+  
   <h2>Iterations</h2>
   
-    <article class="card ">
+    <article class="card " data-iteration="3">
       <div class="cardhead">
         <span class="num">#3</span><span class="lab">— Draft 1 — gemini image model, two callouts</span>
         <span class="meta">2026-07-01T06:10:30 &middot; google/gemini-3-pro-image-20260528</span>
+        <button class="delbtn" data-n="3" data-label="Draft 1 — gemini image model, two callouts" title="Delete this iteration">&#128465; Delete</button>
       </div>
       <div class="imgwrap"><a href="iterations/iter-003_0.jpeg" target="_blank"><img class="hero" src="iterations/iter-003_0.jpeg" alt="iteration 3"></a><a href="iterations/iter-003_1.jpeg" target="_blank"><img class="hero" src="iterations/iter-003_1.jpeg" alt="iteration 3"></a></div>
       <div class="reflabel">references</div><div class="thumbs small"><a href="sources/istockphoto-1254050848-612x612.jpg" target="_blank"><img src="sources/istockphoto-1254050848-612x612.jpg"></a></div>
@@ -148,10 +168,11 @@ portraits of people — figures are simplified technical outlines.</pre>
         </div>
       </details>
     </article>
-    <article class="card err">
+    <article class="card err" data-iteration="2">
       <div class="cardhead">
         <span class="num">#2</span><span class="lab">— First draft — two callouts</span><span class="badge err">error</span>
         <span class="meta">2026-07-01T06:09:06 &middot; chatgpt-image-latest</span>
+        <button class="delbtn" data-n="2" data-label="First draft — two callouts" title="Delete this iteration">&#128465; Delete</button>
       </div>
       <div class="imgwrap"><div class="noimg">&#9888; No image — Client error &#x27;400 Bad Request&#x27; for url &#x27;https://openrouter.ai/api/v1/chat/completions&#x27;
 For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400</div></div>
@@ -245,10 +266,11 @@ For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/St
         </div>
       </details>
     </article>
-    <article class="card err">
+    <article class="card err" data-iteration="1">
       <div class="cardhead">
         <span class="num">#1</span><span class="lab">— First draft — two callouts</span><span class="badge err">error</span>
         <span class="meta">2026-07-01T06:08:52 &middot; chatgpt-image-latest</span>
+        <button class="delbtn" data-n="1" data-label="First draft — two callouts" title="Delete this iteration">&#128465; Delete</button>
       </div>
       <div class="imgwrap"><div class="noimg">&#9888; No image — Client error &#x27;400 Bad Request&#x27; for url &#x27;https://openrouter.ai/api/v1/chat/completions&#x27;
 For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400</div></div>
@@ -342,10 +364,22 @@ For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/St
         </div>
       </details>
     </article>
-  <footer>Generated 2026-07-01T06:10:30 &middot; this page auto-reloads when a new iteration is added</footer>
+  <footer>Generated 2026-07-06T13:48:56 &middot; this page auto-reloads when a new iteration is added</footer>
+</div>
+<div class="modal-overlay" id="delModal">
+  <div class="modal-box">
+    <h3>Delete this iteration?</h3>
+    <p>Delete <strong id="delModalLabel"></strong>? This removes its image file(s) permanently and cannot be undone.</p>
+    <div class="modal-actions">
+      <button id="delModalCancel">Cancel</button>
+      <button class="confirm" id="delModalConfirm">Delete</button>
+    </div>
+    <div class="modal-error" id="delModalError"></div>
+  </div>
 </div>
 <script>
- const CURRENT_VERSION = 4;
+ const CURRENT_VERSION = 5;
+ const SLUG = "Hello-World-Postcard";
  const live = document.getElementById('live');
  // Only ever reload when state.json confirms a NEW version. We never blind-reload on a
  // timer: under file:// (fetch blocked) or with the server down we can't read the version,
@@ -374,6 +408,54 @@ For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/St
    }
  }
  poll();
+
+ // Delete button + confirm modal. A destructive, irreversible action (removes the image
+ // file(s) too) — always requires an explicit confirm click, never just the initial button.
+ const modal = document.getElementById('delModal');
+ const modalLabel = document.getElementById('delModalLabel');
+ const modalConfirm = document.getElementById('delModalConfirm');
+ const modalCancel = document.getElementById('delModalCancel');
+ const modalError = document.getElementById('delModalError');
+ let pendingN = null;
+
+ function closeModal(){
+   modal.classList.remove('open');
+   pendingN = null;
+   modalError.textContent = '';
+   modalConfirm.disabled = false;
+   modalConfirm.textContent = 'Delete';
+ }
+
+ document.querySelectorAll('.delbtn').forEach(btn => {
+   btn.addEventListener('click', () => {
+     pendingN = btn.dataset.n;
+     modalLabel.textContent = '#' + pendingN + ' — ' + btn.dataset.label;
+     modalError.textContent = '';
+     modal.classList.add('open');
+   });
+ });
+ modalCancel.addEventListener('click', closeModal);
+ modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+
+ modalConfirm.addEventListener('click', async () => {
+   if (pendingN === null) return;
+   modalConfirm.disabled = true;
+   modalConfirm.textContent = 'Deleting…';
+   try {
+     const res = await fetch(`/${SLUG}/iterations/delete`, {
+       method: 'POST',
+       headers: {'Content-Type': 'application/json'},
+       body: JSON.stringify({n: parseInt(pendingN, 10)})
+     });
+     const body = await res.json();
+     if (!res.ok) throw new Error(body.error || res.statusText);
+     location.reload();
+   } catch (err) {
+     modalError.textContent = 'Delete failed: ' + err.message;
+     modalConfirm.disabled = false;
+     modalConfirm.textContent = 'Delete';
+   }
+ });
 </script>
 </body>
 </html>

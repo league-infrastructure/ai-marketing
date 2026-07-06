@@ -39,11 +39,29 @@
  footer{color:#667;font-size:11px;text-align:center;padding:20px;}
  .live{position:fixed;top:10px;right:12px;background:#1a1;color:#fff;font-size:11px;padding:3px 9px;border-radius:12px;opacity:.85;z-index:10;}
  .live.off{background:#555;}
+ .allprojects{display:inline-block;font-size:12px;color:#9db4d8;text-decoration:none;font-weight:700;margin-bottom:10px;}
+ .allprojects:hover{text-decoration:underline;}
+ a.postcardlink{color:#f7f4ec;background:var(--blue);display:inline-block;margin:14px 4px;padding:6px 14px;border-radius:20px;font-size:13px;font-weight:700;text-decoration:none;}
+ a.postcardlink:hover{opacity:.85;}
+ .delbtn{margin-left:auto;background:none;border:1px solid var(--accent);color:var(--accent);border-radius:6px;padding:3px 10px;font-size:11px;font-weight:700;cursor:pointer;}
+ .delbtn:hover{background:var(--accent);color:#fff;}
+ .cardhead .meta{margin-left:0;}
+ .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:100;align-items:center;justify-content:center;}
+ .modal-overlay.open{display:flex;}
+ .modal-box{background:var(--paper);border-radius:10px;padding:24px 28px;max-width:380px;box-shadow:0 12px 40px rgba(0,0,0,.5);}
+ .modal-box h3{margin:0 0 10px;font-size:17px;color:var(--accent);}
+ .modal-box p{margin:0 0 20px;font-size:14px;line-height:1.5;color:#333;}
+ .modal-actions{display:flex;gap:10px;justify-content:flex-end;}
+ .modal-actions button{border-radius:6px;padding:8px 16px;font-size:13px;font-weight:700;cursor:pointer;border:1px solid #ccc;background:#fff;}
+ .modal-actions button.confirm{background:var(--accent);border-color:var(--accent);color:#fff;}
+ .modal-actions button.confirm:disabled{opacity:.6;cursor:default;}
+ .modal-error{color:var(--accent);font-size:12px;margin-top:10px;}
 </style>
 </head>
 <body>
 <div class="live" id="live">&#9679; live</div>
 <div class="wrap">
+  <a class="allprojects" href="../">&larr; All projects</a>
   <header class="top">
     <h1>League Logo Horizontal</h1>
     <p class="theme">Type sample (black-and-white structural reference) for the horizontal League of Amazing Programmers logo.</p>
@@ -51,12 +69,14 @@
     <div class="chips"><span class="chip"><b>style</b> type-sample</span><span class="chip"><b>composition</b> type-sample</span><span class="chip"><b>layout</b> type-sample</span><span class="chip"><b>model</b> chatgpt-image-latest</span></div>
   </header>
   <section class="sources"><h2>Source images</h2><div class="thumbs"><a href="sources/example.png" target="_blank"><img src="sources/example.png" alt="source"></a></div></section>
+  
   <h2>Iterations</h2>
   
-    <article class="card ">
+    <article class="card " data-iteration="11">
       <div class="cardhead">
         <span class="num">#11</span><span class="lab">— Type sample v11 — pure text only (retry, no dashes/swoosh)</span>
         <span class="meta">2026-07-01T19:19:46 &middot; chatgpt-image-latest</span>
+        <button class="delbtn" data-n="11" data-label="Type sample v11 — pure text only (retry, no dashes/swoosh)" title="Delete this iteration">&#128465; Delete</button>
       </div>
       <div class="imgwrap"><a href="iterations/iter-011.png" target="_blank"><img class="hero" src="iterations/iter-011.png" alt="iteration 11"></a></div>
       
@@ -79,10 +99,11 @@ Only these three words appear. No frame, badge, banner, border, bars, dashes, un
         </div>
       </details>
     </article>
-    <article class="card ">
+    <article class="card " data-iteration="10">
       <div class="cardhead">
         <span class="num">#10</span><span class="lab">— Type sample v10 — pure text, no dashes/swoosh (based on v4)</span>
         <span class="meta">2026-07-01T19:18:43 &middot; chatgpt-image-latest</span>
+        <button class="delbtn" data-n="10" data-label="Type sample v10 — pure text, no dashes/swoosh (based on v4)" title="Delete this iteration">&#128465; Delete</button>
       </div>
       <div class="imgwrap"><a href="iterations/iter-010.png" target="_blank"><img class="hero" src="iterations/iter-010.png" alt="iteration 10"></a></div>
       
@@ -117,10 +138,11 @@ The League of Amazing Programmers wordmark reduced to pure typography: three cen
         </div>
       </details>
     </article>
-    <article class="card ">
+    <article class="card " data-iteration="9">
       <div class="cardhead">
         <span class="num">#9</span><span class="lab">— Type sample v9 — text-only, no frame/bars/bolts (based on v4)</span>
         <span class="meta">2026-07-01T19:13:55 &middot; chatgpt-image-latest</span>
+        <button class="delbtn" data-n="9" data-label="Type sample v9 — text-only, no frame/bars/bolts (based on v4)" title="Delete this iteration">&#128465; Delete</button>
       </div>
       <div class="imgwrap"><a href="iterations/iter-009.png" target="_blank"><img class="hero" src="iterations/iter-009.png" alt="iteration 9"></a></div>
       
@@ -166,10 +188,11 @@ A badge, shield, banner, frame, border, box, or any enclosing outline around the
         </div>
       </details>
     </article>
-    <article class="card ">
+    <article class="card " data-iteration="8">
       <div class="cardhead">
         <span class="num">#8</span><span class="lab">— 8-bit COLOR type sample — midnight-arcade re-skin of grayscale 8-bit sample</span>
         <span class="meta">2026-07-01T11:12:01 &middot; chatgpt-image-latest</span>
+        <button class="delbtn" data-n="8" data-label="8-bit COLOR type sample — midnight-arcade re-skin of grayscale 8-bit sample" title="Delete this iteration">&#128465; Delete</button>
       </div>
       <div class="imgwrap"><a href="iterations/iter-008.png" target="_blank"><img class="hero" src="iterations/iter-008.png" alt="iteration 8"></a></div>
       
@@ -335,10 +358,11 @@ sprites — this is a single static image. Any free-floating modern (non-pixel) 
         </div>
       </details>
     </article>
-    <article class="card ">
+    <article class="card " data-iteration="7">
       <div class="cardhead">
         <span class="num">#7</span><span class="lab">— 8-bit shaded type sample — grayscale, AMAZING shading layers, bolts + spaceships</span>
         <span class="meta">2026-07-01T10:11:17 &middot; chatgpt-image-latest</span>
+        <button class="delbtn" data-n="7" data-label="8-bit shaded type sample — grayscale, AMAZING shading layers, bolts + spaceships" title="Delete this iteration">&#128465; Delete</button>
       </div>
       <div class="imgwrap"><a href="iterations/iter-007.png" target="_blank"><img class="hero" src="iterations/iter-007.png" alt="iteration 7"></a></div>
       
@@ -451,10 +475,11 @@ bolts, spaceships, stars). Arcade UI panels, score boxes, &quot;insert coin&quot
         </div>
       </details>
     </article>
-    <article class="card ">
+    <article class="card " data-iteration="6">
       <div class="cardhead">
         <span class="num">#6</span><span class="lab">— Type sample v6 — delete middle OF line, add bracket bars, remove other rules</span>
         <span class="meta">2026-07-01T09:48:00 &middot; chatgpt-image-latest</span>
+        <button class="delbtn" data-n="6" data-label="Type sample v6 — delete middle OF line, add bracket bars, remove other rules" title="Delete this iteration">&#128465; Delete</button>
       </div>
       <div class="imgwrap"><a href="iterations/iter-006.png" target="_blank"><img class="hero" src="iterations/iter-006.png" alt="iteration 6"></a></div>
       <div class="reflabel">references</div><div class="thumbs small"><a href="iterations/iter-005.png" target="_blank"><img src="iterations/iter-005.png"></a></div>
@@ -561,10 +586,11 @@ component itself. Photorealism or 3-D rendering.</pre>
         </div>
       </details>
     </article>
-    <article class="card ">
+    <article class="card " data-iteration="5">
       <div class="cardhead">
         <span class="num">#5</span><span class="lab">— Type sample v5 — edits from original crop: OF on top line, bracket bars, rules removed</span>
         <span class="meta">2026-07-01T09:45:44 &middot; chatgpt-image-latest</span>
+        <button class="delbtn" data-n="5" data-label="Type sample v5 — edits from original crop: OF on top line, bracket bars, rules removed" title="Delete this iteration">&#128465; Delete</button>
       </div>
       <div class="imgwrap"><a href="iterations/iter-005.png" target="_blank"><img class="hero" src="iterations/iter-005.png" alt="iteration 5"></a></div>
       <div class="reflabel">references</div><div class="thumbs small"><a href="sources/example.png" target="_blank"><img src="sources/example.png"></a></div>
@@ -672,10 +698,11 @@ component itself. Photorealism or 3-D rendering.</pre>
         </div>
       </details>
     </article>
-    <article class="card ">
+    <article class="card " data-iteration="4">
       <div class="cardhead">
         <span class="num">#4</span><span class="lab">— Type sample v4 — text-only (no anchor): THE LEAGUE OF top line, bracket bars, single OF</span>
         <span class="meta">2026-07-01T09:44:11 &middot; chatgpt-image-latest</span>
+        <button class="delbtn" data-n="4" data-label="Type sample v4 — text-only (no anchor): THE LEAGUE OF top line, bracket bars, single OF" title="Delete this iteration">&#128465; Delete</button>
       </div>
       <div class="imgwrap"><a href="iterations/iter-004.png" target="_blank"><img class="hero" src="iterations/iter-004.png" alt="iteration 4"></a></div>
       
@@ -774,10 +801,11 @@ component itself. Photorealism or 3-D rendering.</pre>
         </div>
       </details>
     </article>
-    <article class="card ">
+    <article class="card " data-iteration="3">
       <div class="cardhead">
         <span class="num">#3</span><span class="lab">— Type sample v3 — THE LEAGUE OF on top line, bars bracket THE/OF, other rules removed</span>
         <span class="meta">2026-07-01T09:42:29 &middot; chatgpt-image-latest</span>
+        <button class="delbtn" data-n="3" data-label="Type sample v3 — THE LEAGUE OF on top line, bars bracket THE/OF, other rules removed" title="Delete this iteration">&#128465; Delete</button>
       </div>
       <div class="imgwrap"><a href="iterations/iter-003.png" target="_blank"><img class="hero" src="iterations/iter-003.png" alt="iteration 3"></a></div>
       <div class="reflabel">references</div><div class="thumbs small"><a href="iterations/iter-002.png" target="_blank"><img src="iterations/iter-002.png"></a></div>
@@ -879,10 +907,11 @@ component itself. Photorealism or 3-D rendering.</pre>
         </div>
       </details>
     </article>
-    <article class="card ">
+    <article class="card " data-iteration="2">
       <div class="cardhead">
         <span class="num">#2</span><span class="lab">— Type sample v2 — separate OF from AMAZING (gap so OF clears the Z)</span>
         <span class="meta">2026-07-01T09:35:26 &middot; chatgpt-image-latest</span>
+        <button class="delbtn" data-n="2" data-label="Type sample v2 — separate OF from AMAZING (gap so OF clears the Z)" title="Delete this iteration">&#128465; Delete</button>
       </div>
       <div class="imgwrap"><a href="iterations/iter-002.png" target="_blank"><img class="hero" src="iterations/iter-002.png" alt="iteration 2"></a></div>
       <div class="reflabel">references</div><div class="thumbs small"><a href="iterations/iter-001.png" target="_blank"><img src="iterations/iter-001.png"></a></div>
@@ -973,10 +1002,11 @@ component itself. Photorealism or 3-D rendering.</pre>
         </div>
       </details>
     </article>
-    <article class="card ">
+    <article class="card " data-iteration="1">
       <div class="cardhead">
         <span class="num">#1</span><span class="lab">— Type sample v1 — B&amp;W structural (type-sample style + component structure)</span>
         <span class="meta">2026-07-01T09:23:16 &middot; chatgpt-image-latest</span>
+        <button class="delbtn" data-n="1" data-label="Type sample v1 — B&amp;W structural (type-sample style + component structure)" title="Delete this iteration">&#128465; Delete</button>
       </div>
       <div class="imgwrap"><a href="iterations/iter-001.png" target="_blank"><img class="hero" src="iterations/iter-001.png" alt="iteration 1"></a></div>
       <div class="reflabel">references</div><div class="thumbs small"><a href="sources/example.png" target="_blank"><img src="sources/example.png"></a></div>
@@ -1063,10 +1093,22 @@ component itself. Photorealism or 3-D rendering.</pre>
         </div>
       </details>
     </article>
-  <footer>Generated 2026-07-01T19:19:46 &middot; this page auto-reloads when a new iteration is added</footer>
+  <footer>Generated 2026-07-06T13:48:57 &middot; this page auto-reloads when a new iteration is added</footer>
+</div>
+<div class="modal-overlay" id="delModal">
+  <div class="modal-box">
+    <h3>Delete this iteration?</h3>
+    <p>Delete <strong id="delModalLabel"></strong>? This removes its image file(s) permanently and cannot be undone.</p>
+    <div class="modal-actions">
+      <button id="delModalCancel">Cancel</button>
+      <button class="confirm" id="delModalConfirm">Delete</button>
+    </div>
+    <div class="modal-error" id="delModalError"></div>
+  </div>
 </div>
 <script>
- const CURRENT_VERSION = 12;
+ const CURRENT_VERSION = 13;
+ const SLUG = "League-Logo-Horizontal";
  const live = document.getElementById('live');
  // Only ever reload when state.json confirms a NEW version. We never blind-reload on a
  // timer: under file:// (fetch blocked) or with the server down we can't read the version,
@@ -1095,6 +1137,54 @@ component itself. Photorealism or 3-D rendering.</pre>
    }
  }
  poll();
+
+ // Delete button + confirm modal. A destructive, irreversible action (removes the image
+ // file(s) too) — always requires an explicit confirm click, never just the initial button.
+ const modal = document.getElementById('delModal');
+ const modalLabel = document.getElementById('delModalLabel');
+ const modalConfirm = document.getElementById('delModalConfirm');
+ const modalCancel = document.getElementById('delModalCancel');
+ const modalError = document.getElementById('delModalError');
+ let pendingN = null;
+
+ function closeModal(){
+   modal.classList.remove('open');
+   pendingN = null;
+   modalError.textContent = '';
+   modalConfirm.disabled = false;
+   modalConfirm.textContent = 'Delete';
+ }
+
+ document.querySelectorAll('.delbtn').forEach(btn => {
+   btn.addEventListener('click', () => {
+     pendingN = btn.dataset.n;
+     modalLabel.textContent = '#' + pendingN + ' — ' + btn.dataset.label;
+     modalError.textContent = '';
+     modal.classList.add('open');
+   });
+ });
+ modalCancel.addEventListener('click', closeModal);
+ modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+
+ modalConfirm.addEventListener('click', async () => {
+   if (pendingN === null) return;
+   modalConfirm.disabled = true;
+   modalConfirm.textContent = 'Deleting…';
+   try {
+     const res = await fetch(`/${SLUG}/iterations/delete`, {
+       method: 'POST',
+       headers: {'Content-Type': 'application/json'},
+       body: JSON.stringify({n: parseInt(pendingN, 10)})
+     });
+     const body = await res.json();
+     if (!res.ok) throw new Error(body.error || res.statusText);
+     location.reload();
+   } catch (err) {
+     modalError.textContent = 'Delete failed: ' + err.message;
+     modalConfirm.disabled = false;
+     modalConfirm.textContent = 'Delete';
+   }
+ });
 </script>
 </body>
 </html>

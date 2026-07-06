@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Engineers Anywhere Postcard — Postcard Preview</title>
+<style>
+ *{box-sizing:border-box;}
+ body{margin:0;background:#101317;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;}
+ .wrap{max-width:900px;margin:0 auto;padding:24px;display:flex;flex-direction:column;gap:36px;align-items:center;}
+ .page-block{display:flex;flex-direction:column;align-items:center;gap:10px;}
+ .page{width:6in;height:4in;position:relative;overflow:hidden;box-sizing:border-box;background:#fff;box-shadow:0 8px 30px rgba(0,0,0,.5);border:1px solid #333;}
+ .page img.bg{width:100%;height:100%;object-fit:cover;display:block;}
+ .page .nothumb{width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:#999;font-size:14px;font-style:italic;background:#eee;}
+ .region{position:absolute;}
+ .region p{margin:0 0 0.6em;}
+ .region p:last-child{margin-bottom:0;}
+ .pagelabel{color:#889;font-size:11px;letter-spacing:1px;text-transform:uppercase;font-weight:700;align-self:flex-start;margin-left:2px;}
+ .editors{width:6in;background:#1b1f27;border:1px solid #333;border-radius:8px;padding:14px 16px;display:flex;flex-direction:column;gap:12px;}
+ .editor-label{color:#9db4d8;font-size:11px;text-transform:uppercase;letter-spacing:.6px;font-weight:700;margin-bottom:4px;display:block;}
+ .editor-box{width:100%;background:#0d1015;color:#f0efe8;border:1px solid #3a3f4a;border-radius:6px;padding:8px 10px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px;line-height:1.4;resize:vertical;}
+ .editor-box:focus{outline:2px solid #F9C233;outline-offset:1px;}
+ .editor-hint{color:#667;font-size:10px;margin:-4px 0 0;}
+ .editor-status{color:#7ec87e;font-size:11px;height:14px;margin:-4px 0 0;}
+ .editor-status.err{color:#e06060;}
+ .live{position:fixed;top:10px;right:12px;background:#1a1;color:#fff;font-size:11px;padding:3px 9px;border-radius:12px;opacity:.85;z-index:10;}
+ .live.off{background:#555;}
+ .allprojects{position:fixed;top:10px;left:12px;font-size:12px;color:#9db4d8;text-decoration:none;font-weight:700;}
+ @media print {
+   html, body { margin:0; padding:0; background:#fff; }
+   @page { size: 6in 4in; margin: 0; }
+   .wrap{padding:0;gap:0;max-width:none;}
+   .page-block{gap:0;}
+   .page { margin:0; border:none; box-shadow:none; page-break-after: always; break-after: page; }
+   .page-block:last-child .page { page-break-after: auto; break-after: auto; }
+   .pagelabel, .live, .allprojects, .editors { display:none !important; }
+ }
+</style>
+</head>
+<body>
+<div class="live" id="live">&#9679; live</div>
+<a class="allprojects" href="index.html">&larr; Back to gallery</a>
+<div class="wrap">
+
+  <div class="page-block">
+    <div class="pagelabel">FRONT</div>
+    <section class="page">
+      <img class="bg" src="iterations/iter-001.png" alt="FRONT">
+      
+      
+    </section>
+    
+  </div>
+
+  <div class="page-block">
+    <div class="pagelabel">BACK</div>
+    <section class="page">
+      <img class="bg" src="iterations/iter-002.png" alt="BACK">
+      <div style="position:absolute; top:1.0in; right:0.4in; width:1.3in; text-align:center;"><img src="sources/main-site-qr.png" style="width:1.2in; height:1.2in; display:block; margin:0 auto;"></div>
+      
+      <div class="region" style="position:absolute; top:1.0in; left:0.4in; width:1.7in; font-family:Georgia, &#39;Times New Roman&#39;, serif; font-size:14px; line-height:1.45; color:#1c2b3a;" data-region="back_col_a"><p>The League of Amazing Programmers runs hands-on coding and robotics programs for kids all across San Diego — giving them a real chance to explore their technical interests, often for the first time.</p>
+<p>Every Tech Club we open puts that opportunity within reach of a new neighborhood.</p></div>
+      
+      <div class="region" style="position:absolute; top:1.0in; left:2.35in; width:1.7in; font-family:Georgia, &#39;Times New Roman&#39;, serif; font-size:14px; line-height:1.45; color:#1c2b3a;" data-region="back_col_b"><p>We need your help to grow. Your support lets us bring this opportunity to every quarter of San Diego — every school, every neighborhood, every kid curious enough to try.</p>
+<p>Scan to learn more and join us.</p></div>
+      
+      <div class="region" style="position:absolute; top:2.55in; right:0.4in; width:1.3in; text-align:center; font-family:Arial, Helvetica, sans-serif; font-weight:700; font-size:13px; color:#173a6e;" data-region="back_url"><p>jointheleague.org</p></div>
+      
+      <div class="region" style="position:absolute; top:2.8in; right:0.4in; width:1.3in; text-align:center; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#555; line-height:1.35;" data-region="back_nonprofit"><p>The League of Amazing Programmers is a 501(c)(3) nonprofit.<br />
+EIN 20-4744610</p></div>
+      
+    </section>
+    
+    <div class="editors">
+      
+      <div>
+        <label class="editor-label" for="box-back_col_a">Column A (pitch)</label>
+        <textarea class="editor-box" id="box-back_col_a" data-region="back_col_a" rows="9">The League of Amazing Programmers runs hands-on coding and robotics programs for kids all across San Diego — giving them a real chance to explore their technical interests, often for the first time.
+
+Every Tech Club we open puts that opportunity within reach of a new neighborhood.</textarea>
+        <div class="editor-status" id="status-back_col_a"></div>
+      </div>
+      
+      <div>
+        <label class="editor-label" for="box-back_col_b">Column B (pitch)</label>
+        <textarea class="editor-box" id="box-back_col_b" data-region="back_col_b" rows="9">We need your help to grow. Your support lets us bring this opportunity to every quarter of San Diego — every school, every neighborhood, every kid curious enough to try.
+
+Scan to learn more and join us.</textarea>
+        <div class="editor-status" id="status-back_col_b"></div>
+      </div>
+      
+      <div>
+        <label class="editor-label" for="box-back_url">QR caption — URL</label>
+        <textarea class="editor-box" id="box-back_url" data-region="back_url" rows="3">jointheleague.org</textarea>
+        <div class="editor-status" id="status-back_url"></div>
+      </div>
+      
+      <div>
+        <label class="editor-label" for="box-back_nonprofit">QR caption — nonprofit/EIN</label>
+        <textarea class="editor-box" id="box-back_nonprofit" data-region="back_nonprofit" rows="3">The League of Amazing Programmers is a 501(c)(3) nonprofit.
+EIN 20-4744610</textarea>
+        <div class="editor-status" id="status-back_nonprofit"></div>
+      </div>
+      
+      <p class="editor-hint">Markdown supported (**bold**, *italic*, [link](url)). Enter saves &middot; Shift+Enter for a new line.</p>
+    </div>
+    
+  </div>
+
+</div>
+<script>
+ const CURRENT_VERSION = 35;
+ const SLUG = "Engineers-Anywhere-Postcard";
+ const live = document.getElementById('live');
+ async function poll(){
+   let served = true;
+   try{
+     const r = await fetch('state.json?ts=' + Date.now(), {cache:'no-store'});
+     if(r.ok){
+       const s = await r.json();
+       if(s.version > CURRENT_VERSION){ location.reload(); return; }
+     }else{
+       served = false;
+     }
+   }catch(e){
+     served = false;
+   }
+   if(served){
+     live.className='live'; live.innerHTML='&#9679; live';
+     setTimeout(poll, 1500);
+   }else{
+     live.className='live off'; live.innerHTML='&#9679; open via server for live reload';
+     setTimeout(poll, 4000);
+   }
+ }
+ poll();
+
+ document.querySelectorAll('.editor-box').forEach(box => {
+   box.addEventListener('keydown', async (e) => {
+     if (e.key !== 'Enter' || e.shiftKey) return;
+     e.preventDefault();
+     const region = box.dataset.region;
+     const text = box.value;
+     const status = document.getElementById('status-' + region);
+     box.disabled = true;
+     status.textContent = 'saving…';
+     status.className = 'editor-status';
+     try {
+       const res = await fetch(`/${SLUG}/postcard/save`, {
+         method: 'POST',
+         headers: {'Content-Type': 'application/json'},
+         body: JSON.stringify({region, text})
+       });
+       if (!res.ok) throw new Error((await res.json()).error || res.statusText);
+       status.textContent = 'saved — reloading…';
+       // the poll loop above picks up the state.json bump and reloads automatically
+     } catch (err) {
+       status.textContent = 'save failed: ' + err.message;
+       status.className = 'editor-status err';
+       box.disabled = false;
+     }
+   });
+ });
+</script>
+</body>
+</html>

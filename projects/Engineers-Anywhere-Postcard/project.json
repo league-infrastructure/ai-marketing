@@ -44,6 +44,34 @@
       "error": null,
       "text_response": "",
       "usage": {}
+    },
+    {
+      "n": 2,
+      "label": "Back — League masthead + open zone (flat-poster style)",
+      "created": "2026-07-06T08:42:59",
+      "style": "flat-poster",
+      "composition": " ",
+      "component": "",
+      "palette": "orange-blue",
+      "layout": "postcard-4x6",
+      "background": "",
+      "scene_description": "WIDE LANDSCAPE 4x6 postcard (3:2). Over-the-shoulder view FROM BEHIND of TWO mid-teen students (about 14-15), large in the foreground and pushed to the extreme EDGES: a teenage boy at the FAR LEFT and a teenage girl at the FAR RIGHT, partly cropped off-page, bookending the shot. TWO large monitors dominate the CENTER on a wide desk spanning the full width. The boy leans in and points a pen at the LEFT monitor; the girl's hands are on the keyboard. LEFT MONITOR: a San Diego HEAT MAP on a dark navy screen — a recognizable San Diego shape (Pacific coastline down the west side, city fanning east and south toward the Mexico border) with ONLY orange-and-red hot-spot blobs, densest in the SOUTH (no green, no rainbow colors). RIGHT MONITOR: a simple flat bar chart and one rising line graph in the same palette. NO code, numbers, or text on either screen — just the map and the chart. Leave headroom above the kids' heads for the title.",
+      "model": "chatgpt-image-latest",
+      "prompt": "A clean, modern, FLAT comic illustration — the same flat-poster look as the attached reference: bold sharp black linework, perfectly smooth flat color fills, simple hard-edged cel shading (at most two flat tones per surface), absolutely no texture/grain/gradient. This is the BACK of a postcard: a clean branded template, NOT a scene — no people, no computers, no illustration of any action.\n\nThe attached reference is the front of this same postcard — match its exact color language (deep navy/blue, warm cream, signal red/orange) and its lettering style, especially the small corner badge reading \"THE LEAGUE OF AMAZING PROGRAMMERS\" (cream rounded panel, tiny \"THE LEAGUE OF\", bold orange \"AMAZING\", cream \"PROGRAMMERS\" below).\n\nLAYOUT — two horizontal zones filling a 4×6 inch landscape card (3:2 frame), stacked top to bottom:\n\n1. TOP MASTHEAD BAND (about the top 20% of the card): a flat deep navy/blue field (matching the front's border blue) spanning the full width, carrying that SAME badge lettering scaled up into a full-width masthead: \"THE LEAGUE OF\" small, cream, centered; \"AMAZING\" huge and bold, orange, condensed caps, the dominant line; \"PROGRAMMERS\" medium, cream, below — all with confident black keylines, flat color, no gradients. A thin flat black rule separates this band from the zone below.\n\n2. OPEN ZONE (the remaining ~80% of the card): ONE single, completely FLAT, EMPTY cream field spanning the full width down to the bottom edge — no texture, no gradient, no illustration, no decorative elements, and ABSOLUTELY NO TEXT of any kind. This area is intentionally left blank; message text will be added separately afterward.\n\nA thin flat deep-navy or black rule border may run along the outer edge of the card, echoing the front's border treatment.\n\nTEXT — the ONLY lettering anywhere on this card is the masthead \"THE LEAGUE OF AMAZING PROGRAMMERS\", spelled exactly as given. No other words, no placeholder text, no addresses, no stamps box, no postal markings, nothing else anywhere on the card.\n\nFORMAT — 4×6 inch landscape postcard back, full-bleed, print-ready quality.",
+      "negative_prompt": "Any people, computers, monitors, desks, or illustrated scene of any kind. Any text, lettering, numbers, or symbols in the cream zone below the masthead — it must be completely empty and flat. Placeholder text, lorem ipsum, sample address lines, a postage stamp box, postal cancellation marks, a QR code, barcodes. Texture, grain, gradient, noise, speckle, halftone, Ben-Day dots, newsprint, parchment, aged paper. Painted/airbrushed shading, soft glows, glossy highlights, 3D render, CGI, photorealism. A single-line masthead instead of the three-line stacked wordmark. Misspelled or reworded masthead text. Colors that don't match the front reference (no unrelated new hues). Anime or manga style, chibi proportions. Portrait orientation. Any element from the front-of-card scene (the two students, monitors, \"ENGINEERS\" burst headline, captions) appearing on this back template.",
+      "custom_additions": "STYLE: bold, sharp, high-contrast FLAT comic art like the \"At His Command\" poster — completely smooth solid-color fills, clean bold black outlines, and hard-edged two-tone cel shading. The ENTIRE image must be perfectly FLAT with NO texture, grain, speckle, or newsprint anywhere — including the border, the background, clothing, and skin.\n\nTEXT (render ONLY this, spelled EXACTLY, crisp):\n- TITLE over the kids' heads: \"ENGINEERS\" in huge bold RED 3D block comic letters, heavy black outline, on a jagged BLUE starburst masthead — the AT-HIS-COMMAND lettering style.\n- Cream caption box (black border, italic) just below the masthead: \"Can Come From Anywhere ...\"\n- Cream square caption box (black border) over the BOY'S BACK, left: \"... Help us find them\"\n- League logo over the GIRL'S BACK, right, ABOVE the bottom banner, sitting directly on the artwork with NO black or dark box behind it: \"THE LEAGUE OF AMAZING PROGRAMMERS\" stacked wordmark, orange \"AMAZING\", small lightning bolts, bar-lines over \"OF\".\n- Bottom BANNER: a single cream strip running the FULL WIDTH across the very bottom edge, edge to edge, in SENTENCE CASE exactly: \"Every student in San Diego should have a shot at a tech career.\"\n\nDeep navy comic border frame (solid flat navy — no texture). NO robots. Exactly two mid-teen figures.",
+      "references": [
+        "iterations/iter-001.png"
+      ],
+      "images": [
+        "iterations/iter-002.png"
+      ],
+      "image": "iterations/iter-002.png",
+      "notes": "First pass at the postcard BACK, matching this project's flat-poster style (clean flat vector color, sharp black linework, cel shading) and the front's own blue/cream/orange-red palette and badge lettering. Masthead band at top reusing the front's corner-badge lettering style scaled up full-width, open cream zone below reserved for message text to be added via overlay.",
+      "status": "ok",
+      "error": null,
+      "text_response": "",
+      "usage": {}
     }
   ],
   "state_version": 26

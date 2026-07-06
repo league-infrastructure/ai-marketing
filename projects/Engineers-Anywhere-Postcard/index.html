@@ -39,11 +39,29 @@
  footer{color:#667;font-size:11px;text-align:center;padding:20px;}
  .live{position:fixed;top:10px;right:12px;background:#1a1;color:#fff;font-size:11px;padding:3px 9px;border-radius:12px;opacity:.85;z-index:10;}
  .live.off{background:#555;}
+ .allprojects{display:inline-block;font-size:12px;color:#9db4d8;text-decoration:none;font-weight:700;margin-bottom:10px;}
+ .allprojects:hover{text-decoration:underline;}
+ a.postcardlink{color:#f7f4ec;background:var(--blue);display:inline-block;margin:14px 4px;padding:6px 14px;border-radius:20px;font-size:13px;font-weight:700;text-decoration:none;}
+ a.postcardlink:hover{opacity:.85;}
+ .delbtn{margin-left:auto;background:none;border:1px solid var(--accent);color:var(--accent);border-radius:6px;padding:3px 10px;font-size:11px;font-weight:700;cursor:pointer;}
+ .delbtn:hover{background:var(--accent);color:#fff;}
+ .cardhead .meta{margin-left:0;}
+ .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:100;align-items:center;justify-content:center;}
+ .modal-overlay.open{display:flex;}
+ .modal-box{background:var(--paper);border-radius:10px;padding:24px 28px;max-width:380px;box-shadow:0 12px 40px rgba(0,0,0,.5);}
+ .modal-box h3{margin:0 0 10px;font-size:17px;color:var(--accent);}
+ .modal-box p{margin:0 0 20px;font-size:14px;line-height:1.5;color:#333;}
+ .modal-actions{display:flex;gap:10px;justify-content:flex-end;}
+ .modal-actions button{border-radius:6px;padding:8px 16px;font-size:13px;font-weight:700;cursor:pointer;border:1px solid #ccc;background:#fff;}
+ .modal-actions button.confirm{background:var(--accent);border-color:var(--accent);color:#fff;}
+ .modal-actions button.confirm:disabled{opacity:.6;cursor:default;}
+ .modal-error{color:var(--accent);font-size:12px;margin-top:10px;}
 </style>
 </head>
 <body>
 <div class="live" id="live">&#9679; live</div>
 <div class="wrap">
+  <a class="allprojects" href="../">&larr; All projects</a>
   <header class="top">
     <h1>Engineers Anywhere Postcard</h1>
     <p class="theme">Recruitment / mission postcard: engineering talent is everywhere in San Diego, and the League wants to find it. Cinematic graphic-novel energy.</p>
@@ -51,12 +69,45 @@
     <div class="chips"><span class="chip"><b>style</b> flat-poster</span><span class="chip"><b>composition</b>  </span><span class="chip"><b>palette</b> orange-blue</span><span class="chip"><b>layout</b> postcard-4x6</span><span class="chip"><b>model</b> chatgpt-image-latest</span></div>
   </header>
   <section class="sources"><h2>Source images</h2><div class="thumbs"><a href="sources/PairProgrammers.png" target="_blank"><img src="sources/PairProgrammers.png" alt="source"></a><a href="sources/example.png" target="_blank"><img src="sources/example.png" alt="source"></a></div></section>
+  <p><a class="postcardlink" href="postcard.html">&#128444; Postcard front/back preview &rarr;</a></p>
   <h2>Iterations</h2>
   
-    <article class="card ">
+    <article class="card " data-iteration="2">
+      <div class="cardhead">
+        <span class="num">#2</span><span class="lab">— Back — League masthead + open zone (flat-poster style)</span>
+        <span class="meta">2026-07-06T08:42:59 &middot; chatgpt-image-latest</span>
+        <button class="delbtn" data-n="2" data-label="Back — League masthead + open zone (flat-poster style)" title="Delete this iteration">&#128465; Delete</button>
+      </div>
+      <div class="imgwrap"><a href="iterations/iter-002.png" target="_blank"><img class="hero" src="iterations/iter-002.png" alt="iteration 2"></a></div>
+      <div class="reflabel">references</div><div class="thumbs small"><a href="iterations/iter-001.png" target="_blank"><img src="iterations/iter-001.png"></a></div>
+      <details><summary>Prompt &amp; details</summary>
+        <div class="detail">
+          <div class="dl">positive prompt</div><pre>A clean, modern, FLAT comic illustration — the same flat-poster look as the attached reference: bold sharp black linework, perfectly smooth flat color fills, simple hard-edged cel shading (at most two flat tones per surface), absolutely no texture/grain/gradient. This is the BACK of a postcard: a clean branded template, NOT a scene — no people, no computers, no illustration of any action.
+
+The attached reference is the front of this same postcard — match its exact color language (deep navy/blue, warm cream, signal red/orange) and its lettering style, especially the small corner badge reading &quot;THE LEAGUE OF AMAZING PROGRAMMERS&quot; (cream rounded panel, tiny &quot;THE LEAGUE OF&quot;, bold orange &quot;AMAZING&quot;, cream &quot;PROGRAMMERS&quot; below).
+
+LAYOUT — two horizontal zones filling a 4×6 inch landscape card (3:2 frame), stacked top to bottom:
+
+1. TOP MASTHEAD BAND (about the top 20% of the card): a flat deep navy/blue field (matching the front&#x27;s border blue) spanning the full width, carrying that SAME badge lettering scaled up into a full-width masthead: &quot;THE LEAGUE OF&quot; small, cream, centered; &quot;AMAZING&quot; huge and bold, orange, condensed caps, the dominant line; &quot;PROGRAMMERS&quot; medium, cream, below — all with confident black keylines, flat color, no gradients. A thin flat black rule separates this band from the zone below.
+
+2. OPEN ZONE (the remaining ~80% of the card): ONE single, completely FLAT, EMPTY cream field spanning the full width down to the bottom edge — no texture, no gradient, no illustration, no decorative elements, and ABSOLUTELY NO TEXT of any kind. This area is intentionally left blank; message text will be added separately afterward.
+
+A thin flat deep-navy or black rule border may run along the outer edge of the card, echoing the front&#x27;s border treatment.
+
+TEXT — the ONLY lettering anywhere on this card is the masthead &quot;THE LEAGUE OF AMAZING PROGRAMMERS&quot;, spelled exactly as given. No other words, no placeholder text, no addresses, no stamps box, no postal markings, nothing else anywhere on the card.
+
+FORMAT — 4×6 inch landscape postcard back, full-bleed, print-ready quality.</pre>
+          <div class="dl">negative prompt</div><pre>Any people, computers, monitors, desks, or illustrated scene of any kind. Any text, lettering, numbers, or symbols in the cream zone below the masthead — it must be completely empty and flat. Placeholder text, lorem ipsum, sample address lines, a postage stamp box, postal cancellation marks, a QR code, barcodes. Texture, grain, gradient, noise, speckle, halftone, Ben-Day dots, newsprint, parchment, aged paper. Painted/airbrushed shading, soft glows, glossy highlights, 3D render, CGI, photorealism. A single-line masthead instead of the three-line stacked wordmark. Misspelled or reworded masthead text. Colors that don&#x27;t match the front reference (no unrelated new hues). Anime or manga style, chibi proportions. Portrait orientation. Any element from the front-of-card scene (the two students, monitors, &quot;ENGINEERS&quot; burst headline, captions) appearing on this back template.</pre>
+          <div class="dl">notes</div><p>First pass at the postcard BACK, matching this project&#x27;s flat-poster style (clean flat vector color, sharp black linework, cel shading) and the front&#x27;s own blue/cream/orange-red palette and badge lettering. Masthead band at top reusing the front&#x27;s corner-badge lettering style scaled up full-width, open cream zone below reserved for message text to be added via overlay.</p>
+          
+        </div>
+      </details>
+    </article>
+    <article class="card " data-iteration="1">
       <div class="cardhead">
         <span class="num">#1</span><span class="lab">— Draft 1 — flat orange-blue base (kept)</span>
         <span class="meta">2026-07-01T08:40:10 &middot; chatgpt-image-latest</span>
+        <button class="delbtn" data-n="1" data-label="Draft 1 — flat orange-blue base (kept)" title="Delete this iteration">&#128465; Delete</button>
       </div>
       <div class="imgwrap"><a href="iterations/iter-001.png" target="_blank"><img class="hero" src="iterations/iter-001.png" alt="iteration 1"></a></div>
       <div class="reflabel">references</div><div class="thumbs small"><a href="sources/PairProgrammers.png" target="_blank"><img src="sources/PairProgrammers.png"></a></div>
@@ -177,10 +228,22 @@ Deep navy comic border frame (solid flat navy — no texture). NO robots. Exactl
         </div>
       </details>
     </article>
-  <footer>Generated 2026-07-01T09:03:36 &middot; this page auto-reloads when a new iteration is added</footer>
+  <footer>Generated 2026-07-06T13:48:55 &middot; this page auto-reloads when a new iteration is added</footer>
+</div>
+<div class="modal-overlay" id="delModal">
+  <div class="modal-box">
+    <h3>Delete this iteration?</h3>
+    <p>Delete <strong id="delModalLabel"></strong>? This removes its image file(s) permanently and cannot be undone.</p>
+    <div class="modal-actions">
+      <button id="delModalCancel">Cancel</button>
+      <button class="confirm" id="delModalConfirm">Delete</button>
+    </div>
+    <div class="modal-error" id="delModalError"></div>
+  </div>
 </div>
 <script>
- const CURRENT_VERSION = 26;
+ const CURRENT_VERSION = 35;
+ const SLUG = "Engineers-Anywhere-Postcard";
  const live = document.getElementById('live');
  // Only ever reload when state.json confirms a NEW version. We never blind-reload on a
  // timer: under file:// (fetch blocked) or with the server down we can't read the version,
@@ -209,6 +272,54 @@ Deep navy comic border frame (solid flat navy — no texture). NO robots. Exactl
    }
  }
  poll();
+
+ // Delete button + confirm modal. A destructive, irreversible action (removes the image
+ // file(s) too) — always requires an explicit confirm click, never just the initial button.
+ const modal = document.getElementById('delModal');
+ const modalLabel = document.getElementById('delModalLabel');
+ const modalConfirm = document.getElementById('delModalConfirm');
+ const modalCancel = document.getElementById('delModalCancel');
+ const modalError = document.getElementById('delModalError');
+ let pendingN = null;
+
+ function closeModal(){
+   modal.classList.remove('open');
+   pendingN = null;
+   modalError.textContent = '';
+   modalConfirm.disabled = false;
+   modalConfirm.textContent = 'Delete';
+ }
+
+ document.querySelectorAll('.delbtn').forEach(btn => {
+   btn.addEventListener('click', () => {
+     pendingN = btn.dataset.n;
+     modalLabel.textContent = '#' + pendingN + ' — ' + btn.dataset.label;
+     modalError.textContent = '';
+     modal.classList.add('open');
+   });
+ });
+ modalCancel.addEventListener('click', closeModal);
+ modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+
+ modalConfirm.addEventListener('click', async () => {
+   if (pendingN === null) return;
+   modalConfirm.disabled = true;
+   modalConfirm.textContent = 'Deleting…';
+   try {
+     const res = await fetch(`/${SLUG}/iterations/delete`, {
+       method: 'POST',
+       headers: {'Content-Type': 'application/json'},
+       body: JSON.stringify({n: parseInt(pendingN, 10)})
+     });
+     const body = await res.json();
+     if (!res.ok) throw new Error(body.error || res.statusText);
+     location.reload();
+   } catch (err) {
+     modalError.textContent = 'Delete failed: ' + err.message;
+     modalConfirm.disabled = false;
+     modalConfirm.textContent = 'Delete';
+   }
+ });
 </script>
 </body>
 </html>

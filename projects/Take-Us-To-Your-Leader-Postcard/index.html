@@ -39,11 +39,29 @@
  footer{color:#667;font-size:11px;text-align:center;padding:20px;}
  .live{position:fixed;top:10px;right:12px;background:#1a1;color:#fff;font-size:11px;padding:3px 9px;border-radius:12px;opacity:.85;z-index:10;}
  .live.off{background:#555;}
+ .allprojects{display:inline-block;font-size:12px;color:#9db4d8;text-decoration:none;font-weight:700;margin-bottom:10px;}
+ .allprojects:hover{text-decoration:underline;}
+ a.postcardlink{color:#f7f4ec;background:var(--blue);display:inline-block;margin:14px 4px;padding:6px 14px;border-radius:20px;font-size:13px;font-weight:700;text-decoration:none;}
+ a.postcardlink:hover{opacity:.85;}
+ .delbtn{margin-left:auto;background:none;border:1px solid var(--accent);color:var(--accent);border-radius:6px;padding:3px 10px;font-size:11px;font-weight:700;cursor:pointer;}
+ .delbtn:hover{background:var(--accent);color:#fff;}
+ .cardhead .meta{margin-left:0;}
+ .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:100;align-items:center;justify-content:center;}
+ .modal-overlay.open{display:flex;}
+ .modal-box{background:var(--paper);border-radius:10px;padding:24px 28px;max-width:380px;box-shadow:0 12px 40px rgba(0,0,0,.5);}
+ .modal-box h3{margin:0 0 10px;font-size:17px;color:var(--accent);}
+ .modal-box p{margin:0 0 20px;font-size:14px;line-height:1.5;color:#333;}
+ .modal-actions{display:flex;gap:10px;justify-content:flex-end;}
+ .modal-actions button{border-radius:6px;padding:8px 16px;font-size:13px;font-weight:700;cursor:pointer;border:1px solid #ccc;background:#fff;}
+ .modal-actions button.confirm{background:var(--accent);border-color:var(--accent);color:#fff;}
+ .modal-actions button.confirm:disabled{opacity:.6;cursor:default;}
+ .modal-error{color:var(--accent);font-size:12px;margin-top:10px;}
 </style>
 </head>
 <body>
 <div class="live" id="live">&#9679; live</div>
 <div class="wrap">
+  <a class="allprojects" href="../">&larr; All projects</a>
   <header class="top">
     <h1>Take Us To Your Leader Postcard</h1>
     <p class="theme">Advocate campaign postcard, retro flying-saucer gag. A little spaceship has landed and opened in a warm office; the &#x27;aliens&#x27; who step out are recognizably a LEAGUE KID and a friendly HUMANOID ROBOT. They greet a bemused adult and ask to be taken to the leader. Second read: the &#x27;aliens&#x27; are your kid and the robot they built — and they want to meet your boss. The ask is one warm introduction.</p>
@@ -51,12 +69,43 @@
     <div class="chips"><span class="chip"><b>style</b> comic-book</span><span class="chip"><b>composition</b> single-moment</span><span class="chip"><b>palette</b> orange-blue</span><span class="chip"><b>layout</b> postcard-4x6</span><span class="chip"><b>model</b> gpt-image-2</span></div>
   </header>
   
+  <p><a class="postcardlink" href="postcard.html">&#128444; Postcard front/back preview &rarr;</a></p>
   <h2>Iterations</h2>
   
-    <article class="card ">
+    <article class="card " data-iteration="22">
+      <div class="cardhead">
+        <span class="num">#22</span><span class="lab">— Back — League masthead + open zones (pulp style)</span>
+        <span class="meta">2026-07-05T21:55:45 &middot; gpt-image-2</span>
+        <button class="delbtn" data-n="22" data-label="Back — League masthead + open zones (pulp style)" title="Delete this iteration">&#128465; Delete</button>
+      </div>
+      <div class="imgwrap"><a href="iterations/iter-022.png" target="_blank"><img class="hero" src="iterations/iter-022.png" alt="iteration 22"></a></div>
+      
+      <details><summary>Prompt &amp; details</summary>
+        <div class="detail">
+          <div class="dl">positive prompt</div><pre>A bold retro 1950s pulp sci-fi comic-book cover illustration — heavy confident black ink outlines, hard-edged cel shading, punchy high-contrast flat comic color. This is the BACK of a postcard: a clean branded template, NOT a scene — no characters, no robot, no saucer, no illustration of any action.
+
+LAYOUT — two horizontal zones filling a 4×6 inch landscape card (3:2 frame), stacked top to bottom:
+
+1. TOP MASTHEAD BAND (about the top 22% of the card): a flat deep navy band spanning the full width, carrying the League wordmark &quot;THE LEAGUE OF AMAZING PROGRAMMERS&quot; in the SAME 1950s pulp comic display lettering as the front of this postcard: &quot;THE LEAGUE OF&quot; smaller in cream, &quot;AMAZING&quot; largest and boldest in League orange, &quot;PROGRAMMERS&quot; medium in cream — all bold condensed caps with heavy black keylines, a confident hand-drawn pulp-comic feel. A small flat orange lightning bolt flanks each end of the top line. Energetic, crisp ink linework matching the front&#x27;s style exactly.
+
+2. OPEN ZONE (the remaining ~78% of the card): ONE single, completely FLAT, EMPTY cream field spanning the full width down to the bottom edge — no texture, no gradient, no illustration, no decorative elements, and ABSOLUTELY NO TEXT of any kind. This area is intentionally left blank; advocate-campaign message text will be added separately afterward.
+
+A thin flat ink-black rule separates the navy masthead band from the cream field below it.
+
+TEXT — the ONLY lettering anywhere on this card is the masthead wordmark &quot;THE LEAGUE OF AMAZING PROGRAMMERS&quot;, spelled exactly as given, in its three-line stacked form. No other words, no placeholder text, no lorem ipsum, no addresses, no stamps box, no postal markings, nothing else anywhere on the card.
+
+FORMAT — 4×6 inch landscape postcard back, full-bleed, print-ready quality.</pre>
+          <div class="dl">negative prompt</div><pre>Any characters, people, robots, saucers, vehicles, or illustrated scene of any kind. Any text, lettering, numbers, or symbols in the cream field below the masthead — it must be completely empty and flat. Placeholder text, lorem ipsum, &quot;your message here&quot;, sample address lines, a postage stamp box, postal cancellation marks, a QR code, barcodes. Texture, grain, gradient, noise, speckle, halftone, Ben-Day dots, newsprint, parchment, aged paper. Painted or airbrushed shading, soft glows, glossy highlights, 3D render, CGI, photorealism. A single-line masthead instead of the three-line stacked wordmark. Misspelled or reworded masthead text. Anime or manga style, chibi proportions, Funko-Pop style. Portrait orientation. Any element from the front-of-card scene (saucer, robot, kid, engineer, TechnoCorp building, TAKE US TO YOUR LEADER title) appearing on this back template.</pre>
+          <div class="dl">notes</div><p>First pass at the postcard BACK, matching this project&#x27;s own 1950s pulp comic-book style and orange-blue palette (not Robot Riot&#x27;s graphic-novel style). Masthead across the top on a navy band, one open cream zone below reserved for the advocate-campaign message text to be added via overlay.</p>
+          
+        </div>
+      </details>
+    </article>
+    <article class="card " data-iteration="21">
       <div class="cardhead">
         <span class="num">#21</span><span class="lab">— Draft 21 — FINAL: TechnoCorp art (iter-020) + approved League branding banner (composited)</span>
         <span class="meta">2026-07-05T10:18:22 &middot; composite-pil</span>
+        <button class="delbtn" data-n="21" data-label="Draft 21 — FINAL: TechnoCorp art (iter-020) + approved League branding banner (composited)" title="Delete this iteration">&#128465; Delete</button>
       </div>
       <div class="imgwrap"><a href="iterations/iter-021.png" target="_blank"><img class="hero" src="iterations/iter-021.png" alt="iteration 21"></a></div>
       <div class="reflabel">references</div><div class="thumbs small"><a href="iterations/iter-020.png" target="_blank"><img src="iterations/iter-020.png"></a><a href="iterations/iter-019.png" target="_blank"><img src="iterations/iter-019.png"></a></div>
@@ -69,30 +118,11 @@
         </div>
       </details>
     </article>
-    <article class="card ">
-      <div class="cardhead">
-        <span class="num">#20</span><span class="lab">— Draft 20 — TechnoCorp signage (was QUALCOMM)</span>
-        <span class="meta">2026-07-05T10:11:11 &middot; gpt-image-2</span>
-      </div>
-      <div class="imgwrap"><a href="iterations/iter-020.png" target="_blank"><img class="hero" src="iterations/iter-020.png" alt="iteration 20"></a></div>
-      <div class="reflabel">references</div><div class="thumbs small"><a href="iterations/iter-018.png" target="_blank"><img src="iterations/iter-018.png"></a></div>
-      <details><summary>Prompt &amp; details</summary>
-        <div class="detail">
-          <div class="dl">positive prompt</div><pre>Use the reference image as the EXACT base for this postcard and reproduce it faithfully: the SAME wide 3:2 landscape composition, the SAME clean flat 1950s pulp comic-book inking (heavy confident black outlines, hard-edged cel shading, punchy flat color, absolutely NO grain/newsprint/paper texture), the SAME characters and props in the SAME positions — the tall friendly silver kit-built robot at left, the classic flying saucer behind it on the grassy corporate campus lawn, the young red-shirted boy in the center with his arm extended presenting, the bemused adult engineer at right in a blue shirt with lanyard and laptop, the modern glass office building at right, and the same energetic inked action callout above the boy reading &quot;TAKE US TO YOUR LEADER!&quot;. Keep every face, color, shape, and the callout exactly the same.
-
-Change ONE thing only: the building signage. Replace the word &quot;QUALCOMM&quot; mounted on the side of the building with the word &quot;TechnoCorp&quot; — spelled EXACTLY T-e-c-h-n-o-C-o-r-p, in the SAME clean bold sans-serif lettering style, size, color, and mounting position on the building that &quot;QUALCOMM&quot; previously used. This is a fictional company name for a fictional building — do not render any real company name or trademark.
-
-Render ONLY the existing action callout text and the &quot;TechnoCorp&quot; building sign — no other text, signs, or labels anywhere. Leave the very bottom strip of the image as plain art (a branding bar will be added later).</pre>
-          <div class="dl">negative prompt</div><pre>The word QUALCOMM or any other real company name or trademark anywhere in the image. A rounded oval speech balloon or classic comic word bubble. A spiky jagged POW/BAM explosion starburst. A flat pasted-on vector sticker that does not match the inked line art. Changing the composition, characters, robot, saucer, engineer, callout, or building shape. Misspelled or garbled lettering, misspelled TechnoCorp. Extra text, signs, prices, badges, or labels. Grain, noise, newsprint, aged-paper or vintage texture. Photorealism, 3D render, CGI, photographic faces. Portrait/vertical orientation. Blurry or muddy.</pre>
-          <div class="dl">notes</div><p>Delta from the approved iter-018 art: the building signage now reads &quot;TechnoCorp&quot; instead of the real company name QUALCOMM, rendered in the same clean bold sans-serif lettering style/color as before. Everything else (composition, characters, robot, saucer, engineer, ZOOM callout) held via reference image. Banner will need re-compositing on top of whichever draft is approved.</p>
-          
-        </div>
-      </details>
-    </article>
-    <article class="card ">
+    <article class="card " data-iteration="19">
       <div class="cardhead">
         <span class="num">#19</span><span class="lab">— Draft 19 — FINAL: inked action callout (iter-018) + approved League branding banner (composited)</span>
         <span class="meta">2026-07-01T17:05:00 &middot; composite-pil</span>
+        <button class="delbtn" data-n="19" data-label="Draft 19 — FINAL: inked action callout (iter-018) + approved League branding banner (composited)" title="Delete this iteration">&#128465; Delete</button>
       </div>
       <div class="imgwrap"><a href="iterations/iter-019.png" target="_blank"><img class="hero" src="iterations/iter-019.png" alt="iteration 19"></a></div>
       <div class="reflabel">references</div><div class="thumbs small"><a href="iterations/iter-018.png" target="_blank"><img src="iterations/iter-018.png"></a><a href="sources/league-logo-colored.png" target="_blank"><img src="sources/league-logo-colored.png"></a></div>
@@ -105,10 +135,11 @@ Render ONLY the existing action callout text and the &quot;TechnoCorp&quot; buil
         </div>
       </details>
     </article>
-    <article class="card ">
+    <article class="card " data-iteration="18">
       <div class="cardhead">
         <span class="num">#18</span><span class="lab">— Draft 17 — inked ZOOM action callout (regenerated from iter-014, balloon replaced)</span>
         <span class="meta">2026-07-01T17:09:02 &middot; chatgpt-image-latest</span>
+        <button class="delbtn" data-n="18" data-label="Draft 17 — inked ZOOM action callout (regenerated from iter-014, balloon replaced)" title="Delete this iteration">&#128465; Delete</button>
       </div>
       <div class="imgwrap"><a href="iterations/iter-018.png" target="_blank"><img class="hero" src="iterations/iter-018.png" alt="iteration 18"></a></div>
       <div class="reflabel">references</div><div class="thumbs small"><a href="iterations/iter-014.png" target="_blank"><img src="iterations/iter-014.png"></a></div>
@@ -127,126 +158,11 @@ Render ONLY that lettering — no other text, signs, or labels anywhere except t
         </div>
       </details>
     </article>
-    <article class="card err">
-      <div class="cardhead">
-        <span class="num">#17</span><span class="lab">— Draft 17 — inked ZOOM action callout (regenerated from iter-014, balloon replaced)</span><span class="badge err">error</span>
-        <span class="meta">2026-07-01T17:07:32 &middot; chatgpt-image-latest</span>
-      </div>
-      <div class="imgwrap"><div class="noimg">&#9888; No image — No readable reference images for OpenAI edits</div></div>
-      <div class="reflabel">references</div><div class="thumbs small"><a href="iterations/iter-014.png" target="_blank"><img src="iterations/iter-014.png"></a></div>
-      <details><summary>Prompt &amp; details</summary>
-        <div class="detail">
-          <div class="dl">positive prompt</div><pre>Use the reference image as the EXACT base for this postcard and reproduce it faithfully: the SAME wide 3:2 landscape composition, the SAME clean flat 1950s pulp comic-book inking (heavy confident black outlines, hard-edged cel shading, punchy flat color, absolutely NO grain/newsprint/paper texture), the SAME characters and props in the SAME positions — the tall friendly silver kit-built robot at left, the classic flying saucer behind it on the grassy corporate campus lawn, the young red-shirted boy in the center with his arm extended presenting, the bemused adult engineer at right in a blue shirt with lanyard and laptop, and the modern glass office building at right with the exact &quot;QUALCOMM&quot; wordmark. Keep every face, color, and shape the same.
-
-Change ONE thing only: REMOVE the rounded oval white speech balloon and in its place, in the empty blue sky above the boy, draw an ENERGETIC COMIC ACTION CALLOUT that is hand-INKED into the artwork in the exact same bold black line weight and flat comic color as everything else — it must look drawn by the same artist, part of the illustration, NOT a flat sticker pasted on top.
-
-The callout is a dynamic, forward-leaning burst caption (angular and excited, tilted slightly upward to the right) with a heavy black keyline and a short pointed tail connecting down to the boy so he is clearly the one shouting. Inside it, the words &quot;TAKE US TO YOUR LEADER!&quot; in big, bold, dynamic hand-lettered comic caps — punchy, enthusiastic, full of forward motion like an excited &quot;ZOOM!&quot; shout. Add a few clean speed/motion lines streaking off the callout to sell the energy. This is NOT a calm rounded speech bubble and NOT a spiky jagged &quot;POW!&quot; explosion star — it is a fast, energetic, enthusiastic action shout. Letter it crisply and spell it EXACTLY: TAKE US TO YOUR LEADER!
-
-Render ONLY that lettering — no other text, signs, or labels anywhere except the existing &quot;QUALCOMM&quot; on the building. Leave the very bottom strip of the image as plain art (a branding bar will be added later). Warm, friendly, funny.</pre>
-          <div class="dl">negative prompt</div><pre>A rounded oval speech balloon or classic comic word bubble. A spiky jagged POW/BAM explosion starburst. A flat pasted-on vector sticker that does not match the inked line art. Changing the composition, characters, robot, saucer, engineer, or the QUALCOMM building. Misspelled or garbled lettering. Extra text, signs, prices, badges, or labels. Grain, noise, newsprint, aged-paper or vintage texture. Photorealism, 3D render, CGI, photographic faces. Portrait/vertical orientation. Blurry or muddy.</pre>
-          <div class="dl">notes</div><p>Only the speech callout was wrong in draft 16; logo/banner/art all approved. Regenerate art from iter-014, replace round balloon with an inked energetic ZOOM-style action callout, then re-composite the approved logo/banner.</p>
-          <div class="dl">error</div><pre class="err">No readable reference images for OpenAI edits</pre>
-        </div>
-      </details>
-    </article>
-    <article class="card ">
-      <div class="cardhead">
-        <span class="num">#16</span><span class="lab">— Draft 16 — recolored/enlarged logo pushed to edge; blank banner; ZOOM action callout</span>
-        <span class="meta">2026-07-01T16:48:00 &middot; composite-pil</span>
-      </div>
-      <div class="imgwrap"><a href="iterations/iter-016.png" target="_blank"><img class="hero" src="iterations/iter-016.png" alt="iteration 16"></a></div>
-      <div class="reflabel">references</div><div class="thumbs small"><a href="iterations/iter-014.png" target="_blank"><img src="iterations/iter-014.png"></a><a href="sources/league-logo-colored.png" target="_blank"><img src="sources/league-logo-colored.png"></a></div>
-      <details><summary>Prompt &amp; details</summary>
-        <div class="detail">
-          <div class="dl">positive prompt</div><pre></pre>
-          <div class="dl">negative prompt</div><pre>Photorealism, painterly rendering, airbrush, soft gradients, soft or blended shading, glossy modern digital coloring, 3D render, CGI. Modern comic rendering or a crisp modern flat-vector poster look. Ben-Day dots, halftone patterns, cross-hatching, hatching, stippling, fine line texture. ANY surface grain, noise, speckle, dithering, film grain, or print-dot texture. Aged, weathered, distressed, yellowed, or foxed paper; newsprint or parchment texture; a crumbling old-comic look. Faded, muddy, or washed-out color. Over-flattened, detail-starved heroes reduced to plain silhouettes. Overcrowded or photographically detailed backgrounds. The engineer as a businessman — NO business suit, NO necktie, NO briefcase; he is a casual working engineer. Robot with arms hanging limp at its sides — its hands must be planted on its hips in a hero pose. Misspelled QUALCOMM. Extra lettering, signs, or labels beyond the child&#x27;s speech balloon and the QUALCOMM building sign. A frightened or menacing mood, weapons, lasers, explosions. Green-skinned aliens, monsters, or bug-eyed creatures — the visitors are a normal human child and a friendly humanoid robot. Photographic faces. Portrait or vertical orientation. Malformed or extra fingers; distorted hands.</pre>
-          <div class="dl">notes</div><p>Per Eric: logo too small/wrong color + AMAZING must be consistent color + push to edge; keep orange line+navy but blank; speech should be an energetic ZOOM action box, not round, not POW.</p>
-          
-        </div>
-      </details>
-    </article>
-    <article class="card ">
-      <div class="cardhead">
-        <span class="num">#15</span><span class="lab">— Draft 15 — FINAL FRONT: iter-014 + League branding banner (composited)</span>
-        <span class="meta">2026-07-01T15:35:24 &middot; composite (PIL) over gpt-image-2 iter-014</span>
-      </div>
-      <div class="imgwrap"><a href="iterations/iter-015.png" target="_blank"><img class="hero" src="iterations/iter-015.png" alt="iteration 15"></a></div>
-      
-      <details><summary>Prompt &amp; details</summary>
-        <div class="detail">
-          <div class="dl">positive prompt</div><pre>A 1940s Golden Age American comic-book cover illustration, in the tradition of early Superman and Captain America covers: bold hand-inked black outlines, large unbroken areas of flat color, dramatic heroic composition, and a classic four-color printing aesthetic. This is authentic 1940s comic-book production art — hand-drawn and inked, wide 4×6 landscape (3:2). NOT photorealism, NOT painterly, NOT a modern flat-vector poster.
-
-RENDERING: Use a restricted Golden Age palette of about 5–7 vivid ink colors — League orange (#F47920), primary blue, bright yellow, red, flesh tones, black, and white. Shadows are bold FLAT BLACK shapes with hard edges; no soft gradients, no airbrush, no cross-hatching, no Ben-Day or halftone dots, and no surface grain, speckle, or aged-paper texture anywhere. Colors stay bright and clean, like freshly printed comic art.
-
-Spend rich, confident inked detail ONLY on: the child, the humanoid robot, the flying saucer, and the engineer. Simplify everything else — building, trees, plaza — into bold graphic shapes with minimal architectural detail.
-
-THE SCENE: The landscaped central lawn of a sleek modern corporate research campus. A simplified glass-and-concrete engineering building fills the background, with the word &quot;QUALCOMM&quot; spelled exactly Q-U-A-L-C-O-M-M in clean blue sans-serif letters mounted on the side of the building. A broad grassy plaza with sidewalks, a few trees and flowering shrubs. At the center-left of the lawn a classic 1950s flying saucer has just landed: a polished silver disc with a domed top, simple rivets, and a glowing landing ring, rendered in flat comic-book color rather than reflective realism, its ramp lowered. Two visitors have stepped out: (1) a confident young inventor, about 13, in jeans and a red t-shirt with tousled hair, standing with one hand extended toward the engineer in greeting; and (2) beside the kid, a friendly HUMANOID ROBOT standing in a proud, HEROIC pose with both HANDS ON ITS HIPS, elbows out, chest up, chin high — an optimistic Golden Age vision of robotics, upright, mechanical, expressive and obviously friendly. Facing them on the sidewalk at the right is an ENGINEER — clearly a working tech engineer, NOT a businessman: an untucked collared shirt or polo with the sleeves pushed up, an ID badge on a lanyard around his neck, glasses, a laptop tucked under one arm. He has just arrived for work and stopped short — surprised and amused, not frightened. Compose from a low heroic angle with strong diagonals and bold silhouettes; the saucer anchors the composition and the child, robot, and engineer form a strong triangular arrangement that tells the story instantly.
-
-The joke: the visitors have mistaken an ordinary engineer for someone who can take them to the leader of Earth&#x27;s technological civilization.
-
-TEXT — render ONLY these two pieces of lettering, nothing else: (1) EXACTLY ONE hand-lettered comic speech balloon, spoken by the child, reading exactly: &quot;Take us to your leader.&quot; and (2) the word &quot;QUALCOMM&quot; (spelled Q-U-A-L-C-O-M-M) on the side of the building. No other speech balloon, caption, narration box, poster, sign, logo, label, or text anywhere.</pre>
-          <div class="dl">negative prompt</div><pre>Photorealism, painterly rendering, airbrush, soft gradients, soft or blended shading, glossy modern digital coloring, 3D render, CGI. Modern comic rendering or a crisp modern flat-vector poster look. Ben-Day dots, halftone patterns, cross-hatching, hatching, stippling, fine line texture. ANY surface grain, noise, speckle, dithering, film grain, or print-dot texture. Aged, weathered, distressed, yellowed, or foxed paper; newsprint or parchment texture; a crumbling old-comic look. Faded, muddy, or washed-out color. Over-flattened, detail-starved heroes reduced to plain silhouettes. Overcrowded or photographically detailed backgrounds. The engineer as a businessman — NO business suit, NO necktie, NO briefcase; he is a casual working engineer. Robot with arms hanging limp at its sides — its hands must be planted on its hips in a hero pose. Misspelled QUALCOMM. Extra lettering, signs, or labels beyond the child&#x27;s speech balloon and the QUALCOMM building sign. A frightened or menacing mood, weapons, lasers, explosions. Green-skinned aliens, monsters, or bug-eyed creatures — the visitors are a normal human child and a friendly humanoid robot. Photographic faces. Portrait or vertical orientation. Malformed or extra fingers; distorted hands.</pre>
-          <div class="dl">notes</div><p>Navy bottom banner + orange rule; real loap-type wordmark (cream text, orange AMAZING) left, jointheleague.org right. Logo composited, not AI-drawn, for brand accuracy.</p>
-          
-        </div>
-      </details>
-    </article>
-    <article class="card ">
-      <div class="cardhead">
-        <span class="num">#14</span><span class="lab">— Draft 14 — variant C (reroll)</span>
-        <span class="meta">2026-07-01T15:05:45 &middot; gpt-image-2</span>
-      </div>
-      <div class="imgwrap"><a href="iterations/iter-014.png" target="_blank"><img class="hero" src="iterations/iter-014.png" alt="iteration 14"></a></div>
-      
-      <details><summary>Prompt &amp; details</summary>
-        <div class="detail">
-          <div class="dl">positive prompt</div><pre>A 1940s Golden Age American comic-book cover illustration, in the tradition of early Superman and Captain America covers: bold hand-inked black outlines, large unbroken areas of flat color, dramatic heroic composition, and a classic four-color printing aesthetic. This is authentic 1940s comic-book production art — hand-drawn and inked, wide 4×6 landscape (3:2). NOT photorealism, NOT painterly, NOT a modern flat-vector poster.
-
-RENDERING: Use a restricted Golden Age palette of about 5–7 vivid ink colors — League orange (#F47920), primary blue, bright yellow, red, flesh tones, black, and white. Shadows are bold FLAT BLACK shapes with hard edges; no soft gradients, no airbrush, no cross-hatching, no Ben-Day or halftone dots, and no surface grain, speckle, or aged-paper texture anywhere. Colors stay bright and clean, like freshly printed comic art.
-
-Spend rich, confident inked detail ONLY on: the child, the humanoid robot, the flying saucer, and the engineer. Simplify everything else — building, trees, plaza — into bold graphic shapes with minimal architectural detail.
-
-THE SCENE: The landscaped central lawn of a sleek modern corporate research campus. A simplified glass-and-concrete engineering building fills the background, with the word &quot;QUALCOMM&quot; spelled exactly Q-U-A-L-C-O-M-M in clean blue sans-serif letters mounted on the side of the building. A broad grassy plaza with sidewalks, a few trees and flowering shrubs. At the center-left of the lawn a classic 1950s flying saucer has just landed: a polished silver disc with a domed top, simple rivets, and a glowing landing ring, rendered in flat comic-book color rather than reflective realism, its ramp lowered. Two visitors have stepped out: (1) a confident young inventor, about 13, in jeans and a red t-shirt with tousled hair, standing with one hand extended toward the engineer in greeting; and (2) beside the kid, a friendly HUMANOID ROBOT standing in a proud, HEROIC pose with both HANDS ON ITS HIPS, elbows out, chest up, chin high — an optimistic Golden Age vision of robotics, upright, mechanical, expressive and obviously friendly. Facing them on the sidewalk at the right is an ENGINEER — clearly a working tech engineer, NOT a businessman: an untucked collared shirt or polo with the sleeves pushed up, an ID badge on a lanyard around his neck, glasses, a laptop tucked under one arm. He has just arrived for work and stopped short — surprised and amused, not frightened. Compose from a low heroic angle with strong diagonals and bold silhouettes; the saucer anchors the composition and the child, robot, and engineer form a strong triangular arrangement that tells the story instantly.
-
-The joke: the visitors have mistaken an ordinary engineer for someone who can take them to the leader of Earth&#x27;s technological civilization.
-
-TEXT — render ONLY these two pieces of lettering, nothing else: (1) EXACTLY ONE hand-lettered comic speech balloon, spoken by the child, reading exactly: &quot;Take us to your leader.&quot; and (2) the word &quot;QUALCOMM&quot; (spelled Q-U-A-L-C-O-M-M) on the side of the building. No other speech balloon, caption, narration box, poster, sign, logo, label, or text anywhere.</pre>
-          <div class="dl">negative prompt</div><pre>Photorealism, painterly rendering, airbrush, soft gradients, soft or blended shading, glossy modern digital coloring, 3D render, CGI. Modern comic rendering or a crisp modern flat-vector poster look. Ben-Day dots, halftone patterns, cross-hatching, hatching, stippling, fine line texture. ANY surface grain, noise, speckle, dithering, film grain, or print-dot texture. Aged, weathered, distressed, yellowed, or foxed paper; newsprint or parchment texture; a crumbling old-comic look. Faded, muddy, or washed-out color. Over-flattened, detail-starved heroes reduced to plain silhouettes. Overcrowded or photographically detailed backgrounds. The engineer as a businessman — NO business suit, NO necktie, NO briefcase; he is a casual working engineer. Robot with arms hanging limp at its sides — its hands must be planted on its hips in a hero pose. Misspelled QUALCOMM. Extra lettering, signs, or labels beyond the child&#x27;s speech balloon and the QUALCOMM building sign. A frightened or menacing mood, weapons, lasers, explosions. Green-skinned aliens, monsters, or bug-eyed creatures — the visitors are a normal human child and a friendly humanoid robot. Photographic faces. Portrait or vertical orientation. Malformed or extra fingers; distorted hands.</pre>
-          
-          
-        </div>
-      </details>
-    </article>
-    <article class="card ">
-      <div class="cardhead">
-        <span class="num">#13</span><span class="lab">— Draft 13 — variant B (reroll)</span>
-        <span class="meta">2026-07-01T15:02:55 &middot; gpt-image-2</span>
-      </div>
-      <div class="imgwrap"><a href="iterations/iter-013.png" target="_blank"><img class="hero" src="iterations/iter-013.png" alt="iteration 13"></a></div>
-      
-      <details><summary>Prompt &amp; details</summary>
-        <div class="detail">
-          <div class="dl">positive prompt</div><pre>A 1940s Golden Age American comic-book cover illustration, in the tradition of early Superman and Captain America covers: bold hand-inked black outlines, large unbroken areas of flat color, dramatic heroic composition, and a classic four-color printing aesthetic. This is authentic 1940s comic-book production art — hand-drawn and inked, wide 4×6 landscape (3:2). NOT photorealism, NOT painterly, NOT a modern flat-vector poster.
-
-RENDERING: Use a restricted Golden Age palette of about 5–7 vivid ink colors — League orange (#F47920), primary blue, bright yellow, red, flesh tones, black, and white. Shadows are bold FLAT BLACK shapes with hard edges; no soft gradients, no airbrush, no cross-hatching, no Ben-Day or halftone dots, and no surface grain, speckle, or aged-paper texture anywhere. Colors stay bright and clean, like freshly printed comic art.
-
-Spend rich, confident inked detail ONLY on: the child, the humanoid robot, the flying saucer, and the engineer. Simplify everything else — building, trees, plaza — into bold graphic shapes with minimal architectural detail.
-
-THE SCENE: The landscaped central lawn of a sleek modern corporate research campus. A simplified glass-and-concrete engineering building fills the background, with the word &quot;QUALCOMM&quot; spelled exactly Q-U-A-L-C-O-M-M in clean sans-serif letters mounted on the side of the building. A broad grassy plaza with sidewalks, a few trees and flowering shrubs. At the center-left of the lawn a classic 1950s flying saucer has just landed: a polished silver disc with a domed top, simple rivets, and a glowing landing ring, rendered in flat comic-book color rather than reflective realism, its ramp lowered. Two visitors have stepped out: (1) a confident young inventor, about 13, in jeans and a red t-shirt with tousled hair, standing with one hand extended toward the engineer in greeting; and (2) beside the kid, a friendly HUMANOID ROBOT standing in a proud, HEROIC pose with both HANDS ON ITS HIPS, elbows out, chest up, chin high — an optimistic Golden Age vision of robotics, upright, mechanical, expressive and obviously friendly. Facing them on the sidewalk at the right is an ENGINEER — clearly a working tech engineer, NOT a businessman: an untucked collared shirt or polo with the sleeves pushed up, an ID badge on a lanyard around his neck, glasses, a laptop tucked under one arm. He has just arrived for work and stopped short — surprised and amused, not frightened. Compose from a low heroic angle with strong diagonals and bold silhouettes; the saucer anchors the composition and the child, robot, and engineer form a strong triangular arrangement that tells the story instantly.
-
-The joke: the visitors have mistaken an ordinary engineer for someone who can take them to the leader of Earth&#x27;s technological civilization.
-
-TEXT — render ONLY these two pieces of lettering, nothing else: (1) EXACTLY ONE hand-lettered comic speech balloon, spoken by the child, reading exactly: &quot;Take us to your leader.&quot; and (2) the word &quot;QUALCOMM&quot; (spelled Q-U-A-L-C-O-M-M) on the side of the building. No other speech balloon, caption, narration box, poster, sign, logo, label, or text anywhere.</pre>
-          <div class="dl">negative prompt</div><pre>Photorealism, painterly rendering, airbrush, soft gradients, soft or blended shading, glossy modern digital coloring, 3D render, CGI. Modern comic rendering or a crisp modern flat-vector poster look. Ben-Day dots, halftone patterns, cross-hatching, hatching, stippling, fine line texture. ANY surface grain, noise, speckle, dithering, film grain, or print-dot texture. Aged, weathered, distressed, yellowed, or foxed paper; newsprint or parchment texture; a crumbling old-comic look. Faded, muddy, or washed-out color. Over-flattened, detail-starved heroes reduced to plain silhouettes. Overcrowded or photographically detailed backgrounds. The engineer as a businessman — NO business suit, NO necktie, NO briefcase; he is a casual working engineer. Robot with arms hanging limp at its sides — its hands must be planted on its hips in a hero pose. Misspelled QUALCOMM. Extra lettering, signs, or labels beyond the child&#x27;s speech balloon and the QUALCOMM building sign. A frightened or menacing mood, weapons, lasers, explosions. Green-skinned aliens, monsters, or bug-eyed creatures — the visitors are a normal human child and a friendly humanoid robot. Photographic faces. Portrait or vertical orientation. Malformed or extra fingers; distorted hands.</pre>
-          
-          
-        </div>
-      </details>
-    </article>
-    <article class="card ">
+    <article class="card " data-iteration="12">
       <div class="cardhead">
         <span class="num">#12</span><span class="lab">— Draft 12 — variant A (robot hands-on-hips, engineer, Qualcomm)</span>
         <span class="meta">2026-07-01T15:00:12 &middot; gpt-image-2</span>
+        <button class="delbtn" data-n="12" data-label="Draft 12 — variant A (robot hands-on-hips, engineer, Qualcomm)" title="Delete this iteration">&#128465; Delete</button>
       </div>
       <div class="imgwrap"><a href="iterations/iter-012.png" target="_blank"><img class="hero" src="iterations/iter-012.png" alt="iteration 12"></a></div>
       
@@ -269,90 +185,11 @@ TEXT — render ONLY these two pieces of lettering, nothing else: (1) EXACTLY ON
         </div>
       </details>
     </article>
-    <article class="card ">
-      <div class="cardhead">
-        <span class="num">#11</span><span class="lab">— Draft 10 — gpt-image-2, high quality (same prompt)</span>
-        <span class="meta">2026-07-01T14:52:16 &middot; gpt-image-2</span>
-      </div>
-      <div class="imgwrap"><a href="iterations/iter-011.png" target="_blank"><img class="hero" src="iterations/iter-011.png" alt="iteration 11"></a></div>
-      
-      <details><summary>Prompt &amp; details</summary>
-        <div class="detail">
-          <div class="dl">positive prompt</div><pre>A 1940s Golden Age American comic-book cover illustration, in the tradition of early Superman and Captain America covers: bold hand-inked black outlines, large unbroken areas of flat color, dramatic heroic composition, and a classic four-color printing aesthetic. This is authentic 1940s comic-book production art — hand-drawn and inked, wide 4×6 landscape (3:2). NOT photorealism, NOT painterly, NOT a modern flat-vector poster.
-
-RENDERING: Use a restricted Golden Age palette of about 5–7 vivid ink colors — League orange (#F47920), primary blue, bright yellow, red, flesh tones, black, and white. Shadows are bold FLAT BLACK shapes with hard edges; no soft gradients, no airbrush, no cross-hatching, no Ben-Day or halftone dots, and no surface grain, speckle, or aged-paper texture anywhere. Colors stay bright and clean, like freshly printed comic art.
-
-Spend rich, confident inked detail ONLY on: the child, the humanoid robot, the flying saucer, and the engineer. Simplify everything else — building, trees, plaza — into bold graphic shapes with minimal architectural detail.
-
-THE SCENE: The landscaped central lawn of a sleek modern corporate research campus reminiscent of a Qualcomm, Intel, or Bell Labs office park — a broad grassy plaza with sidewalks, a few trees and flowering shrubs, and a simplified glass-and-concrete engineering building in the background. At the center of the lawn a classic 1950s flying saucer has just landed: a polished silver disc with a domed top, simple rivets, and a glowing landing ring, rendered in flat comic-book color rather than reflective realism, its ramp lowered. A confident young inventor (about 13, jeans and a red t-shirt, tousled hair) has stepped out beside a friendly humanoid ROBOT companion — an optimistic Golden Age vision of robotics, upright, mechanical, expressive, and obviously friendly. The child looks adventurous and intelligent (not frightened), standing confidently with one hand extended toward the engineer while the robot stands just behind, politely attentive. An ENGINEER carrying a briefcase and an engineering notebook has stopped on the sidewalk on his way into work; he looks surprised and amused, not frightened. Compose from a low heroic angle with strong diagonals and bold silhouettes; the saucer dominates the center and the child, robot, and engineer form a strong triangular arrangement that tells the story instantly.
-
-The joke is that the visitors have mistaken an ordinary engineer for someone who can take them to the leader of Earth&#x27;s technological civilization.
-
-TEXT: Include EXACTLY ONE hand-lettered comic speech balloon, spoken by the child, reading exactly: &quot;Take us to your leader.&quot; Do NOT include any other speech balloon, caption, narration box, poster, sign, logo, label, brand name, or text anywhere in the image.</pre>
-          <div class="dl">negative prompt</div><pre>Photorealism, painterly rendering, airbrush, soft gradients, soft or blended shading, glossy modern digital coloring, 3D render, CGI. Modern comic rendering or a crisp modern flat-vector poster look. Ben-Day dots, halftone patterns, cross-hatching, hatching, stippling, fine line texture. ANY surface grain, noise, speckle, dithering, film grain, or print-dot texture. Aged, weathered, distressed, yellowed, or foxed paper; newsprint or parchment texture; a crumbling old-comic look. Faded, muddy, or washed-out color. Over-flattened, detail-starved heroes reduced to plain silhouettes. Overcrowded or photographically detailed backgrounds. Any brand names, corporate logos, or building signage; any lettering except the single child&#x27;s speech balloon. A frightened or menacing mood, weapons, lasers, explosions. Green-skinned aliens, monsters, or bug-eyed creatures — the visitors are a normal human child and a friendly humanoid robot. Photographic faces. Portrait or vertical orientation. Malformed or extra fingers; distorted hands.</pre>
-          
-          
-        </div>
-      </details>
-    </article>
-    <article class="card err">
-      <div class="cardhead">
-        <span class="num">#10</span><span class="lab">— Draft 10 — same prompt on gpt-image-2</span><span class="badge err">error</span>
-        <span class="meta">2026-07-01T14:06:39 &middot; gpt-image-2</span>
-      </div>
-      <div class="imgwrap"><div class="noimg">&#9888; No image — Client error &#x27;403 Forbidden&#x27; for url &#x27;https://api.openai.com/v1/images/generations&#x27;
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403</div></div>
-      
-      <details><summary>Prompt &amp; details</summary>
-        <div class="detail">
-          <div class="dl">positive prompt</div><pre>A 1940s Golden Age American comic-book cover illustration, in the tradition of early Superman and Captain America covers: bold hand-inked black outlines, large unbroken areas of flat color, dramatic heroic composition, and a classic four-color printing aesthetic. This is authentic 1940s comic-book production art — hand-drawn and inked, wide 4×6 landscape (3:2). NOT photorealism, NOT painterly, NOT a modern flat-vector poster.
-
-RENDERING: Use a restricted Golden Age palette of about 5–7 vivid ink colors — League orange (#F47920), primary blue, bright yellow, red, flesh tones, black, and white. Shadows are bold FLAT BLACK shapes with hard edges; no soft gradients, no airbrush, no cross-hatching, no Ben-Day or halftone dots, and no surface grain, speckle, or aged-paper texture anywhere. Colors stay bright and clean, like freshly printed comic art.
-
-Spend rich, confident inked detail ONLY on: the child, the humanoid robot, the flying saucer, and the engineer. Simplify everything else — building, trees, plaza — into bold graphic shapes with minimal architectural detail.
-
-THE SCENE: The landscaped central lawn of a sleek modern corporate research campus reminiscent of a Qualcomm, Intel, or Bell Labs office park — a broad grassy plaza with sidewalks, a few trees and flowering shrubs, and a simplified glass-and-concrete engineering building in the background. At the center of the lawn a classic 1950s flying saucer has just landed: a polished silver disc with a domed top, simple rivets, and a glowing landing ring, rendered in flat comic-book color rather than reflective realism, its ramp lowered. A confident young inventor (about 13, jeans and a red t-shirt, tousled hair) has stepped out beside a friendly humanoid ROBOT companion — an optimistic Golden Age vision of robotics, upright, mechanical, expressive, and obviously friendly. The child looks adventurous and intelligent (not frightened), standing confidently with one hand extended toward the engineer while the robot stands just behind, politely attentive. An ENGINEER carrying a briefcase and an engineering notebook has stopped on the sidewalk on his way into work; he looks surprised and amused, not frightened. Compose from a low heroic angle with strong diagonals and bold silhouettes; the saucer dominates the center and the child, robot, and engineer form a strong triangular arrangement that tells the story instantly.
-
-The joke is that the visitors have mistaken an ordinary engineer for someone who can take them to the leader of Earth&#x27;s technological civilization.
-
-TEXT: Include EXACTLY ONE hand-lettered comic speech balloon, spoken by the child, reading exactly: &quot;Take us to your leader.&quot; Do NOT include any other speech balloon, caption, narration box, poster, sign, logo, label, brand name, or text anywhere in the image.</pre>
-          <div class="dl">negative prompt</div><pre>Photorealism, painterly rendering, airbrush, soft gradients, soft or blended shading, glossy modern digital coloring, 3D render, CGI. Modern comic rendering or a crisp modern flat-vector poster look. Ben-Day dots, halftone patterns, cross-hatching, hatching, stippling, fine line texture. ANY surface grain, noise, speckle, dithering, film grain, or print-dot texture. Aged, weathered, distressed, yellowed, or foxed paper; newsprint or parchment texture; a crumbling old-comic look. Faded, muddy, or washed-out color. Over-flattened, detail-starved heroes reduced to plain silhouettes. Overcrowded or photographically detailed backgrounds. Any brand names, corporate logos, or building signage; any lettering except the single child&#x27;s speech balloon. A frightened or menacing mood, weapons, lasers, explosions. Green-skinned aliens, monsters, or bug-eyed creatures — the visitors are a normal human child and a friendly humanoid robot. Photographic faces. Portrait or vertical orientation. Malformed or extra fingers; distorted hands.</pre>
-          
-          <div class="dl">error</div><pre class="err">Client error &#x27;403 Forbidden&#x27; for url &#x27;https://api.openai.com/v1/images/generations&#x27;
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403</pre>
-        </div>
-      </details>
-    </article>
-    <article class="card ">
-      <div class="cardhead">
-        <span class="num">#9</span><span class="lab">— Draft 9 — via restarted MCP tool (confirms quality=high is live)</span>
-        <span class="meta">2026-07-01T12:41:15 &middot; chatgpt-image-latest</span>
-      </div>
-      <div class="imgwrap"><a href="iterations/iter-009.png" target="_blank"><img class="hero" src="iterations/iter-009.png" alt="iteration 9"></a></div>
-      
-      <details><summary>Prompt &amp; details</summary>
-        <div class="detail">
-          <div class="dl">positive prompt</div><pre>A 1940s Golden Age American comic-book cover illustration, in the tradition of early Superman and Captain America covers: bold hand-inked black outlines, large unbroken areas of flat color, dramatic heroic composition, and a classic four-color printing aesthetic. This is authentic 1940s comic-book production art — hand-drawn and inked, wide 4×6 landscape (3:2). NOT photorealism, NOT painterly, NOT a modern flat-vector poster.
-
-RENDERING: Use a restricted Golden Age palette of about 5–7 vivid ink colors — League orange (#F47920), primary blue, bright yellow, red, flesh tones, black, and white. Shadows are bold FLAT BLACK shapes with hard edges; no soft gradients, no airbrush, no cross-hatching, no Ben-Day or halftone dots, and no surface grain, speckle, or aged-paper texture anywhere. Colors stay bright and clean, like freshly printed comic art.
-
-Spend rich, confident inked detail ONLY on: the child, the humanoid robot, the flying saucer, and the engineer. Simplify everything else — building, trees, plaza — into bold graphic shapes with minimal architectural detail.
-
-THE SCENE: The landscaped central lawn of a sleek modern corporate research campus reminiscent of a Qualcomm, Intel, or Bell Labs office park — a broad grassy plaza with sidewalks, a few trees and flowering shrubs, and a simplified glass-and-concrete engineering building in the background. At the center of the lawn a classic 1950s flying saucer has just landed: a polished silver disc with a domed top, simple rivets, and a glowing landing ring, rendered in flat comic-book color rather than reflective realism, its ramp lowered. A confident young inventor (about 13, jeans and a red t-shirt, tousled hair) has stepped out beside a friendly humanoid ROBOT companion — an optimistic Golden Age vision of robotics, upright, mechanical, expressive, and obviously friendly. The child looks adventurous and intelligent (not frightened), standing confidently with one hand extended toward the engineer while the robot stands just behind, politely attentive. An ENGINEER carrying a briefcase and an engineering notebook has stopped on the sidewalk on his way into work; he looks surprised and amused, not frightened. Compose from a low heroic angle with strong diagonals and bold silhouettes; the saucer dominates the center and the child, robot, and engineer form a strong triangular arrangement that tells the story instantly.
-
-The joke is that the visitors have mistaken an ordinary engineer for someone who can take them to the leader of Earth&#x27;s technological civilization.
-
-TEXT: Include EXACTLY ONE hand-lettered comic speech balloon, spoken by the child, reading exactly: &quot;Take us to your leader.&quot; Do NOT include any other speech balloon, caption, narration box, poster, sign, logo, label, brand name, or text anywhere in the image.</pre>
-          <div class="dl">negative prompt</div><pre>Photorealism, painterly rendering, airbrush, soft gradients, soft or blended shading, glossy modern digital coloring, 3D render, CGI. Modern comic rendering or a crisp modern flat-vector poster look. Ben-Day dots, halftone patterns, cross-hatching, hatching, stippling, fine line texture. ANY surface grain, noise, speckle, dithering, film grain, or print-dot texture. Aged, weathered, distressed, yellowed, or foxed paper; newsprint or parchment texture; a crumbling old-comic look. Faded, muddy, or washed-out color. Over-flattened, detail-starved heroes reduced to plain silhouettes. Overcrowded or photographically detailed backgrounds. Any brand names, corporate logos, or building signage; any lettering except the single child&#x27;s speech balloon. A frightened or menacing mood, weapons, lasers, explosions. Green-skinned aliens, monsters, or bug-eyed creatures — the visitors are a normal human child and a friendly humanoid robot. Photographic faces. Portrait or vertical orientation. Malformed or extra fingers; distorted hands.</pre>
-          
-          
-        </div>
-      </details>
-    </article>
-    <article class="card ">
+    <article class="card " data-iteration="8">
       <div class="cardhead">
         <span class="num">#8</span><span class="lab">— Draft 8 — SAME prompt at quality=HIGH (direct API; proves the fix)</span>
         <span class="meta">2026-07-01T12:39:31 &middot; chatgpt-image-latest</span>
+        <button class="delbtn" data-n="8" data-label="Draft 8 — SAME prompt at quality=HIGH (direct API; proves the fix)" title="Delete this iteration">&#128465; Delete</button>
       </div>
       <div class="imgwrap"><a href="iterations/iter-008.png" target="_blank"><img class="hero" src="iterations/iter-008.png" alt="iteration 8"></a></div>
       
@@ -375,10 +212,11 @@ TEXT: Include EXACTLY ONE hand-lettered comic speech balloon, spoken by the chil
         </div>
       </details>
     </article>
-    <article class="card ">
+    <article class="card " data-iteration="7">
       <div class="cardhead">
         <span class="num">#7</span><span class="lab">— Draft 7 — Golden Age style calibration (campus / kid + humanoid robot + engineer)</span>
         <span class="meta">2026-07-01T12:29:36 &middot; chatgpt-image-latest</span>
+        <button class="delbtn" data-n="7" data-label="Draft 7 — Golden Age style calibration (campus / kid + humanoid robot + engineer)" title="Delete this iteration">&#128465; Delete</button>
       </div>
       <div class="imgwrap"><a href="iterations/iter-007.png" target="_blank"><img class="hero" src="iterations/iter-007.png" alt="iteration 7"></a></div>
       
@@ -401,824 +239,22 @@ TEXT: Include EXACTLY ONE hand-lettered comic speech balloon, spoken by the chil
         </div>
       </details>
     </article>
-    <article class="card ">
-      <div class="cardhead">
-        <span class="num">#6</span><span class="lab">— Draft 6 — aliens = kid + robot exit open saucer; unified single-voice prompt</span>
-        <span class="meta">2026-07-01T12:05:08 &middot; chatgpt-image-latest</span>
-      </div>
-      <div class="imgwrap"><a href="iterations/iter-006.png" target="_blank"><img class="hero" src="iterations/iter-006.png" alt="iteration 6"></a></div>
-      
-      <details><summary>Prompt &amp; details</summary>
-        <div class="detail">
-          <div class="dl">positive prompt</div><pre>A wide 4×6 landscape postcard (3:2 aspect), drawn as clean, bold PULP SCI-FI COMIC-BOOK art — the friendly, tongue-in-cheek register of a 1950s flying-saucer cover, but rendered crisp, flat, and modern, NEVER as an aged or printed page.
-
-THE SCENE — a sci-fi gag where the &quot;aliens&quot; are our own: A little retro FLYING SAUCER has just landed on the carpet of a warm, sunny office and popped OPEN — its clear glass dome tilted up on a hinge, a small ramp lowered to the floor. Two &quot;aliens&quot; have already stepped OUT of the ship and stand on the floor in front of it, and they are unmistakably A KID AND A ROBOT, not monsters: on the left, a cheerful human KID about 13 years old (jeans and a t-shirt) mid-wave; right beside the kid, a friendly HUMANOID ROBOT standing upright on two legs, with a boxy maker-built body (bolt-studded metal panels, a couple of visible colored wires, a stubby antenna on its head) and a simple face made of two round sensor &quot;eyes.&quot; One of them raises a hand in a polite little &quot;hello.&quot; Facing the pair at the RIGHT of the card is a bemused ADULT &quot;leader&quot; — a business-casual man in his mid-40s, eyebrows up, a surprised-but-delighted smile, hands half-raised in welcome. Keep the setting simple and readable: one flat sunny wall, a desk, and a window rendered as a clean flat shape. Leave open headroom across the TOP for the title.
-
-ART &amp; RENDERING: Heavy, confident, TRUE-BLACK ink outlines of varied weight — all the detail is carried by line, not by shading. Every surface is one smooth, perfectly FLAT solid color, filled edge to edge like clean vector art. Shading is simple hard-edged cel shading — at most one darker flat tone per surface, with solid black shadow shapes; no gradients, no soft glows, no airbrush. Keep the WHOLE image to about SEVEN solid colors. LOW detail overall: spend the detail only on the kid, the robot, and the saucer — everything else simplifies to flat shape and bold outline. Frame the whole card in a solid flat deep-navy comic border.
-
-COLOR: A warm-dominant orange-and-blue scheme. Sunny golden-amber and marigold carry the large areas; burnt orange models the warm forms; steel-blue and deep navy are the cool accent on the saucer, the border, and the deepest shadows. Black ink anchors everything and cream fills any text box. Roughly 70% warm to 30% cool, with at most a couple of small signal-red hits (the title).
-
-TEXT — render ONLY the following, spelled EXACTLY, crisp, with no other words, signs, labels, prices, badges, or lettering anywhere in the image:
-• A big TITLE masthead across the TOP, on a jagged comic starburst, in bold RED letters with a heavy black outline: TAKE US TO YOUR LEADER
-• The LEAGUE LOGO in the BOTTOM-RIGHT corner, sitting directly on the artwork with no dark box behind it: the stacked wordmark THE LEAGUE OF AMAZING PROGRAMMERS, with &quot;AMAZING&quot; in orange and a small orange lightning bolt flanking each side.</pre>
-          <div class="dl">negative prompt</div><pre>ANY surface texture whatsoever — grain, noise, speckle, stipple, dithering, film grain, print or ink texture, halftone or Ben-Day dots — on any surface including the background, border, walls, skin, robot, and saucer. Newsprint, aged or yellowed paper, parchment, canvas, or a vintage / distressed / weathered / worn / &quot;old printed comic&quot; look. Faded, muddy, or washed-out print black — the ink must be a clean true black. Soft glows, radial halos, sprayed light, gradients, blends, or airbrush. More than nine colors. Green-skinned aliens, monsters, tentacles, bug-eyed creatures, little green men — the &quot;aliens&quot; must read as a normal human child and a friendly humanoid robot. Scary or menacing invasion mood, death rays, weapons, explosions. A sleek chrome Hollywood UFO with no character. More than one kid, more than one robot, or more than one adult. A wheeled rover robot (the robot is humanoid, standing on legs). Photorealism, 3D render, CGI, photographic faces, painterly brushwork. Portrait or vertical orientation. Extra posters, signs, labels, or lettering beyond the title and the logo. A dark box behind the League logo.</pre>
-          
-          
-        </div>
-      </details>
-    </article>
-    <article class="card ">
-      <div class="cardhead">
-        <span class="num">#5</span><span class="lab">— Draft 5 — flatten glow/beam to kill last grain</span>
-        <span class="meta">2026-07-01T11:53:11 &middot; chatgpt-image-latest</span>
-      </div>
-      <div class="imgwrap"><a href="iterations/iter-005.png" target="_blank"><img class="hero" src="iterations/iter-005.png" alt="iteration 5"></a></div>
-      <div class="reflabel">references</div><div class="thumbs small"><a href="sources/Robots-2kids-table.png" target="_blank"><img src="sources/Robots-2kids-table.png"></a></div>
-      <details><summary>Prompt &amp; details</summary>
-        <div class="detail">
-          <div class="dl">positive prompt</div><pre># Art Style
-
-Render as a bold comic-book / pulp illustration with the drawing sensibility of early
-*Superman* and *Captain America* covers. Convert any provided photograph into clean,
-hand-drawn cel-style art. This is a crisp, modern-clean comic illustration — NOT a
-photograph, and NOT a printed, aged, or vintage page.
-
-## Rendering — this is the most important part
-- **Linework:** Bold, confident, heavy BLACK ink outlines with varied weight — thick
-  contour lines around the forms, crisp interior lines. Detail is carried by LINE only.
-  Ink is a true dark black, not gray, brown, or a faded print black.
-- **Color:** Large unbroken fields of solid, perfectly FLAT color — each shape one uniform
-  fill, edge to edge, like clean vector art. Keep the WHOLE image to a tight palette of at
-  most NINE colors, and target about SEVEN: red, blue, yellow, orange, flesh tone, a warm
-  brown, black, and cream is a typical set. Warm flesh tones and browns (hair, skin, wood,
-  robot metal) are welcome; the palette is warmer and wider than pop-art but still small.
-- **Shading:** Simple hard-edged cel shading — at most one darker flat tone per surface,
-  with clean hard shadow edges and solid black shadow shapes. NO gradients, NO blends, NO
-  airbrush, NO Ben-Day dot halftones (dots are the pop-art style, not this one), NO
-  cross-hatching.
-- **NO TEXTURE ANYWHERE:** Every surface — background, border, clothing, skin, robot,
-  furniture, the sky — is clean flat digital color. Absolutely NO grain, noise, speckle,
-  stipple, dithering, print or ink texture, halftone, and NO newsprint / aged-paper /
-  parchment / vintage / distressed / weathered look. The image must read as freshly drawn
-  flat color, never as an old printed page.
-- **Background:** Not a detailed room — one or two flat color zones only. A single solid
-  warm color field (clean cream or a saturated flat color), never an aged or textured tone.
-
-## Focus &amp; Detail
-- LOW DETAIL by design. Spend what detail there is ONLY on (1) the child or children and
-  (2) the invention/robot they are working on. Everything else simplifies to flat color and
-  bold outline.
-- Stylize faces and figures so they read as illustrated comic characters rather than
-  identifiable real people — simplified inked features, not photorealistic portraits.
-- Preserve the general action and the device from the source so the scene still reads as
-  kids building something real.
-
-## Text Rules
-- Render ONLY the text specified for the chosen composition — exact wording, nothing else.
-- Do NOT invent any other posters, signs, slogans, labels, or lettering. All other
-  background surfaces are blank.
-
-## Subject &amp; Brand
-- **Robots** are kept low-detail and iconic, like the characters — not engineering
-  diagrams. Give them physically plausible front grippers, pushers, hooks, or arms. When
-  robot reference photos are provided, keep the recognizable form of the real student-built
-  educational robots.
-- **Kids are the heroes** — proud, confident, exciting to look at.
-- **Code lives only on a laptop screen facing the viewer.** No text or code anywhere else.
-- **Mood:** heroic, optimistic, aspirational, exciting, competitive — kids proud of the
-  robots they created.
-
-# Color Palette
-
-A warm-dominant, high-energy **orange-and-blue complementary palette** extracted from the
-&quot;At His Command&quot; comic cover: a glowing golden-amber field carries the image, burnt-orange
-shadows model the warm forms, and cool steel-blue and deep navy provide the complementary
-accent — borders, machine chassis, and the deepest shadows. Black ink anchors everything and
-cream carries any text furniture.
-
-**Balance:** roughly **70% warm / 30% cool** — orange and gold dominate the large areas; blue
-is the accent that frames, cools the shadows, and makes the warms pop by contrast. Red is a
-spark, used only for a few high-impact hits (title, a signal light). Do not let blue take over
-large fields — it belongs on edges, machinery, and shadow.
-
-## Swatches
-
-Warm (dominant):
-- **Golden Amber** `#F9C233` — the primary background field / lit warm surfaces; bright, sunny.
-- **Marigold** `#F9B41E` — secondary warm, warm midtones and glow.
-- **Burnt Orange** `#C96A10` — warm shadow and modeled form on the gold; the main orange.
-- **Sienna** `#9A4E12` — deep warm shadow, wood, grounded warmth.
-- **Signal Red** `#CC1616` — accent only: display type, a warning light, a spark. Use sparingly.
-
-Cool (complementary accent):
-- **Steel Blue** `#175E8C` — cool accent: panel borders, robot/machine chassis, cool props.
-- **Deep Navy** `#16223C` — the coolest, deepest shadows, panel gutters, a bottom bar.
-
-Neutrals / anchors:
-- **Ink Black** `#101010` — linework, heavy contour, panel borders. Anchors the whole image.
-- **Cream** `#FBE5A0` — caption boxes, paper highlights, text-furniture fill.
-- **Warm Wood Brown** `#6E451F` — supporting neutral for wood/surfaces; keeps neutrals warm.
-
-## How to apply
-- Build large areas out of the golden amber → burnt orange → sienna warm ramp; reserve steel
-  blue and deep navy for edges, machinery, and shadow so the complementary contrast stays sharp.
-- Keep shadows **warm-to-cool**: warm forms fall into burnt orange, then into deep navy at the
-  darkest core — never into muddy gray.
-- Let blue and orange sit directly against each other at focal points for maximum pop.
-- Red is a garnish, not a field — a couple of deliberate hits at most.
-- Keep neutrals warm (cream, wood brown, ink black); avoid cool grays, which flatten the scheme.
-
-# Composition
-
-One kid, one robot, one big emotion — a poster-style hero shot built around a single beat.
-
-## Layout
-- A central figure in a bold, confident pose, with the robot as the second focal point.
-- Clean, uncluttered composition — nothing extraneous; purposeful negative space.
-- A burst / starburst speech balloon carrying one short, punchy line.
-- A thin caption strip along the bottom is available for a marketing line.
-
-## Feel
-Iconic and immediate — the viewer&#x27;s eye hits the face first, then the robot. Designed to
-work as a standalone social/web image or the front of a card.
-
-# Scene
-
-WIDE LANDSCAPE 4x6 postcard (3:2), retro 1950s PULP SCI-FI COMIC COVER. A FRIENDLY LITTLE FLYING SAUCER hovers indoors just inside a warm school-office / reception area, tilted toward a bemused adult &#x27;LEADER&#x27; at the RIGHT — an approachable principal or HR manager (business-casual, mid-40s, smiling, hands half-raised in surprised welcome). The saucer is NOT a generic UFO and NOT a smooth metal disc: it is unmistakably the LEAGUE&#x27;S maker-built KIT robot — a metal-beam VEX-style chassis studded with bolt-holes, visible RED/YELLOW/BLUE wires, small green circuit boards, and its signature ultrasonic-sensor TWO-EYE &#x27;face&#x27; — tucked under a small clear glass bubble dome, with TWO springy antennae topped by glowing round tips, hovering on a soft cone of warm light (a landing/tractor beam) a couple feet above the office floor. A little articulated claw-arm reaches toward the adult in a polite &#x27;hello&#x27;. Warm office background: a desk, a window, a potted plant. Big empty headroom across the TOP for the title masthead.
-
-# Layout
-
-&gt; Format as a 4×6 inch postcard in [portrait/landscape] orientation. Hero image fills
-&gt; 75% of the card with a bold headline [text] in [style-appropriate treatment] along
-&gt; the [top/bottom]. Small League logo in [corner]. Clean composition with generous
-&gt; margins. Print-ready quality.
-
-# Additional Direction
-
-ROBOT BUILD: use the reference photo ONLY for the robot&#x27;s kit construction — metal-beam chassis with bolt-holes, tangled red/yellow/blue wires, small green circuit boards, the ultrasonic-sensor two-round-eye &#x27;face&#x27;. Reads as a homemade kit robot that flies, NOT a chrome Hollywood UFO. Do NOT copy the reference&#x27;s composition.
-
-PERFECTLY FLAT — MOST IMPORTANT: every surface is smooth SOLID flat color with clean hard edges and true dark-black ink lines. ABSOLUTELY NO grain, speckle, noise, stipple, spray, newsprint, aged-paper, or texture ANYWHERE. Kill ALL soft glows and gradients: NO sprayed halo or radial glow behind the robot, NO grainy light. The background is ONE single flat solid color field (clean, not aged). The landing beam is a simple HARD-EDGED flat translucent triangle of one solid color, NOT a soft sprayed cone. Keep the whole image to about SEVEN solid colors. Low detail; bold black outlines; hard-edged cel shading (at most one darker flat tone per surface).
-
-COMPOSITION: WIDE LANDSCAPE 4x6 (3:2). The kit-robot flying saucer at LEFT, hovering, springy antennae up, glass dome, a claw-arm reaching out, a hard-edged flat beam below it. A friendly, amused adult &#x27;leader&#x27; (business-casual man, mid-40s, hands half-raised in surprised welcome, smiling) at RIGHT. Behind them a simple office: one flat solid wall color, a desk, a window as a flat shape. Big headroom across the TOP for the title.
-
-TEXT (render ONLY this, nothing else): TOP TITLE reads EXACTLY, all four words: &quot;TAKE US TO YOUR LEADER&quot; — bold red pulp letters, heavy black outline, on a jagged burst. League logo bottom-right: &quot;THE LEAGUE OF AMAZING PROGRAMMERS&quot;, orange &quot;AMAZING&quot;, small lightning bolts, on the art. NO speech balloon, NO price box, NO badge, NO other title, signs, labels, or lettering.
-
-Deep flat navy border frame. Exactly ONE robot-saucer and ONE friendly adult. Warm, friendly, funny.</pre>
-          <div class="dl">negative prompt</div><pre>Generic smooth chrome flying saucer or Hollywood UFO. Little green men, aliens, alien creatures, extraterrestrials. A sleek finished disc with no visible wires or circuit boards. Scary, dark, menacing, or invasion mood. Death rays, weapons, explosions, city destruction. Children (the human is a friendly adult &#x27;leader&#x27;). More than one robot or more than one adult. Photorealism, 3D render, CGI, photographic faces. Portrait/vertical orientation. A black or dark box behind the League logo. Invented signs, labels, or lettering beyond the exact text specified. Blurry or muddy.</pre>
-          
-          
-        </div>
-      </details>
-    </article>
-    <article class="card ">
-      <div class="cardhead">
-        <span class="num">#4</span><span class="lab">— Draft 4 — clean composition, no grainy reference</span>
-        <span class="meta">2026-07-01T11:51:30 &middot; chatgpt-image-latest</span>
-      </div>
-      <div class="imgwrap"><a href="iterations/iter-004.png" target="_blank"><img class="hero" src="iterations/iter-004.png" alt="iteration 4"></a></div>
-      <div class="reflabel">references</div><div class="thumbs small"><a href="sources/Robots-2kids-table.png" target="_blank"><img src="sources/Robots-2kids-table.png"></a></div>
-      <details><summary>Prompt &amp; details</summary>
-        <div class="detail">
-          <div class="dl">positive prompt</div><pre># Art Style
-
-Render as a bold comic-book / pulp illustration with the drawing sensibility of early
-*Superman* and *Captain America* covers. Convert any provided photograph into clean,
-hand-drawn cel-style art. This is a crisp, modern-clean comic illustration — NOT a
-photograph, and NOT a printed, aged, or vintage page.
-
-## Rendering — this is the most important part
-- **Linework:** Bold, confident, heavy BLACK ink outlines with varied weight — thick
-  contour lines around the forms, crisp interior lines. Detail is carried by LINE only.
-  Ink is a true dark black, not gray, brown, or a faded print black.
-- **Color:** Large unbroken fields of solid, perfectly FLAT color — each shape one uniform
-  fill, edge to edge, like clean vector art. Keep the WHOLE image to a tight palette of at
-  most NINE colors, and target about SEVEN: red, blue, yellow, orange, flesh tone, a warm
-  brown, black, and cream is a typical set. Warm flesh tones and browns (hair, skin, wood,
-  robot metal) are welcome; the palette is warmer and wider than pop-art but still small.
-- **Shading:** Simple hard-edged cel shading — at most one darker flat tone per surface,
-  with clean hard shadow edges and solid black shadow shapes. NO gradients, NO blends, NO
-  airbrush, NO Ben-Day dot halftones (dots are the pop-art style, not this one), NO
-  cross-hatching.
-- **NO TEXTURE ANYWHERE:** Every surface — background, border, clothing, skin, robot,
-  furniture, the sky — is clean flat digital color. Absolutely NO grain, noise, speckle,
-  stipple, dithering, print or ink texture, halftone, and NO newsprint / aged-paper /
-  parchment / vintage / distressed / weathered look. The image must read as freshly drawn
-  flat color, never as an old printed page.
-- **Background:** Not a detailed room — one or two flat color zones only. A single solid
-  warm color field (clean cream or a saturated flat color), never an aged or textured tone.
-
-## Focus &amp; Detail
-- LOW DETAIL by design. Spend what detail there is ONLY on (1) the child or children and
-  (2) the invention/robot they are working on. Everything else simplifies to flat color and
-  bold outline.
-- Stylize faces and figures so they read as illustrated comic characters rather than
-  identifiable real people — simplified inked features, not photorealistic portraits.
-- Preserve the general action and the device from the source so the scene still reads as
-  kids building something real.
-
-## Text Rules
-- Render ONLY the text specified for the chosen composition — exact wording, nothing else.
-- Do NOT invent any other posters, signs, slogans, labels, or lettering. All other
-  background surfaces are blank.
-
-## Subject &amp; Brand
-- **Robots** are kept low-detail and iconic, like the characters — not engineering
-  diagrams. Give them physically plausible front grippers, pushers, hooks, or arms. When
-  robot reference photos are provided, keep the recognizable form of the real student-built
-  educational robots.
-- **Kids are the heroes** — proud, confident, exciting to look at.
-- **Code lives only on a laptop screen facing the viewer.** No text or code anywhere else.
-- **Mood:** heroic, optimistic, aspirational, exciting, competitive — kids proud of the
-  robots they created.
-
-# Color Palette
-
-A warm-dominant, high-energy **orange-and-blue complementary palette** extracted from the
-&quot;At His Command&quot; comic cover: a glowing golden-amber field carries the image, burnt-orange
-shadows model the warm forms, and cool steel-blue and deep navy provide the complementary
-accent — borders, machine chassis, and the deepest shadows. Black ink anchors everything and
-cream carries any text furniture.
-
-**Balance:** roughly **70% warm / 30% cool** — orange and gold dominate the large areas; blue
-is the accent that frames, cools the shadows, and makes the warms pop by contrast. Red is a
-spark, used only for a few high-impact hits (title, a signal light). Do not let blue take over
-large fields — it belongs on edges, machinery, and shadow.
-
-## Swatches
-
-Warm (dominant):
-- **Golden Amber** `#F9C233` — the primary background field / lit warm surfaces; bright, sunny.
-- **Marigold** `#F9B41E` — secondary warm, warm midtones and glow.
-- **Burnt Orange** `#C96A10` — warm shadow and modeled form on the gold; the main orange.
-- **Sienna** `#9A4E12` — deep warm shadow, wood, grounded warmth.
-- **Signal Red** `#CC1616` — accent only: display type, a warning light, a spark. Use sparingly.
-
-Cool (complementary accent):
-- **Steel Blue** `#175E8C` — cool accent: panel borders, robot/machine chassis, cool props.
-- **Deep Navy** `#16223C` — the coolest, deepest shadows, panel gutters, a bottom bar.
-
-Neutrals / anchors:
-- **Ink Black** `#101010` — linework, heavy contour, panel borders. Anchors the whole image.
-- **Cream** `#FBE5A0` — caption boxes, paper highlights, text-furniture fill.
-- **Warm Wood Brown** `#6E451F` — supporting neutral for wood/surfaces; keeps neutrals warm.
-
-## How to apply
-- Build large areas out of the golden amber → burnt orange → sienna warm ramp; reserve steel
-  blue and deep navy for edges, machinery, and shadow so the complementary contrast stays sharp.
-- Keep shadows **warm-to-cool**: warm forms fall into burnt orange, then into deep navy at the
-  darkest core — never into muddy gray.
-- Let blue and orange sit directly against each other at focal points for maximum pop.
-- Red is a garnish, not a field — a couple of deliberate hits at most.
-- Keep neutrals warm (cream, wood brown, ink black); avoid cool grays, which flatten the scheme.
-
-# Composition
-
-One kid, one robot, one big emotion — a poster-style hero shot built around a single beat.
-
-## Layout
-- A central figure in a bold, confident pose, with the robot as the second focal point.
-- Clean, uncluttered composition — nothing extraneous; purposeful negative space.
-- A burst / starburst speech balloon carrying one short, punchy line.
-- A thin caption strip along the bottom is available for a marketing line.
-
-## Feel
-Iconic and immediate — the viewer&#x27;s eye hits the face first, then the robot. Designed to
-work as a standalone social/web image or the front of a card.
-
-# Scene
-
-WIDE LANDSCAPE 4x6 postcard (3:2), retro 1950s PULP SCI-FI COMIC COVER. A FRIENDLY LITTLE FLYING SAUCER hovers indoors just inside a warm school-office / reception area, tilted toward a bemused adult &#x27;LEADER&#x27; at the RIGHT — an approachable principal or HR manager (business-casual, mid-40s, smiling, hands half-raised in surprised welcome). The saucer is NOT a generic UFO and NOT a smooth metal disc: it is unmistakably the LEAGUE&#x27;S maker-built KIT robot — a metal-beam VEX-style chassis studded with bolt-holes, visible RED/YELLOW/BLUE wires, small green circuit boards, and its signature ultrasonic-sensor TWO-EYE &#x27;face&#x27; — tucked under a small clear glass bubble dome, with TWO springy antennae topped by glowing round tips, hovering on a soft cone of warm light (a landing/tractor beam) a couple feet above the office floor. A little articulated claw-arm reaches toward the adult in a polite &#x27;hello&#x27;. Warm office background: a desk, a window, a potted plant. Big empty headroom across the TOP for the title masthead.
-
-# Layout
-
-&gt; Format as a 4×6 inch postcard in [portrait/landscape] orientation. Hero image fills
-&gt; 75% of the card with a bold headline [text] in [style-appropriate treatment] along
-&gt; the [top/bottom]. Small League logo in [corner]. Clean composition with generous
-&gt; margins. Print-ready quality.
-
-# Additional Direction
-
-ROBOT BUILD: use the reference photo ONLY for the robot&#x27;s kit construction — metal-beam chassis with bolt-holes, tangled red/yellow/blue wires, small green circuit boards, the ultrasonic-sensor two-round-eye &#x27;face&#x27;. The saucer must read as a homemade kit robot that flies, NOT a chrome Hollywood UFO. Do NOT copy the reference&#x27;s composition.
-
-RENDER PERFECTLY FLAT — the single most important thing: every surface (background, border, walls, floor, faces, robot, the landing beam) is smooth, solid, FLAT digital color with clean hard edges and a true dark-black ink line. ABSOLUTELY NO grain, speckle, noise, stipple, newsprint, aged-paper, parchment, or vintage texture ANYWHERE. This is freshly drawn flat vector-clean comic art, never an old printed page. Keep the whole image to about SEVEN solid colors. Low detail; bold black outlines; hard-edged cel shading only.
-
-COMPOSITION: WIDE LANDSCAPE 4x6 (3:2). The kit-robot flying saucer at LEFT, hovering on a warm cone-of-light landing beam, springy antennae up, glass dome, a little claw-arm reaching out. A friendly, amused adult &#x27;leader&#x27; (business-casual man, mid-40s, hands half-raised in surprised welcome, smiling) at RIGHT. Simple warm office behind them — one or two flat color zones, a desk, a window. Big headroom across the TOP for the title.
-
-TEXT (render ONLY this, nothing else): TOP TITLE across the top reads EXACTLY, all four words: &quot;TAKE US TO YOUR LEADER&quot; — bold red pulp letters with heavy black outline on a jagged burst. League logo bottom-right: &quot;THE LEAGUE OF AMAZING PROGRAMMERS&quot;, orange &quot;AMAZING&quot;, small lightning bolts, sitting directly on the art. NO speech balloon, NO price box, NO approval badge, NO other title, NO other signs, labels, or lettering.
-
-Deep flat navy border frame. Exactly ONE robot-saucer and ONE friendly adult. Warm, friendly, funny.</pre>
-          <div class="dl">negative prompt</div><pre>Generic smooth chrome flying saucer or Hollywood UFO. Little green men, aliens, alien creatures, extraterrestrials. A sleek finished disc with no visible wires or circuit boards. Scary, dark, menacing, or invasion mood. Death rays, weapons, explosions, city destruction. Children (the human is a friendly adult &#x27;leader&#x27;). More than one robot or more than one adult. Photorealism, 3D render, CGI, photographic faces. Portrait/vertical orientation. A black or dark box behind the League logo. Invented signs, labels, or lettering beyond the exact text specified. Blurry or muddy.</pre>
-          
-          
-        </div>
-      </details>
-    </article>
-    <article class="card ">
-      <div class="cardhead">
-        <span class="num">#3</span><span class="lab">— Draft 3 — flat clean color, newsprint removed</span>
-        <span class="meta">2026-07-01T11:49:47 &middot; chatgpt-image-latest</span>
-      </div>
-      <div class="imgwrap"><a href="iterations/iter-003.png" target="_blank"><img class="hero" src="iterations/iter-003.png" alt="iteration 3"></a></div>
-      <div class="reflabel">references</div><div class="thumbs small"><a href="sources/Robots-2kids-table.png" target="_blank"><img src="sources/Robots-2kids-table.png"></a><a href="iterations/iter-002.png" target="_blank"><img src="iterations/iter-002.png"></a><a href="sources/Robots-2kids-table.png" target="_blank"><img src="sources/Robots-2kids-table.png"></a></div>
-      <details><summary>Prompt &amp; details</summary>
-        <div class="detail">
-          <div class="dl">positive prompt</div><pre># Art Style
-
-Render as a bold comic-book / pulp illustration with the drawing sensibility of early
-*Superman* and *Captain America* covers. Convert any provided photograph into clean,
-hand-drawn cel-style art. This is a crisp, modern-clean comic illustration — NOT a
-photograph, and NOT a printed, aged, or vintage page.
-
-## Rendering — this is the most important part
-- **Linework:** Bold, confident, heavy BLACK ink outlines with varied weight — thick
-  contour lines around the forms, crisp interior lines. Detail is carried by LINE only.
-  Ink is a true dark black, not gray, brown, or a faded print black.
-- **Color:** Large unbroken fields of solid, perfectly FLAT color — each shape one uniform
-  fill, edge to edge, like clean vector art. Keep the WHOLE image to a tight palette of at
-  most NINE colors, and target about SEVEN: red, blue, yellow, orange, flesh tone, a warm
-  brown, black, and cream is a typical set. Warm flesh tones and browns (hair, skin, wood,
-  robot metal) are welcome; the palette is warmer and wider than pop-art but still small.
-- **Shading:** Simple hard-edged cel shading — at most one darker flat tone per surface,
-  with clean hard shadow edges and solid black shadow shapes. NO gradients, NO blends, NO
-  airbrush, NO Ben-Day dot halftones (dots are the pop-art style, not this one), NO
-  cross-hatching.
-- **NO TEXTURE ANYWHERE:** Every surface — background, border, clothing, skin, robot,
-  furniture, the sky — is clean flat digital color. Absolutely NO grain, noise, speckle,
-  stipple, dithering, print or ink texture, halftone, and NO newsprint / aged-paper /
-  parchment / vintage / distressed / weathered look. The image must read as freshly drawn
-  flat color, never as an old printed page.
-- **Background:** Not a detailed room — one or two flat color zones only. A single solid
-  warm color field (clean cream or a saturated flat color), never an aged or textured tone.
-
-## Focus &amp; Detail
-- LOW DETAIL by design. Spend what detail there is ONLY on (1) the child or children and
-  (2) the invention/robot they are working on. Everything else simplifies to flat color and
-  bold outline.
-- Stylize faces and figures so they read as illustrated comic characters rather than
-  identifiable real people — simplified inked features, not photorealistic portraits.
-- Preserve the general action and the device from the source so the scene still reads as
-  kids building something real.
-
-## Text Rules
-- Render ONLY the text specified for the chosen composition — exact wording, nothing else.
-- Do NOT invent any other posters, signs, slogans, labels, or lettering. All other
-  background surfaces are blank.
-
-## Subject &amp; Brand
-- **Robots** are kept low-detail and iconic, like the characters — not engineering
-  diagrams. Give them physically plausible front grippers, pushers, hooks, or arms. When
-  robot reference photos are provided, keep the recognizable form of the real student-built
-  educational robots.
-- **Kids are the heroes** — proud, confident, exciting to look at.
-- **Code lives only on a laptop screen facing the viewer.** No text or code anywhere else.
-- **Mood:** heroic, optimistic, aspirational, exciting, competitive — kids proud of the
-  robots they created.
-
-# Color Palette
-
-A warm-dominant, high-energy **orange-and-blue complementary palette** extracted from the
-&quot;At His Command&quot; comic cover: a glowing golden-amber field carries the image, burnt-orange
-shadows model the warm forms, and cool steel-blue and deep navy provide the complementary
-accent — borders, machine chassis, and the deepest shadows. Black ink anchors everything and
-cream carries any text furniture.
-
-**Balance:** roughly **70% warm / 30% cool** — orange and gold dominate the large areas; blue
-is the accent that frames, cools the shadows, and makes the warms pop by contrast. Red is a
-spark, used only for a few high-impact hits (title, a signal light). Do not let blue take over
-large fields — it belongs on edges, machinery, and shadow.
-
-## Swatches
-
-Warm (dominant):
-- **Golden Amber** `#F9C233` — the primary background field / lit warm surfaces; bright, sunny.
-- **Marigold** `#F9B41E` — secondary warm, warm midtones and glow.
-- **Burnt Orange** `#C96A10` — warm shadow and modeled form on the gold; the main orange.
-- **Sienna** `#9A4E12` — deep warm shadow, wood, grounded warmth.
-- **Signal Red** `#CC1616` — accent only: display type, a warning light, a spark. Use sparingly.
-
-Cool (complementary accent):
-- **Steel Blue** `#175E8C` — cool accent: panel borders, robot/machine chassis, cool props.
-- **Deep Navy** `#16223C` — the coolest, deepest shadows, panel gutters, a bottom bar.
-
-Neutrals / anchors:
-- **Ink Black** `#101010` — linework, heavy contour, panel borders. Anchors the whole image.
-- **Cream** `#FBE5A0` — caption boxes, paper highlights, text-furniture fill.
-- **Warm Wood Brown** `#6E451F` — supporting neutral for wood/surfaces; keeps neutrals warm.
-
-## How to apply
-- Build large areas out of the golden amber → burnt orange → sienna warm ramp; reserve steel
-  blue and deep navy for edges, machinery, and shadow so the complementary contrast stays sharp.
-- Keep shadows **warm-to-cool**: warm forms fall into burnt orange, then into deep navy at the
-  darkest core — never into muddy gray.
-- Let blue and orange sit directly against each other at focal points for maximum pop.
-- Red is a garnish, not a field — a couple of deliberate hits at most.
-- Keep neutrals warm (cream, wood brown, ink black); avoid cool grays, which flatten the scheme.
-
-# Composition
-
-Compose a complete vintage newsstand comic-book cover with all the classic cover furniture
-framing one heroic illustration. Render ONLY the text specified here — no other posters,
-signs, slogans, labels, or lettering; all other surfaces are blank.
-
-## Masthead (top)
-Three stacked lines of bold hand-drawn vintage comic logo type, each with a heavy black
-drop shadow:
-- **&quot;THE LEAGUE OF&quot;** — top line, smaller, yellow with a black outline.
-- **&quot;AMAZING&quot;** — center line, largest, orange (`#F47920`) with a black outline.
-- **&quot;PROGRAMMERS&quot;** — bottom line, medium, yellow with a black outline.
-
-## Lightning Bolts
-Flanking the &quot;THE LEAGUE OF&quot; line, one upright lightning bolt to the left and one to the
-right, same size, in place of stars. Each bolt is a flat solid orange (`#F47920`) shape,
-clean and simple, no added detail.
-
-## Subhead Strip
-Directly under the logo: **&quot;SMART MINDS · BOLD IDEAS · BRIGHT FUTURES&quot;**.
-
-## Corner Furniture
-- **Price box (top-left):** &quot;10¢&quot;.
-- **Issue/date (top-right):** &quot;NO. 1 / JUNE&quot; (adjust per issue).
-
-## Approval Badge (upper-right)
-A circular approval stamp: a gray-and-orange robot bust with an orange chest bolt as its
-centerpiece, inside a heavy black ring. Curve &quot;APPROVED BY&quot; along the inside top of the
-ring and &quot;THE CREATORS CODE AUTHORITY&quot; along the inside bottom, in small bold black caps
-following the circle. Keep the robot emblem flat and faithful, not re-illustrated.
-
-## Callout Box
-One small rectangular callout along the left edge — e.g. &quot;Whose Robot Will Prevail?&quot; —
-placed so it does not cover any character&#x27;s face or obscure any robot. Nudge the robots
-slightly right if needed so the callout stays clear of them.
-
-## Cover Title
-A large, dramatic hand-lettered title inside a jagged starburst banner in the lower third —
-e.g. &quot;ROBOT RIOT&quot;.
-
-## Center Illustration
-The character(s) and their robot(s) fill the center, over a flat yellow background behind
-the characters (below the subhead). Robots are low-detail like the characters, with
-physically plausible front grippers, pushers, hooks, or arms.
-
-# Scene
-
-WIDE LANDSCAPE 4x6 postcard (3:2), retro 1950s PULP SCI-FI COMIC COVER. A FRIENDLY LITTLE FLYING SAUCER hovers indoors just inside a warm school-office / reception area, tilted toward a bemused adult &#x27;LEADER&#x27; at the RIGHT — an approachable principal or HR manager (business-casual, mid-40s, smiling, hands half-raised in surprised welcome). The saucer is NOT a generic UFO and NOT a smooth metal disc: it is unmistakably the LEAGUE&#x27;S maker-built KIT robot — a metal-beam VEX-style chassis studded with bolt-holes, visible RED/YELLOW/BLUE wires, small green circuit boards, and its signature ultrasonic-sensor TWO-EYE &#x27;face&#x27; — tucked under a small clear glass bubble dome, with TWO springy antennae topped by glowing round tips, hovering on a soft cone of warm light (a landing/tractor beam) a couple feet above the office floor. A little articulated claw-arm reaches toward the adult in a polite &#x27;hello&#x27;. Warm office background: a desk, a window, a potted plant. Big empty headroom across the TOP for the title masthead.
-
-# Layout
-
-&gt; Format as a 4×6 inch postcard in [portrait/landscape] orientation. Hero image fills
-&gt; 75% of the card with a bold headline [text] in [style-appropriate treatment] along
-&gt; the [top/bottom]. Small League logo in [corner]. Clean composition with generous
-&gt; margins. Print-ready quality.
-
-# Additional Direction
-
-Use the FIRST reference image ONLY for the LAYOUT and composition — keep this exact framing: the kit-robot flying saucer at left on a landing beam, the friendly adult &#x27;leader&#x27; at right with hands raised, the warm office, the big top title, the League logo bottom-right. Use the SECOND reference only for the robot&#x27;s kit-built construction.
-
-CRITICAL — REDRAW IN CLEAN FLAT COLOR: the first reference has an aged newsprint / paper grain texture. IGNORE and DROP that completely. Render every surface as perfectly FLAT, smooth digital color with a true dark-black ink line — absolutely NO grain, no speckle, no newsprint, no aged-paper or vintage texture anywhere (not on the background, border, faces, robot, or beam). Keep the whole image to about seven solid colors. Low detail, bold outlines, hard-edged cel shading only.
-
-TEXT (exact, nothing else): TOP TITLE masthead reads EXACTLY &quot;TAKE US TO YOUR LEADER&quot; — all four words, red pulp letters with heavy black outline on a jagged burst. League logo bottom-right (&quot;THE LEAGUE OF AMAZING PROGRAMMERS&quot;, orange &quot;AMAZING&quot;, lightning bolts). No speech balloon, no other lettering, signs, prices, badges, or labels.
-
-Exactly ONE robot-saucer and ONE friendly adult. Warm, friendly, funny.</pre>
-          <div class="dl">negative prompt</div><pre>Generic smooth chrome flying saucer or Hollywood UFO. Little green men, aliens, alien creatures, extraterrestrials. A sleek finished disc with no visible wires or circuit boards. Scary, dark, menacing, or invasion mood. Death rays, weapons, explosions, city destruction. Children (the human is a friendly adult &#x27;leader&#x27;). More than one robot or more than one adult. Photorealism, 3D render, CGI, photographic faces. Portrait/vertical orientation. A black or dark box behind the League logo. Invented signs, labels, or lettering beyond the exact text specified. Blurry or muddy.</pre>
-          
-          
-        </div>
-      </details>
-    </article>
-    <article class="card ">
-      <div class="cardhead">
-        <span class="num">#2</span><span class="lab">— Draft 2 — fix headline to full four words</span>
-        <span class="meta">2026-07-01T11:35:11 &middot; chatgpt-image-latest</span>
-      </div>
-      <div class="imgwrap"><a href="iterations/iter-002.png" target="_blank"><img class="hero" src="iterations/iter-002.png" alt="iteration 2"></a></div>
-      <div class="reflabel">references</div><div class="thumbs small"><a href="sources/Robots-2kids-table.png" target="_blank"><img src="sources/Robots-2kids-table.png"></a><a href="iterations/iter-001.png" target="_blank"><img src="iterations/iter-001.png"></a><a href="sources/Robots-2kids-table.png" target="_blank"><img src="sources/Robots-2kids-table.png"></a></div>
-      <details><summary>Prompt &amp; details</summary>
-        <div class="detail">
-          <div class="dl">positive prompt</div><pre># Art Style
-
-Render as a 1940s Golden-Age comic-book illustration in the style of early *Superman* and
-*Captain America* covers. Convert any provided photograph into hand-drawn cel-style art —
-this should read as a printed vintage comic, not a modern digital illustration or a
-photograph.
-
-## Rendering
-- **Linework:** Bold, confident black ink outlines with varied weight. Clean cel art —
-  shapes are drawn and filled, not painted.
-- **Color:** Large unbroken fields of solid FLAT color. Restricted four-color-press
-  palette — roughly 5–7 ink colors total: red, blue, yellow, flesh tone, black, and cream.
-  Flesh tones and warm browns (hair, skin, wood, robot metal) are allowed; this palette is
-  wider and warmer than pop-art.
-- **Shading:** Shadows are single flat black shapes. No hatching, no cross-hatching, no
-  rendered gradients, and NO Ben-Day dot halftones (dots are the pop-art style, not this
-  one).
-- **Background:** Not a detailed room — one or two flat color zones only. Warm aged-
-  newsprint / cream tone in cover mode, or a single saturated color field per panel in
-  story mode.
-
-## Focus &amp; Detail
-- Spend detail ONLY on (1) the child or children and (2) the invention/robot they are
-  working on. Everything else simplifies to flat color and bold outline.
-- Stylize faces and figures so they read as illustrated comic characters rather than
-  identifiable real people — simplified inked features, not photorealistic portraits.
-- Preserve the general action and the device from the source so the scene still reads as
-  kids building something real.
-
-## Text Rules
-- Render ONLY the text specified for the chosen composition — exact wording, nothing else.
-- Do NOT invent any other posters, signs, slogans, labels, or lettering. All other
-  background surfaces are blank.
-
-## Subject &amp; Brand
-- **Robots** are kept low-detail and iconic, like the characters — not engineering
-  diagrams. Give them physically plausible front grippers, pushers, hooks, or arms. When
-  robot reference photos are provided, keep the recognizable form of the real student-built
-  educational robots.
-- **Kids are the heroes** — proud, confident, exciting to look at.
-- **Code lives only on a laptop screen facing the viewer.** No text or code anywhere else.
-- **Mood:** heroic, optimistic, aspirational, exciting, competitive — kids proud of the
-  robots they created.
-
-# Color Palette
-
-A warm-dominant, high-energy **orange-and-blue complementary palette** extracted from the
-&quot;At His Command&quot; comic cover: a glowing golden-amber field carries the image, burnt-orange
-shadows model the warm forms, and cool steel-blue and deep navy provide the complementary
-accent — borders, machine chassis, and the deepest shadows. Black ink anchors everything and
-cream carries any text furniture.
-
-**Balance:** roughly **70% warm / 30% cool** — orange and gold dominate the large areas; blue
-is the accent that frames, cools the shadows, and makes the warms pop by contrast. Red is a
-spark, used only for a few high-impact hits (title, a signal light). Do not let blue take over
-large fields — it belongs on edges, machinery, and shadow.
-
-## Swatches
-
-Warm (dominant):
-- **Golden Amber** `#F9C233` — the primary background field / lit warm surfaces; bright, sunny.
-- **Marigold** `#F9B41E` — secondary warm, warm midtones and glow.
-- **Burnt Orange** `#C96A10` — warm shadow and modeled form on the gold; the main orange.
-- **Sienna** `#9A4E12` — deep warm shadow, wood, grounded warmth.
-- **Signal Red** `#CC1616` — accent only: display type, a warning light, a spark. Use sparingly.
-
-Cool (complementary accent):
-- **Steel Blue** `#175E8C` — cool accent: panel borders, robot/machine chassis, cool props.
-- **Deep Navy** `#16223C` — the coolest, deepest shadows, panel gutters, a bottom bar.
-
-Neutrals / anchors:
-- **Ink Black** `#101010` — linework, heavy contour, panel borders. Anchors the whole image.
-- **Cream** `#FBE5A0` — caption boxes, paper highlights, text-furniture fill.
-- **Warm Wood Brown** `#6E451F` — supporting neutral for wood/surfaces; keeps neutrals warm.
-
-## How to apply
-- Build large areas out of the golden amber → burnt orange → sienna warm ramp; reserve steel
-  blue and deep navy for edges, machinery, and shadow so the complementary contrast stays sharp.
-- Keep shadows **warm-to-cool**: warm forms fall into burnt orange, then into deep navy at the
-  darkest core — never into muddy gray.
-- Let blue and orange sit directly against each other at focal points for maximum pop.
-- Red is a garnish, not a field — a couple of deliberate hits at most.
-- Keep neutrals warm (cream, wood brown, ink black); avoid cool grays, which flatten the scheme.
-
-# Composition
-
-Compose a complete vintage newsstand comic-book cover with all the classic cover furniture
-framing one heroic illustration. Render ONLY the text specified here — no other posters,
-signs, slogans, labels, or lettering; all other surfaces are blank.
-
-## Masthead (top)
-Three stacked lines of bold hand-drawn vintage comic logo type, each with a heavy black
-drop shadow:
-- **&quot;THE LEAGUE OF&quot;** — top line, smaller, yellow with a black outline.
-- **&quot;AMAZING&quot;** — center line, largest, orange (`#F47920`) with a black outline.
-- **&quot;PROGRAMMERS&quot;** — bottom line, medium, yellow with a black outline.
-
-## Lightning Bolts
-Flanking the &quot;THE LEAGUE OF&quot; line, one upright lightning bolt to the left and one to the
-right, same size, in place of stars. Each bolt is a flat solid orange (`#F47920`) shape,
-clean and simple, no added detail.
-
-## Subhead Strip
-Directly under the logo: **&quot;SMART MINDS · BOLD IDEAS · BRIGHT FUTURES&quot;**.
-
-## Corner Furniture
-- **Price box (top-left):** &quot;10¢&quot;.
-- **Issue/date (top-right):** &quot;NO. 1 / JUNE&quot; (adjust per issue).
-
-## Approval Badge (upper-right)
-A circular approval stamp: a gray-and-orange robot bust with an orange chest bolt as its
-centerpiece, inside a heavy black ring. Curve &quot;APPROVED BY&quot; along the inside top of the
-ring and &quot;THE CREATORS CODE AUTHORITY&quot; along the inside bottom, in small bold black caps
-following the circle. Keep the robot emblem flat and faithful, not re-illustrated.
-
-## Callout Box
-One small rectangular callout along the left edge — e.g. &quot;Whose Robot Will Prevail?&quot; —
-placed so it does not cover any character&#x27;s face or obscure any robot. Nudge the robots
-slightly right if needed so the callout stays clear of them.
-
-## Cover Title
-A large, dramatic hand-lettered title inside a jagged starburst banner in the lower third —
-e.g. &quot;ROBOT RIOT&quot;.
-
-## Center Illustration
-The character(s) and their robot(s) fill the center, over a flat yellow background behind
-the characters (below the subhead). Robots are low-detail like the characters, with
-physically plausible front grippers, pushers, hooks, or arms.
-
-# Scene
-
-WIDE LANDSCAPE 4x6 postcard (3:2), retro 1950s PULP SCI-FI COMIC COVER. A FRIENDLY LITTLE FLYING SAUCER hovers indoors just inside a warm school-office / reception area, tilted toward a bemused adult &#x27;LEADER&#x27; at the RIGHT — an approachable principal or HR manager (business-casual, mid-40s, smiling, hands half-raised in surprised welcome). The saucer is NOT a generic UFO and NOT a smooth metal disc: it is unmistakably the LEAGUE&#x27;S maker-built KIT robot — a metal-beam VEX-style chassis studded with bolt-holes, visible RED/YELLOW/BLUE wires, small green circuit boards, and its signature ultrasonic-sensor TWO-EYE &#x27;face&#x27; — tucked under a small clear glass bubble dome, with TWO springy antennae topped by glowing round tips, hovering on a soft cone of warm light (a landing/tractor beam) a couple feet above the office floor. A little articulated claw-arm reaches toward the adult in a polite &#x27;hello&#x27;. Warm office background: a desk, a window, a potted plant. Big empty headroom across the TOP for the title masthead.
-
-# Layout
-
-&gt; Format as a 4×6 inch postcard in [portrait/landscape] orientation. Hero image fills
-&gt; 75% of the card with a bold headline [text] in [style-appropriate treatment] along
-&gt; the [top/bottom]. Small League logo in [corner]. Clean composition with generous
-&gt; margins. Print-ready quality.
-
-# Additional Direction
-
-Use the FIRST reference image as the near-final layout — KEEP this exact composition, framing, colors, the kit-robot flying saucer, the landing beam, the friendly adult &#x27;leader&#x27; with hands raised, the office, and the League logo in the bottom-right. Use the SECOND reference only for the robot&#x27;s kit-built construction. Regenerate it cleanly and fix ONLY the text.
-
-CRITICAL TEXT FIX — the big TOP TITLE masthead must read EXACTLY, all FOUR words, spelled correctly: &quot;TAKE US TO YOUR LEADER&quot; — do NOT drop the word &quot;YOUR&quot;. Huge bold retro pulp comic letters (red with heavy black outline) on a jagged burst.
-
-Keep the League logo in the BOTTOM-RIGHT (&quot;THE LEAGUE OF AMAZING PROGRAMMERS&quot;, orange &quot;AMAZING&quot;, lightning bolts), sitting on the art. Remove the small speech balloon so the only lettering is the top title and the logo. Render NO other text, signs, prices, badges, or labels anywhere.
-
-STYLE: bold retro 1950s pulp sci-fi comic-book cover — heavy black ink outlines, hard-edged cel shading, warm and friendly. Exactly ONE robot-saucer and ONE friendly adult.</pre>
-          <div class="dl">negative prompt</div><pre>Generic smooth chrome flying saucer or Hollywood UFO. Little green men, aliens, alien creatures, extraterrestrials. A sleek finished disc with no visible wires or circuit boards. Scary, dark, menacing, or invasion mood. Death rays, weapons, explosions, city destruction. Children (the human is a friendly adult &#x27;leader&#x27;). More than one robot or more than one adult. Photorealism, 3D render, CGI, photographic faces. Portrait/vertical orientation. A black or dark box behind the League logo. Invented signs, labels, or lettering beyond the exact text specified. Blurry or muddy.</pre>
-          
-          
-        </div>
-      </details>
-    </article>
-    <article class="card ">
-      <div class="cardhead">
-        <span class="num">#1</span><span class="lab">— Draft 1 — kit-robot saucer meets a leader</span>
-        <span class="meta">2026-07-01T11:32:39 &middot; chatgpt-image-latest</span>
-      </div>
-      <div class="imgwrap"><a href="iterations/iter-001.png" target="_blank"><img class="hero" src="iterations/iter-001.png" alt="iteration 1"></a></div>
-      <div class="reflabel">references</div><div class="thumbs small"><a href="sources/Robots-2kids-table.png" target="_blank"><img src="sources/Robots-2kids-table.png"></a></div>
-      <details><summary>Prompt &amp; details</summary>
-        <div class="detail">
-          <div class="dl">positive prompt</div><pre># Art Style
-
-Render as a 1940s Golden-Age comic-book illustration in the style of early *Superman* and
-*Captain America* covers. Convert any provided photograph into hand-drawn cel-style art —
-this should read as a printed vintage comic, not a modern digital illustration or a
-photograph.
-
-## Rendering
-- **Linework:** Bold, confident black ink outlines with varied weight. Clean cel art —
-  shapes are drawn and filled, not painted.
-- **Color:** Large unbroken fields of solid FLAT color. Restricted four-color-press
-  palette — roughly 5–7 ink colors total: red, blue, yellow, flesh tone, black, and cream.
-  Flesh tones and warm browns (hair, skin, wood, robot metal) are allowed; this palette is
-  wider and warmer than pop-art.
-- **Shading:** Shadows are single flat black shapes. No hatching, no cross-hatching, no
-  rendered gradients, and NO Ben-Day dot halftones (dots are the pop-art style, not this
-  one).
-- **Background:** Not a detailed room — one or two flat color zones only. Warm aged-
-  newsprint / cream tone in cover mode, or a single saturated color field per panel in
-  story mode.
-
-## Focus &amp; Detail
-- Spend detail ONLY on (1) the child or children and (2) the invention/robot they are
-  working on. Everything else simplifies to flat color and bold outline.
-- Stylize faces and figures so they read as illustrated comic characters rather than
-  identifiable real people — simplified inked features, not photorealistic portraits.
-- Preserve the general action and the device from the source so the scene still reads as
-  kids building something real.
-
-## Text Rules
-- Render ONLY the text specified for the chosen composition — exact wording, nothing else.
-- Do NOT invent any other posters, signs, slogans, labels, or lettering. All other
-  background surfaces are blank.
-
-## Subject &amp; Brand
-- **Robots** are kept low-detail and iconic, like the characters — not engineering
-  diagrams. Give them physically plausible front grippers, pushers, hooks, or arms. When
-  robot reference photos are provided, keep the recognizable form of the real student-built
-  educational robots.
-- **Kids are the heroes** — proud, confident, exciting to look at.
-- **Code lives only on a laptop screen facing the viewer.** No text or code anywhere else.
-- **Mood:** heroic, optimistic, aspirational, exciting, competitive — kids proud of the
-  robots they created.
-
-# Color Palette
-
-A warm-dominant, high-energy **orange-and-blue complementary palette** extracted from the
-&quot;At His Command&quot; comic cover: a glowing golden-amber field carries the image, burnt-orange
-shadows model the warm forms, and cool steel-blue and deep navy provide the complementary
-accent — borders, machine chassis, and the deepest shadows. Black ink anchors everything and
-cream carries any text furniture.
-
-**Balance:** roughly **70% warm / 30% cool** — orange and gold dominate the large areas; blue
-is the accent that frames, cools the shadows, and makes the warms pop by contrast. Red is a
-spark, used only for a few high-impact hits (title, a signal light). Do not let blue take over
-large fields — it belongs on edges, machinery, and shadow.
-
-## Swatches
-
-Warm (dominant):
-- **Golden Amber** `#F9C233` — the primary background field / lit warm surfaces; bright, sunny.
-- **Marigold** `#F9B41E` — secondary warm, warm midtones and glow.
-- **Burnt Orange** `#C96A10` — warm shadow and modeled form on the gold; the main orange.
-- **Sienna** `#9A4E12` — deep warm shadow, wood, grounded warmth.
-- **Signal Red** `#CC1616` — accent only: display type, a warning light, a spark. Use sparingly.
-
-Cool (complementary accent):
-- **Steel Blue** `#175E8C` — cool accent: panel borders, robot/machine chassis, cool props.
-- **Deep Navy** `#16223C` — the coolest, deepest shadows, panel gutters, a bottom bar.
-
-Neutrals / anchors:
-- **Ink Black** `#101010` — linework, heavy contour, panel borders. Anchors the whole image.
-- **Cream** `#FBE5A0` — caption boxes, paper highlights, text-furniture fill.
-- **Warm Wood Brown** `#6E451F` — supporting neutral for wood/surfaces; keeps neutrals warm.
-
-## How to apply
-- Build large areas out of the golden amber → burnt orange → sienna warm ramp; reserve steel
-  blue and deep navy for edges, machinery, and shadow so the complementary contrast stays sharp.
-- Keep shadows **warm-to-cool**: warm forms fall into burnt orange, then into deep navy at the
-  darkest core — never into muddy gray.
-- Let blue and orange sit directly against each other at focal points for maximum pop.
-- Red is a garnish, not a field — a couple of deliberate hits at most.
-- Keep neutrals warm (cream, wood brown, ink black); avoid cool grays, which flatten the scheme.
-
-# Composition
-
-Compose a complete vintage newsstand comic-book cover with all the classic cover furniture
-framing one heroic illustration. Render ONLY the text specified here — no other posters,
-signs, slogans, labels, or lettering; all other surfaces are blank.
-
-## Masthead (top)
-Three stacked lines of bold hand-drawn vintage comic logo type, each with a heavy black
-drop shadow:
-- **&quot;THE LEAGUE OF&quot;** — top line, smaller, yellow with a black outline.
-- **&quot;AMAZING&quot;** — center line, largest, orange (`#F47920`) with a black outline.
-- **&quot;PROGRAMMERS&quot;** — bottom line, medium, yellow with a black outline.
-
-## Lightning Bolts
-Flanking the &quot;THE LEAGUE OF&quot; line, one upright lightning bolt to the left and one to the
-right, same size, in place of stars. Each bolt is a flat solid orange (`#F47920`) shape,
-clean and simple, no added detail.
-
-## Subhead Strip
-Directly under the logo: **&quot;SMART MINDS · BOLD IDEAS · BRIGHT FUTURES&quot;**.
-
-## Corner Furniture
-- **Price box (top-left):** &quot;10¢&quot;.
-- **Issue/date (top-right):** &quot;NO. 1 / JUNE&quot; (adjust per issue).
-
-## Approval Badge (upper-right)
-A circular approval stamp: a gray-and-orange robot bust with an orange chest bolt as its
-centerpiece, inside a heavy black ring. Curve &quot;APPROVED BY&quot; along the inside top of the
-ring and &quot;THE CREATORS CODE AUTHORITY&quot; along the inside bottom, in small bold black caps
-following the circle. Keep the robot emblem flat and faithful, not re-illustrated.
-
-## Callout Box
-One small rectangular callout along the left edge — e.g. &quot;Whose Robot Will Prevail?&quot; —
-placed so it does not cover any character&#x27;s face or obscure any robot. Nudge the robots
-slightly right if needed so the callout stays clear of them.
-
-## Cover Title
-A large, dramatic hand-lettered title inside a jagged starburst banner in the lower third —
-e.g. &quot;ROBOT RIOT&quot;.
-
-## Center Illustration
-The character(s) and their robot(s) fill the center, over a flat yellow background behind
-the characters (below the subhead). Robots are low-detail like the characters, with
-physically plausible front grippers, pushers, hooks, or arms.
-
-# Scene
-
-WIDE LANDSCAPE 4x6 postcard (3:2), retro 1950s PULP SCI-FI COMIC COVER. A FRIENDLY LITTLE FLYING SAUCER hovers indoors just inside a warm school-office / reception area, tilted toward a bemused adult &#x27;LEADER&#x27; at the RIGHT — an approachable principal or HR manager (business-casual, mid-40s, smiling, hands half-raised in surprised welcome). The saucer is NOT a generic UFO and NOT a smooth metal disc: it is unmistakably the LEAGUE&#x27;S maker-built KIT robot — a metal-beam VEX-style chassis studded with bolt-holes, visible RED/YELLOW/BLUE wires, small green circuit boards, and its signature ultrasonic-sensor TWO-EYE &#x27;face&#x27; — tucked under a small clear glass bubble dome, with TWO springy antennae topped by glowing round tips, hovering on a soft cone of warm light (a landing/tractor beam) a couple feet above the office floor. A little articulated claw-arm reaches toward the adult in a polite &#x27;hello&#x27;. Warm office background: a desk, a window, a potted plant. Big empty headroom across the TOP for the title masthead.
-
-# Layout
-
-&gt; Format as a 4×6 inch postcard in [portrait/landscape] orientation. Hero image fills
-&gt; 75% of the card with a bold headline [text] in [style-appropriate treatment] along
-&gt; the [top/bottom]. Small League logo in [corner]. Clean composition with generous
-&gt; margins. Print-ready quality.
-
-# Additional Direction
-
-STYLE: bold retro 1950s PULP SCI-FI COMIC-BOOK cover art — heavy confident black ink outlines, hard-edged cel shading, punchy high-contrast flat comic color, light and playful (this is a friendly gag, not a scary invasion).
-
-ROBOT BUILD — CRITICAL: use the reference photo ONLY for the ROBOT&#x27;S physical construction — the maker-built metal-beam kit chassis with bolt-holes, tangled red/yellow/blue wires, small circuit boards, and the ultrasonic-sensor two-round-eye &#x27;face&#x27;. Do NOT copy the reference&#x27;s composition. The finished robot must read as &#x27;the thing a kid built in class, now flying&#x27; — a home-made saucer, obviously hand-assembled, NOT a sleek chrome Hollywood UFO and NOT a metal alien.
-
-TEXT (render ONLY this, spelled EXACTLY, crisp — no other lettering anywhere):
-- TITLE masthead across the TOP: &quot;TAKE US TO YOUR LEADER&quot; in huge bold retro pulp comic letters (red with heavy black outline) on a jagged burst — 1950s sci-fi movie-poster lettering.
-- League logo in the BOTTOM-RIGHT corner, sitting directly on the art with NO black or dark box behind it: &quot;THE LEAGUE OF AMAZING PROGRAMMERS&quot; stacked wordmark, orange &quot;AMAZING&quot;, small lightning bolts, bar-lines over &quot;OF&quot;.
-
-Deep navy comic border frame (solid flat navy). Exactly ONE robot-saucer and ONE friendly adult. Keep it warm, friendly, and funny.</pre>
-          <div class="dl">negative prompt</div><pre>Generic smooth chrome flying saucer or Hollywood UFO. Little green men, aliens, alien creatures, extraterrestrials. A sleek finished disc with no visible wires or circuit boards. Scary, dark, menacing, or invasion mood. Death rays, weapons, explosions, city destruction. Children (the human is a friendly adult &#x27;leader&#x27;). More than one robot or more than one adult. Photorealism, 3D render, CGI, photographic faces. Portrait/vertical orientation. A black or dark box behind the League logo. Invented signs, labels, or lettering beyond the exact text specified. Blurry or muddy.</pre>
-          
-          
-        </div>
-      </details>
-    </article>
-  <footer>Generated 2026-07-05T10:18:28 &middot; this page auto-reloads when a new iteration is added</footer>
+  <footer>Generated 2026-07-06T14:02:19 &middot; this page auto-reloads when a new iteration is added</footer>
+</div>
+<div class="modal-overlay" id="delModal">
+  <div class="modal-box">
+    <h3>Delete this iteration?</h3>
+    <p>Delete <strong id="delModalLabel"></strong>? This removes its image file(s) permanently and cannot be undone.</p>
+    <div class="modal-actions">
+      <button id="delModalCancel">Cancel</button>
+      <button class="confirm" id="delModalConfirm">Delete</button>
+    </div>
+    <div class="modal-error" id="delModalError"></div>
+  </div>
 </div>
 <script>
- const CURRENT_VERSION = 29;
+ const CURRENT_VERSION = 63;
+ const SLUG = "Take-Us-To-Your-Leader-Postcard";
  const live = document.getElementById('live');
  // Only ever reload when state.json confirms a NEW version. We never blind-reload on a
  // timer: under file:// (fetch blocked) or with the server down we can't read the version,
@@ -1247,6 +283,54 @@ Deep navy comic border frame (solid flat navy). Exactly ONE robot-saucer and ONE
    }
  }
  poll();
+
+ // Delete button + confirm modal. A destructive, irreversible action (removes the image
+ // file(s) too) — always requires an explicit confirm click, never just the initial button.
+ const modal = document.getElementById('delModal');
+ const modalLabel = document.getElementById('delModalLabel');
+ const modalConfirm = document.getElementById('delModalConfirm');
+ const modalCancel = document.getElementById('delModalCancel');
+ const modalError = document.getElementById('delModalError');
+ let pendingN = null;
+
+ function closeModal(){
+   modal.classList.remove('open');
+   pendingN = null;
+   modalError.textContent = '';
+   modalConfirm.disabled = false;
+   modalConfirm.textContent = 'Delete';
+ }
+
+ document.querySelectorAll('.delbtn').forEach(btn => {
+   btn.addEventListener('click', () => {
+     pendingN = btn.dataset.n;
+     modalLabel.textContent = '#' + pendingN + ' — ' + btn.dataset.label;
+     modalError.textContent = '';
+     modal.classList.add('open');
+   });
+ });
+ modalCancel.addEventListener('click', closeModal);
+ modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+
+ modalConfirm.addEventListener('click', async () => {
+   if (pendingN === null) return;
+   modalConfirm.disabled = true;
+   modalConfirm.textContent = 'Deleting…';
+   try {
+     const res = await fetch(`/${SLUG}/iterations/delete`, {
+       method: 'POST',
+       headers: {'Content-Type': 'application/json'},
+       body: JSON.stringify({n: parseInt(pendingN, 10)})
+     });
+     const body = await res.json();
+     if (!res.ok) throw new Error(body.error || res.statusText);
+     location.reload();
+   } catch (err) {
+     modalError.textContent = 'Delete failed: ' + err.message;
+     modalConfirm.disabled = false;
+     modalConfirm.textContent = 'Delete';
+   }
+ });
 </script>
 </body>
 </html>

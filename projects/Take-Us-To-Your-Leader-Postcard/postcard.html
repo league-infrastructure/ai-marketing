@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Take Us To Your Leader Postcard — Postcard Preview</title>
+<style>
+ *{box-sizing:border-box;}
+ body{margin:0;background:#101317;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;}
+ .wrap{max-width:900px;margin:0 auto;padding:24px;display:flex;flex-direction:column;gap:36px;align-items:center;}
+ .page-block{display:flex;flex-direction:column;align-items:center;gap:10px;}
+ .page{width:6in;height:4in;position:relative;overflow:hidden;box-sizing:border-box;background:#fff;box-shadow:0 8px 30px rgba(0,0,0,.5);border:1px solid #333;}
+ .page img.bg{width:100%;height:100%;object-fit:cover;display:block;}
+ .page .nothumb{width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:#999;font-size:14px;font-style:italic;background:#eee;}
+ .region{position:absolute;}
+ .region p{margin:0 0 0.6em;}
+ .region p:last-child{margin-bottom:0;}
+ .pagelabel{color:#889;font-size:11px;letter-spacing:1px;text-transform:uppercase;font-weight:700;align-self:flex-start;margin-left:2px;}
+ .editors{width:6in;background:#1b1f27;border:1px solid #333;border-radius:8px;padding:14px 16px;display:flex;flex-direction:column;gap:12px;}
+ .editor-label{color:#9db4d8;font-size:11px;text-transform:uppercase;letter-spacing:.6px;font-weight:700;margin-bottom:4px;display:block;}
+ .editor-box{width:100%;background:#0d1015;color:#f0efe8;border:1px solid #3a3f4a;border-radius:6px;padding:8px 10px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px;line-height:1.4;resize:vertical;}
+ .editor-box:focus{outline:2px solid #F9C233;outline-offset:1px;}
+ .editor-hint{color:#667;font-size:10px;margin:-4px 0 0;}
+ .editor-status{color:#7ec87e;font-size:11px;height:14px;margin:-4px 0 0;}
+ .editor-status.err{color:#e06060;}
+ .live{position:fixed;top:10px;right:12px;background:#1a1;color:#fff;font-size:11px;padding:3px 9px;border-radius:12px;opacity:.85;z-index:10;}
+ .live.off{background:#555;}
+ .allprojects{position:fixed;top:10px;left:12px;font-size:12px;color:#9db4d8;text-decoration:none;font-weight:700;}
+ @media print {
+   html, body { margin:0; padding:0; background:#fff; }
+   @page { size: 6in 4in; margin: 0; }
+   .wrap{padding:0;gap:0;max-width:none;}
+   .page-block{gap:0;}
+   .page { margin:0; border:none; box-shadow:none; page-break-after: always; break-after: page; }
+   .page-block:last-child .page { page-break-after: auto; break-after: auto; }
+   .pagelabel, .live, .allprojects, .editors { display:none !important; }
+ }
+</style>
+</head>
+<body>
+<div class="live" id="live">&#9679; live</div>
+<a class="allprojects" href="index.html">&larr; Back to gallery</a>
+<div class="wrap">
+
+  <div class="page-block">
+    <div class="pagelabel">FRONT</div>
+    <section class="page">
+      <img class="bg" src="iterations/iter-021.png" alt="FRONT">
+      
+      
+      <div class="region" style="position:absolute; left:1.45in; right:0.15in; top:3.44in; font-family:Arial, Helvetica, sans-serif; font-weight:700; font-size:18px; line-height:1.25; color:#FBE5A0; letter-spacing:0.2px;" data-region="front_tagline"><p>Help the League bring a passion for technology to your school, church, work, or home.</p></div>
+      
+    </section>
+    
+    <div class="editors">
+      
+      <div>
+        <label class="editor-label" for="box-front_tagline">Front tagline</label>
+        <textarea class="editor-box" id="box-front_tagline" data-region="front_tagline" rows="3">Help the League bring a passion for technology to your school, church, work, or home.</textarea>
+        <div class="editor-status" id="status-front_tagline"></div>
+      </div>
+      
+      <p class="editor-hint">Markdown supported (**bold**, *italic*, [link](url)). Enter saves &middot; Shift+Enter for a new line.</p>
+    </div>
+    
+  </div>
+
+  <div class="page-block">
+    <div class="pagelabel">BACK</div>
+    <section class="page">
+      <img class="bg" src="iterations/iter-022.png" alt="BACK">
+      <div style="position:absolute; top:1.65in; left:4.5in; width:1.2in; text-align:center;"><img src="sources/support-qr.png" style="width:1.15in; height:1.15in; display:block; margin:0 auto;"></div>
+      
+      <div class="region" style="position:absolute; top:1.65in; left:0.3in; width:1.95in; font-family:Georgia, &#39;Times New Roman&#39;, serif; font-size:12.5px; line-height:1.45; color:#222;" data-region="back_col_a"><p>The League of Amazing Programmers is a 501(c)(3) nonprofit teaching real coding and robotics skills to kids across San Diego — completely free, funded by donors and hosts like you.</p>
+<p>We're growing. Our goal is a Tech Club within reach of every neighborhood in the county.</p></div>
+      
+      <div class="region" style="position:absolute; top:1.65in; left:2.4in; width:1.95in; font-family:Georgia, &#39;Times New Roman&#39;, serif; font-size:12.5px; line-height:1.45; color:#222;" data-region="back_col_b"><p>That means finding new places to hold class — a school, a church, a community center, or a company conference room after hours — and companies willing to open their doors to young engineers.</p>
+<p>One warm introduction beats a hundred cold emails. Help us find our next classroom — and our next generation of engineers.</p></div>
+      
+      <div class="region" style="position:absolute; top:2.85in; left:4.5in; width:1.2in; text-align:center; font-family:Arial, Helvetica, sans-serif; font-weight:700; font-size:11px; color:#16223C;" data-region="back_url"><p>jointheleague.org/support</p></div>
+      
+      <div class="region" style="position:absolute; top:3.05in; left:4.5in; width:1.2in; text-align:center; font-family:Arial, Helvetica, sans-serif; font-size:9px; color:#666; line-height:1.35;" data-region="back_nonprofit"><p>The League of Amazing Programmers is a 501(c)(3) nonprofit.<br />
+EIN 20-4744610</p></div>
+      
+    </section>
+    
+    <div class="editors">
+      
+      <div>
+        <label class="editor-label" for="box-back_col_a">Column A (pitch)</label>
+        <textarea class="editor-box" id="box-back_col_a" data-region="back_col_a" rows="6">The League of Amazing Programmers is a 501(c)(3) nonprofit teaching real coding and robotics skills to kids across San Diego — completely free, funded by donors and hosts like you.
+
+We&#39;re growing. Our goal is a Tech Club within reach of every neighborhood in the county.</textarea>
+        <div class="editor-status" id="status-back_col_a"></div>
+      </div>
+      
+      <div>
+        <label class="editor-label" for="box-back_col_b">Column B (pitch)</label>
+        <textarea class="editor-box" id="box-back_col_b" data-region="back_col_b" rows="6">That means finding new places to hold class — a school, a church, a community center, or a company conference room after hours — and companies willing to open their doors to young engineers.
+
+One warm introduction beats a hundred cold emails. Help us find our next classroom — and our next generation of engineers.</textarea>
+        <div class="editor-status" id="status-back_col_b"></div>
+      </div>
+      
+      <div>
+        <label class="editor-label" for="box-back_url">QR caption — URL</label>
+        <textarea class="editor-box" id="box-back_url" data-region="back_url" rows="3">jointheleague.org/support</textarea>
+        <div class="editor-status" id="status-back_url"></div>
+      </div>
+      
+      <div>
+        <label class="editor-label" for="box-back_nonprofit">QR caption — nonprofit/EIN</label>
+        <textarea class="editor-box" id="box-back_nonprofit" data-region="back_nonprofit" rows="3">The League of Amazing Programmers is a 501(c)(3) nonprofit.
+EIN 20-4744610</textarea>
+        <div class="editor-status" id="status-back_nonprofit"></div>
+      </div>
+      
+      <p class="editor-hint">Markdown supported (**bold**, *italic*, [link](url)). Enter saves &middot; Shift+Enter for a new line.</p>
+    </div>
+    
+  </div>
+
+</div>
+<script>
+ const CURRENT_VERSION = 63;
+ const SLUG = "Take-Us-To-Your-Leader-Postcard";
+ const live = document.getElementById('live');
+ async function poll(){
+   let served = true;
+   try{
+     const r = await fetch('state.json?ts=' + Date.now(), {cache:'no-store'});
+     if(r.ok){
+       const s = await r.json();
+       if(s.version > CURRENT_VERSION){ location.reload(); return; }
+     }else{
+       served = false;
+     }
+   }catch(e){
+     served = false;
+   }
+   if(served){
+     live.className='live'; live.innerHTML='&#9679; live';
+     setTimeout(poll, 1500);
+   }else{
+     live.className='live off'; live.innerHTML='&#9679; open via server for live reload';
+     setTimeout(poll, 4000);
+   }
+ }
+ poll();
+
+ document.querySelectorAll('.editor-box').forEach(box => {
+   box.addEventListener('keydown', async (e) => {
+     if (e.key !== 'Enter' || e.shiftKey) return;
+     e.preventDefault();
+     const region = box.dataset.region;
+     const text = box.value;
+     const status = document.getElementById('status-' + region);
+     box.disabled = true;
+     status.textContent = 'saving…';
+     status.className = 'editor-status';
+     try {
+       const res = await fetch(`/${SLUG}/postcard/save`, {
+         method: 'POST',
+         headers: {'Content-Type': 'application/json'},
+         body: JSON.stringify({region, text})
+       });
+       if (!res.ok) throw new Error((await res.json()).error || res.statusText);
+       status.textContent = 'saved — reloading…';
+       // the poll loop above picks up the state.json bump and reloads automatically
+     } catch (err) {
+       status.textContent = 'save failed: ' + err.message;
+       status.className = 'editor-status err';
+       box.disabled = false;
+     }
+   });
+ });
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+{
+  "front_image": "iterations/iter-001.png",
+  "back_image": "iterations/iter-002.png",
+  "front_regions": [],
+  "back_regions": [
+    {
+      "name": "back_col_a",
+      "label": "Column A (pitch)",
+      "style": "position:absolute; top:1.0in; left:0.4in; width:1.7in; font-family:Georgia, 'Times New Roman', serif; font-size:14px; line-height:1.45; color:#1c2b3a;",
+      "text": "The League of Amazing Programmers runs hands-on coding and robotics programs for kids all across San Diego — giving them a real chance to explore their technical interests, often for the first time.\n\nEvery Tech Club we open puts that opportunity within reach of a new neighborhood.",
+      "rows": 9
+    },
+    {
+      "name": "back_col_b",
+      "label": "Column B (pitch)",
+      "style": "position:absolute; top:1.0in; left:2.35in; width:1.7in; font-family:Georgia, 'Times New Roman', serif; font-size:14px; line-height:1.45; color:#1c2b3a;",
+      "text": "We need your help to grow. Your support lets us bring this opportunity to every quarter of San Diego — every school, every neighborhood, every kid curious enough to try.\n\nScan to learn more and join us.",
+      "rows": 9
+    },
+    {
+      "name": "back_url",
+      "label": "QR caption — URL",
+      "style": "position:absolute; top:2.55in; right:0.4in; width:1.3in; text-align:center; font-family:Arial, Helvetica, sans-serif; font-weight:700; font-size:13px; color:#173a6e;",
+      "text": "jointheleague.org",
+      "rows": null
+    },
+    {
+      "name": "back_nonprofit",
+      "label": "QR caption — nonprofit/EIN",
+      "style": "position:absolute; top:2.8in; right:0.4in; width:1.3in; text-align:center; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#555; line-height:1.35;",
+      "text": "The League of Amazing Programmers is a 501(c)(3) nonprofit.\nEIN 20-4744610",
+      "rows": 3
+    }
+  ],
+  "front_extra_html": "",
+  "back_extra_html": "<div style=\"position:absolute; top:1.0in; right:0.4in; width:1.3in; text-align:center;\"><img src=\"sources/main-site-qr.png\" style=\"width:1.2in; height:1.2in; display:block; margin:0 auto;\"></div>"
+}

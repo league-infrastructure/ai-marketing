@@ -1,0 +1,45 @@
+{
+  "front_image": "iterations/iter-021.png",
+  "back_image": "iterations/iter-022.png",
+  "front_regions": [
+    {
+      "name": "front_tagline",
+      "label": "Front tagline",
+      "style": "position:absolute; left:1.45in; right:0.15in; top:3.44in; font-family:Arial, Helvetica, sans-serif; font-weight:700; font-size:18px; line-height:1.25; color:#FBE5A0; letter-spacing:0.2px;",
+      "text": "Help the League bring a passion for technology to your school, church, work, or home.",
+      "rows": null
+    }
+  ],
+  "back_regions": [
+    {
+      "name": "back_col_a",
+      "label": "Column A (pitch)",
+      "style": "position:absolute; top:1.65in; left:0.3in; width:1.95in; font-family:Georgia, 'Times New Roman', serif; font-size:12.5px; line-height:1.45; color:#222;",
+      "text": "The League of Amazing Programmers is a 501(c)(3) nonprofit teaching real coding and robotics skills to kids across San Diego — completely free, funded by donors and hosts like you.\n\nWe're growing. Our goal is a Tech Club within reach of every neighborhood in the county.",
+      "rows": 6
+    },
+    {
+      "name": "back_col_b",
+      "label": "Column B (pitch)",
+      "style": "position:absolute; top:1.65in; left:2.4in; width:1.95in; font-family:Georgia, 'Times New Roman', serif; font-size:12.5px; line-height:1.45; color:#222;",
+      "text": "That means finding new places to hold class — a school, a church, a community center, or a company conference room after hours — and companies willing to open their doors to young engineers.\n\nOne warm introduction beats a hundred cold emails. Help us find our next classroom — and our next generation of engineers.",
+      "rows": 6
+    },
+    {
+      "name": "back_url",
+      "label": "QR caption — URL",
+      "style": "position:absolute; top:2.85in; left:4.5in; width:1.2in; text-align:center; font-family:Arial, Helvetica, sans-serif; font-weight:700; font-size:11px; color:#16223C;",
+      "text": "jointheleague.org/support",
+      "rows": null
+    },
+    {
+      "name": "back_nonprofit",
+      "label": "QR caption — nonprofit/EIN",
+      "style": "position:absolute; top:3.05in; left:4.5in; width:1.2in; text-align:center; font-family:Arial, Helvetica, sans-serif; font-size:9px; color:#666; line-height:1.35;",
+      "text": "The League of Amazing Programmers is a 501(c)(3) nonprofit.\nEIN 20-4744610",
+      "rows": 3
+    }
+  ],
+  "front_extra_html": "",
+  "back_extra_html": "<div style=\"position:absolute; top:1.65in; left:4.5in; width:1.2in; text-align:center;\"><img src=\"sources/support-qr.png\" style=\"width:1.15in; height:1.15in; display:block; margin:0 auto;\"></div>"
+}

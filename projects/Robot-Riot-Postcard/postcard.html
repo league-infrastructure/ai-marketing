@@ -7,12 +7,22 @@
 <style>
  *{box-sizing:border-box;}
  body{margin:0;background:#101317;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;}
- .wrap{max-width:900px;margin:0 auto;padding:24px;display:flex;flex-direction:column;gap:24px;align-items:center;}
+ .wrap{max-width:900px;margin:0 auto;padding:24px;display:flex;flex-direction:column;gap:36px;align-items:center;}
+ .page-block{display:flex;flex-direction:column;align-items:center;gap:10px;}
  .page{width:6in;height:4in;position:relative;overflow:hidden;box-sizing:border-box;background:#fff;box-shadow:0 8px 30px rgba(0,0,0,.5);border:1px solid #333;}
  .page img.bg{width:100%;height:100%;object-fit:cover;display:block;}
  .page .nothumb{width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:#999;font-size:14px;font-style:italic;background:#eee;}
- .overlay{position:absolute;inset:0;}
- .pagelabel{position:absolute;top:-22px;left:0;color:#889;font-size:11px;letter-spacing:1px;text-transform:uppercase;font-weight:700;}
+ .region{position:absolute;}
+ .region p{margin:0 0 0.6em;}
+ .region p:last-child{margin-bottom:0;}
+ .pagelabel{color:#889;font-size:11px;letter-spacing:1px;text-transform:uppercase;font-weight:700;align-self:flex-start;margin-left:2px;}
+ .editors{width:6in;background:#1b1f27;border:1px solid #333;border-radius:8px;padding:14px 16px;display:flex;flex-direction:column;gap:12px;}
+ .editor-label{color:#9db4d8;font-size:11px;text-transform:uppercase;letter-spacing:.6px;font-weight:700;margin-bottom:4px;display:block;}
+ .editor-box{width:100%;background:#0d1015;color:#f0efe8;border:1px solid #3a3f4a;border-radius:6px;padding:8px 10px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px;line-height:1.4;resize:vertical;}
+ .editor-box:focus{outline:2px solid #F9C233;outline-offset:1px;}
+ .editor-hint{color:#667;font-size:10px;margin:-4px 0 0;}
+ .editor-status{color:#7ec87e;font-size:11px;height:14px;margin:-4px 0 0;}
+ .editor-status.err{color:#e06060;}
  .live{position:fixed;top:10px;right:12px;background:#1a1;color:#fff;font-size:11px;padding:3px 9px;border-radius:12px;opacity:.85;z-index:10;}
  .live.off{background:#555;}
  .allprojects{position:fixed;top:10px;left:12px;font-size:12px;color:#9db4d8;text-decoration:none;font-weight:700;}
@@ -20,9 +30,10 @@
    html, body { margin:0; padding:0; background:#fff; }
    @page { size: 6in 4in; margin: 0; }
    .wrap{padding:0;gap:0;max-width:none;}
+   .page-block{gap:0;}
    .page { margin:0; border:none; box-shadow:none; page-break-after: always; break-after: page; }
-   .page:last-child { page-break-after: auto; break-after: auto; }
-   .pagelabel, .live, .allprojects { display:none !important; }
+   .page-block:last-child .page { page-break-after: auto; break-after: auto; }
+   .pagelabel, .live, .allprojects, .editors { display:none !important; }
  }
 </style>
 </head>
@@ -30,20 +41,88 @@
 <div class="live" id="live">&#9679; live</div>
 <a class="allprojects" href="index.html">&larr; Back to gallery</a>
 <div class="wrap">
-  
-        <section class="page">
-          <div class="pagelabel">FRONT</div>
-          <img class="bg" src="iterations/iter-002.png" alt="FRONT">
-          <div class="overlay"></div>
-        </section>
-        <section class="page">
-          <div class="pagelabel">BACK</div>
-          <div class="nothumb">no image selected</div>
-          <div class="overlay"></div>
-        </section>
+
+  <div class="page-block">
+    <div class="pagelabel">FRONT</div>
+    <section class="page">
+      <img class="bg" src="iterations/iter-002.png" alt="FRONT">
+      
+      
+    </section>
+    
+  </div>
+
+  <div class="page-block">
+    <div class="pagelabel">BACK</div>
+    <section class="page">
+      <img class="bg" src="iterations/iter-004.png" alt="BACK">
+      <div style="position:absolute; top:1.15in; right:0.5in; width:1.5in; text-align:center;"><img src="sources/robot-riot-qr.png" style="width:1.5in; height:1.5in; display:block; margin:0 auto;"></div>
+      
+      <div class="region" style="position:absolute; top:1.0in; left:0.5in; width:3.4in; font-family:&#39;Arial Black&#39;, Arial, sans-serif; font-weight:900; font-size:34px; color:#CC1616; letter-spacing:1px;" data-region="back_headline"><p>ROBOT RIOT</p></div>
+      
+      <div class="region" style="position:absolute; top:1.49in; left:0.5in; width:3.4in; font-family:Arial, Helvetica, sans-serif; font-weight:700; font-size:18px; color:#16223C;" data-region="back_datetime"><p>Saturday, July 11 · 1:00 PM · The Robot Garage</p></div>
+      
+      <div class="region" style="position:absolute; top:1.86in; left:0.5in; width:3.4in; font-family:Georgia, &#39;Times New Roman&#39;, serif; font-size:15.5px; line-height:1.5; color:#101010;" data-region="back_body"><p>You build the robot. You wire it, program it, and rig it with flippers, pushers, and grippers. Then you drive it into the arena and crash it into everyone else's machine. No spectating — you're in the driver's seat.</p></div>
+      
+      <div class="region" style="position:absolute; top:3.25in; left:0.5in; width:3.4in; font-family:Arial, Helvetica, sans-serif; font-weight:800; font-size:16px; color:#C96A10;" data-region="back_cta"><p>Scan to sign up — it's free!</p></div>
+      
+      <div class="region" style="position:absolute; top:2.73in; right:0.5in; width:1.5in; text-align:center; font-family:Arial, Helvetica, sans-serif; font-weight:700; font-size:13px; color:#16223C;" data-region="back_url"><p>jointheleague.org/0G</p></div>
+      
+      <div class="region" style="position:absolute; top:2.95in; right:0.5in; width:1.5in; text-align:center; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#666; line-height:1.35;" data-region="back_nonprofit"><p>The League of Amazing Programmers is a 501(c)(3) nonprofit<br />
+EIN 20-4744610</p></div>
+      
+    </section>
+    
+    <div class="editors">
+      
+      <div>
+        <label class="editor-label" for="box-back_headline">Headline</label>
+        <textarea class="editor-box" id="box-back_headline" data-region="back_headline" rows="3">ROBOT RIOT
+
+</textarea>
+        <div class="editor-status" id="status-back_headline"></div>
+      </div>
+      
+      <div>
+        <label class="editor-label" for="box-back_datetime">Date &amp; location</label>
+        <textarea class="editor-box" id="box-back_datetime" data-region="back_datetime" rows="3">Saturday, July 11 · 1:00 PM · The Robot Garage</textarea>
+        <div class="editor-status" id="status-back_datetime"></div>
+      </div>
+      
+      <div>
+        <label class="editor-label" for="box-back_body">Body copy</label>
+        <textarea class="editor-box" id="box-back_body" data-region="back_body" rows="5">You build the robot. You wire it, program it, and rig it with flippers, pushers, and grippers. Then you drive it into the arena and crash it into everyone else&#39;s machine. No spectating — you&#39;re in the driver&#39;s seat.</textarea>
+        <div class="editor-status" id="status-back_body"></div>
+      </div>
+      
+      <div>
+        <label class="editor-label" for="box-back_cta">Call to action</label>
+        <textarea class="editor-box" id="box-back_cta" data-region="back_cta" rows="3">Scan to sign up — it&#39;s free!</textarea>
+        <div class="editor-status" id="status-back_cta"></div>
+      </div>
+      
+      <div>
+        <label class="editor-label" for="box-back_url">QR caption — URL</label>
+        <textarea class="editor-box" id="box-back_url" data-region="back_url" rows="3">jointheleague.org/0G</textarea>
+        <div class="editor-status" id="status-back_url"></div>
+      </div>
+      
+      <div>
+        <label class="editor-label" for="box-back_nonprofit">QR caption — nonprofit/EIN</label>
+        <textarea class="editor-box" id="box-back_nonprofit" data-region="back_nonprofit" rows="3">The League of Amazing Programmers is a 501(c)(3) nonprofit
+EIN 20-4744610</textarea>
+        <div class="editor-status" id="status-back_nonprofit"></div>
+      </div>
+      
+      <p class="editor-hint">Markdown supported (**bold**, *italic*, [link](url)). Enter saves &middot; Shift+Enter for a new line.</p>
+    </div>
+    
+  </div>
+
 </div>
 <script>
- const CURRENT_VERSION = 50;
+ const CURRENT_VERSION = 68;
+ const SLUG = "Robot-Riot-Postcard";
  const live = document.getElementById('live');
  async function poll(){
    let served = true;
@@ -67,6 +146,33 @@
    }
  }
  poll();
+
+ document.querySelectorAll('.editor-box').forEach(box => {
+   box.addEventListener('keydown', async (e) => {
+     if (e.key !== 'Enter' || e.shiftKey) return;
+     e.preventDefault();
+     const region = box.dataset.region;
+     const text = box.value;
+     const status = document.getElementById('status-' + region);
+     box.disabled = true;
+     status.textContent = 'saving…';
+     status.className = 'editor-status';
+     try {
+       const res = await fetch(`/${SLUG}/postcard/save`, {
+         method: 'POST',
+         headers: {'Content-Type': 'application/json'},
+         body: JSON.stringify({region, text})
+       });
+       if (!res.ok) throw new Error((await res.json()).error || res.statusText);
+       status.textContent = 'saved — reloading…';
+       // the poll loop above picks up the state.json bump and reloads automatically
+     } catch (err) {
+       status.textContent = 'save failed: ' + err.message;
+       status.className = 'editor-status err';
+       box.disabled = false;
+     }
+   });
+ });
 </script>
 </body>
 </html>
