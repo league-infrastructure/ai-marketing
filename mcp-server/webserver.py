@@ -22,6 +22,7 @@ import functools
 import html
 import json
 import os
+import time
 import re
 import signal
 import socket
@@ -653,10 +654,19 @@ def main() -> None:
     args = parser.parse_args()
 
     handler = functools.partial(_StaticHandler, directory=str(PROJECTS_DIR))
-    try:
-        httpd = ThreadingHTTPServer(("127.0.0.1", args.port), handler)
-        port = args.port
-    except OSError:
+    httpd = None
+    # A just-restarted daemon's predecessor may not have fully released the port yet (a
+    # brief window between SIGTERM and the OS reclaiming its socket) — retry a few times
+    # before falling back to a random port, so a fast restart still lands on the fixed port.
+    for attempt in range(10):
+        try:
+            httpd = ThreadingHTTPServer(("127.0.0.1", args.port), handler)
+            port = args.port
+            break
+        except OSError:
+            if attempt < 9:
+                time.sleep(0.2)
+    if httpd is None:
         port = _free_port()
         httpd = ThreadingHTTPServer(("127.0.0.1", port), handler)
 

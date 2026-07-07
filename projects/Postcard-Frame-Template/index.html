@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Postcard-Frame-Template — League Image Project</title>
+<style>
+ :root{--ink:#141414;--paper:#f7f4ec;--accent:#d4202a;--blue:#173a6e;--chip:#eee7d6;}
+ *{box-sizing:border-box;}
+ body{margin:0;background:#101317;color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;}
+ .wrap{max-width:1100px;margin:0 auto;padding:24px;}
+ header.top{background:var(--paper);border:3px solid var(--ink);border-radius:10px;padding:20px 24px;box-shadow:0 8px 30px rgba(0,0,0,.4);}
+ h1{margin:0 0 6px;font-size:28px;}
+ .theme{font-size:17px;color:#333;margin:0 0 10px;}
+ .scene{font-size:14px;color:#555;margin:0 0 12px;font-style:italic;}
+ .chips{display:flex;flex-wrap:wrap;gap:8px;}
+ .chip{background:var(--chip);border:1px solid #cbb;border-radius:20px;padding:3px 12px;font-size:12px;}
+ .chip b{color:var(--blue);text-transform:uppercase;font-size:10px;letter-spacing:.5px;margin-right:4px;}
+ h2{color:#f7f4ec;font-size:15px;text-transform:uppercase;letter-spacing:1px;margin:24px 4px 10px;}
+ .thumbs{display:flex;flex-wrap:wrap;gap:10px;}
+ .thumbs img{height:90px;border:2px solid var(--ink);border-radius:6px;background:#fff;object-fit:cover;}
+ .thumbs.small img{height:56px;}
+ .card{background:var(--paper);border:3px solid var(--ink);border-radius:10px;padding:16px;margin:16px 0;box-shadow:0 6px 20px rgba(0,0,0,.35);}
+ .card.err{border-color:var(--accent);}
+ .cardhead{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin-bottom:12px;}
+ .num{font-weight:800;font-size:20px;color:var(--accent);}
+ .lab{font-weight:600;}
+ .meta{margin-left:auto;font-size:12px;color:#777;}
+ .badge.err{background:var(--accent);color:#fff;border-radius:4px;padding:1px 7px;font-size:11px;}
+ .imgwrap{text-align:center;}
+ img.hero{max-width:100%;max-height:70vh;border:2px solid var(--ink);border-radius:6px;background:#fff;}
+ .noimg{padding:30px;color:var(--accent);font-weight:600;text-align:center;border:2px dashed var(--accent);border-radius:6px;}
+ .reflabel,.dl{font-size:10px;text-transform:uppercase;letter-spacing:.6px;color:var(--blue);margin:12px 0 4px;font-weight:700;}
+ details{margin-top:12px;}
+ summary{cursor:pointer;font-size:13px;color:var(--blue);font-weight:600;}
+ pre{white-space:pre-wrap;word-wrap:break-word;background:#fbfaf5;border:1px solid #ddd;border-radius:6px;padding:10px;font-size:12px;line-height:1.5;max-height:340px;overflow:auto;}
+ pre.err{border-color:var(--accent);color:#a01;}
+ .empty{color:#889;text-align:center;padding:40px;}
+ footer{color:#667;font-size:11px;text-align:center;padding:20px;}
+ .live{position:fixed;top:10px;right:12px;background:#1a1;color:#fff;font-size:11px;padding:3px 9px;border-radius:12px;opacity:.85;z-index:10;}
+ .live.off{background:#555;}
+ .allprojects{display:inline-block;font-size:12px;color:#9db4d8;text-decoration:none;font-weight:700;margin-bottom:10px;}
+ .allprojects:hover{text-decoration:underline;}
+ a.postcardlink{color:#f7f4ec;background:var(--blue);display:inline-block;margin:14px 4px;padding:6px 14px;border-radius:20px;font-size:13px;font-weight:700;text-decoration:none;}
+ a.postcardlink:hover{opacity:.85;}
+ .delbtn{margin-left:auto;background:none;border:1px solid var(--accent);color:var(--accent);border-radius:6px;padding:3px 10px;font-size:11px;font-weight:700;cursor:pointer;}
+ .delbtn:hover{background:var(--accent);color:#fff;}
+ .cardhead .meta{margin-left:0;}
+ .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:100;align-items:center;justify-content:center;}
+ .modal-overlay.open{display:flex;}
+ .modal-box{background:var(--paper);border-radius:10px;padding:24px 28px;max-width:380px;box-shadow:0 12px 40px rgba(0,0,0,.5);}
+ .modal-box h3{margin:0 0 10px;font-size:17px;color:var(--accent);}
+ .modal-box p{margin:0 0 20px;font-size:14px;line-height:1.5;color:#333;}
+ .modal-actions{display:flex;gap:10px;justify-content:flex-end;}
+ .modal-actions button{border-radius:6px;padding:8px 16px;font-size:13px;font-weight:700;cursor:pointer;border:1px solid #ccc;background:#fff;}
+ .modal-actions button.confirm{background:var(--accent);border-color:var(--accent);color:#fff;}
+ .modal-actions button.confirm:disabled{opacity:.6;cursor:default;}
+ .modal-error{color:var(--accent);font-size:12px;margin-top:10px;}
+</style>
+</head>
+<body>
+<div class="live" id="live">&#9679; live</div>
+<div class="wrap">
+  <a class="allprojects" href="../">&larr; All projects</a>
+  <header class="top">
+    <h1>Postcard-Frame-Template</h1>
+    <p class="theme">Reusable postcard frame template: the League&#x27;s border + bottom-banner + logo treatment on the front, and the border + masthead treatment on the back — both blank in the middle, with text-overlay regions for the slogan (front) and nonprofit line (back). Not a finished deliverable; a starting structure for future postcard projects.</p>
+    <p class="scene"></p>
+    <div class="chips"><span class="chip"><b>style</b> flat-poster</span><span class="chip"><b>palette</b> orange-blue</span><span class="chip"><b>layout</b> postcard-4x6</span><span class="chip"><b>model</b> gpt-image-2</span></div>
+  </header>
+  
+  <p><a class="postcardlink" href="postcard.html">&#128444; Postcard front/back preview &rarr;</a></p>
+  <h2>Iterations</h2>
+  
+    <article class="card " data-iteration="5">
+      <div class="cardhead">
+        <span class="num">#5</span><span class="lab">— Front — adopted components/logo-banner/postcardbanner-1.png directly</span>
+        <span class="meta">2026-07-07T08:20:45 &middot; </span>
+        <button class="delbtn" data-n="5" data-label="Front — adopted components/logo-banner/postcardbanner-1.png directly" title="Delete this iteration">&#128465; Delete</button>
+      </div>
+      <div class="imgwrap"><a href="iterations/iter-005.png" target="_blank"><img class="hero" src="iterations/iter-005.png" alt="iteration 5"></a></div>
+      
+      <details><summary>Prompt &amp; details</summary>
+        <div class="detail">
+          <div class="dl">positive prompt</div><pre>(no new generation — adopted the curated reference asset components/logo-banner/postcardbanner-1.png directly: navy border matching the back, white blank field, cream banner strip properly sized to align with the AMAZING line, logo tucked in the corner)</pre>
+          
+          <div class="dl">notes</div><p>Adopted directly from components/logo-banner/postcardbanner-1.png per designer&#x27;s reference — this is the correct border/banner/logo alignment.</p>
+          
+        </div>
+      </details>
+    </article>
+    <article class="card " data-iteration="4">
+      <div class="cardhead">
+        <span class="num">#4</span><span class="lab">— Front v3 — cream banner aligned with AMAZING, logo lower, copying Engineers-Anywhere reference</span>
+        <span class="meta">2026-07-07T08:05:21 &middot; gpt-image-2</span>
+        <button class="delbtn" data-n="4" data-label="Front v3 — cream banner aligned with AMAZING, logo lower, copying Engineers-Anywhere reference" title="Delete this iteration">&#128465; Delete</button>
+      </div>
+      <div class="imgwrap"><a href="iterations/iter-004.png" target="_blank"><img class="hero" src="iterations/iter-004.png" alt="iteration 4"></a></div>
+      
+      <details><summary>Prompt &amp; details</summary>
+        <div class="detail">
+          <div class="dl">positive prompt</div><pre>Render as a clean, modern, FLAT comic illustration: bold, sharp, high-contrast, and completely smooth. This is a crisp DIGITAL vector-style illustration — NOT a photograph, and NOT a textured, printed, or vintage page. Every shape is filled with ONE perfectly smooth, uniform, solid flat color. There is ABSOLUTELY NO surface texture anywhere: no grain, no noise, no speckle, no dithering, no paper/canvas/newsprint/parchment look. Bold, confident, SHARP black ink outlines. NO gradients, NO blends, NO airbrush, NO halftone or Ben-Day dots.
+
+THIS IS A BLANK TEMPLATE — an empty postcard front with NO scene, NO people, NO robots, NO monitors, NO objects, NO illustration of any kind. The main field is a plain, perfectly flat, completely EMPTY WHITE (#FFFFFF) background — pure white, no tint, no color, nothing on it.
+
+The attached reference image is the League&#x27;s &quot;Engineers Anywhere&quot; postcard front — copy its bottom-right LOGO BADGE and its bottom BANNER STRIP exactly: same badge design, same cream banner color (a warm cream/gold, like #F3CD85), same relative proportions and thin single-line banner height. This is the exact treatment to reuse; only the scene above it is removed and replaced with plain white, and the border color is different (see below).
+
+The ONLY things rendered on this card:
+1. A solid flat border frame in color #2C4A64 (a medium desaturated blue, flat, no texture, no gradient) running along all four outer edges of the card.
+2. In the bottom-right corner: the League logo badge, copied from the reference — &quot;THE LEAGUE OF AMAZING PROGRAMMERS&quot; stacked wordmark in a small cream rounded panel with black keyline: &quot;THE LEAGUE OF&quot; small text on top, &quot;AMAZING&quot; huge bold orange condensed caps as the dominant middle line, small lightning bolts, bar-lines over &quot;OF&quot;, &quot;PROGRAMMERS&quot; below. Position the logo LOWER than a small floating badge — sitting low, close to the bottom border, the same way it sits in the reference image relative to that image&#x27;s banner.
+3. A single thin, single-line cream-colored banner strip (color ~#F3CD85, same as the reference&#x27;s banner), running from the left border across to just short of the logo. This banner is thin — about the height of ONE line of text, not a tall block. Critically, position this banner so its vertical center lines up with the vertical center of the word &quot;AMAZING&quot; inside the logo badge — the cream strip and the word &quot;AMAZING&quot; should sit at the exact same height on the page. The banner is otherwise completely empty — no text baked in.
+
+TEXT — the ONLY lettering anywhere on this card is the League logo badge described above, spelled exactly as given. The banner strip must be completely blank — no lettering of any kind in it. No other lettering, signs, labels, or captions anywhere.
+
+PRINT BLEED — this card is printed with a 1/8in bleed trimmed away after cutting. Only the border may run to and past the very edge. The banner and the League logo must stay clearly inboard, never touching or crossing the frame edge.</pre>
+          <div class="dl">negative prompt</div><pre>Any people, kids, students, figures, robots, monitors, desks, keyboards, furniture, or any illustrated scene or object of any kind. Any amber, gold, or orange color in the main field or border — the main field is pure white and the border is flat #2C4A64 blue ONLY; amber/gold is allowed only inside the logo badge itself. A white or plain banner with no cream color — the banner MUST be cream colored, not white, not just rule lines. A tall filled banner band — thin single-line only. The banner misaligned with &quot;AMAZING&quot; (e.g. aligned with &quot;PROGRAMMERS&quot; or floating with no relation to the logo). The logo positioned too high or floating away from the bottom border. Any text, lettering, numbers, or symbols in the banner strip. Texture, grain, speckle, gradients. Blurry rendering. Portrait orientation. A dark box behind the logo. Photorealism, 3D render, CGI.</pre>
+          <div class="dl">notes</div><p>Corrected per feedback: attached the actual Engineers-Anywhere-Postcard iter-005.png as reference (not our own prior draft); banner must be cream not white; logo moved down so AMAZING lines up with the banner.</p>
+          
+        </div>
+      </details>
+    </article>
+    <article class="card " data-iteration="3">
+      <div class="cardhead">
+        <span class="num">#3</span><span class="lab">— Front v2 — white blank field, border matches back, thin single-line banner aligned with logo</span>
+        <span class="meta">2026-07-07T07:20:29 &middot; gpt-image-2</span>
+        <button class="delbtn" data-n="3" data-label="Front v2 — white blank field, border matches back, thin single-line banner aligned with logo" title="Delete this iteration">&#128465; Delete</button>
+      </div>
+      <div class="imgwrap"><a href="iterations/iter-003.png" target="_blank"><img class="hero" src="iterations/iter-003.png" alt="iteration 3"></a></div>
+      <div class="reflabel">references</div><div class="thumbs small"><a href="iterations/iter-001.png" target="_blank"><img src="iterations/iter-001.png"></a></div>
+      <details><summary>Prompt &amp; details</summary>
+        <div class="detail">
+          <div class="dl">positive prompt</div><pre>Render as a clean, modern, FLAT comic illustration: bold, sharp, high-contrast, and completely smooth. This is a crisp DIGITAL vector-style illustration — NOT a photograph, and NOT a textured, printed, or vintage page. Every shape is filled with ONE perfectly smooth, uniform, solid flat color. There is ABSOLUTELY NO surface texture anywhere: no grain, no noise, no speckle, no dithering, no paper/canvas/newsprint/parchment look. Bold, confident, SHARP black ink outlines. NO gradients, NO blends, NO airbrush, NO halftone or Ben-Day dots.
+
+THIS IS A BLANK TEMPLATE — an empty postcard front with NO scene, NO people, NO robots, NO monitors, NO objects, NO illustration of any kind. The main field is a plain, perfectly flat, completely EMPTY WHITE (#FFFFFF) background — pure white, no tint, no color, nothing on it. It must match a companion back-of-card template that uses this same flat solid blue #2C4A64 for its border — color consistency across front and back matters a great deal here.
+
+The ONLY things rendered on this card:
+1. A solid flat border frame in color #2C4A64 (a medium desaturated blue, flat, no texture, no gradient) running along all four outer edges of the card, the same bold hand-inked comic-panel border weight/style as the reference image.
+2. In the bottom-right corner, tucked directly into the corner (its right edge close to the right border, its bottom edge close to the bottom border — snug in the corner, not floating in open space): the League logo badge, same design as the reference — &quot;THE LEAGUE OF AMAZING PROGRAMMERS&quot; stacked wordmark in a small cream rounded panel with black keyline: &quot;THE LEAGUE OF&quot; small text on top, &quot;AMAZING&quot; huge bold orange condensed caps as the dominant middle line, small lightning bolts, bar-lines over &quot;OF&quot;, &quot;PROGRAMMERS&quot; below. Keep the logo&#x27;s own internal colors (cream panel, orange text, black keyline) — only the surrounding page is white.
+3. A single THIN horizontal banner line for a short caption, NOT a tall filled band — only as tall as ONE line of text, about the same height as just the &quot;AMAZING&quot; word inside the logo. Position this thin banner line so it is vertically aligned with the &quot;AMAZING&quot; line of the logo — level with the middle of the logo badge, NOT spanning the logo&#x27;s full height, NOT down at the very bottom edge. The banner runs from the left border across to just short of the logo. Mark it only with a thin flat black keyline rule directly above and below this single text line (like a thin comic-panel divider) — the banner area itself stays plain white, matching the rest of the page. Leave it completely empty — no text baked in.
+
+TEXT — the ONLY lettering anywhere on this card is the League logo badge described above, spelled exactly as given. The thin banner strip must be completely blank — no lettering of any kind in it. No other lettering, signs, labels, or captions anywhere.
+
+PRINT BLEED — this card is printed with a 1/8in bleed trimmed away after cutting, so a hair of overscan on any side is safe and expected. Only the border may run to and past the very edge — that&#x27;s just border being trimmed off. The banner rules and the League logo must stay clearly inboard, never touching or crossing the frame edge.
+
+Follow the attached reference image for the logo&#x27;s exact design and lettering — everything else (border color, banner treatment, interior) is different from that reference per the instructions above.</pre>
+          <div class="dl">negative prompt</div><pre>Any people, kids, students, figures, robots, monitors, desks, keyboards, furniture, or any illustrated scene or object of any kind. Any amber, gold, orange, cream, or tan color anywhere in the main field or border — the main field is pure white and the border is flat #2C4A64 blue ONLY. A tall filled banner band — the banner must be a thin single-line strip only, not a block of color. The banner positioned at the very bottom edge instead of aligned with the logo&#x27;s &quot;AMAZING&quot; line. The logo floating away from the corner. Any text, lettering, numbers, or symbols in the banner strip — it must be completely empty. Any lettering anywhere except the League logo badge. Texture, grain, speckle, parchment, aged-paper, halftone, Ben-Day dots, gradients, or blends. Blurry or muddy rendering. Portrait/vertical orientation. A black or dark box behind the League logo. Photorealism, 3D render, CGI.</pre>
+          <div class="dl">notes</div><p>Redraw per feedback: border must match the back&#x27;s exact blue (#2C4A64), interior white not amber, banner is a thin single line aligned with the logo&#x27;s AMAZING line (not a tall bottom band), logo tucked into the actual corner.</p>
+          
+        </div>
+      </details>
+    </article>
+    <article class="card " data-iteration="2">
+      <div class="cardhead">
+        <span class="num">#2</span><span class="lab">— Back — copied wholesale from Engineers-Anywhere-Postcard (unchanged)</span>
+        <span class="meta">2026-07-07T07:12:19 &middot; </span>
+        <button class="delbtn" data-n="2" data-label="Back — copied wholesale from Engineers-Anywhere-Postcard (unchanged)" title="Delete this iteration">&#128465; Delete</button>
+      </div>
+      <div class="imgwrap"><a href="iterations/iter-002.png" target="_blank"><img class="hero" src="iterations/iter-002.png" alt="iteration 2"></a></div>
+      
+      <details><summary>Prompt &amp; details</summary>
+        <div class="detail">
+          <div class="dl">positive prompt</div><pre>(no new generation — this face is reused unchanged from Engineers-Anywhere-Postcard&#x27;s approved back, iter-004.png: navy border + masthead + empty cream zone)</pre>
+          
+          <div class="dl">notes</div><p>Copied wholesale from Engineers-Anywhere-Postcard/iterations/iter-004.png — reusable back-of-card template (border + masthead, blank cream zone).</p>
+          
+        </div>
+      </details>
+    </article>
+    <article class="card " data-iteration="1">
+      <div class="cardhead">
+        <span class="num">#1</span><span class="lab">— Front — blank frame template (border + empty banner + logo)</span>
+        <span class="meta">2026-07-07T07:10:45 &middot; gpt-image-2</span>
+        <button class="delbtn" data-n="1" data-label="Front — blank frame template (border + empty banner + logo)" title="Delete this iteration">&#128465; Delete</button>
+      </div>
+      <div class="imgwrap"><a href="iterations/iter-001.png" target="_blank"><img class="hero" src="iterations/iter-001.png" alt="iteration 1"></a></div>
+      
+      <details><summary>Prompt &amp; details</summary>
+        <div class="detail">
+          <div class="dl">positive prompt</div><pre>Render as a clean, modern, FLAT comic illustration in the style of the &quot;At His Command&quot; reference art: bold, sharp, high-contrast, and completely smooth. This is a crisp DIGITAL vector-style illustration — NOT a photograph, and NOT a textured, printed, or vintage page.
+
+Rendering: every shape is filled with ONE perfectly smooth, uniform, solid flat color, like a flat vector fill. There is ABSOLUTELY NO surface texture anywhere in the image: no grain, no noise, no speckle, no dithering, no paper/canvas/newsprint/parchment look — including on the borders and background. Bold, confident, SHARP black ink outlines with varied weight. NO gradients, NO blends, NO airbrush, NO halftone or Ben-Day dots.
+
+Color palette: warm-dominant orange-and-blue complementary palette — golden amber #F9C233 as the primary background field, deep navy #16223C as the border/frame color, cream #FBE5A0 for the bottom banner strip and the logo badge, burnt orange #C96A10 and signal red #CC1616 as small accents within the logo only, ink black #101010 for linework.
+
+THIS IS A BLANK TEMPLATE — an empty postcard front with NO scene, NO people, NO robots, NO monitors, NO objects, NO illustration of any kind in the main field. The main interior area is simply a plain, perfectly flat, empty golden amber (#F9C233) field with no content on it whatsoever — completely empty, just flat color, like a blank canvas waiting for future artwork.
+
+The ONLY things rendered on this card, all sitting on top of that plain empty field:
+1. A deep navy comic-style border frame (solid flat navy, no texture) running along all four outer edges of the card, matching a bold hand-inked comic panel border.
+2. A single cream-colored banner strip running the FULL WIDTH across the very bottom edge, edge to edge — completely EMPTY, with absolutely NO text, letters, or marks of any kind inside it. Just a flat empty cream rectangle.
+3. In the bottom-right corner, sitting directly on the amber field just above the empty cream banner (no dark box behind it): the League logo badge — &quot;THE LEAGUE OF AMAZING PROGRAMMERS&quot; stacked wordmark in a small cream rounded panel with a black keyline: &quot;THE LEAGUE OF&quot; small, &quot;AMAZING&quot; huge bold orange condensed caps, small lightning bolts, bar-lines over &quot;OF&quot;, &quot;PROGRAMMERS&quot; below.
+
+TEXT — the ONLY lettering anywhere on this card is the League logo badge described above, spelled exactly as given. The bottom banner must be completely blank — no lettering of any kind in it. No other lettering, signs, labels, or captions anywhere.
+
+PRINT BLEED — this card is printed with a 1/8in bleed trimmed away after cutting, so a hair of overscan on any side is safe and expected. Only the navy border may run to and past the very edge — that&#x27;s just border being trimmed off. The empty cream banner and the League logo must stay clearly inboard, with a generous margin of navy or amber visible around them, never touching or crossing the frame edge.
+
+Follow the attached reference image closely for the exact border thickness, banner proportions, logo design, and color values — this is meant to be the same visual frame, just with the scene content and banner text removed.</pre>
+          <div class="dl">negative prompt</div><pre>Any people, kids, students, figures, robots, monitors, desks, keyboards, furniture, or any illustrated scene or object of any kind in the main field. Any text, lettering, numbers, or symbols in the bottom banner — it must be completely empty and flat. Any lettering anywhere except the League logo badge. Texture, grain, speckle, parchment, aged-paper, halftone, Ben-Day dots, gradients, or blends. More than the specified colors. Blurry or muddy rendering. Portrait/vertical orientation. A black or dark box behind the League logo. Photorealism, 3D render, CGI. The logo, banner, or border touching or crossing the frame edge (other than the border&#x27;s own bleed).</pre>
+          <div class="dl">notes</div><p>Derived from Engineers-Anywhere-Postcard iter-005 with scene/text removed — border, empty banner, and logo only. Banner text will be an HTML overlay region, not baked into the image.</p>
+          
+        </div>
+      </details>
+    </article>
+  <footer>Generated 2026-07-07T13:01:11 &middot; this page auto-reloads when a new iteration is added</footer>
+</div>
+<div class="modal-overlay" id="delModal">
+  <div class="modal-box">
+    <h3>Delete this iteration?</h3>
+    <p>Delete <strong id="delModalLabel"></strong>? This removes its image file(s) permanently and cannot be undone.</p>
+    <div class="modal-actions">
+      <button id="delModalCancel">Cancel</button>
+      <button class="confirm" id="delModalConfirm">Delete</button>
+    </div>
+    <div class="modal-error" id="delModalError"></div>
+  </div>
+</div>
+<script>
+ const CURRENT_VERSION = 22;
+ const SLUG = "Postcard-Frame-Template";
+ const live = document.getElementById('live');
+ // Only ever reload when state.json confirms a NEW version. We never blind-reload on a
+ // timer: under file:// (fetch blocked) or with the server down we can't read the version,
+ // so reloading would just flicker the page without knowing anything changed. In that case
+ // show a hint and keep quietly retrying — a live server will be picked up automatically.
+ async function poll(){
+   let served = true;
+   try{
+     const r = await fetch('state.json?ts=' + Date.now(), {cache:'no-store'});
+     if(r.ok){
+       const s = await r.json();
+       if(s.version > CURRENT_VERSION){ location.reload(); return; }
+     }else{
+       served = false;
+     }
+   }catch(e){
+     served = false;
+   }
+   if(served){
+     live.className='live'; live.innerHTML='&#9679; live';
+     setTimeout(poll, 1500);
+   }else{
+     // No live server (e.g. opened via file://). Stop flickering; just retry slowly.
+     live.className='live off'; live.innerHTML='&#9679; open via server for live reload';
+     setTimeout(poll, 4000);
+   }
+ }
+ poll();
+
+ // Delete button + confirm modal. A destructive, irreversible action (removes the image
+ // file(s) too) — always requires an explicit confirm click, never just the initial button.
+ const modal = document.getElementById('delModal');
+ const modalLabel = document.getElementById('delModalLabel');
+ const modalConfirm = document.getElementById('delModalConfirm');
+ const modalCancel = document.getElementById('delModalCancel');
+ const modalError = document.getElementById('delModalError');
+ let pendingN = null;
+
+ function closeModal(){
+   modal.classList.remove('open');
+   pendingN = null;
+   modalError.textContent = '';
+   modalConfirm.disabled = false;
+   modalConfirm.textContent = 'Delete';
+ }
+
+ document.querySelectorAll('.delbtn').forEach(btn => {
+   btn.addEventListener('click', () => {
+     pendingN = btn.dataset.n;
+     modalLabel.textContent = '#' + pendingN + ' — ' + btn.dataset.label;
+     modalError.textContent = '';
+     modal.classList.add('open');
+   });
+ });
+ modalCancel.addEventListener('click', closeModal);
+ modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+
+ modalConfirm.addEventListener('click', async () => {
+   if (pendingN === null) return;
+   modalConfirm.disabled = true;
+   modalConfirm.textContent = 'Deleting…';
+   try {
+     const res = await fetch(`/${SLUG}/iterations/delete`, {
+       method: 'POST',
+       headers: {'Content-Type': 'application/json'},
+       body: JSON.stringify({n: parseInt(pendingN, 10)})
+     });
+     const body = await res.json();
+     if (!res.ok) throw new Error(body.error || res.statusText);
+     location.reload();
+   } catch (err) {
+     modalError.textContent = 'Delete failed: ' + err.message;
+     modalConfirm.disabled = false;
+     modalConfirm.textContent = 'Delete';
+   }
+ });
+</script>
+</body>
+</html>

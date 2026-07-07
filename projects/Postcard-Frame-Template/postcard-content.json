@@ -1,0 +1,24 @@
+{
+  "front_image": "iterations/iter-005.png",
+  "back_image": "iterations/iter-002.png",
+  "front_regions": [
+    {
+      "name": "front_banner",
+      "label": "Bottom banner slogan",
+      "style": "position:absolute; top:3.22in; left:0.4in; width:4.0in; font-family:Arial, Helvetica, sans-serif; font-weight:700; font-size:12px; line-height:1.2; color:#16223C;",
+      "text": "Every student in San Diego should have a shot at a tech career.",
+      "rows": 3
+    }
+  ],
+  "back_regions": [
+    {
+      "name": "back_nonprofit",
+      "label": "Nonprofit / EIN line",
+      "style": "position:absolute; top:3.65in; left:0.4in; width:5.2in; text-align:left; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#555;",
+      "text": "The League of Amazing Programmers is a 501(c)(3) nonprofit. EIN 20-4744610",
+      "rows": 2
+    }
+  ],
+  "front_extra_html": "",
+  "back_extra_html": ""
+}

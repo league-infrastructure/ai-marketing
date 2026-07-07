@@ -1,0 +1,157 @@
+{
+  "name": "Postcard-Frame-Template",
+  "slug": "Postcard-Frame-Template",
+  "created": "2026-07-07T07:08:26",
+  "config": {
+    "style": "flat-poster",
+    "composition": "",
+    "component": "",
+    "palette": "orange-blue",
+    "layout": "postcard-4x6",
+    "theme": "Reusable postcard frame template: the League's border + bottom-banner + logo treatment on the front, and the border + masthead treatment on the back — both blank in the middle, with text-overlay regions for the slogan (front) and nonprofit line (back). Not a finished deliverable; a starting structure for future postcard projects.",
+    "scene_description": "",
+    "model": "gpt-image-2",
+    "negative_prompt": "",
+    "custom_additions": ""
+  },
+  "sources": [],
+  "iterations": [
+    {
+      "n": 1,
+      "label": "Front — blank frame template (border + empty banner + logo)",
+      "created": "2026-07-07T07:10:45",
+      "style": "flat-poster",
+      "composition": "",
+      "component": "",
+      "palette": "orange-blue",
+      "layout": "postcard-4x6",
+      "background": "",
+      "scene_description": "",
+      "model": "gpt-image-2",
+      "prompt": "Render as a clean, modern, FLAT comic illustration in the style of the \"At His Command\" reference art: bold, sharp, high-contrast, and completely smooth. This is a crisp DIGITAL vector-style illustration — NOT a photograph, and NOT a textured, printed, or vintage page.\n\nRendering: every shape is filled with ONE perfectly smooth, uniform, solid flat color, like a flat vector fill. There is ABSOLUTELY NO surface texture anywhere in the image: no grain, no noise, no speckle, no dithering, no paper/canvas/newsprint/parchment look — including on the borders and background. Bold, confident, SHARP black ink outlines with varied weight. NO gradients, NO blends, NO airbrush, NO halftone or Ben-Day dots.\n\nColor palette: warm-dominant orange-and-blue complementary palette — golden amber #F9C233 as the primary background field, deep navy #16223C as the border/frame color, cream #FBE5A0 for the bottom banner strip and the logo badge, burnt orange #C96A10 and signal red #CC1616 as small accents within the logo only, ink black #101010 for linework.\n\nTHIS IS A BLANK TEMPLATE — an empty postcard front with NO scene, NO people, NO robots, NO monitors, NO objects, NO illustration of any kind in the main field. The main interior area is simply a plain, perfectly flat, empty golden amber (#F9C233) field with no content on it whatsoever — completely empty, just flat color, like a blank canvas waiting for future artwork.\n\nThe ONLY things rendered on this card, all sitting on top of that plain empty field:\n1. A deep navy comic-style border frame (solid flat navy, no texture) running along all four outer edges of the card, matching a bold hand-inked comic panel border.\n2. A single cream-colored banner strip running the FULL WIDTH across the very bottom edge, edge to edge — completely EMPTY, with absolutely NO text, letters, or marks of any kind inside it. Just a flat empty cream rectangle.\n3. In the bottom-right corner, sitting directly on the amber field just above the empty cream banner (no dark box behind it): the League logo badge — \"THE LEAGUE OF AMAZING PROGRAMMERS\" stacked wordmark in a small cream rounded panel with a black keyline: \"THE LEAGUE OF\" small, \"AMAZING\" huge bold orange condensed caps, small lightning bolts, bar-lines over \"OF\", \"PROGRAMMERS\" below.\n\nTEXT — the ONLY lettering anywhere on this card is the League logo badge described above, spelled exactly as given. The bottom banner must be completely blank — no lettering of any kind in it. No other lettering, signs, labels, or captions anywhere.\n\nPRINT BLEED — this card is printed with a 1/8in bleed trimmed away after cutting, so a hair of overscan on any side is safe and expected. Only the navy border may run to and past the very edge — that's just border being trimmed off. The empty cream banner and the League logo must stay clearly inboard, with a generous margin of navy or amber visible around them, never touching or crossing the frame edge.\n\nFollow the attached reference image closely for the exact border thickness, banner proportions, logo design, and color values — this is meant to be the same visual frame, just with the scene content and banner text removed.",
+      "negative_prompt": "Any people, kids, students, figures, robots, monitors, desks, keyboards, furniture, or any illustrated scene or object of any kind in the main field. Any text, lettering, numbers, or symbols in the bottom banner — it must be completely empty and flat. Any lettering anywhere except the League logo badge. Texture, grain, speckle, parchment, aged-paper, halftone, Ben-Day dots, gradients, or blends. More than the specified colors. Blurry or muddy rendering. Portrait/vertical orientation. A black or dark box behind the League logo. Photorealism, 3D render, CGI. The logo, banner, or border touching or crossing the frame edge (other than the border's own bleed).",
+      "custom_additions": "",
+      "references": [
+        "/Volumes/Proj/proj/league-projects/infrastructure/marketing/projects/Engineers-Anywhere-Postcard/iterations/iter-005.png"
+      ],
+      "images": [
+        "iterations/iter-001.png"
+      ],
+      "image": "iterations/iter-001.png",
+      "notes": "Derived from Engineers-Anywhere-Postcard iter-005 with scene/text removed — border, empty banner, and logo only. Banner text will be an HTML overlay region, not baked into the image.",
+      "status": "ok",
+      "error": null,
+      "text_response": "",
+      "usage": {}
+    },
+    {
+      "n": 2,
+      "label": "Back — copied wholesale from Engineers-Anywhere-Postcard (unchanged)",
+      "created": "2026-07-07T07:12:19",
+      "style": "flat-poster",
+      "composition": "",
+      "component": "",
+      "palette": "orange-blue",
+      "layout": "postcard-4x6",
+      "background": "",
+      "scene_description": "",
+      "model": "",
+      "prompt": "(no new generation — this face is reused unchanged from Engineers-Anywhere-Postcard's approved back, iter-004.png: navy border + masthead + empty cream zone)",
+      "negative_prompt": "",
+      "custom_additions": "",
+      "references": [],
+      "images": [
+        "iterations/iter-002.png"
+      ],
+      "image": "iterations/iter-002.png",
+      "notes": "Copied wholesale from Engineers-Anywhere-Postcard/iterations/iter-004.png — reusable back-of-card template (border + masthead, blank cream zone).",
+      "status": "ok",
+      "error": null,
+      "text_response": "",
+      "usage": {}
+    },
+    {
+      "n": 3,
+      "label": "Front v2 — white blank field, border matches back, thin single-line banner aligned with logo",
+      "created": "2026-07-07T07:20:29",
+      "style": "flat-poster",
+      "composition": "",
+      "component": "",
+      "palette": "orange-blue",
+      "layout": "postcard-4x6",
+      "background": "",
+      "scene_description": "",
+      "model": "gpt-image-2",
+      "prompt": "Render as a clean, modern, FLAT comic illustration: bold, sharp, high-contrast, and completely smooth. This is a crisp DIGITAL vector-style illustration — NOT a photograph, and NOT a textured, printed, or vintage page. Every shape is filled with ONE perfectly smooth, uniform, solid flat color. There is ABSOLUTELY NO surface texture anywhere: no grain, no noise, no speckle, no dithering, no paper/canvas/newsprint/parchment look. Bold, confident, SHARP black ink outlines. NO gradients, NO blends, NO airbrush, NO halftone or Ben-Day dots.\n\nTHIS IS A BLANK TEMPLATE — an empty postcard front with NO scene, NO people, NO robots, NO monitors, NO objects, NO illustration of any kind. The main field is a plain, perfectly flat, completely EMPTY WHITE (#FFFFFF) background — pure white, no tint, no color, nothing on it. It must match a companion back-of-card template that uses this same flat solid blue #2C4A64 for its border — color consistency across front and back matters a great deal here.\n\nThe ONLY things rendered on this card:\n1. A solid flat border frame in color #2C4A64 (a medium desaturated blue, flat, no texture, no gradient) running along all four outer edges of the card, the same bold hand-inked comic-panel border weight/style as the reference image.\n2. In the bottom-right corner, tucked directly into the corner (its right edge close to the right border, its bottom edge close to the bottom border — snug in the corner, not floating in open space): the League logo badge, same design as the reference — \"THE LEAGUE OF AMAZING PROGRAMMERS\" stacked wordmark in a small cream rounded panel with black keyline: \"THE LEAGUE OF\" small text on top, \"AMAZING\" huge bold orange condensed caps as the dominant middle line, small lightning bolts, bar-lines over \"OF\", \"PROGRAMMERS\" below. Keep the logo's own internal colors (cream panel, orange text, black keyline) — only the surrounding page is white.\n3. A single THIN horizontal banner line for a short caption, NOT a tall filled band — only as tall as ONE line of text, about the same height as just the \"AMAZING\" word inside the logo. Position this thin banner line so it is vertically aligned with the \"AMAZING\" line of the logo — level with the middle of the logo badge, NOT spanning the logo's full height, NOT down at the very bottom edge. The banner runs from the left border across to just short of the logo. Mark it only with a thin flat black keyline rule directly above and below this single text line (like a thin comic-panel divider) — the banner area itself stays plain white, matching the rest of the page. Leave it completely empty — no text baked in.\n\nTEXT — the ONLY lettering anywhere on this card is the League logo badge described above, spelled exactly as given. The thin banner strip must be completely blank — no lettering of any kind in it. No other lettering, signs, labels, or captions anywhere.\n\nPRINT BLEED — this card is printed with a 1/8in bleed trimmed away after cutting, so a hair of overscan on any side is safe and expected. Only the border may run to and past the very edge — that's just border being trimmed off. The banner rules and the League logo must stay clearly inboard, never touching or crossing the frame edge.\n\nFollow the attached reference image for the logo's exact design and lettering — everything else (border color, banner treatment, interior) is different from that reference per the instructions above.",
+      "negative_prompt": "Any people, kids, students, figures, robots, monitors, desks, keyboards, furniture, or any illustrated scene or object of any kind. Any amber, gold, orange, cream, or tan color anywhere in the main field or border — the main field is pure white and the border is flat #2C4A64 blue ONLY. A tall filled banner band — the banner must be a thin single-line strip only, not a block of color. The banner positioned at the very bottom edge instead of aligned with the logo's \"AMAZING\" line. The logo floating away from the corner. Any text, lettering, numbers, or symbols in the banner strip — it must be completely empty. Any lettering anywhere except the League logo badge. Texture, grain, speckle, parchment, aged-paper, halftone, Ben-Day dots, gradients, or blends. Blurry or muddy rendering. Portrait/vertical orientation. A black or dark box behind the League logo. Photorealism, 3D render, CGI.",
+      "custom_additions": "",
+      "references": [
+        "iterations/iter-001.png"
+      ],
+      "images": [
+        "iterations/iter-003.png"
+      ],
+      "image": "iterations/iter-003.png",
+      "notes": "Redraw per feedback: border must match the back's exact blue (#2C4A64), interior white not amber, banner is a thin single line aligned with the logo's AMAZING line (not a tall bottom band), logo tucked into the actual corner.",
+      "status": "ok",
+      "error": null,
+      "text_response": "",
+      "usage": {}
+    },
+    {
+      "n": 4,
+      "label": "Front v3 — cream banner aligned with AMAZING, logo lower, copying Engineers-Anywhere reference",
+      "created": "2026-07-07T08:05:21",
+      "style": "flat-poster",
+      "composition": "",
+      "component": "",
+      "palette": "orange-blue",
+      "layout": "postcard-4x6",
+      "background": "",
+      "scene_description": "",
+      "model": "gpt-image-2",
+      "prompt": "Render as a clean, modern, FLAT comic illustration: bold, sharp, high-contrast, and completely smooth. This is a crisp DIGITAL vector-style illustration — NOT a photograph, and NOT a textured, printed, or vintage page. Every shape is filled with ONE perfectly smooth, uniform, solid flat color. There is ABSOLUTELY NO surface texture anywhere: no grain, no noise, no speckle, no dithering, no paper/canvas/newsprint/parchment look. Bold, confident, SHARP black ink outlines. NO gradients, NO blends, NO airbrush, NO halftone or Ben-Day dots.\n\nTHIS IS A BLANK TEMPLATE — an empty postcard front with NO scene, NO people, NO robots, NO monitors, NO objects, NO illustration of any kind. The main field is a plain, perfectly flat, completely EMPTY WHITE (#FFFFFF) background — pure white, no tint, no color, nothing on it.\n\nThe attached reference image is the League's \"Engineers Anywhere\" postcard front — copy its bottom-right LOGO BADGE and its bottom BANNER STRIP exactly: same badge design, same cream banner color (a warm cream/gold, like #F3CD85), same relative proportions and thin single-line banner height. This is the exact treatment to reuse; only the scene above it is removed and replaced with plain white, and the border color is different (see below).\n\nThe ONLY things rendered on this card:\n1. A solid flat border frame in color #2C4A64 (a medium desaturated blue, flat, no texture, no gradient) running along all four outer edges of the card.\n2. In the bottom-right corner: the League logo badge, copied from the reference — \"THE LEAGUE OF AMAZING PROGRAMMERS\" stacked wordmark in a small cream rounded panel with black keyline: \"THE LEAGUE OF\" small text on top, \"AMAZING\" huge bold orange condensed caps as the dominant middle line, small lightning bolts, bar-lines over \"OF\", \"PROGRAMMERS\" below. Position the logo LOWER than a small floating badge — sitting low, close to the bottom border, the same way it sits in the reference image relative to that image's banner.\n3. A single thin, single-line cream-colored banner strip (color ~#F3CD85, same as the reference's banner), running from the left border across to just short of the logo. This banner is thin — about the height of ONE line of text, not a tall block. Critically, position this banner so its vertical center lines up with the vertical center of the word \"AMAZING\" inside the logo badge — the cream strip and the word \"AMAZING\" should sit at the exact same height on the page. The banner is otherwise completely empty — no text baked in.\n\nTEXT — the ONLY lettering anywhere on this card is the League logo badge described above, spelled exactly as given. The banner strip must be completely blank — no lettering of any kind in it. No other lettering, signs, labels, or captions anywhere.\n\nPRINT BLEED — this card is printed with a 1/8in bleed trimmed away after cutting. Only the border may run to and past the very edge. The banner and the League logo must stay clearly inboard, never touching or crossing the frame edge.",
+      "negative_prompt": "Any people, kids, students, figures, robots, monitors, desks, keyboards, furniture, or any illustrated scene or object of any kind. Any amber, gold, or orange color in the main field or border — the main field is pure white and the border is flat #2C4A64 blue ONLY; amber/gold is allowed only inside the logo badge itself. A white or plain banner with no cream color — the banner MUST be cream colored, not white, not just rule lines. A tall filled banner band — thin single-line only. The banner misaligned with \"AMAZING\" (e.g. aligned with \"PROGRAMMERS\" or floating with no relation to the logo). The logo positioned too high or floating away from the bottom border. Any text, lettering, numbers, or symbols in the banner strip. Texture, grain, speckle, gradients. Blurry rendering. Portrait orientation. A dark box behind the logo. Photorealism, 3D render, CGI.",
+      "custom_additions": "",
+      "references": [
+        "/Volumes/Proj/proj/league-projects/infrastructure/marketing/projects/Engineers-Anywhere-Postcard/iterations/iter-005.png"
+      ],
+      "images": [
+        "iterations/iter-004.png"
+      ],
+      "image": "iterations/iter-004.png",
+      "notes": "Corrected per feedback: attached the actual Engineers-Anywhere-Postcard iter-005.png as reference (not our own prior draft); banner must be cream not white; logo moved down so AMAZING lines up with the banner.",
+      "status": "ok",
+      "error": null,
+      "text_response": "",
+      "usage": {}
+    },
+    {
+      "n": 5,
+      "label": "Front — adopted components/logo-banner/postcardbanner-1.png directly",
+      "created": "2026-07-07T08:20:45",
+      "style": "flat-poster",
+      "composition": "",
+      "component": "logo-banner",
+      "palette": "orange-blue",
+      "layout": "postcard-4x6",
+      "background": "",
+      "scene_description": "",
+      "model": "",
+      "prompt": "(no new generation — adopted the curated reference asset components/logo-banner/postcardbanner-1.png directly: navy border matching the back, white blank field, cream banner strip properly sized to align with the AMAZING line, logo tucked in the corner)",
+      "negative_prompt": "",
+      "custom_additions": "",
+      "references": [],
+      "images": [
+        "iterations/iter-005.png"
+      ],
+      "image": "iterations/iter-005.png",
+      "notes": "Adopted directly from components/logo-banner/postcardbanner-1.png per designer's reference — this is the correct border/banner/logo alignment.",
+      "status": "ok",
+      "error": null,
+      "text_response": "",
+      "usage": {}
+    }
+  ],
+  "state_version": 0
+}

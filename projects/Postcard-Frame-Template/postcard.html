@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Postcard-Frame-Template — Postcard Preview</title>
+<style>
+ *{box-sizing:border-box;}
+ body{margin:0;background:#101317;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;}
+ .wrap{max-width:900px;margin:0 auto;padding:24px;display:flex;flex-direction:column;gap:36px;align-items:center;}
+ .page-block{display:flex;flex-direction:column;align-items:center;gap:10px;}
+ .page{width:6in;height:4in;position:relative;overflow:hidden;box-sizing:border-box;background:#fff;box-shadow:0 8px 30px rgba(0,0,0,.5);border:1px solid #333;}
+ .page img.bg{width:100%;height:100%;object-fit:cover;display:block;}
+ .page .nothumb{width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:#999;font-size:14px;font-style:italic;background:#eee;}
+ .region{position:absolute;}
+ .region p{margin:0 0 0.6em;}
+ .region p:last-child{margin-bottom:0;}
+ .pagelabel{color:#889;font-size:11px;letter-spacing:1px;text-transform:uppercase;font-weight:700;align-self:flex-start;margin-left:2px;}
+ .editors{width:6in;background:#1b1f27;border:1px solid #333;border-radius:8px;padding:14px 16px;display:flex;flex-direction:column;gap:12px;}
+ .editor-label{color:#9db4d8;font-size:11px;text-transform:uppercase;letter-spacing:.6px;font-weight:700;margin-bottom:4px;display:block;}
+ .editor-box{width:100%;background:#0d1015;color:#f0efe8;border:1px solid #3a3f4a;border-radius:6px;padding:8px 10px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px;line-height:1.4;resize:vertical;}
+ .editor-box:focus{outline:2px solid #F9C233;outline-offset:1px;}
+ .editor-hint{color:#667;font-size:10px;margin:-4px 0 0;}
+ .editor-status{color:#7ec87e;font-size:11px;height:14px;margin:-4px 0 0;}
+ .editor-status.err{color:#e06060;}
+ .live{position:fixed;top:10px;right:12px;background:#1a1;color:#fff;font-size:11px;padding:3px 9px;border-radius:12px;opacity:.85;z-index:10;}
+ .live.off{background:#555;}
+ .allprojects{position:fixed;top:10px;left:12px;font-size:12px;color:#9db4d8;text-decoration:none;font-weight:700;}
+ .pdfbar{position:fixed;top:8px;left:50%;transform:translateX(-50%);z-index:10;display:flex;align-items:center;gap:10px;background:#1b1f27;border:1px solid #3a3f4a;border-radius:20px;padding:6px 8px 6px 16px;}
+ .pdfbar button{background:#F9C233;color:#101317;border:none;border-radius:14px;padding:6px 14px;font-size:12px;font-weight:700;cursor:pointer;}
+ .pdfbar button:disabled{opacity:.6;cursor:default;}
+ .pdfbar .pdf-status{font-size:11px;color:#9db4d8;min-width:60px;}
+ .pdfbar .pdf-status.err{color:#e06060;}
+ .pdfbar a.pdf-link{font-size:11px;color:#7ec87e;font-weight:700;text-decoration:none;}
+ .pdfbar a.pdf-link:hover{text-decoration:underline;}
+ @media print {
+   html, body { margin:0; padding:0; background:#fff; }
+   @page { size: 6in 4in; margin: 0; }
+   .wrap{padding:0;gap:0;max-width:none;}
+   .page-block{gap:0;}
+   .page { margin:0; border:none; box-shadow:none; page-break-after: always; break-after: page; }
+   .page-block:last-child .page { page-break-after: auto; break-after: auto; }
+   .pagelabel, .live, .allprojects, .editors, .pdfbar { display:none !important; }
+ }
+</style>
+</head>
+<body>
+<div class="live" id="live">&#9679; live</div>
+<a class="allprojects" href="index.html">&larr; Back to gallery</a>
+<div class="pdfbar">
+  <button id="pdfBtn">&#128196; Generate PDF</button>
+  <span class="pdf-status" id="pdfStatus"></span>
+</div>
+<div class="wrap">
+
+  <div class="page-block">
+    <div class="pagelabel">FRONT</div>
+    <section class="page" data-side="front">
+      <img class="bg" src="iterations/iter-005.png" alt="FRONT">
+      
+      
+      <div class="region" style="position:absolute; top:3.22in; left:0.4in; width:4.0in; font-family:Arial, Helvetica, sans-serif; font-weight:700; font-size:12px; line-height:1.2; color:#16223C;" data-region="front_banner"><p>Every student in San Diego should have a shot at a tech career.</p></div>
+      
+    </section>
+    
+    <div class="editors">
+      
+      <div>
+        <label class="editor-label" for="box-front_banner">Bottom banner slogan</label>
+        <textarea class="editor-box" id="box-front_banner" data-region="front_banner" rows="3">Every student in San Diego should have a shot at a tech career.</textarea>
+        <div class="editor-status" id="status-front_banner"></div>
+      </div>
+      
+      <p class="editor-hint">Markdown supported (**bold**, *italic*, [link](url)). Enter saves &middot; Shift+Enter for a new line.</p>
+    </div>
+    
+  </div>
+
+  <div class="page-block">
+    <div class="pagelabel">BACK</div>
+    <section class="page" data-side="back">
+      <img class="bg" src="iterations/iter-002.png" alt="BACK">
+      
+      
+      <div class="region" style="position:absolute; top:3.65in; left:0.4in; width:5.2in; text-align:left; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#555;" data-region="back_nonprofit"><p>The League of Amazing Programmers is a 501(c)(3) nonprofit. EIN 20-4744610</p></div>
+      
+    </section>
+    
+    <div class="editors">
+      
+      <div>
+        <label class="editor-label" for="box-back_nonprofit">Nonprofit / EIN line</label>
+        <textarea class="editor-box" id="box-back_nonprofit" data-region="back_nonprofit" rows="2">The League of Amazing Programmers is a 501(c)(3) nonprofit. EIN 20-4744610</textarea>
+        <div class="editor-status" id="status-back_nonprofit"></div>
+      </div>
+      
+      <p class="editor-hint">Markdown supported (**bold**, *italic*, [link](url)). Enter saves &middot; Shift+Enter for a new line.</p>
+    </div>
+    
+  </div>
+
+</div>
+<script>
+ const CURRENT_VERSION = 22;
+ const SLUG = "Postcard-Frame-Template";
+ const live = document.getElementById('live');
+ async function poll(){
+   let served = true;
+   try{
+     const r = await fetch('state.json?ts=' + Date.now(), {cache:'no-store'});
+     if(r.ok){
+       const s = await r.json();
+       if(s.version > CURRENT_VERSION){ location.reload(); return; }
+     }else{
+       served = false;
+     }
+   }catch(e){
+     served = false;
+   }
+   if(served){
+     live.className='live'; live.innerHTML='&#9679; live';
+     setTimeout(poll, 1500);
+   }else{
+     live.className='live off'; live.innerHTML='&#9679; open via server for live reload';
+     setTimeout(poll, 4000);
+   }
+ }
+ poll();
+
+ document.querySelectorAll('.editor-box').forEach(box => {
+   box.addEventListener('keydown', async (e) => {
+     if (e.key !== 'Enter' || e.shiftKey) return;
+     e.preventDefault();
+     const region = box.dataset.region;
+     const text = box.value;
+     const status = document.getElementById('status-' + region);
+     box.disabled = true;
+     status.textContent = 'saving…';
+     status.className = 'editor-status';
+     try {
+       const res = await fetch(`/${SLUG}/postcard/save`, {
+         method: 'POST',
+         headers: {'Content-Type': 'application/json'},
+         body: JSON.stringify({region, text})
+       });
+       if (!res.ok) throw new Error((await res.json()).error || res.statusText);
+       status.textContent = 'saved — reloading…';
+       // the poll loop above picks up the state.json bump and reloads automatically
+     } catch (err) {
+       status.textContent = 'save failed: ' + err.message;
+       status.className = 'editor-status err';
+       box.disabled = false;
+     }
+   });
+ });
+
+ document.getElementById('pdfBtn').addEventListener('click', async () => {
+   const btn = document.getElementById('pdfBtn');
+   const status = document.getElementById('pdfStatus');
+   btn.disabled = true;
+   status.className = 'pdf-status';
+   status.textContent = 'generating…';
+   try {
+     const res = await fetch(`/${SLUG}/postcard/pdf`, {
+       method: 'POST',
+       headers: {'Content-Type': 'application/json'},
+       body: '{}',
+     });
+     const body = await res.json();
+     if (!res.ok) throw new Error(body.error || res.statusText);
+     status.innerHTML = `done — <a class="pdf-link" href="${body.pdf_rel}?ts=${Date.now()}" target="_blank">Open PDF</a>`;
+     window.open(`${body.pdf_rel}?ts=${Date.now()}`, '_blank');
+   } catch (err) {
+     status.textContent = 'failed: ' + err.message;
+     status.className = 'pdf-status err';
+   } finally {
+     btn.disabled = false;
+   }
+ });
+</script>
+</body>
+</html>
