@@ -26,6 +26,13 @@
  .live{position:fixed;top:10px;right:12px;background:#1a1;color:#fff;font-size:11px;padding:3px 9px;border-radius:12px;opacity:.85;z-index:10;}
  .live.off{background:#555;}
  .allprojects{position:fixed;top:10px;left:12px;font-size:12px;color:#9db4d8;text-decoration:none;font-weight:700;}
+ .pdfbar{position:fixed;top:8px;left:50%;transform:translateX(-50%);z-index:10;display:flex;align-items:center;gap:10px;background:#1b1f27;border:1px solid #3a3f4a;border-radius:20px;padding:6px 8px 6px 16px;}
+ .pdfbar button{background:#F9C233;color:#101317;border:none;border-radius:14px;padding:6px 14px;font-size:12px;font-weight:700;cursor:pointer;}
+ .pdfbar button:disabled{opacity:.6;cursor:default;}
+ .pdfbar .pdf-status{font-size:11px;color:#9db4d8;min-width:60px;}
+ .pdfbar .pdf-status.err{color:#e06060;}
+ .pdfbar a.pdf-link{font-size:11px;color:#7ec87e;font-weight:700;text-decoration:none;}
+ .pdfbar a.pdf-link:hover{text-decoration:underline;}
  @media print {
    html, body { margin:0; padding:0; background:#fff; }
    @page { size: 6in 4in; margin: 0; }
@@ -33,13 +40,17 @@
    .page-block{gap:0;}
    .page { margin:0; border:none; box-shadow:none; page-break-after: always; break-after: page; }
    .page-block:last-child .page { page-break-after: auto; break-after: auto; }
-   .pagelabel, .live, .allprojects, .editors { display:none !important; }
+   .pagelabel, .live, .allprojects, .editors, .pdfbar { display:none !important; }
  }
 </style>
 </head>
 <body>
 <div class="live" id="live">&#9679; live</div>
 <a class="allprojects" href="index.html">&larr; Back to gallery</a>
+<div class="pdfbar">
+  <button id="pdfBtn">&#128196; Generate PDF</button>
+  <span class="pdf-status" id="pdfStatus"></span>
+</div>
 <div class="wrap">
 {% for side in sides %}
   <div class="page-block">
@@ -118,6 +129,30 @@
        box.disabled = false;
      }
    });
+ });
+
+ document.getElementById('pdfBtn').addEventListener('click', async () => {
+   const btn = document.getElementById('pdfBtn');
+   const status = document.getElementById('pdfStatus');
+   btn.disabled = true;
+   status.className = 'pdf-status';
+   status.textContent = 'generating…';
+   try {
+     const res = await fetch(`/${SLUG}/postcard/pdf`, {
+       method: 'POST',
+       headers: {'Content-Type': 'application/json'},
+       body: '{}',
+     });
+     const body = await res.json();
+     if (!res.ok) throw new Error(body.error || res.statusText);
+     status.innerHTML = `done — <a class="pdf-link" href="${body.pdf_rel}?ts=${Date.now()}" target="_blank">Open PDF</a>`;
+     window.open(`${body.pdf_rel}?ts=${Date.now()}`, '_blank');
+   } catch (err) {
+     status.textContent = 'failed: ' + err.message;
+     status.className = 'pdf-status err';
+   } finally {
+     btn.disabled = false;
+   }
  });
 </script>
 </body>
