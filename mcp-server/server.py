@@ -98,6 +98,10 @@ LAYOUT_SIZES = {
     "type-sample": "1536x1024",           # wide structural sample sheet
 }
 
+# Print-production constants for postcard-4x6 (see layouts/postcard-4x6.md for the rule).
+_PRINT_PPI = 256          # matches postcard-4x6's 1536x1024 == 6in x 4in generation resolution
+_BLEED_IN = 0.125         # standard 1/8in cutting bleed, added on every side of the trim
+
 # ── FastMCP Server ────────────────────────────────────────────────────────
 
 mcp = FastMCP("League Image Generator")
@@ -682,6 +686,9 @@ import atexit
 # one server can serve and link between all projects instead of one subprocess per project.
 # Runs as a daemon thread (not a subprocess) so a killed/restarted MCP server can never leave
 # an orphaned process squatting on a port — the thread dies with its parent unconditionally.
+DEFAULT_STATIC_PORT = 31337  # fixed "weird" port so the gallery URL is stable across restarts
+                              # (bookmarkable) instead of picking a fresh random port every time;
+                              # falls back to a random free port only if something else owns it.
 _STATIC_SERVER: Optional[dict] = None  # {"httpd": ThreadingHTTPServer, "thread": Thread, "port": int}
 
 
@@ -727,14 +734,20 @@ class _StaticHandler(SimpleHTTPRequestHandler):
 
 
 def _ensure_static_server(port: int = 0) -> int:
-    """Start the shared static server on first use (or return its existing port).
-    `port` is a whole-process setting honored only the first time the server boots."""
+    """Start the shared static server on first use (or return its existing port). `port` is a
+    whole-process setting honored only the first time the server boots; 0 (the default) means
+    "use the standing DEFAULT_STATIC_PORT," falling back to a random free port only if that one
+    is already taken by something else."""
     global _STATIC_SERVER
     if _STATIC_SERVER and _STATIC_SERVER["thread"].is_alive():
         return _STATIC_SERVER["port"]
-    chosen = port or _free_port()
     handler = functools.partial(_StaticHandler, directory=str(PROJECTS_DIR))
-    httpd = ThreadingHTTPServer(("127.0.0.1", chosen), handler)
+    chosen = port or DEFAULT_STATIC_PORT
+    try:
+        httpd = ThreadingHTTPServer(("127.0.0.1", chosen), handler)
+    except OSError:
+        chosen = _free_port()
+        httpd = ThreadingHTTPServer(("127.0.0.1", chosen), handler)
     t = threading.Thread(target=httpd.serve_forever, daemon=True, name="static-server")
     t.start()
     _STATIC_SERVER = {"httpd": httpd, "thread": t, "port": chosen}
@@ -1671,9 +1684,15 @@ def set_postcard_extra_html(name: str, side: str, html_content: str) -> str:
 
 @mcp.tool()
 async def generate_postcard_pdf(name: str, out_path: str = "") -> str:
-    """Render the project's postcard.html (front + back) to a print-ready, 2-page PDF at
-    exact 6x4in page size, using headless Chromium (Playwright) so the PDF matches the
-    browser preview exactly. Requires set_postcard_sides to have been called first.
+    """Render the project's postcard.html (front + back) to a print-ready, 2-page PDF.
+    Each face is captured as a flattened raster at the true 6x4in trim size (headless
+    Chromium via Playwright, so it matches the browser preview exactly), then extended by
+    the standard 1/8in cutting bleed on every side (edge-replicated — see
+    layouts/postcard-4x6.md) and rotated 90 degrees per the print vendor's submission
+    requirement. Each page also gets real /TrimBox and /BleedBox metadata (not just bled
+    pixels) — a preflight checker reads those boxes, not the artwork, to judge bleed;
+    without them the whole bled page reads as the trim and the file looks bleed-free no
+    matter how the art was drawn. Requires set_postcard_sides to have been called first.
 
     Args:
         name: Project name.
@@ -1693,33 +1712,62 @@ async def generate_postcard_pdf(name: str, out_path: str = "") -> str:
         return json.dumps({
             "error": "playwright not installed. Run: uv add playwright && uv run playwright install chromium"
         })
+    import io
+    import numpy as np
+    from PIL import Image
 
     slug = data["slug"]
     port = _ensure_static_server()
     out = Path(out_path) if out_path else PROJECTS_DIR / slug / "postcard.pdf"
     out.parent.mkdir(parents=True, exist_ok=True)
 
+    bleed_px = round(_BLEED_IN * _PRINT_PPI)
+    device_scale = _PRINT_PPI / 96  # CSS "in" is always 96px/in; this maps it to _PRINT_PPI
+
     try:
         async with async_playwright() as p:
             browser = await p.chromium.launch()
             try:
-                page = await browser.new_page()
-                await page.goto(f"http://127.0.0.1:{port}/{slug}/postcard.html", wait_until="networkidle")
-                await page.emulate_media(media="print")
-                await page.pdf(
-                    path=str(out),
-                    width="6in",
-                    height="4in",
-                    margin={"top": "0in", "right": "0in", "bottom": "0in", "left": "0in"},
-                    print_background=True,
-                    prefer_css_page_size=False,
+                context = await browser.new_context(
+                    viewport={"width": 900, "height": 1200},
+                    device_scale_factor=device_scale,
                 )
+                page = await context.new_page()
+                await page.goto(f"http://127.0.0.1:{port}/{slug}/postcard.html", wait_until="networkidle")
+                # .page's border is an on-screen affordance (shows the page edge against the
+                # dark preview background) — strip it here so the bleed pad extends the actual
+                # art outward instead of smearing the border color into the print margin.
+                await page.add_style_tag(content=".page{border:none !important;}")
+                pages = []
+                for side in ("front", "back"):
+                    raw = await page.locator(f'.page[data-side="{side}"]').screenshot()
+                    trimmed = np.array(Image.open(io.BytesIO(raw)).convert("RGB"))
+                    bled = np.pad(trimmed, ((bleed_px, bleed_px), (bleed_px, bleed_px), (0, 0)), mode="edge")
+                    pages.append(Image.fromarray(bled).rotate(-90, expand=True))
             finally:
                 await browser.close()
     except Exception as e:
         return json.dumps({"error": f"PDF generation failed: {e}"})
 
-    return json.dumps({"project": slug, "pdf": str(out)}, indent=2)
+    pages[0].save(str(out), save_all=True, append_images=pages[1:], resolution=_PRINT_PPI)
+
+    from pypdf import PdfReader, PdfWriter
+    from pypdf.generic import RectangleObject
+    bleed_pt = _BLEED_IN * 72
+    reader = PdfReader(str(out))
+    writer = PdfWriter()
+    for pdf_page in reader.pages:
+        w, h = float(pdf_page.mediabox.width), float(pdf_page.mediabox.height)
+        pdf_page.mediabox = RectangleObject((0, 0, w, h))
+        pdf_page.bleedbox = RectangleObject((0, 0, w, h))
+        pdf_page.trimbox = RectangleObject((bleed_pt, bleed_pt, w - bleed_pt, h - bleed_pt))
+        writer.add_page(pdf_page)
+    writer.write(str(out))
+
+    return json.dumps({
+        "project": slug, "pdf": str(out),
+        "bleed_in": _BLEED_IN, "rotated_degrees": 90,
+    }, indent=2)
 
 
 # ── HTML gallery template (auto-reloads via state.json polling) ─────────────

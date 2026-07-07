@@ -1,19 +1,19 @@
 {
-  "front_image": "iterations/iter-001.png",
-  "back_image": "iterations/iter-002.png",
+  "front_image": "iterations/iter-005.png",
+  "back_image": "iterations/iter-004.png",
   "front_regions": [],
   "back_regions": [
     {
       "name": "back_col_a",
       "label": "Column A (pitch)",
-      "style": "position:absolute; top:1.0in; left:0.4in; width:1.7in; font-family:Georgia, 'Times New Roman', serif; font-size:14px; line-height:1.45; color:#1c2b3a;",
+      "style": "position:absolute; top:1.0in; left:0.4in; width:1.7in; font-family:Georgia, 'Times New Roman', serif; font-size:14px; line-height:1.35; color:#1c2b3a;",
       "text": "The League of Amazing Programmers runs hands-on coding and robotics programs for kids all across San Diego — giving them a real chance to explore their technical interests, often for the first time.\n\nEvery Tech Club we open puts that opportunity within reach of a new neighborhood.",
       "rows": 9
     },
     {
       "name": "back_col_b",
       "label": "Column B (pitch)",
-      "style": "position:absolute; top:1.0in; left:2.35in; width:1.7in; font-family:Georgia, 'Times New Roman', serif; font-size:14px; line-height:1.45; color:#1c2b3a;",
+      "style": "position:absolute; top:1.0in; left:2.35in; width:1.7in; font-family:Georgia, 'Times New Roman', serif; font-size:14px; line-height:1.35; color:#1c2b3a;",
       "text": "We need your help to grow. Your support lets us bring this opportunity to every quarter of San Diego — every school, every neighborhood, every kid curious enough to try.\n\nScan to learn more and join us.",
       "rows": 9
     },

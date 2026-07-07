@@ -44,7 +44,7 @@
 {% for side in sides %}
   <div class="page-block">
     <div class="pagelabel">{{ side.label }}</div>
-    <section class="page">
+    <section class="page" data-side="{{ side.label | lower }}">
       {% if side.image %}<img class="bg" src="{{ side.image }}" alt="{{ side.label }}">{% else %}<div class="nothumb">no image selected</div>{% endif %}
       {% if side.extra_html %}{{ side.extra_html | safe }}{% endif %}
       {% for region in side.regions %}

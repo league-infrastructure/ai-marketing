@@ -133,6 +133,15 @@ Recurring designer phrasings and what they require:
   `quality=high`, `/v1/images/edits` for reference-image jobs. Never Gemini for
   generation (evaluation uses Gemini Flash — that's fine).
 - Sizes: `1536x1024` landscape (postcards), `1024x1536` portrait, `1024x1024`.
+- Postcards need a 1/8in print bleed — see `layouts/postcard-4x6.md`. Compose so
+  only inconsequential art (background, a figure's body) reaches the true edge;
+  text and logos always stay inside the 6×4 trim. `generate_postcard_pdf` adds the
+  bleed and the print vendor's required 90° rotation automatically.
+- Separate from bleed: content also needs a safety margin *inside* the trim line —
+  1/8in normally, but 1/4in when the design has a border/frame (which is all of ours
+  so far), since a border makes uneven cuts visible. Crop marks are NOT currently
+  added to exported PDFs — a gap to close before a file goes to a vendor that
+  requires them. Full figures and source: `layouts/postcard-4x6.md`.
 - The MCP server is long-lived: `server.py` edits and new `STYLES` entries need a
   restart (ask the designer); the prompt `.md` files are re-read on every call.
 - The gallery reloads only when `state.json`'s version changes — never make it
