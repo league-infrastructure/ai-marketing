@@ -2,7 +2,7 @@
   "mcpServers": {
     "league-image-generator": {
       "command": "uv",
-      "args": ["run", "mcp-server/server.py"],
+      "args": ["run", "app/mcp-server/server.py"],
       "env": {}
     }
   }

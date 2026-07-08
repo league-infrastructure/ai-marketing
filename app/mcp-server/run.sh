@@ -7,5 +7,5 @@
 #
 # Requires: uv (https://docs.astral.sh/uv/) and OPENROUTER_API_KEY (read from .env).
 set -euo pipefail
-cd "$(dirname "$0")/.."
-exec uv run mcp-server/server.py
+cd "$(dirname "$0")/../.."
+exec uv run app/mcp-server/server.py

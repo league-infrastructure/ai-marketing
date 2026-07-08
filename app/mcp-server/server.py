@@ -27,7 +27,7 @@ from typing import Optional
 
 from mcp.server.fastmcp import FastMCP
 
-MARKETING_DIR = Path(__file__).resolve().parent.parent
+MARKETING_DIR = Path(__file__).resolve().parent.parent.parent
 PROJECTS_DIR = MARKETING_DIR / "projects"
 CLI_SCRIPT = Path(__file__).resolve().parent / "cli.py"
 

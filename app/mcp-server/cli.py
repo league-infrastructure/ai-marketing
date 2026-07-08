@@ -36,7 +36,9 @@ import httpx
 
 # ── Configuration ──────────────────────────────────────────────────────────
 
-MARKETING_DIR = Path(__file__).resolve().parent.parent
+MARKETING_DIR = Path(__file__).resolve().parent.parent.parent
+APP_DIR = MARKETING_DIR / "app"
+IMAGES_DIR = MARKETING_DIR / "images"
 
 try:
     from dotenv import load_dotenv
@@ -44,15 +46,15 @@ try:
 except ImportError:
     pass
 
-PROMPTS_DIR = MARKETING_DIR / "prompts"
+PROMPTS_DIR = APP_DIR / "prompts"
 STYLES_DIR = PROMPTS_DIR / "styles"
 COMPOSITIONS_DIR = PROMPTS_DIR / "compositions"
 PALETTES_DIR = PROMPTS_DIR / "palettes"
-LAYOUTS_DIR = MARKETING_DIR / "layouts"
-RUBRICS_DIR = MARKETING_DIR / "rubrics"
+LAYOUTS_DIR = APP_DIR / "layouts"
+RUBRICS_DIR = APP_DIR / "rubrics"
 OUTPUT_DIR = MARKETING_DIR / "output"
 PROJECTS_DIR = MARKETING_DIR / "projects"
-COMPONENTS_DIR = MARKETING_DIR / "components"
+COMPONENTS_DIR = IMAGES_DIR / "components"
 
 OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY", "") or os.environ.get("OPENROUTER_API", "")
 OPENROUTER_BASE = "https://openrouter.ai/api/v1"

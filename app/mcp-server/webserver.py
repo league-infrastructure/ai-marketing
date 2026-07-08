@@ -38,8 +38,8 @@ from jinja2 import Environment, FileSystemLoader
 
 # ── Configuration ──────────────────────────────────────────────────────────
 
-MARKETING_DIR = Path(__file__).resolve().parent.parent
-PALETTES_DIR = MARKETING_DIR / "prompts" / "palettes"
+MARKETING_DIR = Path(__file__).resolve().parent.parent.parent
+PALETTES_DIR = MARKETING_DIR / "app" / "prompts" / "palettes"
 PROJECTS_DIR = MARKETING_DIR / "projects"
 TEMPLATES_DIR = Path(__file__).resolve().parent / "templates"
 
@@ -270,18 +270,22 @@ def _render_project_html(data: dict) -> str:
 
 
 def _ensure_palette_symlink() -> bool:
-    """Symlink projects/_palette-reference.html -> prompts/palettes/index.html so the shared
-    static server (rooted at PROJECTS_DIR) can serve the palette reference page over the same
-    http:// origin as everything else. Self-heals if the symlink or PROJECTS_DIR is ever
-    recreated. Returns True if the link is in place and its target exists."""
+    """Symlink projects/_palette-reference.html -> app/prompts/palettes/index.html so the
+    shared static server (rooted at PROJECTS_DIR) can serve the palette reference page over
+    the same http:// origin as everything else. Self-heals if the symlink is missing OR if it
+    exists but points somewhere stale (e.g. prompts/ moved in a repo reorg) — checking only
+    is_symlink() would leave a dangling link in that case. Returns True if the link is in
+    place and its target exists."""
     target = PALETTES_DIR / "index.html"
     if not target.exists():
         return False
     link = PROJECTS_DIR / "_palette-reference.html"
-    if not link.is_symlink():
+    correct_relative = os.path.relpath(target, PROJECTS_DIR)
+    if not link.is_symlink() or os.readlink(link) != correct_relative:
         try:
             PROJECTS_DIR.mkdir(parents=True, exist_ok=True)
-            link.symlink_to(os.path.relpath(target, PROJECTS_DIR))
+            link.unlink(missing_ok=True)
+            link.symlink_to(correct_relative)
         except OSError:
             return False
     return True
