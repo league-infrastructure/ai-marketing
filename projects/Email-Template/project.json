@@ -1,0 +1,11 @@
+{
+  "name": "Email Template",
+  "slug": "Email-Template",
+  "type": "email",
+  "created": "2026-07-08T10:55:12",
+  "template_source": "components/email/template.html",
+  "config": {},
+  "sources": [],
+  "iterations": [],
+  "state_version": 0
+}

@@ -209,7 +209,25 @@ def _render_iteration_card(it: dict) -> str:
     </article>'''
 
 
+def _render_email_project_html(data: dict) -> str:
+    """Email-type projects skip the image-iteration gallery entirely: the designer hand-edits
+    projects/<slug>/email.html directly (never through this renderer), and this page is just a
+    live-reloading iframe wrapper around it, matching the poll/reload pattern every other page
+    here uses. The iframe's ?v= query string changes on every render so a bumped state_version
+    forces a fresh fetch of email.html instead of a cached copy."""
+    esc = html.escape
+    return (
+        _EMAIL_TEMPLATE
+        .replace("{{NAME}}", esc(data.get("name", "")))
+        .replace("{{VERSION}}", str(int(data.get("state_version", 0))))
+        .replace("{{TEMPLATE_SOURCE}}", esc(data.get("template_source", "")))
+        .replace("{{GENERATED}}", esc(_now()))
+    )
+
+
 def _render_project_html(data: dict) -> str:
+    if data.get("type") == "email":
+        return _render_email_project_html(data)
     esc = html.escape
     cfg = data.get("config", {})
     chips = ""
@@ -302,6 +320,7 @@ def _list_projects_data() -> list:
             projs.append({
                 "project": data.get("slug", d.name),
                 "name": data.get("name"),
+                "type": data.get("type", "image"),
                 "style": cfg.get("style"),
                 "layout": cfg.get("layout"),
                 "theme": cfg.get("theme"),
@@ -321,6 +340,8 @@ def _render_projects_home(projects: list) -> str:
             if p.get("thumbnail") else '<div class="nothumb">no image yet</div>'
         )
         chips = ""
+        if p.get("type") == "email":
+            chips += '<span class="chip"><b>type</b> email</span>'
         for k in ("style", "layout"):
             v = p.get(k)
             if v:
@@ -897,6 +918,75 @@ _HTML_TEMPLATE = """<!DOCTYPE html>
      modalConfirm.textContent = 'Delete';
    }
  });
+</script>
+</body>
+</html>
+"""
+
+
+# ── Email-project HTML template (iframe preview of a hand-edited email.html) ───────────
+
+_EMAIL_TEMPLATE = """<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{NAME}} — Email Template</title>
+<style>
+ :root{--ink:#141414;--paper:#f7f4ec;--accent:#d4202a;--blue:#173a6e;}
+ *{box-sizing:border-box;}
+ body{margin:0;background:#101317;color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;}
+ .wrap{max-width:900px;margin:0 auto;padding:24px;}
+ .allprojects{display:inline-block;font-size:12px;color:#9db4d8;text-decoration:none;font-weight:700;margin-bottom:10px;}
+ .allprojects:hover{text-decoration:underline;}
+ header.top{background:var(--paper);border:3px solid var(--ink);border-radius:10px;padding:16px 24px;box-shadow:0 8px 30px rgba(0,0,0,.4);margin-bottom:20px;}
+ h1{margin:0 0 4px;font-size:24px;}
+ .src{font-size:12px;color:#555;margin:0;}
+ .framewrap{background:var(--paper);border:3px solid var(--ink);border-radius:10px;padding:16px;box-shadow:0 6px 20px rgba(0,0,0,.35);}
+ iframe{display:block;width:100%;max-width:700px;height:85vh;margin:0 auto;border:1px solid #ccc;border-radius:4px;background:#fff;}
+ .live{position:fixed;top:10px;right:12px;background:#1a1;color:#fff;font-size:11px;padding:3px 9px;border-radius:12px;opacity:.85;z-index:10;}
+ .live.off{background:#555;}
+ footer{color:#667;font-size:11px;text-align:center;padding:20px;}
+</style>
+</head>
+<body>
+<div class="live" id="live">&#9679; live</div>
+<div class="wrap">
+  <a class="allprojects" href="../">&larr; All projects</a>
+  <header class="top">
+    <h1>{{NAME}}</h1>
+    <p class="src">Email template &middot; started from {{TEMPLATE_SOURCE}}</p>
+  </header>
+  <div class="framewrap">
+    <iframe src="email.html?v={{VERSION}}" title="Email preview"></iframe>
+  </div>
+  <footer>Generated {{GENERATED}} &middot; this page auto-reloads when the template changes</footer>
+</div>
+<script>
+ const CURRENT_VERSION = {{VERSION}};
+ const live = document.getElementById('live');
+ async function poll(){
+   let served = true;
+   try{
+     const r = await fetch('state.json?ts=' + Date.now(), {cache:'no-store'});
+     if(r.ok){
+       const s = await r.json();
+       if(s.version > CURRENT_VERSION){ location.reload(); return; }
+     }else{
+       served = false;
+     }
+   }catch(e){
+     served = false;
+   }
+   if(served){
+     live.className='live'; live.innerHTML='&#9679; live';
+     setTimeout(poll, 1500);
+   }else{
+     live.className='live off'; live.innerHTML='&#9679; open via server for live reload';
+     setTimeout(poll, 4000);
+   }
+ }
+ poll();
 </script>
 </body>
 </html>

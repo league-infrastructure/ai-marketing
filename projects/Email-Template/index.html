@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Email Template — Email Template</title>
+<style>
+ :root{--ink:#141414;--paper:#f7f4ec;--accent:#d4202a;--blue:#173a6e;}
+ *{box-sizing:border-box;}
+ body{margin:0;background:#101317;color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;}
+ .wrap{max-width:900px;margin:0 auto;padding:24px;}
+ .allprojects{display:inline-block;font-size:12px;color:#9db4d8;text-decoration:none;font-weight:700;margin-bottom:10px;}
+ .allprojects:hover{text-decoration:underline;}
+ header.top{background:var(--paper);border:3px solid var(--ink);border-radius:10px;padding:16px 24px;box-shadow:0 8px 30px rgba(0,0,0,.4);margin-bottom:20px;}
+ h1{margin:0 0 4px;font-size:24px;}
+ .src{font-size:12px;color:#555;margin:0;}
+ .framewrap{background:var(--paper);border:3px solid var(--ink);border-radius:10px;padding:16px;box-shadow:0 6px 20px rgba(0,0,0,.35);}
+ iframe{display:block;width:100%;max-width:700px;height:85vh;margin:0 auto;border:1px solid #ccc;border-radius:4px;background:#fff;}
+ .live{position:fixed;top:10px;right:12px;background:#1a1;color:#fff;font-size:11px;padding:3px 9px;border-radius:12px;opacity:.85;z-index:10;}
+ .live.off{background:#555;}
+ footer{color:#667;font-size:11px;text-align:center;padding:20px;}
+</style>
+</head>
+<body>
+<div class="live" id="live">&#9679; live</div>
+<div class="wrap">
+  <a class="allprojects" href="../">&larr; All projects</a>
+  <header class="top">
+    <h1>Email Template</h1>
+    <p class="src">Email template &middot; started from components/email/template.html</p>
+  </header>
+  <div class="framewrap">
+    <iframe src="email.html?v=1" title="Email preview"></iframe>
+  </div>
+  <footer>Generated 2026-07-08T10:55:12 &middot; this page auto-reloads when the template changes</footer>
+</div>
+<script>
+ const CURRENT_VERSION = 1;
+ const live = document.getElementById('live');
+ async function poll(){
+   let served = true;
+   try{
+     const r = await fetch('state.json?ts=' + Date.now(), {cache:'no-store'});
+     if(r.ok){
+       const s = await r.json();
+       if(s.version > CURRENT_VERSION){ location.reload(); return; }
+     }else{
+       served = false;
+     }
+   }catch(e){
+     served = false;
+   }
+   if(served){
+     live.className='live'; live.innerHTML='&#9679; live';
+     setTimeout(poll, 1500);
+   }else{
+     live.className='live off'; live.innerHTML='&#9679; open via server for live reload';
+     setTimeout(poll, 4000);
+   }
+ }
+ poll();
+</script>
+</body>
+</html>

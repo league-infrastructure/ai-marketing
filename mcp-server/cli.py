@@ -744,6 +744,82 @@ def create_project(
     }, indent=2)
 
 
+EMAIL_TEMPLATES_DIR = COMPONENTS_DIR / "email"
+
+
+def _resolve_email_template(template: str) -> Path:
+    """A bare name (e.g. 'template' or 'newsletter-v1') resolves against
+    components/email/<name>.html; anything that exists as given (relative or absolute path)
+    is used as-is — so both 'saved template names' and one-off paths work."""
+    if not template:
+        return EMAIL_TEMPLATES_DIR / "template.html"
+    p = Path(template).expanduser()
+    if p.exists():
+        return p
+    return EMAIL_TEMPLATES_DIR / (template if template.endswith(".html") else f"{template}.html")
+
+
+def create_email_project(name: str, template: str = "") -> str:
+    """Email projects are a different kind of project: no style/composition/palette, no AI
+    generation. The designer hand-edits projects/<slug>/email.html directly (copied once from
+    a components/email/ template, never edited in place there); the web server shows it as a
+    live-reloading iframe instead of the image-iteration gallery. Call render-project-html
+    after each edit to bump the preview."""
+    slug = _slug(name)
+    if not slug:
+        return json.dumps({"error": "Invalid project name"})
+    pdir = PROJECTS_DIR / slug
+    if (pdir / "project.json").exists():
+        return json.dumps({"error": f"Project '{slug}' already exists. Use a new name."})
+    src = _resolve_email_template(template)
+    if not src.exists():
+        return json.dumps({"error": f"Template not found: {src}"})
+
+    pdir.mkdir(parents=True, exist_ok=True)
+    dest = pdir / "email.html"
+    shutil.copy2(src, dest)
+    try:
+        template_source = str(src.relative_to(MARKETING_DIR))
+    except ValueError:
+        template_source = str(src)
+
+    data = {
+        "name": name, "slug": slug, "type": "email", "created": _now(),
+        "template_source": template_source,
+        "config": {}, "sources": [], "iterations": [], "state_version": 0,
+    }
+    try:
+        _webserver_post(f"{slug}/project/save", data)
+    except Exception as e:
+        return json.dumps({"error": f"saved locally but web server failed to render: {e}"})
+    return json.dumps({
+        "project": slug, "dir": str(pdir), "email_html": str(dest), "template_source": template_source,
+        "next": "Call open-project to view it, then edit email.html directly and call "
+                "render-project-html to refresh the live preview.",
+    }, indent=2)
+
+
+def save_email_template(name: str, template_name: str, overwrite: bool = False) -> str:
+    """Copy a finished projects/<slug>/email.html back to components/email/<template_name>.html
+    so it becomes a reusable starting point for future email projects."""
+    data = _load_project(name)
+    if not data:
+        return json.dumps({"error": f"No project named '{name}'"})
+    pdir = PROJECTS_DIR / data["slug"]
+    src = pdir / "email.html"
+    if not src.exists():
+        return json.dumps({"error": f"No email.html in project '{data['slug']}'"})
+    tslug = _slug(template_name)
+    if not tslug:
+        return json.dumps({"error": "Invalid template name"})
+    dest = EMAIL_TEMPLATES_DIR / f"{tslug}.html"
+    if dest.exists() and not overwrite:
+        return json.dumps({"error": f"Template '{dest.name}' already exists. Pass --overwrite to replace it."})
+    EMAIL_TEMPLATES_DIR.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(src, dest)
+    return json.dumps({"project": data["slug"], "template": str(dest)}, indent=2)
+
+
 def _list_projects_data() -> list:
     projs = []
     if PROJECTS_DIR.exists():
@@ -1130,6 +1206,16 @@ def main() -> None:
     s.add_argument("--custom-additions", default="")
     s.add_argument("--source-images", type=json.loads, default=None)
 
+    s = sub.add_parser("create-email-project")
+    s.add_argument("--name", required=True)
+    s.add_argument("--template", default="",
+                    help="components/email/<name>.html or a path; defaults to template.html")
+
+    s = sub.add_parser("save-email-template")
+    s.add_argument("--name", required=True)
+    s.add_argument("--template-name", required=True)
+    s.add_argument("--overwrite", action=argparse.BooleanOptionalAction, default=False)
+
     s = sub.add_parser("list-projects")
 
     s = sub.add_parser("get-project")
@@ -1225,6 +1311,8 @@ def main() -> None:
         "generate-image": lambda: generate_image(**a),
         "evaluate-image": lambda: evaluate_image(**a),
         "create-project": lambda: create_project(**a),
+        "create-email-project": lambda: create_email_project(**a),
+        "save-email-template": lambda: save_email_template(**a),
         "list-projects": lambda: list_projects(),
         "get-project": lambda: get_project(**a),
         "update-project": lambda: update_project(**a),
