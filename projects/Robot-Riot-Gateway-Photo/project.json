@@ -1,0 +1,107 @@
+{
+  "name": "Robot Riot Gateway Photo",
+  "slug": "Robot-Riot-Gateway-Photo",
+  "created": "2026-07-08T12:01:39",
+  "config": {
+    "style": "",
+    "composition": "",
+    "component": "",
+    "palette": "",
+    "layout": "",
+    "theme": "Gateway Summer Camp Robot Riot session — a REAL photo of real campers, edited/recomposed but kept fully photorealistic (no illustration/stylization)",
+    "scene_description": "Keep this as a straight photograph — same real kids, same lighting, same camera, same photographic quality. Do not illustrate, ink, cartoon, or stylize it in any way. The only change is recomposing where specific kids are positioned in the frame.",
+    "model": "gpt-image-2",
+    "negative_prompt": "",
+    "custom_additions": ""
+  },
+  "sources": [
+    "sources/RobotRiotAtGateway.png"
+  ],
+  "iterations": [
+    {
+      "n": 1,
+      "label": "iter-001-photo-to-illustration",
+      "created": "2026-07-08T12:05:24",
+      "style": "graphic-novel",
+      "composition": "",
+      "component": "",
+      "palette": "orange-blue",
+      "layout": "",
+      "background": "",
+      "scene_description": "Convert the attached reference photograph into hand-inked Graphic Novel style exactly as shot: the same high overhead-ish camera angle, the same number of kids in the same left-to-right/foreground-to-background positions, the same poses (kneeling, crouching, adjusting a small wheeled robot, standing near the doorway). A square practice arena outlined by white PVC-pipe rails sits on dark foam mat tiles; small blue-accented wheeled robots sit on the mat where they do in the photo. Bookshelves full of books line the back wall; a doorway is visible at the right. Simplify the bookshelves and wall into bold flat color bands with just enough ink detail to read as a school library/classroom — spend the real illustrative detail on the kids and robots. Keep each child's actual clothing colors (red shirt, blue shirt, green shirt, pink top, dark clothing) but rendered as flat inked color fields. Do not add, remove, or rearrange any figures, and do not change the camera framing.",
+      "model": "gpt-image-2",
+      "prompt": "Golden-Age comic illustration, hand-inked Graphic Novel style (the HisMastersVoice look): bold tapered black ink contours, dense confident pen strokes carrying all the detail, broad flat saturated color fields with crisp hard edges, no gradients, no airbrush, no painted digital shading, no soft glows, no photorealism. Palette: warm-dominant orange-and-blue — Golden Amber #F9C233 and Marigold #F9B41E for warm surfaces, Burnt Orange #C96A10 and Sienna #9A4E12 for warm shadow, Steel Blue #175E8C and Deep Navy #16223C as the cool accent on machinery and shadow, Ink Black #101010 anchoring every contour, Cream #FBE5A0 for any lighter fill. Spend visual detail ONLY on the kids and their robots — hatching, feathering, wrinkles in clothing, hair drawn stroke by stroke, mechanical detail on each small wheeled robot; simplify the bookshelves, wall, and floor into bold flat shapes with just enough ink line to read clearly as a school library turned into a robotics practice space.\n\nReproduce the attached reference photograph's composition EXACTLY: the same elevated three-quarter overhead camera angle looking down across the room; the same number of kids in the same left-to-right and foreground-to-background positions; each kid's exact pose (the boy in red kneeling over his robot at far left, the boy in green/gray crouching and reaching down at lower-left, the boy in blue crouched behind the near arena corner, the boy with the dark cap lying on his stomach working a controller at the near-right arena corner, the two figures standing/sitting near the doorway at upper right, the person standing in the doorway itself). Keep each child's actual clothing colors: red t-shirt, blue t-shirt, green/olive shirt with gray sweatpants, pink patterned top, dark clothing near the door. A large square practice arena bordered by white PVC-pipe rails covers most of the floor, floored in dark gray interlocking foam mat tiles with one lighter gray diagondal-cut mat panel near the center; small blue-and-white wheeled robots with visible mechanical detail sit on the mat and just outside the rails, one paired with a small red-and-blue remote control on the carpet. Wood-toned bookshelves packed with rows of colorful books line the back wall behind the kids; a wood door stands open at the far right. Do NOT add, remove, or rearrange any figures or robots, and do NOT change the camera framing or orientation — this is a strict recreation of the photo's composition in illustrated form.",
+      "negative_prompt": "No grain, speckle, stipple, halftone, newsprint, parchment, aged or yellowed paper, print-dot texture, soft airbrush glow. No painted/airbrushed shading, soft gradients, glossy rendered highlights, digital-painting look, rendered 3D volume, or cinematic photo lighting. No photorealism, photographic faces, 3D render, or CGI — this must read as hand-inked illustration, not a filtered photo. No anime/manga cel style, chibi, Funko-Pop, or oversized cartoon heads. No muddy, washed-out, or pastel color. Do NOT add, remove, duplicate, or rearrange any people or robots from the reference. Do NOT change the camera angle, crop, or orientation. No invented text, signs, or labels anywhere.",
+      "custom_additions": "",
+      "references": [
+        "sources/RobotRiotAtGateway.png"
+      ],
+      "images": [
+        "iterations/iter-001.png"
+      ],
+      "image": "iterations/iter-001.png",
+      "notes": "First pass converting the real Gateway camp photo into graphic-novel style, reference composition held strict.",
+      "status": "ok",
+      "error": null,
+      "text_response": "",
+      "usage": {}
+    },
+    {
+      "n": 2,
+      "label": "iter-001-race-recompose",
+      "created": "2026-07-08T12:10:53",
+      "style": "",
+      "composition": "",
+      "component": "",
+      "palette": "",
+      "layout": "",
+      "background": "",
+      "scene_description": "Keep this as a straight photograph — same real kids, same lighting, same camera, same photographic quality. Do not illustrate, ink, cartoon, or stylize it in any way. The only change is recomposing where specific kids are positioned in the frame.",
+      "model": "gpt-image-2",
+      "prompt": "This is a real, unretouched-looking photograph — not an illustration, not a cartoon, not a painting. Preserve the exact real-world setting from the attached reference photo: the same room, the same overhead-angled camera viewpoint looking down across the space, the same soft indoor lighting, the same wood bookshelves packed with colorful books along the back wall, the same wood door, the same square practice arena bordered by white PVC-pipe rails sitting on dark gray interlocking foam floor mat tiles, with one lighter gray mat tile set diagonally in the exact center of the arena as a small 'island' obstacle. Keep the same real kids from the reference (same faces, same clothing: red t-shirt, blue t-shirt, green/olive shirt with gray sweatpants, pink patterned top, dark cap and pink polo, dark clothing) — do not invent new people, do not change how they look, do not draw or stylize them.\n\nRecompose the scene as a race in progress: every child is OFF the mat, kneeling or crouching just outside the white PVC rail on all four sides of the square arena, spaced out evenly around the perimeter, each one leaning in and looking down/inward at the mat, watching intently — nobody is sitting or lying inside the rails. On the mat itself, place FIVE small wheeled robots (matching the build style of the robots in the reference photo) arranged in a loose ring around the central island tile, as if mid-race circling around it in the same direction of travel, with clear open floor between them so they read as spread around a track rather than clustered together. The overall feel is a real candid action photo of a robot race, shot from slightly above, with every kid's attention fixed on the robots circling the island.",
+      "negative_prompt": "Do not render this as a drawing, painting, cartoon, comic, or stylized illustration of any kind — it must look like a real photograph, same grain, same lighting, same camera quality as the reference. Do not invent new children or change their identities/clothing. Do not leave any child sitting, kneeling, or lying inside the arena rails. Do not cluster the robots together in the center or have them colliding — they should be spread in a ring around the island tile as if racing. No added text, signs, or logos anywhere. No change to the room, bookshelves, or camera framing beyond repositioning the kids and robots as described.",
+      "custom_additions": "",
+      "references": [
+        "sources/RobotRiotAtGateway.png"
+      ],
+      "images": [
+        "iterations/iter-002.png"
+      ],
+      "image": "iterations/iter-002.png",
+      "notes": "Recompose as a race: all kids off the mat and ringed around its edges watching, five robots circling the center island tile. Kept strictly photorealistic per designer correction — not stylized.",
+      "status": "ok",
+      "error": null,
+      "text_response": "",
+      "usage": {}
+    },
+    {
+      "n": 3,
+      "label": "iter-003-vary-poses",
+      "created": "2026-07-08T12:15:54",
+      "style": "",
+      "composition": "",
+      "component": "",
+      "palette": "",
+      "layout": "",
+      "background": "",
+      "scene_description": "Keep this as a straight photograph — same real kids, same lighting, same camera, same photographic quality. Do not illustrate, ink, cartoon, or stylize it in any way. The only change is recomposing where specific kids are positioned in the frame.",
+      "model": "gpt-image-2",
+      "prompt": "This is a real, unretouched-looking photograph — not an illustration, not a cartoon, not a painting. Keep the exact same setting, camera angle, lighting, kids (same faces and clothing), robots, and the race composition as the attached reference image: everyone positioned around the outside edge of the white PVC-pipe-bordered arena, watching five small wheeled robots circling the lighter-gray island tile at the center. Do not change who is where around the perimeter, do not change the room, the arena, or the robots.\n\nThe only change: give the kids a variety of natural, candid poses instead of everyone kneeling with both hands flat on the floor in an identical position. The boy in the dark hoodie and maroon pants (upper-center) and the boy in the black t-shirt and ripped jeans (right side) should be standing upright, leaning forward slightly from the waist with hands on their knees or arms relaxed at their sides, watching the mat. Give the remaining kids a mix of different candid poses — for example one sitting back on his heels with hands resting on his thighs, one kneeling on just one knee with the other foot planted, one crouched low and forward on the balls of his feet, one leaning sideways propped on one hand, one sitting cross-legged. Every kid should still be clearly watching the robots on the mat with focused attention. Keep it fully photorealistic, matching the lighting and image quality of the reference exactly.",
+      "negative_prompt": "Do not render this as a drawing, painting, cartoon, comic, or stylized illustration — it must look like a real photograph, same lighting and quality as the reference. Do not change the room, arena, robots, or where each kid is positioned around the perimeter. Do not put any kid back inside the arena rails. Do not have every kid in the same pose — avoid repeating the identical both-hands-on-the-ground kneel more than once. No added text, signs, or logos.",
+      "custom_additions": "",
+      "references": [
+        "iterations/iter-002.png"
+      ],
+      "images": [
+        "iterations/iter-003.png"
+      ],
+      "image": "iterations/iter-003.png",
+      "notes": "Vary the kids' poses — currently everyone kneels with both hands flat on the ground in the same pose. Standing 1-2 up, rest in a mix of poses.",
+      "status": "ok",
+      "error": null,
+      "text_response": "",
+      "usage": {}
+    }
+  ],
+  "state_version": 0
+}

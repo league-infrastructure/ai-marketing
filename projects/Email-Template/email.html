@@ -136,7 +136,7 @@
 			/*@editable*/font-weight:bold;
 			/*@editable*/line-height:130%;
 			/*@editable*/letter-spacing:normal;
-			/*@editable*/text-align:left;
+			/*@editable*/text-align:center;
 		}
 	/*
 	@tab Page
@@ -150,7 +150,7 @@
 			/*@editable*/font-weight:bold;
 			/*@editable*/line-height:150%;
 			/*@editable*/letter-spacing:normal;
-			/*@editable*/text-align:left;
+			/*@editable*/text-align:center;
 		}
 	/*
 	@tab Page
@@ -246,7 +246,7 @@
 	@section Header Link
 	*/
 		#templateHeader a,#templateHeader p a{
-			/*@editable*/color:#237A91;
+			/*@editable*/color:#F37121;
 			/*@editable*/font-weight:normal;
 			/*@editable*/text-decoration:underline;
 		}
@@ -261,16 +261,16 @@
 			/*@editable*/background-position:center;
 			/*@editable*/background-size:cover;
 			/*@editable*/border-top:0;
-			/*@editable*/border-bottom:2px solid #EAEAEA;
-			/*@editable*/padding-top:0;
-			/*@editable*/padding-bottom:9px;
+			/*@editable*/border-bottom:2px solid #FCDAC5;
+			/*@editable*/padding-top:27px;
+			/*@editable*/padding-bottom:18px;
 		}
 	/*
 	@tab Body
 	@section Body Text
 	*/
 		#templateBody,#templateBody p{
-			/*@editable*/color:#606060;
+			/*@editable*/color:#494C4E;
 			/*@editable*/font-family:Helvetica;
 			/*@editable*/font-size:16px;
 			/*@editable*/line-height:150%;
@@ -281,7 +281,7 @@
 	@section Body Link
 	*/
 		#templateBody a,#templateBody p a{
-			/*@editable*/color:#237A91;
+			/*@editable*/color:#F37121;
 			/*@editable*/font-weight:normal;
 			/*@editable*/text-decoration:underline;
 		}
@@ -290,7 +290,7 @@
 	@section Footer Style
 	*/
 		#templateFooter{
-			/*@editable*/background-color:#FAFAFA;
+			/*@editable*/background-color:#141845;
 			/*@editable*/background-image:none;
 			/*@editable*/background-repeat:no-repeat;
 			/*@editable*/background-position:center;
@@ -305,7 +305,7 @@
 	@section Social Bar Style
 	*/
 		#socialBar{
-			/*@editable*/background-color:#333333;
+			/*@editable*/background-color:#1B1C1D;
 			/*@editable*/border:0;
 			/*@editable*/padding:18px;
 		}
@@ -334,7 +334,7 @@
 	@section Footer Text
 	*/
 		#footerContent,#footerContent p{
-			/*@editable*/color:#656565;
+			/*@editable*/color:#C7CBE8;
 			/*@editable*/font-family:Helvetica;
 			/*@editable*/font-size:12px;
 			/*@editable*/line-height:150%;
@@ -345,7 +345,7 @@
 	@section Footer Link
 	*/
 		#footerContent a,#footerContent p a{
-			/*@editable*/color:#656565;
+			/*@editable*/color:#FFD4A3;
 			/*@editable*/font-weight:normal;
 			/*@editable*/text-decoration:underline;
 		}
@@ -354,7 +354,7 @@
 	@section Utility Bar Style
 	*/
 		#utilityBar{
-			/*@editable*/background-color:#FAFAFA;
+			/*@editable*/background-color:#0F1230;
 			/*@editable*/border:0;
 			/*@editable*/padding-top:9px;
 			/*@editable*/padding-bottom:9px;
@@ -364,7 +364,7 @@
 	@section Utility Bar Text
 	*/
 		#utilityBar,#utilityBar p{
-			/*@editable*/color:#656565;
+			/*@editable*/color:#8891C4;
 			/*@editable*/font-family:Helvetica;
 			/*@editable*/font-size:12px;
 			/*@editable*/line-height:150%;
@@ -375,7 +375,7 @@
 	@section Utility Bar Link
 	*/
 		#utilityBar a,#utilityBar p a{
-			/*@editable*/color:#656565;
+			/*@editable*/color:#8891C4;
 			/*@editable*/font-weight:normal;
 			/*@editable*/text-decoration:underline;
 		}
@@ -552,7 +552,7 @@
                                                 <tr>
                                                     <td valign="top">
                                                         <div mc:edit="preheader_leftcol_content">
-                                                            <p>Use this area to offer a short preview of your email's content.</p>
+                                                            <p>A month of remote-control mayhem, programming, and robot-building at Gateway Summer Camp.</p>
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -588,7 +588,7 @@
                             <td valign="top" id="templateHeader">
 
                                 <!-- BEGIN MODULE: HEADER IMAGE // -->
-                                <img src="https://cdn-images.mailchimp.com/template_images/gallery/5ab9a40f-549b-4619-92c2-d7fd6e34e6b4.png" style="max-width:564px;" class="templateImage" mc:label="header_image" mc:edit="header_image" mc:allowdesigner mc:allowtext>
+                                <img src="assets/robot-riot-header.png" width="600" style="width:100%;max-width:600px;display:block;" class="templateImage" mc:label="header_image" mc:edit="header_image" mc:allowdesigner mc:allowtext alt="Robot Riot">
                                 <!-- // END MODULE: HEADER IMAGE -->
 
                             </td>
@@ -600,13 +600,24 @@
 
                                 <!-- BEGIN MODULE: BODY CONTENT // -->
                                 <div mc:edit="body_content">
-                                    <h1>Heading 1</h1>
-                                    <h2>Heading 2</h2>
-                                    <h3>Heading 3</h3>
-                                    <h4>Heading 4</h4>
-                                    <p><strong>Getting started!</strong><br>To choose your fonts, colors, and styles, click <strong>Edit Design</strong> at the bottom of this screen. After you create a look and feel you love, click inside this box to start adding your own content.</p>
-                                    <p>Any time you create a layout here, you'll be able to find it in the <strong>Saved Templates</strong> tab on the <strong>Templates</strong> step. Then, you can reuse it as-is or quickly create new, similar versions for different types of messages.</p>
-                                    <p>Our <a href="https://templates.mailchimp.com/">Email Design Reference</a> can help you add content blocks to this template or show you how to design and code your own from scratch.</p>
+                                    <h1>Robot Riot Wraps Up at Gateway Summer Camp</h1>
+                                    <h3>From destruction derby to full‑blown robot engineering</h3>
+                                    <p>This month, campers at our Gateway Summer Camp wrapped up <strong>Robot Riot</strong> &mdash; one of the most popular courses in The League&rsquo;s robotics track, and the natural next step after Robot Explorer.</p>
+
+                                    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="margin:18px 0;">
+                                        <tr>
+                                            <td align="center">
+                                                <img src="assets/RobotRiotAtGateway.png" width="564" style="width:100%;max-width:564px;height:auto;border-radius:6px;display:block;" class="templateImage" alt="Campers driving their robots at Gateway Summer Camp">
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <p style="text-align:center;color:#85888C;font-size:12px;margin-top:6px;">Campers driving their robots on the arena floor at Gateway Summer Camp.</p>
+
+                                    <p>Robot Riot starts with pure fun: campers grab a remote control and throw their robots straight into a destruction derby. From there, the course levels up fast &mdash; over the following weeks, students learn to <strong>program</strong> their robots, design and <strong>build their own 3D&#8209;printed parts</strong>, and put it all to the test in hands&#8209;on challenges.</p>
+
+                                    <p>It&rsquo;s a hands-on introduction to programming, engineering, and technology in general &mdash; and the skills students build here carry forward into future courses, and onto their own school&rsquo;s robotics team if they choose to join one.</p>
+
+                                    <p><a href="https://jointheleague.org">See what&rsquo;s next at The League &rarr;</a></p>
                                 </div>
                                 <!-- // END MODULE: BODY CONTENT -->
 

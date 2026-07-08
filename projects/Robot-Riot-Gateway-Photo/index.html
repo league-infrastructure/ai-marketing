@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Robot Riot Gateway Photo — League Image Project</title>
+<style>
+ :root{--ink:#141414;--paper:#f7f4ec;--accent:#d4202a;--blue:#173a6e;--chip:#eee7d6;}
+ *{box-sizing:border-box;}
+ body{margin:0;background:#101317;color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;}
+ .wrap{max-width:1100px;margin:0 auto;padding:24px;}
+ header.top{background:var(--paper);border:3px solid var(--ink);border-radius:10px;padding:20px 24px;box-shadow:0 8px 30px rgba(0,0,0,.4);}
+ h1{margin:0 0 6px;font-size:28px;}
+ .theme{font-size:17px;color:#333;margin:0 0 10px;}
+ .scene{font-size:14px;color:#555;margin:0 0 12px;font-style:italic;}
+ .chips{display:flex;flex-wrap:wrap;gap:8px;}
+ .chip{background:var(--chip);border:1px solid #cbb;border-radius:20px;padding:3px 12px;font-size:12px;}
+ .chip b{color:var(--blue);text-transform:uppercase;font-size:10px;letter-spacing:.5px;margin-right:4px;}
+ h2{color:#f7f4ec;font-size:15px;text-transform:uppercase;letter-spacing:1px;margin:24px 4px 10px;}
+ .thumbs{display:flex;flex-wrap:wrap;gap:10px;}
+ .thumbs img{height:90px;border:2px solid var(--ink);border-radius:6px;background:#fff;object-fit:cover;}
+ .thumbs.small img{height:56px;}
+ .card{background:var(--paper);border:3px solid var(--ink);border-radius:10px;padding:16px;margin:16px 0;box-shadow:0 6px 20px rgba(0,0,0,.35);}
+ .card.err{border-color:var(--accent);}
+ .cardhead{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin-bottom:12px;}
+ .num{font-weight:800;font-size:20px;color:var(--accent);}
+ .lab{font-weight:600;}
+ .meta{margin-left:auto;font-size:12px;color:#777;}
+ .badge.err{background:var(--accent);color:#fff;border-radius:4px;padding:1px 7px;font-size:11px;}
+ .imgwrap{text-align:center;}
+ img.hero{max-width:100%;max-height:70vh;border:2px solid var(--ink);border-radius:6px;background:#fff;}
+ .noimg{padding:30px;color:var(--accent);font-weight:600;text-align:center;border:2px dashed var(--accent);border-radius:6px;}
+ .reflabel,.dl{font-size:10px;text-transform:uppercase;letter-spacing:.6px;color:var(--blue);margin:12px 0 4px;font-weight:700;}
+ details{margin-top:12px;}
+ summary{cursor:pointer;font-size:13px;color:var(--blue);font-weight:600;}
+ pre{white-space:pre-wrap;word-wrap:break-word;background:#fbfaf5;border:1px solid #ddd;border-radius:6px;padding:10px;font-size:12px;line-height:1.5;max-height:340px;overflow:auto;}
+ pre.err{border-color:var(--accent);color:#a01;}
+ .empty{color:#889;text-align:center;padding:40px;}
+ footer{color:#667;font-size:11px;text-align:center;padding:20px;}
+ .live{position:fixed;top:10px;right:12px;background:#1a1;color:#fff;font-size:11px;padding:3px 9px;border-radius:12px;opacity:.85;z-index:10;}
+ .live.off{background:#555;}
+ .allprojects{display:inline-block;font-size:12px;color:#9db4d8;text-decoration:none;font-weight:700;margin-bottom:10px;}
+ .allprojects:hover{text-decoration:underline;}
+ a.postcardlink{color:#f7f4ec;background:var(--blue);display:inline-block;margin:14px 4px;padding:6px 14px;border-radius:20px;font-size:13px;font-weight:700;text-decoration:none;}
+ a.postcardlink:hover{opacity:.85;}
+ .delbtn{margin-left:auto;background:none;border:1px solid var(--accent);color:var(--accent);border-radius:6px;padding:3px 10px;font-size:11px;font-weight:700;cursor:pointer;}
+ .delbtn:hover{background:var(--accent);color:#fff;}
+ .cardhead .meta{margin-left:0;}
+ .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:100;align-items:center;justify-content:center;}
+ .modal-overlay.open{display:flex;}
+ .modal-box{background:var(--paper);border-radius:10px;padding:24px 28px;max-width:380px;box-shadow:0 12px 40px rgba(0,0,0,.5);}
+ .modal-box h3{margin:0 0 10px;font-size:17px;color:var(--accent);}
+ .modal-box p{margin:0 0 20px;font-size:14px;line-height:1.5;color:#333;}
+ .modal-actions{display:flex;gap:10px;justify-content:flex-end;}
+ .modal-actions button{border-radius:6px;padding:8px 16px;font-size:13px;font-weight:700;cursor:pointer;border:1px solid #ccc;background:#fff;}
+ .modal-actions button.confirm{background:var(--accent);border-color:var(--accent);color:#fff;}
+ .modal-actions button.confirm:disabled{opacity:.6;cursor:default;}
+ .modal-error{color:var(--accent);font-size:12px;margin-top:10px;}
+</style>
+</head>
+<body>
+<div class="live" id="live">&#9679; live</div>
+<div class="wrap">
+  <a class="allprojects" href="../">&larr; All projects</a>
+  <header class="top">
+    <h1>Robot Riot Gateway Photo</h1>
+    <p class="theme">Gateway Summer Camp Robot Riot session — a REAL photo of real campers, edited/recomposed but kept fully photorealistic (no illustration/stylization)</p>
+    <p class="scene">Keep this as a straight photograph — same real kids, same lighting, same camera, same photographic quality. Do not illustrate, ink, cartoon, or stylize it in any way. The only change is recomposing where specific kids are positioned in the frame.</p>
+    <div class="chips"><span class="chip"><b>model</b> gpt-image-2</span></div>
+  </header>
+  <section class="sources"><h2>Source images</h2><div class="thumbs"><a href="sources/RobotRiotAtGateway.png" target="_blank"><img src="sources/RobotRiotAtGateway.png" alt="source"></a></div></section>
+  
+  <h2>Iterations</h2>
+  
+    <article class="card " data-iteration="3">
+      <div class="cardhead">
+        <span class="num">#3</span><span class="lab">— iter-003-vary-poses</span>
+        <span class="meta">2026-07-08T12:15:54 &middot; gpt-image-2</span>
+        <button class="delbtn" data-n="3" data-label="iter-003-vary-poses" title="Delete this iteration">&#128465; Delete</button>
+      </div>
+      <div class="imgwrap"><a href="iterations/iter-003.png" target="_blank"><img class="hero" src="iterations/iter-003.png" alt="iteration 3"></a></div>
+      <div class="reflabel">references</div><div class="thumbs small"><a href="iterations/iter-002.png" target="_blank"><img src="iterations/iter-002.png"></a></div>
+      <details><summary>Prompt &amp; details</summary>
+        <div class="detail">
+          <div class="dl">positive prompt</div><pre>This is a real, unretouched-looking photograph — not an illustration, not a cartoon, not a painting. Keep the exact same setting, camera angle, lighting, kids (same faces and clothing), robots, and the race composition as the attached reference image: everyone positioned around the outside edge of the white PVC-pipe-bordered arena, watching five small wheeled robots circling the lighter-gray island tile at the center. Do not change who is where around the perimeter, do not change the room, the arena, or the robots.
+
+The only change: give the kids a variety of natural, candid poses instead of everyone kneeling with both hands flat on the floor in an identical position. The boy in the dark hoodie and maroon pants (upper-center) and the boy in the black t-shirt and ripped jeans (right side) should be standing upright, leaning forward slightly from the waist with hands on their knees or arms relaxed at their sides, watching the mat. Give the remaining kids a mix of different candid poses — for example one sitting back on his heels with hands resting on his thighs, one kneeling on just one knee with the other foot planted, one crouched low and forward on the balls of his feet, one leaning sideways propped on one hand, one sitting cross-legged. Every kid should still be clearly watching the robots on the mat with focused attention. Keep it fully photorealistic, matching the lighting and image quality of the reference exactly.</pre>
+          <div class="dl">negative prompt</div><pre>Do not render this as a drawing, painting, cartoon, comic, or stylized illustration — it must look like a real photograph, same lighting and quality as the reference. Do not change the room, arena, robots, or where each kid is positioned around the perimeter. Do not put any kid back inside the arena rails. Do not have every kid in the same pose — avoid repeating the identical both-hands-on-the-ground kneel more than once. No added text, signs, or logos.</pre>
+          <div class="dl">notes</div><p>Vary the kids&#x27; poses — currently everyone kneels with both hands flat on the ground in the same pose. Standing 1-2 up, rest in a mix of poses.</p>
+          
+        </div>
+      </details>
+    </article>
+    <article class="card " data-iteration="2">
+      <div class="cardhead">
+        <span class="num">#2</span><span class="lab">— iter-001-race-recompose</span>
+        <span class="meta">2026-07-08T12:10:53 &middot; gpt-image-2</span>
+        <button class="delbtn" data-n="2" data-label="iter-001-race-recompose" title="Delete this iteration">&#128465; Delete</button>
+      </div>
+      <div class="imgwrap"><a href="iterations/iter-002.png" target="_blank"><img class="hero" src="iterations/iter-002.png" alt="iteration 2"></a></div>
+      <div class="reflabel">references</div><div class="thumbs small"><a href="sources/RobotRiotAtGateway.png" target="_blank"><img src="sources/RobotRiotAtGateway.png"></a></div>
+      <details><summary>Prompt &amp; details</summary>
+        <div class="detail">
+          <div class="dl">positive prompt</div><pre>This is a real, unretouched-looking photograph — not an illustration, not a cartoon, not a painting. Preserve the exact real-world setting from the attached reference photo: the same room, the same overhead-angled camera viewpoint looking down across the space, the same soft indoor lighting, the same wood bookshelves packed with colorful books along the back wall, the same wood door, the same square practice arena bordered by white PVC-pipe rails sitting on dark gray interlocking foam floor mat tiles, with one lighter gray mat tile set diagonally in the exact center of the arena as a small &#x27;island&#x27; obstacle. Keep the same real kids from the reference (same faces, same clothing: red t-shirt, blue t-shirt, green/olive shirt with gray sweatpants, pink patterned top, dark cap and pink polo, dark clothing) — do not invent new people, do not change how they look, do not draw or stylize them.
+
+Recompose the scene as a race in progress: every child is OFF the mat, kneeling or crouching just outside the white PVC rail on all four sides of the square arena, spaced out evenly around the perimeter, each one leaning in and looking down/inward at the mat, watching intently — nobody is sitting or lying inside the rails. On the mat itself, place FIVE small wheeled robots (matching the build style of the robots in the reference photo) arranged in a loose ring around the central island tile, as if mid-race circling around it in the same direction of travel, with clear open floor between them so they read as spread around a track rather than clustered together. The overall feel is a real candid action photo of a robot race, shot from slightly above, with every kid&#x27;s attention fixed on the robots circling the island.</pre>
+          <div class="dl">negative prompt</div><pre>Do not render this as a drawing, painting, cartoon, comic, or stylized illustration of any kind — it must look like a real photograph, same grain, same lighting, same camera quality as the reference. Do not invent new children or change their identities/clothing. Do not leave any child sitting, kneeling, or lying inside the arena rails. Do not cluster the robots together in the center or have them colliding — they should be spread in a ring around the island tile as if racing. No added text, signs, or logos anywhere. No change to the room, bookshelves, or camera framing beyond repositioning the kids and robots as described.</pre>
+          <div class="dl">notes</div><p>Recompose as a race: all kids off the mat and ringed around its edges watching, five robots circling the center island tile. Kept strictly photorealistic per designer correction — not stylized.</p>
+          
+        </div>
+      </details>
+    </article>
+    <article class="card " data-iteration="1">
+      <div class="cardhead">
+        <span class="num">#1</span><span class="lab">— iter-001-photo-to-illustration</span>
+        <span class="meta">2026-07-08T12:05:24 &middot; gpt-image-2</span>
+        <button class="delbtn" data-n="1" data-label="iter-001-photo-to-illustration" title="Delete this iteration">&#128465; Delete</button>
+      </div>
+      <div class="imgwrap"><a href="iterations/iter-001.png" target="_blank"><img class="hero" src="iterations/iter-001.png" alt="iteration 1"></a></div>
+      <div class="reflabel">references</div><div class="thumbs small"><a href="sources/RobotRiotAtGateway.png" target="_blank"><img src="sources/RobotRiotAtGateway.png"></a></div>
+      <details><summary>Prompt &amp; details</summary>
+        <div class="detail">
+          <div class="dl">positive prompt</div><pre>Golden-Age comic illustration, hand-inked Graphic Novel style (the HisMastersVoice look): bold tapered black ink contours, dense confident pen strokes carrying all the detail, broad flat saturated color fields with crisp hard edges, no gradients, no airbrush, no painted digital shading, no soft glows, no photorealism. Palette: warm-dominant orange-and-blue — Golden Amber #F9C233 and Marigold #F9B41E for warm surfaces, Burnt Orange #C96A10 and Sienna #9A4E12 for warm shadow, Steel Blue #175E8C and Deep Navy #16223C as the cool accent on machinery and shadow, Ink Black #101010 anchoring every contour, Cream #FBE5A0 for any lighter fill. Spend visual detail ONLY on the kids and their robots — hatching, feathering, wrinkles in clothing, hair drawn stroke by stroke, mechanical detail on each small wheeled robot; simplify the bookshelves, wall, and floor into bold flat shapes with just enough ink line to read clearly as a school library turned into a robotics practice space.
+
+Reproduce the attached reference photograph&#x27;s composition EXACTLY: the same elevated three-quarter overhead camera angle looking down across the room; the same number of kids in the same left-to-right and foreground-to-background positions; each kid&#x27;s exact pose (the boy in red kneeling over his robot at far left, the boy in green/gray crouching and reaching down at lower-left, the boy in blue crouched behind the near arena corner, the boy with the dark cap lying on his stomach working a controller at the near-right arena corner, the two figures standing/sitting near the doorway at upper right, the person standing in the doorway itself). Keep each child&#x27;s actual clothing colors: red t-shirt, blue t-shirt, green/olive shirt with gray sweatpants, pink patterned top, dark clothing near the door. A large square practice arena bordered by white PVC-pipe rails covers most of the floor, floored in dark gray interlocking foam mat tiles with one lighter gray diagondal-cut mat panel near the center; small blue-and-white wheeled robots with visible mechanical detail sit on the mat and just outside the rails, one paired with a small red-and-blue remote control on the carpet. Wood-toned bookshelves packed with rows of colorful books line the back wall behind the kids; a wood door stands open at the far right. Do NOT add, remove, or rearrange any figures or robots, and do NOT change the camera framing or orientation — this is a strict recreation of the photo&#x27;s composition in illustrated form.</pre>
+          <div class="dl">negative prompt</div><pre>No grain, speckle, stipple, halftone, newsprint, parchment, aged or yellowed paper, print-dot texture, soft airbrush glow. No painted/airbrushed shading, soft gradients, glossy rendered highlights, digital-painting look, rendered 3D volume, or cinematic photo lighting. No photorealism, photographic faces, 3D render, or CGI — this must read as hand-inked illustration, not a filtered photo. No anime/manga cel style, chibi, Funko-Pop, or oversized cartoon heads. No muddy, washed-out, or pastel color. Do NOT add, remove, duplicate, or rearrange any people or robots from the reference. Do NOT change the camera angle, crop, or orientation. No invented text, signs, or labels anywhere.</pre>
+          <div class="dl">notes</div><p>First pass converting the real Gateway camp photo into graphic-novel style, reference composition held strict.</p>
+          
+        </div>
+      </details>
+    </article>
+  <footer>Generated 2026-07-08T12:15:54 &middot; this page auto-reloads when a new iteration is added</footer>
+</div>
+<div class="modal-overlay" id="delModal">
+  <div class="modal-box">
+    <h3>Delete this iteration?</h3>
+    <p>Delete <strong id="delModalLabel"></strong>? This removes its image file(s) permanently and cannot be undone.</p>
+    <div class="modal-actions">
+      <button id="delModalCancel">Cancel</button>
+      <button class="confirm" id="delModalConfirm">Delete</button>
+    </div>
+    <div class="modal-error" id="delModalError"></div>
+  </div>
+</div>
+<script>
+ const CURRENT_VERSION = 5;
+ const SLUG = "Robot-Riot-Gateway-Photo";
+ const live = document.getElementById('live');
+ // Only ever reload when state.json confirms a NEW version. We never blind-reload on a
+ // timer: under file:// (fetch blocked) or with the server down we can't read the version,
+ // so reloading would just flicker the page without knowing anything changed. In that case
+ // show a hint and keep quietly retrying — a live server will be picked up automatically.
+ async function poll(){
+   let served = true;
+   try{
+     const r = await fetch('state.json?ts=' + Date.now(), {cache:'no-store'});
+     if(r.ok){
+       const s = await r.json();
+       if(s.version > CURRENT_VERSION){ location.reload(); return; }
+     }else{
+       served = false;
+     }
+   }catch(e){
+     served = false;
+   }
+   if(served){
+     live.className='live'; live.innerHTML='&#9679; live';
+     setTimeout(poll, 1500);
+   }else{
+     // No live server (e.g. opened via file://). Stop flickering; just retry slowly.
+     live.className='live off'; live.innerHTML='&#9679; open via server for live reload';
+     setTimeout(poll, 4000);
+   }
+ }
+ poll();
+
+ // Delete button + confirm modal. A destructive, irreversible action (removes the image
+ // file(s) too) — always requires an explicit confirm click, never just the initial button.
+ const modal = document.getElementById('delModal');
+ const modalLabel = document.getElementById('delModalLabel');
+ const modalConfirm = document.getElementById('delModalConfirm');
+ const modalCancel = document.getElementById('delModalCancel');
+ const modalError = document.getElementById('delModalError');
+ let pendingN = null;
+
+ function closeModal(){
+   modal.classList.remove('open');
+   pendingN = null;
+   modalError.textContent = '';
+   modalConfirm.disabled = false;
+   modalConfirm.textContent = 'Delete';
+ }
+
+ document.querySelectorAll('.delbtn').forEach(btn => {
+   btn.addEventListener('click', () => {
+     pendingN = btn.dataset.n;
+     modalLabel.textContent = '#' + pendingN + ' — ' + btn.dataset.label;
+     modalError.textContent = '';
+     modal.classList.add('open');
+   });
+ });
+ modalCancel.addEventListener('click', closeModal);
+ modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+
+ modalConfirm.addEventListener('click', async () => {
+   if (pendingN === null) return;
+   modalConfirm.disabled = true;
+   modalConfirm.textContent = 'Deleting…';
+   try {
+     const res = await fetch(`/${SLUG}/iterations/delete`, {
+       method: 'POST',
+       headers: {'Content-Type': 'application/json'},
+       body: JSON.stringify({n: parseInt(pendingN, 10)})
+     });
+     const body = await res.json();
+     if (!res.ok) throw new Error(body.error || res.statusText);
+     location.reload();
+   } catch (err) {
+     modalError.textContent = 'Delete failed: ' + err.message;
+     modalConfirm.disabled = false;
+     modalConfirm.textContent = 'Delete';
+   }
+ });
+</script>
+</body>
+</html>
