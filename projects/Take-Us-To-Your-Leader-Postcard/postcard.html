@@ -5,6 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Take Us To Your Leader Postcard — Postcard Preview</title>
 <style>
+ @font-face {
+   font-family: 'Bangers';
+   font-style: normal;
+   font-weight: 400;
+   font-display: swap;
+   src: url('../_fonts/Bangers-Regular.woff2') format('woff2');
+ }
  *{box-sizing:border-box;}
  body{margin:0;background:#101317;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;}
  .wrap{max-width:900px;margin:0 auto;padding:24px;display:flex;flex-direction:column;gap:36px;align-items:center;}
@@ -26,6 +33,23 @@
  .live{position:fixed;top:10px;right:12px;background:#1a1;color:#fff;font-size:11px;padding:3px 9px;border-radius:12px;opacity:.85;z-index:10;}
  .live.off{background:#555;}
  .allprojects{position:fixed;top:10px;left:12px;font-size:12px;color:#9db4d8;text-decoration:none;font-weight:700;}
+ .pdfbar{position:fixed;top:8px;left:50%;transform:translateX(-50%);z-index:10;display:flex;align-items:center;gap:10px;background:#1b1f27;border:1px solid #3a3f4a;border-radius:20px;padding:6px 8px 6px 16px;}
+ .pdfbar button{background:#F9C233;color:#101317;border:none;border-radius:14px;padding:6px 14px;font-size:12px;font-weight:700;cursor:pointer;}
+ .pdfbar button:disabled{opacity:.6;cursor:default;}
+ .pdfbar button.marksBtn{background:#3a3f4a;color:#f0efe8;}
+ .pdfbar button.marksBtn.on{background:#FF00FF;color:#101317;}
+ .pdfbar .pdf-status{font-size:11px;color:#9db4d8;min-width:60px;}
+ .pdfbar .pdf-status.err{color:#e06060;}
+ .pdfbar a.pdf-link{font-size:11px;color:#7ec87e;font-weight:700;text-decoration:none;}
+ .pdfbar a.pdf-link:hover{text-decoration:underline;}
+ /* Registration marks — a debug overlay showing each region's true bounding box, in a
+    garish, unmistakable color per region so overlapping/adjacent regions stay distinct.
+    Off by default; toggled by the "Marks" button (see script below). Deliberately NOT
+    gated by @media print, since the PDF export takes a raw screenshot of the live DOM
+    rather than using the print stylesheet — whatever's on screen when marks are on is
+    exactly what a PDF generated in that state will show too. */
+ body.marks-on .region{outline:3px dashed var(--mark-color, #FF00FF);outline-offset:-3px;}
+ .mark-swatch{display:inline-block;width:10px;height:10px;border-radius:2px;margin-left:6px;vertical-align:middle;border:1px solid rgba(255,255,255,.5);}
  @media print {
    html, body { margin:0; padding:0; background:#fff; }
    @page { size: 6in 4in; margin: 0; }
@@ -33,13 +57,18 @@
    .page-block{gap:0;}
    .page { margin:0; border:none; box-shadow:none; page-break-after: always; break-after: page; }
    .page-block:last-child .page { page-break-after: auto; break-after: auto; }
-   .pagelabel, .live, .allprojects, .editors { display:none !important; }
+   .pagelabel, .live, .allprojects, .editors, .pdfbar { display:none !important; }
  }
 </style>
 </head>
 <body>
 <div class="live" id="live">&#9679; live</div>
 <a class="allprojects" href="index.html">&larr; Back to gallery</a>
+<div class="pdfbar">
+  <button id="marksBtn" class="marksBtn">&#9723; Marks</button>
+  <button id="pdfBtn">&#128196; Generate PDF</button>
+  <span class="pdf-status" id="pdfStatus"></span>
+</div>
 <div class="wrap">
 
   <div class="page-block">
@@ -48,14 +77,14 @@
       <img class="bg" src="iterations/iter-021.png" alt="FRONT">
       
       
-      <div class="region" style="position:absolute; left:1.45in; right:0.15in; top:3.44in; font-family:Arial, Helvetica, sans-serif; font-weight:700; font-size:18px; line-height:1.25; color:#FBE5A0; letter-spacing:0.2px;" data-region="front_tagline"><p>Help the League bring a passion for technology to your school, church, work, or home.</p></div>
+      <div class="region" style="position:absolute; top:3.44in; left:1.45in; right:0.15in; font-family:Arial, Helvetica, sans-serif; font-size:18px; font-weight:700; line-height:1.25; color:#FBE5A0; letter-spacing:0.2px; --mark-color: #FF00FF;" data-region="front_tagline"><p>Help the League bring a passion for technology to your school, church, work, or home.</p></div>
       
     </section>
     
     <div class="editors">
       
       <div>
-        <label class="editor-label" for="box-front_tagline">Front tagline</label>
+        <label class="editor-label" for="box-front_tagline">Front tagline<span class="mark-swatch" style="background:#FF00FF;" title="#FF00FF"></span></label>
         <textarea class="editor-box" id="box-front_tagline" data-region="front_tagline" rows="3">Help the League bring a passion for technology to your school, church, work, or home.</textarea>
         <div class="editor-status" id="status-front_tagline"></div>
       </div>
@@ -71,15 +100,15 @@
       <img class="bg" src="iterations/iter-022.png" alt="BACK">
       <div style="position:absolute; top:1.65in; left:4.5in; width:1.2in; text-align:center;"><img src="sources/support-qr.png" style="width:1.15in; height:1.15in; display:block; margin:0 auto;"></div>
       
-      <div class="region" style="position:absolute; top:1.65in; left:0.3in; width:1.95in; font-family:Georgia, &#39;Times New Roman&#39;, serif; font-size:12.5px; line-height:1.45; color:#222;" data-region="back_col_a"><p>The League of Amazing Programmers is a 501(c)(3) nonprofit teaching real coding and robotics skills to kids across San Diego — completely free, funded by donors and hosts like you.</p>
+      <div class="region" style="position:absolute; top:1.65in; left:0.3in; width:1.95in; font-family:Georgia, &#39;Times New Roman&#39;, serif; font-size:12.5px; line-height:1.45; color:#222; --mark-color: #00FF66;" data-region="back_col_a"><p>The League of Amazing Programmers is a 501(c)(3) nonprofit teaching real coding and robotics skills to kids across San Diego — completely free, funded by donors and hosts like you.</p>
 <p>We're growing. Our goal is a Tech Club within reach of every neighborhood in the county.</p></div>
       
-      <div class="region" style="position:absolute; top:1.65in; left:2.4in; width:1.95in; font-family:Georgia, &#39;Times New Roman&#39;, serif; font-size:12.5px; line-height:1.45; color:#222;" data-region="back_col_b"><p>That means finding new places to hold class — a school, a church, a community center, or a company conference room after hours — and companies willing to open their doors to young engineers.</p>
+      <div class="region" style="position:absolute; top:1.65in; left:2.4in; width:1.95in; font-family:Georgia, &#39;Times New Roman&#39;, serif; font-size:12.5px; line-height:1.45; color:#222; --mark-color: #00FFFF;" data-region="back_col_b"><p>That means finding new places to hold class — a school, a church, a community center, or a company conference room after hours — and companies willing to open their doors to young engineers.</p>
 <p>One warm introduction beats a hundred cold emails. Help us find our next classroom — and our next generation of engineers.</p></div>
       
-      <div class="region" style="position:absolute; top:2.85in; left:4.5in; width:1.2in; text-align:center; font-family:Arial, Helvetica, sans-serif; font-weight:700; font-size:11px; color:#16223C;" data-region="back_url"><p>jointheleague.org/support</p></div>
+      <div class="region" style="position:absolute; top:2.85in; left:4.5in; width:1.2in; font-family:Arial, Helvetica, sans-serif; font-size:11px; text-align:center; font-weight:700; color:#16223C; --mark-color: #FFFF00;" data-region="back_url"><p>jointheleague.org/support</p></div>
       
-      <div class="region" style="position:absolute; top:3.05in; left:4.5in; width:1.2in; text-align:center; font-family:Arial, Helvetica, sans-serif; font-size:9px; color:#666; line-height:1.35;" data-region="back_nonprofit"><p>The League of Amazing Programmers is a 501(c)(3) nonprofit.<br />
+      <div class="region" style="position:absolute; top:3.05in; left:4.5in; width:1.2in; font-family:Arial, Helvetica, sans-serif; font-size:9px; text-align:center; color:#666; line-height:1.35; --mark-color: #FF6600;" data-region="back_nonprofit"><p>The League of Amazing Programmers is a 501(c)(3) nonprofit.<br />
 EIN 20-4744610</p></div>
       
     </section>
@@ -87,7 +116,7 @@ EIN 20-4744610</p></div>
     <div class="editors">
       
       <div>
-        <label class="editor-label" for="box-back_col_a">Column A (pitch)</label>
+        <label class="editor-label" for="box-back_col_a">Column A (pitch)<span class="mark-swatch" style="background:#00FF66;" title="#00FF66"></span></label>
         <textarea class="editor-box" id="box-back_col_a" data-region="back_col_a" rows="6">The League of Amazing Programmers is a 501(c)(3) nonprofit teaching real coding and robotics skills to kids across San Diego — completely free, funded by donors and hosts like you.
 
 We&#39;re growing. Our goal is a Tech Club within reach of every neighborhood in the county.</textarea>
@@ -95,7 +124,7 @@ We&#39;re growing. Our goal is a Tech Club within reach of every neighborhood in
       </div>
       
       <div>
-        <label class="editor-label" for="box-back_col_b">Column B (pitch)</label>
+        <label class="editor-label" for="box-back_col_b">Column B (pitch)<span class="mark-swatch" style="background:#00FFFF;" title="#00FFFF"></span></label>
         <textarea class="editor-box" id="box-back_col_b" data-region="back_col_b" rows="6">That means finding new places to hold class — a school, a church, a community center, or a company conference room after hours — and companies willing to open their doors to young engineers.
 
 One warm introduction beats a hundred cold emails. Help us find our next classroom — and our next generation of engineers.</textarea>
@@ -103,13 +132,13 @@ One warm introduction beats a hundred cold emails. Help us find our next classro
       </div>
       
       <div>
-        <label class="editor-label" for="box-back_url">QR caption — URL</label>
+        <label class="editor-label" for="box-back_url">QR caption — URL<span class="mark-swatch" style="background:#FFFF00;" title="#FFFF00"></span></label>
         <textarea class="editor-box" id="box-back_url" data-region="back_url" rows="3">jointheleague.org/support</textarea>
         <div class="editor-status" id="status-back_url"></div>
       </div>
       
       <div>
-        <label class="editor-label" for="box-back_nonprofit">QR caption — nonprofit/EIN</label>
+        <label class="editor-label" for="box-back_nonprofit">QR caption — nonprofit/EIN<span class="mark-swatch" style="background:#FF6600;" title="#FF6600"></span></label>
         <textarea class="editor-box" id="box-back_nonprofit" data-region="back_nonprofit" rows="3">The League of Amazing Programmers is a 501(c)(3) nonprofit.
 EIN 20-4744610</textarea>
         <div class="editor-status" id="status-back_nonprofit"></div>
@@ -122,7 +151,7 @@ EIN 20-4744610</textarea>
 
 </div>
 <script>
- const CURRENT_VERSION = 64;
+ const CURRENT_VERSION = 65;
  const SLUG = "Take-Us-To-Your-Leader-Postcard";
  const live = document.getElementById('live');
  async function poll(){
@@ -174,6 +203,44 @@ EIN 20-4744610</textarea>
      }
    });
  });
+
+ document.getElementById('pdfBtn').addEventListener('click', async () => {
+   const btn = document.getElementById('pdfBtn');
+   const status = document.getElementById('pdfStatus');
+   btn.disabled = true;
+   status.className = 'pdf-status';
+   status.textContent = 'generating…';
+   try {
+     const res = await fetch(`/${SLUG}/postcard/pdf`, {
+       method: 'POST',
+       headers: {'Content-Type': 'application/json'},
+       body: JSON.stringify({show_marks: document.body.classList.contains('marks-on')}),
+     });
+     const body = await res.json();
+     if (!res.ok) throw new Error(body.error || res.statusText);
+     status.innerHTML = `done — <a class="pdf-link" href="${body.pdf_rel}?ts=${Date.now()}" target="_blank">Open PDF</a>`;
+     window.open(`${body.pdf_rel}?ts=${Date.now()}`, '_blank');
+   } catch (err) {
+     status.textContent = 'failed: ' + err.message;
+     status.className = 'pdf-status err';
+   } finally {
+     btn.disabled = false;
+   }
+ });
+
+ // Registration marks toggle — one button for the whole page (both faces). Persists via
+ // localStorage so it stays on across reloads, and also honors a ?marks=1 URL param so
+ // the PDF generator (a fresh headless-browser navigation, no shared localStorage) can
+ // request marks-on for a specific export without touching the interactive toggle state.
+ const marksBtn = document.getElementById('marksBtn');
+ function setMarks(on){
+   document.body.classList.toggle('marks-on', on);
+   marksBtn.classList.toggle('on', on);
+   localStorage.setItem('showMarks', on ? '1' : '0');
+ }
+ const urlWantsMarks = new URLSearchParams(location.search).get('marks') === '1';
+ setMarks(urlWantsMarks || localStorage.getItem('showMarks') === '1');
+ marksBtn.addEventListener('click', () => setMarks(!document.body.classList.contains('marks-on')));
 </script>
 </body>
 </html>

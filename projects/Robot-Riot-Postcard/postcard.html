@@ -5,6 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Robot Riot Postcard — Postcard Preview</title>
 <style>
+ @font-face {
+   font-family: 'Bangers';
+   font-style: normal;
+   font-weight: 400;
+   font-display: swap;
+   src: url('../_fonts/Bangers-Regular.woff2') format('woff2');
+ }
  *{box-sizing:border-box;}
  body{margin:0;background:#101317;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;}
  .wrap{max-width:900px;margin:0 auto;padding:24px;display:flex;flex-direction:column;gap:36px;align-items:center;}
@@ -26,6 +33,23 @@
  .live{position:fixed;top:10px;right:12px;background:#1a1;color:#fff;font-size:11px;padding:3px 9px;border-radius:12px;opacity:.85;z-index:10;}
  .live.off{background:#555;}
  .allprojects{position:fixed;top:10px;left:12px;font-size:12px;color:#9db4d8;text-decoration:none;font-weight:700;}
+ .pdfbar{position:fixed;top:8px;left:50%;transform:translateX(-50%);z-index:10;display:flex;align-items:center;gap:10px;background:#1b1f27;border:1px solid #3a3f4a;border-radius:20px;padding:6px 8px 6px 16px;}
+ .pdfbar button{background:#F9C233;color:#101317;border:none;border-radius:14px;padding:6px 14px;font-size:12px;font-weight:700;cursor:pointer;}
+ .pdfbar button:disabled{opacity:.6;cursor:default;}
+ .pdfbar button.marksBtn{background:#3a3f4a;color:#f0efe8;}
+ .pdfbar button.marksBtn.on{background:#FF00FF;color:#101317;}
+ .pdfbar .pdf-status{font-size:11px;color:#9db4d8;min-width:60px;}
+ .pdfbar .pdf-status.err{color:#e06060;}
+ .pdfbar a.pdf-link{font-size:11px;color:#7ec87e;font-weight:700;text-decoration:none;}
+ .pdfbar a.pdf-link:hover{text-decoration:underline;}
+ /* Registration marks — a debug overlay showing each region's true bounding box, in a
+    garish, unmistakable color per region so overlapping/adjacent regions stay distinct.
+    Off by default; toggled by the "Marks" button (see script below). Deliberately NOT
+    gated by @media print, since the PDF export takes a raw screenshot of the live DOM
+    rather than using the print stylesheet — whatever's on screen when marks are on is
+    exactly what a PDF generated in that state will show too. */
+ body.marks-on .region{outline:3px dashed var(--mark-color, #FF00FF);outline-offset:-3px;}
+ .mark-swatch{display:inline-block;width:10px;height:10px;border-radius:2px;margin-left:6px;vertical-align:middle;border:1px solid rgba(255,255,255,.5);}
  @media print {
    html, body { margin:0; padding:0; background:#fff; }
    @page { size: 6in 4in; margin: 0; }
@@ -33,18 +57,23 @@
    .page-block{gap:0;}
    .page { margin:0; border:none; box-shadow:none; page-break-after: always; break-after: page; }
    .page-block:last-child .page { page-break-after: auto; break-after: auto; }
-   .pagelabel, .live, .allprojects, .editors { display:none !important; }
+   .pagelabel, .live, .allprojects, .editors, .pdfbar { display:none !important; }
  }
 </style>
 </head>
 <body>
 <div class="live" id="live">&#9679; live</div>
 <a class="allprojects" href="index.html">&larr; Back to gallery</a>
+<div class="pdfbar">
+  <button id="marksBtn" class="marksBtn">&#9723; Marks</button>
+  <button id="pdfBtn">&#128196; Generate PDF</button>
+  <span class="pdf-status" id="pdfStatus"></span>
+</div>
 <div class="wrap">
 
   <div class="page-block">
     <div class="pagelabel">FRONT</div>
-    <section class="page">
+    <section class="page" data-side="front">
       <img class="bg" src="iterations/iter-002.png" alt="FRONT">
       
       
@@ -54,21 +83,21 @@
 
   <div class="page-block">
     <div class="pagelabel">BACK</div>
-    <section class="page">
+    <section class="page" data-side="back">
       <img class="bg" src="iterations/iter-004.png" alt="BACK">
       <div style="position:absolute; top:1.15in; right:0.5in; width:1.5in; text-align:center;"><img src="sources/robot-riot-qr.png" style="width:1.5in; height:1.5in; display:block; margin:0 auto;"></div>
       
-      <div class="region" style="position:absolute; top:1.0in; left:0.5in; width:3.4in; font-family:&#39;Arial Black&#39;, Arial, sans-serif; font-weight:900; font-size:34px; color:#CC1616; letter-spacing:1px;" data-region="back_headline"><p>ROBOT RIOT</p></div>
+      <div class="region" style="position:absolute; top:1.0in; left:0.5in; width:3.4in; font-family:&#39;Arial Black&#39;, Arial, sans-serif; font-size:34px; font-weight:900; color:#CC1616; letter-spacing:1px; --mark-color: #FF00FF;" data-region="back_headline"><p>ROBOT RIOT</p></div>
       
-      <div class="region" style="position:absolute; top:1.49in; left:0.5in; width:3.4in; font-family:Arial, Helvetica, sans-serif; font-weight:700; font-size:18px; color:#16223C;" data-region="back_datetime"><p>Saturday, July 11 · 1:00 PM · The Robot Garage</p></div>
+      <div class="region" style="position:absolute; top:1.49in; left:0.5in; width:3.4in; font-family:Arial, Helvetica, sans-serif; font-size:18px; font-weight:700; color:#16223C; --mark-color: #00FF66;" data-region="back_datetime"><p>Saturday, July 11 · 1:00 PM · The Robot Garage</p></div>
       
-      <div class="region" style="position:absolute; top:1.86in; left:0.5in; width:3.4in; font-family:Georgia, &#39;Times New Roman&#39;, serif; font-size:15.5px; line-height:1.5; color:#101010;" data-region="back_body"><p>You build the robot. You wire it, program it, and rig it with flippers, pushers, and grippers. Then you drive it into the arena and crash it into everyone else's machine. No spectating — you're in the driver's seat.</p></div>
+      <div class="region" style="position:absolute; top:1.86in; left:0.5in; width:3.4in; font-family:Georgia, &#39;Times New Roman&#39;, serif; font-size:15.5px; line-height:1.5; color:#101010; --mark-color: #00FFFF;" data-region="back_body"><p>You build the robot. You wire it, program it, and rig it with flippers, pushers, and grippers. Then you drive it into the arena and crash it into everyone else's machine. No spectating — you're in the driver's seat.</p></div>
       
-      <div class="region" style="position:absolute; top:3.25in; left:0.5in; width:3.4in; font-family:Arial, Helvetica, sans-serif; font-weight:800; font-size:16px; color:#C96A10;" data-region="back_cta"><p>Scan to sign up — it's free!</p></div>
+      <div class="region" style="position:absolute; top:3.25in; left:0.5in; width:3.4in; font-family:Arial, Helvetica, sans-serif; font-size:16px; font-weight:800; color:#C96A10; --mark-color: #FFFF00;" data-region="back_cta"><p>Scan to sign up — it's free!</p></div>
       
-      <div class="region" style="position:absolute; top:2.73in; right:0.5in; width:1.5in; text-align:center; font-family:Arial, Helvetica, sans-serif; font-weight:700; font-size:13px; color:#16223C;" data-region="back_url"><p>jointheleague.org/0G</p></div>
+      <div class="region" style="position:absolute; top:2.73in; right:0.5in; width:1.5in; font-family:Arial, Helvetica, sans-serif; font-size:13px; text-align:center; font-weight:700; color:#16223C; --mark-color: #FF6600;" data-region="back_url"><p>jointheleague.org/0G</p></div>
       
-      <div class="region" style="position:absolute; top:2.95in; right:0.5in; width:1.5in; text-align:center; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#666; line-height:1.35;" data-region="back_nonprofit"><p>The League of Amazing Programmers is a 501(c)(3) nonprofit<br />
+      <div class="region" style="position:absolute; top:2.95in; right:0.5in; width:1.5in; font-family:Arial, Helvetica, sans-serif; font-size:10px; text-align:center; color:#666; line-height:1.35; --mark-color: #FF0066;" data-region="back_nonprofit"><p>The League of Amazing Programmers is a 501(c)(3) nonprofit<br />
 EIN 20-4744610</p></div>
       
     </section>
@@ -76,7 +105,7 @@ EIN 20-4744610</p></div>
     <div class="editors">
       
       <div>
-        <label class="editor-label" for="box-back_headline">Headline</label>
+        <label class="editor-label" for="box-back_headline">Headline<span class="mark-swatch" style="background:#FF00FF;" title="#FF00FF"></span></label>
         <textarea class="editor-box" id="box-back_headline" data-region="back_headline" rows="3">ROBOT RIOT
 
 </textarea>
@@ -84,31 +113,31 @@ EIN 20-4744610</p></div>
       </div>
       
       <div>
-        <label class="editor-label" for="box-back_datetime">Date &amp; location</label>
+        <label class="editor-label" for="box-back_datetime">Date &amp; location<span class="mark-swatch" style="background:#00FF66;" title="#00FF66"></span></label>
         <textarea class="editor-box" id="box-back_datetime" data-region="back_datetime" rows="3">Saturday, July 11 · 1:00 PM · The Robot Garage</textarea>
         <div class="editor-status" id="status-back_datetime"></div>
       </div>
       
       <div>
-        <label class="editor-label" for="box-back_body">Body copy</label>
+        <label class="editor-label" for="box-back_body">Body copy<span class="mark-swatch" style="background:#00FFFF;" title="#00FFFF"></span></label>
         <textarea class="editor-box" id="box-back_body" data-region="back_body" rows="5">You build the robot. You wire it, program it, and rig it with flippers, pushers, and grippers. Then you drive it into the arena and crash it into everyone else&#39;s machine. No spectating — you&#39;re in the driver&#39;s seat.</textarea>
         <div class="editor-status" id="status-back_body"></div>
       </div>
       
       <div>
-        <label class="editor-label" for="box-back_cta">Call to action</label>
+        <label class="editor-label" for="box-back_cta">Call to action<span class="mark-swatch" style="background:#FFFF00;" title="#FFFF00"></span></label>
         <textarea class="editor-box" id="box-back_cta" data-region="back_cta" rows="3">Scan to sign up — it&#39;s free!</textarea>
         <div class="editor-status" id="status-back_cta"></div>
       </div>
       
       <div>
-        <label class="editor-label" for="box-back_url">QR caption — URL</label>
+        <label class="editor-label" for="box-back_url">QR caption — URL<span class="mark-swatch" style="background:#FF6600;" title="#FF6600"></span></label>
         <textarea class="editor-box" id="box-back_url" data-region="back_url" rows="3">jointheleague.org/0G</textarea>
         <div class="editor-status" id="status-back_url"></div>
       </div>
       
       <div>
-        <label class="editor-label" for="box-back_nonprofit">QR caption — nonprofit/EIN</label>
+        <label class="editor-label" for="box-back_nonprofit">QR caption — nonprofit/EIN<span class="mark-swatch" style="background:#FF0066;" title="#FF0066"></span></label>
         <textarea class="editor-box" id="box-back_nonprofit" data-region="back_nonprofit" rows="3">The League of Amazing Programmers is a 501(c)(3) nonprofit
 EIN 20-4744610</textarea>
         <div class="editor-status" id="status-back_nonprofit"></div>
@@ -121,7 +150,7 @@ EIN 20-4744610</textarea>
 
 </div>
 <script>
- const CURRENT_VERSION = 68;
+ const CURRENT_VERSION = 69;
  const SLUG = "Robot-Riot-Postcard";
  const live = document.getElementById('live');
  async function poll(){
@@ -173,6 +202,44 @@ EIN 20-4744610</textarea>
      }
    });
  });
+
+ document.getElementById('pdfBtn').addEventListener('click', async () => {
+   const btn = document.getElementById('pdfBtn');
+   const status = document.getElementById('pdfStatus');
+   btn.disabled = true;
+   status.className = 'pdf-status';
+   status.textContent = 'generating…';
+   try {
+     const res = await fetch(`/${SLUG}/postcard/pdf`, {
+       method: 'POST',
+       headers: {'Content-Type': 'application/json'},
+       body: JSON.stringify({show_marks: document.body.classList.contains('marks-on')}),
+     });
+     const body = await res.json();
+     if (!res.ok) throw new Error(body.error || res.statusText);
+     status.innerHTML = `done — <a class="pdf-link" href="${body.pdf_rel}?ts=${Date.now()}" target="_blank">Open PDF</a>`;
+     window.open(`${body.pdf_rel}?ts=${Date.now()}`, '_blank');
+   } catch (err) {
+     status.textContent = 'failed: ' + err.message;
+     status.className = 'pdf-status err';
+   } finally {
+     btn.disabled = false;
+   }
+ });
+
+ // Registration marks toggle — one button for the whole page (both faces). Persists via
+ // localStorage so it stays on across reloads, and also honors a ?marks=1 URL param so
+ // the PDF generator (a fresh headless-browser navigation, no shared localStorage) can
+ // request marks-on for a specific export without touching the interactive toggle state.
+ const marksBtn = document.getElementById('marksBtn');
+ function setMarks(on){
+   document.body.classList.toggle('marks-on', on);
+   marksBtn.classList.toggle('on', on);
+   localStorage.setItem('showMarks', on ? '1' : '0');
+ }
+ const urlWantsMarks = new URLSearchParams(location.search).get('marks') === '1';
+ setMarks(urlWantsMarks || localStorage.getItem('showMarks') === '1');
+ marksBtn.addEventListener('click', () => setMarks(!document.body.classList.contains('marks-on')));
 </script>
 </body>
 </html>

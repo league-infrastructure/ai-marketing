@@ -6,44 +6,98 @@
     {
       "name": "back_headline",
       "label": "Headline",
-      "style": "position:absolute; top:1.0in; left:0.5in; width:3.4in; font-family:'Arial Black', Arial, sans-serif; font-weight:900; font-size:34px; color:#CC1616; letter-spacing:1px;",
+      "style": "font-weight:900; color:#CC1616; letter-spacing:1px;",
       "text": "ROBOT RIOT\n\n",
-      "rows": null
+      "rows": null,
+      "position": {
+        "top": "1.0in",
+        "left": "0.5in",
+        "width": "3.4in"
+      },
+      "font": {
+        "family": "'Arial Black', Arial, sans-serif",
+        "size": "34px"
+      }
     },
     {
       "name": "back_datetime",
       "label": "Date & location",
-      "style": "position:absolute; top:1.49in; left:0.5in; width:3.4in; font-family:Arial, Helvetica, sans-serif; font-weight:700; font-size:18px; color:#16223C;",
+      "style": "font-weight:700; color:#16223C;",
       "text": "Saturday, July 11 · 1:00 PM · The Robot Garage",
-      "rows": null
+      "rows": null,
+      "position": {
+        "top": "1.49in",
+        "left": "0.5in",
+        "width": "3.4in"
+      },
+      "font": {
+        "family": "Arial, Helvetica, sans-serif",
+        "size": "18px"
+      }
     },
     {
       "name": "back_body",
       "label": "Body copy",
-      "style": "position:absolute; top:1.86in; left:0.5in; width:3.4in; font-family:Georgia, 'Times New Roman', serif; font-size:15.5px; line-height:1.5; color:#101010;",
+      "style": "line-height:1.5; color:#101010;",
       "text": "You build the robot. You wire it, program it, and rig it with flippers, pushers, and grippers. Then you drive it into the arena and crash it into everyone else's machine. No spectating — you're in the driver's seat.",
-      "rows": 5
+      "rows": 5,
+      "position": {
+        "top": "1.86in",
+        "left": "0.5in",
+        "width": "3.4in"
+      },
+      "font": {
+        "family": "Georgia, 'Times New Roman', serif",
+        "size": "15.5px"
+      }
     },
     {
       "name": "back_cta",
       "label": "Call to action",
-      "style": "position:absolute; top:3.25in; left:0.5in; width:3.4in; font-family:Arial, Helvetica, sans-serif; font-weight:800; font-size:16px; color:#C96A10;",
+      "style": "font-weight:800; color:#C96A10;",
       "text": "Scan to sign up — it's free!",
-      "rows": null
+      "rows": null,
+      "position": {
+        "top": "3.25in",
+        "left": "0.5in",
+        "width": "3.4in"
+      },
+      "font": {
+        "family": "Arial, Helvetica, sans-serif",
+        "size": "16px"
+      }
     },
     {
       "name": "back_url",
       "label": "QR caption — URL",
-      "style": "position:absolute; top:2.73in; right:0.5in; width:1.5in; text-align:center; font-family:Arial, Helvetica, sans-serif; font-weight:700; font-size:13px; color:#16223C;",
+      "style": "text-align:center; font-weight:700; color:#16223C;",
       "text": "jointheleague.org/0G",
-      "rows": null
+      "rows": null,
+      "position": {
+        "top": "2.73in",
+        "right": "0.5in",
+        "width": "1.5in"
+      },
+      "font": {
+        "family": "Arial, Helvetica, sans-serif",
+        "size": "13px"
+      }
     },
     {
       "name": "back_nonprofit",
       "label": "QR caption — nonprofit/EIN",
-      "style": "position:absolute; top:2.95in; right:0.5in; width:1.5in; text-align:center; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#666; line-height:1.35;",
+      "style": "text-align:center; color:#666; line-height:1.35;",
       "text": "The League of Amazing Programmers is a 501(c)(3) nonprofit\nEIN 20-4744610",
-      "rows": 3
+      "rows": 3,
+      "position": {
+        "top": "2.95in",
+        "right": "0.5in",
+        "width": "1.5in"
+      },
+      "font": {
+        "family": "Arial, Helvetica, sans-serif",
+        "size": "10px"
+      }
     }
   ],
   "front_extra_html": "",

@@ -1006,6 +1006,7 @@ def set_postcard_regions(name: str, side: str, regions: list) -> str:
             return json.dumps({"error": "every region needs a unique 'name'"})
         clean.append({
             "name": r["name"], "label": r.get("label", r["name"]),
+            "position": r.get("position", {}), "font": r.get("font", {}),
             "style": r.get("style", ""), "text": r.get("text", ""), "rows": r.get("rows"),
         })
     content[f"{side}_regions"] = clean
@@ -1020,7 +1021,11 @@ def set_postcard_regions(name: str, side: str, regions: list) -> str:
 
 
 def update_postcard_region(name: str, side: str, region_name: str,
-                            text: Optional[str] = None, style: Optional[str] = None) -> str:
+                            text: Optional[str] = None, position: Optional[dict] = None,
+                            font: Optional[dict] = None, style: Optional[str] = None) -> str:
+    """position/font are merged into whatever's already stored (only the keys you pass
+    change — e.g. position={"top": "3.5in"} leaves left/width/height alone); style (the
+    residual free-form CSS) is replaced wholesale, same as text, when provided."""
     if side not in ("front", "back"):
         return json.dumps({"error": "side must be 'front' or 'back'"})
     data = _load_project(name)
@@ -1032,6 +1037,10 @@ def update_postcard_region(name: str, side: str, region_name: str,
         if r.get("name") == region_name:
             if text is not None:
                 r["text"] = text
+            if position is not None:
+                r["position"] = {**(r.get("position") or {}), **position}
+            if font is not None:
+                r["font"] = {**(r.get("font") or {}), **font}
             if style is not None:
                 r["style"] = style
             try:
@@ -1058,12 +1067,15 @@ def set_postcard_extra_html(name: str, side: str, html_content: str) -> str:
     return json.dumps({"project": data["slug"], "side": side}, indent=2)
 
 
-def generate_postcard_pdf(name: str, out_path: str = "") -> str:
+def generate_postcard_pdf(name: str, out_path: str = "", show_marks: bool = False) -> str:
     data = _load_project(name)
     if not data:
         return json.dumps({"error": f"No project named '{name}'"})
     try:
-        result = _webserver_post(f"{data['slug']}/postcard/pdf", {"out_path": out_path}, timeout=120.0)
+        result = _webserver_post(
+            f"{data['slug']}/postcard/pdf",
+            {"out_path": out_path, "show_marks": show_marks}, timeout=120.0,
+        )
     except Exception as e:
         return json.dumps({"error": str(e)})
     return json.dumps(result, indent=2)
@@ -1182,7 +1194,11 @@ def main() -> None:
     s.add_argument("--side", required=True, choices=["front", "back"])
     s.add_argument("--region-name", required=True)
     s.add_argument("--text")
-    s.add_argument("--style")
+    s.add_argument("--position", type=json.loads,
+                    help='JSON dict, merged into the existing position, e.g. \'{"top":"3.5in"}\'')
+    s.add_argument("--font", type=json.loads,
+                    help='JSON dict, merged into the existing font, e.g. \'{"size":"14px"}\'')
+    s.add_argument("--style", help="residual free-form CSS (color, padding, line-height, etc.)")
 
     s = sub.add_parser("set-postcard-extra-html")
     s.add_argument("--name", required=True)
@@ -1192,6 +1208,7 @@ def main() -> None:
     s = sub.add_parser("generate-postcard-pdf")
     s.add_argument("--name", required=True)
     s.add_argument("--out-path", default="")
+    s.add_argument("--show-marks", action=argparse.BooleanOptionalAction, default=False)
 
     s = sub.add_parser("restart-web-server")
     s.add_argument("--port", type=int, default=0)

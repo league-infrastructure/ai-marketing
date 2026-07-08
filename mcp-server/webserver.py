@@ -432,28 +432,72 @@ def _has_postcard(pdir: Path) -> bool:
     return _postcard_content_path(pdir).exists()
 
 
+# Registration-mark palette: deliberately garish, high-visibility colors so a region's
+# outline is unmistakable against any artwork behind it. Assigned in order across every
+# region on the page (front then back) so the same region always gets the same color
+# across reloads, and adjacent/overlapping regions read as visually distinct.
+_MARK_COLORS = [
+    "#FF00FF",  # magenta
+    "#00FF66",  # green-screen green
+    "#00FFFF",  # cyan
+    "#FFFF00",  # yellow
+    "#FF6600",  # orange
+    "#FF0066",  # hot pink
+    "#66FF00",  # lime
+    "#00CCFF",  # electric blue
+]
+
+
+# The individually-editable pieces of a region's box model — pulled out of "style" into
+# their own "position" fields so the bounding box is real, named data instead of buried
+# inside one opaque CSS string. Not every region uses every prop (e.g. "right" instead of
+# "left" for a right-anchored box) — only the ones present get emitted.
+_POSITION_PROPS = ("top", "left", "right", "bottom", "width", "height")
+
+
+def _compose_region_style(r: dict) -> str:
+    """Build a region's final inline CSS from its structured position/font fields plus any
+    residual free-form style (color, padding, line-height, etc.) — the one place that turns
+    "data" (position, font) back into the CSS the template actually uses."""
+    parts = ["position:absolute;"]
+    position = r.get("position") or {}
+    for prop in _POSITION_PROPS:
+        val = position.get(prop)
+        if val:
+            parts.append(f"{prop}:{val};")
+    font = r.get("font") or {}
+    if font.get("family"):
+        parts.append(f"font-family:{font['family']};")
+    if font.get("size"):
+        parts.append(f"font-size:{font['size']};")
+    extra = (r.get("style") or "").strip()
+    if extra:
+        parts.append(extra)
+    return " ".join(parts)
+
+
 def _render_postcard_html(name: str, slug: str, version: int, content: dict) -> str:
     """Render postcard.html from postcard-content.json via the Jinja2 template: front + back
     pages, each a full-bleed image with named text regions (Markdown, rendered server-side)
     absolutely positioned on top, plus a labeled textarea per region so the designer can edit
     text directly in the browser."""
+    mark_counter = [0]
+
     def _side(label: str, image: str, regions: list, extra_html: str) -> dict:
-        return {
-            "label": label,
-            "image": image,
-            "extra_html": extra_html,
-            "regions": [
-                {
-                    "name": r.get("name", ""),
-                    "label": r.get("label", r.get("name", "")),
-                    "style": r.get("style", ""),
-                    "text": r.get("text", ""),
-                    "rows": r.get("rows"),
-                    "html": _render_markdown(r.get("text", "")),
-                }
-                for r in regions
-            ],
-        }
+        side_regions = []
+        for r in regions:
+            color = _MARK_COLORS[mark_counter[0] % len(_MARK_COLORS)]
+            mark_counter[0] += 1
+            side_regions.append({
+                "name": r.get("name", ""),
+                "label": r.get("label", r.get("name", "")),
+                "style": _compose_region_style(r),
+                "text": r.get("text", ""),
+                "rows": r.get("rows"),
+                "html": _render_markdown(r.get("text", "")),
+                "mark_color": color,
+            })
+        return {"label": label, "image": image, "extra_html": extra_html, "regions": side_regions}
 
     return _JINJA_ENV.get_template("postcard.html.j2").render(
         name=name,
@@ -475,7 +519,7 @@ def _save_postcard_html(pdir: Path, name: str, slug: str, state_version: int) ->
     )
 
 
-async def _generate_postcard_pdf_impl(name: str, out_path: str = "") -> dict:
+async def _generate_postcard_pdf_impl(name: str, out_path: str = "", show_marks: bool = False) -> dict:
     """Render postcard.html (front + back) to a print-ready, 2-page PDF. Each face is captured
     as a flattened raster at the true 6x4in trim size (headless Chromium via Playwright, so it
     matches the browser preview exactly), then extended by the standard 1/8in cutting bleed on
@@ -483,7 +527,9 @@ async def _generate_postcard_pdf_impl(name: str, out_path: str = "") -> dict:
     print vendor's submission requirement. Each page also gets real /TrimBox and /BleedBox
     metadata (not just bled pixels) — a preflight checker reads those boxes, not the artwork,
     to judge bleed; without them the whole bled page reads as the trim and the file looks
-    bleed-free no matter how the art was drawn."""
+    bleed-free no matter how the art was drawn. show_marks=True renders with registration
+    marks on (via the same ?marks=1 the browser toggle uses) — a debug export, never the
+    default, so a normal PDF stays clean unless explicitly asked for marks."""
     data = _load_project(name)
     if not data:
         return {"error": f"No project named '{name}'"}
@@ -519,7 +565,8 @@ async def _generate_postcard_pdf_impl(name: str, out_path: str = "") -> dict:
                     device_scale_factor=device_scale,
                 )
                 page = await context.new_page()
-                await page.goto(f"http://127.0.0.1:{port}/{slug}/postcard.html", wait_until="networkidle")
+                marks_qs = "?marks=1" if show_marks else ""
+                await page.goto(f"http://127.0.0.1:{port}/{slug}/postcard.html{marks_qs}", wait_until="networkidle")
                 # .page's border is an on-screen affordance (shows the page edge against the
                 # dark preview background) — strip it here so the bleed pad extends the actual
                 # art outward instead of smearing the border color into the print margin.
@@ -577,7 +624,7 @@ class _StaticHandler(SimpleHTTPRequestHandler):
         - /<slug>/postcard-content/save {<full postcard-content.json>}  (persist + re-render)
         - /<slug>/postcard/save       {"region": ..., "text": ...}  (Enter-to-save in postcard.html)
         - /<slug>/iterations/delete   {"n": <int>}              (Delete button + confirm modal)
-        - /<slug>/postcard/pdf        {}                        ("Generate PDF" button)
+        - /<slug>/postcard/pdf        {"show_marks": bool}      ("Generate PDF" button)
         """
         parts = [p for p in urllib.parse.urlparse(self.path).path.split("/") if p]
         try:
@@ -596,7 +643,9 @@ class _StaticHandler(SimpleHTTPRequestHandler):
                     _delete_iteration(slug, int(body.get("n")))
                     result = {"ok": True}
                 elif action == ("postcard", "pdf"):
-                    result = asyncio.run(_generate_postcard_pdf_impl(slug, str(body.get("out_path", ""))))
+                    result = asyncio.run(_generate_postcard_pdf_impl(
+                        slug, str(body.get("out_path", "")), bool(body.get("show_marks", False))
+                    ))
                     if "error" in result:
                         self._json_response(400, result)
                         return
