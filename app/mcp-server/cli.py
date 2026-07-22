@@ -1159,6 +1159,270 @@ def generate_postcard_pdf(name: str, out_path: str = "", show_marks: bool = Fals
     return json.dumps(result, indent=2)
 
 
+# ── Asset & Project Catalog ─────────────────────────────────────────────────
+# Two JSON indexes so Claude can find existing images by content instead of guessing paths:
+# images/catalog.json for the standalone media library (stock photos, components, reference
+# art) and projects/catalog.json for every image inside a generation project. Both are built
+# INCREMENTALLY — catalog-images/catalog-projects only vision-categorize files not already
+# keyed in the index (or changed on disk, with --rescan), up to --limit per call — so
+# re-running the same command periodically is exactly how you make progress and pick up
+# anything missed, rather than a single all-or-nothing pass.
+
+IMAGE_EXTENSIONS = (".png", ".jpg", ".jpeg", ".webp")
+IMAGES_CATALOG_PATH = IMAGES_DIR / "catalog.json"
+PROJECTS_CATALOG_PATH = PROJECTS_DIR / "catalog.json"
+CATALOG_MODEL = EVALUATION_MODEL  # same vision-capable model already used for evaluate-image
+
+_KNOWN_STYLES = (
+    "photograph", "graphic-novel", "comic-book", "manga", "pop-art", "flat-poster",
+    "8bit-video-game", "dragon-ball-z", "technical-blueprint", "type-sample", "other",
+)
+
+
+def _load_catalog(path: Path) -> dict:
+    if path.exists():
+        try:
+            data = json.loads(path.read_text())
+            data.setdefault("entries", {})
+            return data
+        except Exception:
+            pass
+    return {"entries": {}}
+
+
+def _save_catalog(path: Path, catalog: dict) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(catalog, indent=2, ensure_ascii=False))
+
+
+async def _vision_categorize(image_path: Path, known_style: str = "") -> dict:
+    """Send one image to the vision model and get back the fixed catalog fields. known_style,
+    when given (a project already records its generation style in project.json), is used
+    verbatim instead of asking the model to guess it."""
+    if not OPENROUTER_API_KEY:
+        return {"error": "OPENROUTER_API_KEY not set."}
+    with open(image_path, "rb") as f:
+        img_b64 = base64.b64encode(f.read()).decode()
+    ext = image_path.suffix.lower()
+    mime_map = {".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".webp": "image/webp"}
+    mime = mime_map.get(ext, "image/png")
+
+    style_instruction = (
+        f'The style is already known to be "{known_style}" — use exactly that string for "style".'
+        if known_style else
+        f"Classify \"style\" as one of: {', '.join(_KNOWN_STYLES)}."
+    )
+
+    prompt = f"""You are cataloging images for a youth robotics/programming education nonprofit's marketing asset library.
+
+Look at the attached image and respond with ONLY a valid JSON object, no other text, in exactly this shape:
+{{
+  "description": "one or two plain factual sentences describing exactly what is shown",
+  "style": "...",
+  "people": "none" | "single" | "multiple",
+  "about_programming": true | false,
+  "about_robotics": true | false,
+  "ai_altered": true | false,
+  "tags": ["short", "lowercase", "keywords"]
+}}
+
+{style_instruction}
+"people" counts humans in the image (not robots) — none, exactly one, or multiple.
+"about_programming" is true if the image depicts or clearly relates to writing code, software, or computer programming.
+"about_robotics" is true if the image depicts or clearly relates to robots or robotics hardware.
+"ai_altered" is true if the image looks AI-generated or AI-illustrated/edited; false if it looks like an untouched real photograph.
+"tags" should be 3-8 short keywords useful for search (subjects, setting, mood, colors)."""
+
+    headers = {
+        "Authorization": f"Bearer {OPENROUTER_API_KEY}",
+        "Content-Type": "application/json",
+        "HTTP-Referer": "https://league.ai",
+        "X-Title": "League Asset Cataloger",
+    }
+    payload = {
+        "model": CATALOG_MODEL,
+        "messages": [{
+            "role": "user",
+            "content": [
+                {"type": "text", "text": prompt},
+                {"type": "image_url", "image_url": {"url": f"data:{mime};base64,{img_b64}"}},
+            ],
+        }],
+        "max_tokens": 500,
+    }
+    try:
+        async with httpx.AsyncClient(timeout=90.0) as client:
+            response = await client.post(f"{OPENROUTER_BASE}/chat/completions", headers=headers, json=payload)
+            response.raise_for_status()
+            data = response.json()
+        text = data["choices"][0]["message"]["content"]
+        text = re.sub(r"^```(?:json)?|```$", "", text.strip(), flags=re.MULTILINE).strip()
+        parsed = json.loads(text)
+    except Exception as e:
+        return {"error": str(e)}
+
+    if known_style:
+        parsed["style"] = known_style
+    parsed.setdefault("tags", [])
+    return parsed
+
+
+def _searchable_blob(entry: dict, extra: str = "") -> str:
+    parts = [
+        entry.get("description", ""), extra, entry.get("style", ""), entry.get("role", ""),
+        " ".join(entry.get("tags", [])),
+        "about programming" if entry.get("about_programming") else "",
+        "about robotics" if entry.get("about_robotics") else "",
+        {"none": "no people", "single": "one person", "multiple": "multiple people"}.get(entry.get("people"), ""),
+        "ai generated ai altered ai illustrated" if entry.get("ai_altered") else "real photograph unaltered",
+    ]
+    return " ".join(parts).lower()
+
+
+async def catalog_images(rescan: bool = False, limit: int = 25) -> str:
+    """Scan images/ for image files and vision-categorize any not already in
+    images/catalog.json (or changed on disk, with rescan=True), up to `limit` new/changed
+    files this call — safe to just call again to keep making progress."""
+    catalog = _load_catalog(IMAGES_CATALOG_PATH)
+    entries = catalog["entries"]
+
+    all_files = sorted(p for p in IMAGES_DIR.rglob("*") if p.suffix.lower() in IMAGE_EXTENSIONS)
+    role_by_top = {
+        "photos": "source", "stock_images": "source",
+        "prior-art": "reference", "examples": "reference", "images": "reference",
+        "components": "final", "assets": "final",
+    }
+
+    processed, skipped, limited, errors = 0, 0, 0, []
+    for path in all_files:
+        rel = str(path.relative_to(MARKETING_DIR))
+        mtime = path.stat().st_mtime
+        existing = entries.get(rel)
+        if existing and not (rescan and existing.get("mtime") != mtime):
+            skipped += 1
+            continue
+        if processed >= limit:
+            limited += 1
+            continue
+        top = path.relative_to(IMAGES_DIR).parts[0]
+        result = await _vision_categorize(path)
+        if "error" in result:
+            errors.append({"path": rel, "error": result["error"]})
+            continue
+        result["path"] = rel
+        result["mtime"] = mtime
+        result["role"] = role_by_top.get(top, "unknown")
+        entries[rel] = result
+        processed += 1
+        _save_catalog(IMAGES_CATALOG_PATH, catalog)  # incremental save — survives interruption
+
+    return json.dumps({
+        "total_files": len(all_files), "already_cataloged": skipped, "newly_cataloged": processed,
+        "remaining": limited + len(errors), "errors": errors, "catalog": str(IMAGES_CATALOG_PATH),
+    }, indent=2)
+
+
+async def catalog_projects(rescan: bool = False, limit: int = 25) -> str:
+    """Scan every project's iterations/ (plus assets/ and sources/, if present) and
+    vision-categorize any image not already in projects/catalog.json. Trusts the project's own
+    config.style for its OWN generated iterations (already known, no need to guess) but lets
+    vision judge sources/assets, which may be real photos or copied-in art from elsewhere."""
+    catalog = _load_catalog(PROJECTS_CATALOG_PATH)
+    entries = catalog["entries"]
+
+    all_files = []  # (path, project_data, role)
+    if PROJECTS_DIR.exists():
+        for pdir in sorted(d for d in PROJECTS_DIR.iterdir() if d.is_dir()):
+            data = _load_project(pdir.name)
+            if not data:
+                continue
+            for sub, role in (("iterations", "iteration"), ("assets", "project-asset"), ("sources", "source")):
+                subdir = pdir / sub
+                if not subdir.exists():
+                    continue
+                for path in sorted(subdir.rglob("*")):
+                    if path.suffix.lower() in IMAGE_EXTENSIONS:
+                        all_files.append((path, data, role))
+
+    processed, skipped, limited, errors = 0, 0, 0, []
+    for path, data, role in all_files:
+        rel = str(path.relative_to(MARKETING_DIR))
+        mtime = path.stat().st_mtime
+        existing = entries.get(rel)
+        if existing and not (rescan and existing.get("mtime") != mtime):
+            skipped += 1
+            continue
+        if processed >= limit:
+            limited += 1
+            continue
+        cfg_style = (data.get("config") or {}).get("style", "")
+        known_style = cfg_style if (role == "iteration" and cfg_style in _KNOWN_STYLES) else ""
+        result = await _vision_categorize(path, known_style=known_style)
+        if "error" in result:
+            errors.append({"path": rel, "error": result["error"]})
+            continue
+        if role == "iteration":
+            result["ai_altered"] = True  # every project iteration is AI-generated, by definition
+        result["path"] = rel
+        result["mtime"] = mtime
+        result["role"] = role
+        result["project"] = data.get("slug", "")
+        result["project_name"] = data.get("name", "")
+        result["project_theme"] = (data.get("config") or {}).get("theme", "")
+        entries[rel] = result
+        processed += 1
+        _save_catalog(PROJECTS_CATALOG_PATH, catalog)
+
+    return json.dumps({
+        "total_files": len(all_files), "already_cataloged": skipped, "newly_cataloged": processed,
+        "remaining": limited + len(errors), "errors": errors, "catalog": str(PROJECTS_CATALOG_PATH),
+    }, indent=2)
+
+
+def search_catalog(
+    query: str = "", catalog: str = "both", people: str = "", about_programming: Optional[bool] = None,
+    about_robotics: Optional[bool] = None, ai_altered: Optional[bool] = None, style: str = "",
+    role: str = "", limit: int = 20,
+) -> str:
+    """Free-text + structured search over images/catalog.json and/or projects/catalog.json.
+    Free text matches against each entry's description, tags, style, role, project, and
+    injected phrases for its people/programming/robotics/ai_altered flags — good enough for
+    queries like 'kids programming' without a real embeddings index."""
+    sources = []
+    if catalog in ("images", "both"):
+        sources.append(("images", _load_catalog(IMAGES_CATALOG_PATH)))
+    if catalog in ("projects", "both"):
+        sources.append(("projects", _load_catalog(PROJECTS_CATALOG_PATH)))
+
+    terms = [t for t in query.lower().split() if t]
+    results = []
+    for cat_name, cat in sources:
+        for rel, entry in cat["entries"].items():
+            if people and entry.get("people") != people:
+                continue
+            if about_programming is not None and bool(entry.get("about_programming")) != about_programming:
+                continue
+            if about_robotics is not None and bool(entry.get("about_robotics")) != about_robotics:
+                continue
+            if ai_altered is not None and bool(entry.get("ai_altered")) != ai_altered:
+                continue
+            if style and entry.get("style") != style:
+                continue
+            if role and entry.get("role") != role:
+                continue
+            extra = f"{entry.get('project', '')} {entry.get('project_theme', '')}"
+            blob = _searchable_blob(entry, extra=extra)
+            if terms and not all(t in blob for t in terms):
+                continue
+            score = sum(blob.count(t) for t in terms) if terms else 0
+            results.append((score, {**entry, "catalog": cat_name}))
+
+    results.sort(key=lambda r: r[0], reverse=True)
+    return json.dumps({
+        "query": query, "count": len(results), "results": [r[1] for r in results[:limit]],
+    }, indent=2, ensure_ascii=False)
+
+
 # ── CLI dispatch ─────────────────────────────────────────────────────────
 
 def main() -> None:
@@ -1301,11 +1565,33 @@ def main() -> None:
     s = sub.add_parser("restart-web-server")
     s.add_argument("--port", type=int, default=0)
 
+    s = sub.add_parser("catalog-images")
+    s.add_argument("--rescan", action=argparse.BooleanOptionalAction, default=False)
+    s.add_argument("--limit", type=int, default=25)
+
+    s = sub.add_parser("catalog-projects")
+    s.add_argument("--rescan", action=argparse.BooleanOptionalAction, default=False)
+    s.add_argument("--limit", type=int, default=25)
+
+    s = sub.add_parser("search-catalog")
+    s.add_argument("--query", default="")
+    s.add_argument("--catalog", choices=["images", "projects", "both"], default="both")
+    s.add_argument("--people", choices=["", "none", "single", "multiple"], default="")
+    s.add_argument("--about-programming", dest="about_programming",
+                    action=argparse.BooleanOptionalAction, default=None)
+    s.add_argument("--about-robotics", dest="about_robotics",
+                    action=argparse.BooleanOptionalAction, default=None)
+    s.add_argument("--ai-altered", dest="ai_altered", action=argparse.BooleanOptionalAction, default=None)
+    s.add_argument("--style", default="")
+    s.add_argument("--role", default="")
+    s.add_argument("--limit", type=int, default=20)
+
     args = p.parse_args()
     a = vars(args)
     cmd = a.pop("command")
 
-    async_commands = {"generate-image", "evaluate-image", "generate-project-image"}
+    async_commands = {"generate-image", "evaluate-image", "generate-project-image",
+                       "catalog-images", "catalog-projects"}
 
     dispatch = {
         "list-available": lambda: list_available(),
@@ -1328,6 +1614,9 @@ def main() -> None:
         "set-postcard-extra-html": lambda: set_postcard_extra_html(**a),
         "generate-postcard-pdf": lambda: generate_postcard_pdf(**a),
         "restart-web-server": lambda: restart_web_server(**a),
+        "catalog-images": lambda: catalog_images(**a),
+        "catalog-projects": lambda: catalog_projects(**a),
+        "search-catalog": lambda: search_catalog(**a),
     }
 
     thunk = dispatch[cmd]
