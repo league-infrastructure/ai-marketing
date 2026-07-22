@@ -1,0 +1,1421 @@
+{
+  "entries": {
+    "images/assets/logos/Legue Logo.png": {
+      "description": "An illustration showing five orange silhouettes of people, one holding a flag with a lightning bolt, above the text 'THE LEAGUE OF AMAZING PROGRAMMERS' on a white background.",
+      "style": "flat-poster",
+      "people": "multiple",
+      "about_programming": true,
+      "about_robotics": false,
+      "ai_altered": false,
+      "tags": [
+        "silhouette",
+        "programmers",
+        "league",
+        "orange",
+        "people",
+        "graphic",
+        "typography"
+      ],
+      "path": "images/assets/logos/Legue Logo.png",
+      "mtime": 1783540334.0380716,
+      "role": "final"
+    },
+    "images/assets/logos/bolt.png": {
+      "description": "An orange lightning bolt graphic is centered against a white background. The bolt is angled upwards and to the right.",
+      "style": "flat-poster",
+      "people": "none",
+      "about_programming": false,
+      "about_robotics": false,
+      "ai_altered": false,
+      "tags": [
+        "lightning bolt",
+        "orange",
+        "white background",
+        "simple",
+        "energy",
+        "icon"
+      ],
+      "path": "images/assets/logos/bolt.png",
+      "mtime": 1783540334.0711384,
+      "role": "final"
+    },
+    "images/assets/logos/clearRobot3Color1.png": {
+      "description": "This is a simple graphic of a robot's upper body and head, depicted in gray, orange, and black colors. The robot has a square head with two orange circular 'eyes' and an orange chest with a lightning bolt symbol.",
+      "style": "flat-poster",
+      "people": "none",
+      "about_programming": true,
+      "about_robotics": true,
+      "ai_altered": false,
+      "tags": [
+        "robot",
+        "icon",
+        "mascot",
+        "orange",
+        "gray",
+        "black",
+        "simple",
+        "lightning"
+      ],
+      "path": "images/assets/logos/clearRobot3Color1.png",
+      "mtime": 1783540334.1145175,
+      "role": "final"
+    },
+    "images/assets/logos/figures_girl.png": {
+      "description": "This is a graphic illustration showing five orange silhouettes of people, one of whom is holding a flag with a lightning bolt symbol. The background is white.",
+      "style": "flat-poster",
+      "people": "multiple",
+      "about_programming": false,
+      "about_robotics": false,
+      "ai_altered": false,
+      "tags": [
+        "silhouettes",
+        "youth",
+        "orange",
+        "flag",
+        "lightning bolt",
+        "team",
+        "diversity"
+      ],
+      "path": "images/assets/logos/figures_girl.png",
+      "mtime": 1783540334.2250855,
+      "role": "final"
+    },
+    "images/assets/logos/flag-sunburst.png": {
+      "description": "An orange flag with a white lightning bolt stands on a dark pole against a background of yellow and orange sun rays. The art style is flat and graphic with shadows indicating depth.",
+      "style": "flat-poster",
+      "people": "none",
+      "about_programming": false,
+      "about_robotics": false,
+      "ai_altered": false,
+      "tags": [
+        "flag",
+        "lightning bolt",
+        "orange",
+        "yellow",
+        "sun rays",
+        "graphic"
+      ],
+      "path": "images/assets/logos/flag-sunburst.png",
+      "mtime": 1783540334.2658262,
+      "role": "final"
+    },
+    "images/assets/logos/flag.png": {
+      "description": "An orange flag with a white lightning bolt symbol in the center is displayed on a white background. The flag is shown waving gently to the right.",
+      "style": "flat-poster",
+      "people": "none",
+      "about_programming": false,
+      "about_robotics": false,
+      "ai_altered": false,
+      "tags": [
+        "flag",
+        "lightning bolt",
+        "orange",
+        "white",
+        "symbol",
+        "energy",
+        "power"
+      ],
+      "path": "images/assets/logos/flag.png",
+      "mtime": 1783540334.2904143,
+      "role": "final"
+    },
+    "images/assets/logos/logo_girl_flag.png": {
+      "description": "An orange silhouette of a person, likely female, holding a flag with a white lightning bolt on it. The background is white.",
+      "style": "flat-poster",
+      "people": "single",
+      "about_programming": false,
+      "about_robotics": false,
+      "ai_altered": false,
+      "tags": [
+        "silhouette",
+        "orange",
+        "flag",
+        "lightning bolt",
+        "person",
+        "empowerment"
+      ],
+      "path": "images/assets/logos/logo_girl_flag.png",
+      "mtime": 1783540334.415562,
+      "role": "final"
+    },
+    "images/components/interior-comic-angled.png": {
+      "description": "This image is a graphic design featuring the text \"THE LEAGUE OF AMAZING PROGRAMMERS\" in large orange and yellow letters, with the tagline \"SMART MINDS • BOLD IDEAS • BRIGHT FUTURES\" on a diagonal banner.",
+      "style": "flat-poster",
+      "people": "none",
+      "about_programming": true,
+      "about_robotics": false,
+      "ai_altered": false,
+      "tags": [
+        "logo",
+        "branding",
+        "programming",
+        "education",
+        "inspiration",
+        "dark blue",
+        "orange",
+        "yellow"
+      ],
+      "path": "images/components/interior-comic-angled.png",
+      "mtime": 1783540335.1630983,
+      "role": "final"
+    },
+    "images/components/league-logo-horizontal/logo-arced-1.png": {
+      "description": "This is a black and white graphic with the phrase \"THE LEAGUE OF AMAZING PROGRAMMERS\" in large block letters. Below it, a banner reads \"SMART MINDS BOLD IDEAS BRIGHT FUTURES\".",
+      "style": "type-sample",
+      "people": "none",
+      "about_programming": true,
+      "about_robotics": false,
+      "ai_altered": false,
+      "tags": [
+        "logo",
+        "text",
+        "programming",
+        "education",
+        "black and white",
+        "motivational",
+        "typography"
+      ],
+      "path": "images/components/league-logo-horizontal/logo-arced-1.png",
+      "mtime": 1783540335.434357,
+      "role": "final"
+    },
+    "images/components/league-logo-horizontal/type-sample-07.png": {
+      "description": "This image displays a promotional logo on a white background. The text reads 'THE LEAGUE OF AMAZING PROGRAMMERS' in bold, black block letters, with 'AMAZING' being the largest word and slightly curved.",
+      "style": "type-sample",
+      "people": "none",
+      "about_programming": true,
+      "about_robotics": false,
+      "ai_altered": false,
+      "tags": [
+        "logo",
+        "text",
+        "programming",
+        "black and white",
+        "minimalist",
+        "typography"
+      ],
+      "path": "images/components/league-logo-horizontal/type-sample-07.png",
+      "mtime": 1783540335.9735162,
+      "role": "final"
+    },
+    "images/components/league-logo-horizontal/type-sample-8bit.png": {
+      "description": "This is a pixel art style logo on a white background that reads 'THE LEAGUE OF AMAZING PROGRAMMERS'. It features lightning bolts and retro alien spaceship motifs.",
+      "style": "8bit-video-game",
+      "people": "none",
+      "about_programming": true,
+      "about_robotics": false,
+      "ai_altered": false,
+      "tags": [
+        "logo",
+        "pixel art",
+        "programming",
+        "retro",
+        "black and white",
+        "text",
+        "amazing"
+      ],
+      "path": "images/components/league-logo-horizontal/type-sample-8bit.png",
+      "mtime": 1783540336.1915178,
+      "role": "final"
+    },
+    "images/components/loap-type.png": {
+      "description": "This image features the bold black text 'THE LEAGUE OF AMAZING PROGRAMMERS' on a white background, with lightning bolt graphics flanking the main title.",
+      "style": "flat-poster",
+      "people": "none",
+      "about_programming": true,
+      "about_robotics": false,
+      "ai_altered": false,
+      "tags": [
+        "logo",
+        "text",
+        "programming",
+        "black and white",
+        "bold",
+        "lightning",
+        "amazing",
+        "league"
+      ],
+      "path": "images/components/loap-type.png",
+      "mtime": 1783540336.3057375,
+      "role": "final"
+    },
+    "images/components/masthead/cover-8bit-masthead.png": {
+      "description": "This image displays a retro pixel-art style banner with the text 'THE LEAGUE OF AMAZING PROGRAMMERS'. To the right, a small arcade-style panel shows 'HIGH SCORE 10000', a pixelated robot, and 'INSERT COIN 10¢'.",
+      "style": "8bit-video-game",
+      "people": "none",
+      "about_programming": true,
+      "about_robotics": true,
+      "ai_altered": false,
+      "tags": [
+        "pixel art",
+        "retro",
+        "programming",
+        "robot",
+        "arcade",
+        "banner",
+        "colorful",
+        "gaming"
+      ],
+      "path": "images/components/masthead/cover-8bit-masthead.png",
+      "mtime": 1783540336.3551848,
+      "role": "final"
+    },
+    "images/components/masthead/cover-comic-masthead.png": {
+      "description": "This is a graphic featuring the title 'THE LEAGUE OF AMAZING PROGRAMMERS' in a comic book style. It includes 'Approved by The Creators Code Authority' with a robot head logo and other text elements typical of a comic book cover.",
+      "style": "comic-book",
+      "people": "none",
+      "about_programming": true,
+      "about_robotics": true,
+      "ai_altered": false,
+      "tags": [
+        "comic book",
+        "programming",
+        "robotics",
+        "youth education",
+        "blue",
+        "orange",
+        "yellow"
+      ],
+      "path": "images/components/masthead/cover-comic-masthead.png",
+      "mtime": 1783540336.4076371,
+      "role": "final"
+    },
+    "images/components/masthead/interior-8bit-masthead.png": {
+      "description": "This image displays a retro pixel art logo with the text \"THE LEAGUE OF AMAZING PROGRAMMERS\" set against a dark, starry background. The main word \"AMAZING\" is large and colorful, featuring a yellow to orange gradient, with lightning bolt graphics on either side of the top line of text.",
+      "style": "8bit-video-game",
+      "people": "none",
+      "about_programming": true,
+      "about_robotics": false,
+      "ai_altered": false,
+      "tags": [
+        "pixel art",
+        "logo",
+        "programming",
+        "retro",
+        "colorful",
+        "text",
+        "amazing",
+        "league"
+      ],
+      "path": "images/components/masthead/interior-8bit-masthead.png",
+      "mtime": 1783540336.4903843,
+      "role": "final"
+    },
+    "images/examples/cutebots/cutebot_back_quad_bench.jpeg": {
+      "description": "Four partially assembled robotic car bases with different attachments are arranged on a light brown wooden surface. Each base features wheels, a circuit board, and a battery.",
+      "style": "photograph",
+      "people": "none",
+      "about_programming": false,
+      "about_robotics": true,
+      "ai_altered": false,
+      "tags": [
+        "robotics",
+        "robots",
+        "circuit boards",
+        "educational",
+        "colorful",
+        "construction",
+        "wood"
+      ],
+      "path": "images/examples/cutebots/cutebot_back_quad_bench.jpeg",
+      "mtime": 1783540336.5761776,
+      "role": "reference"
+    },
+    "images/examples/cutebots/cutebot_back_quad_floor.jpeg": {
+      "description": "Four small robotic vehicles, constructed from circuit boards, batteries, wheels, and various colorful components, are displayed on a wooden floor.",
+      "style": "photograph",
+      "people": "none",
+      "about_programming": false,
+      "about_robotics": true,
+      "ai_altered": false,
+      "tags": [
+        "robots",
+        "robotics kit",
+        "assembly",
+        "colorful",
+        "wooden floor",
+        "blue",
+        "yellow",
+        "green"
+      ],
+      "path": "images/examples/cutebots/cutebot_back_quad_floor.jpeg",
+      "mtime": 1783540336.608286,
+      "role": "reference"
+    },
+    "images/examples/cutebots/cutebot_closeup_flipper_group.jpeg": {
+      "description": "Two partially assembled robotics kits, resembling small cars, are displayed on a wooden floor. They consist of circuit boards, wheels, batteries, and interlocking plastic construction pieces in various colors.",
+      "style": "photograph",
+      "people": "none",
+      "about_programming": false,
+      "about_robotics": true,
+      "ai_altered": false,
+      "tags": [
+        "robotics kits",
+        "assembly",
+        "electronics",
+        "engineering",
+        "multicolor",
+        "wooden floor"
+      ],
+      "path": "images/examples/cutebots/cutebot_closeup_flipper_group.jpeg",
+      "mtime": 1783540336.7067828,
+      "role": "reference"
+    },
+    "images/examples/cutebots/cutebot_closeup_flipper_label.jpeg": {
+      "description": "Two small, unassembled robot vehicles with circuit boards, wheels, batteries, and wires are displayed on a light brown wooden surface. One robot has an orange ramp attachment.",
+      "style": "photograph",
+      "people": "none",
+      "about_programming": false,
+      "about_robotics": true,
+      "ai_altered": false,
+      "tags": [
+        "robotics",
+        "electronics",
+        "diy",
+        "education",
+        "multicolor",
+        "prototype"
+      ],
+      "path": "images/examples/cutebots/cutebot_closeup_flipper_label.jpeg",
+      "mtime": 1783540336.8287218,
+      "role": "reference"
+    },
+    "images/examples/cutebots/cutebot_closeup_flipper_label.png": {
+      "description": "Two small robots assembled from electronic components and plastic bricks are displayed on a wooden surface. Both robots feature wheels, circuit boards, batteries, and various colorful connectors.",
+      "style": "photograph",
+      "people": "none",
+      "about_programming": false,
+      "about_robotics": true,
+      "ai_altered": false,
+      "tags": [
+        "robotics",
+        "electronics",
+        "diy",
+        "wooden table",
+        "colorful",
+        "engineering"
+      ],
+      "path": "images/examples/cutebots/cutebot_closeup_flipper_label.png",
+      "mtime": 1783540337.3143492,
+      "role": "reference"
+    },
+    "images/examples/cutebots/cutebot_closeup_flipper_lowangle.jpeg": {
+      "description": "Three small, unassembled wheeled robotics kits with batteries and wiring are sitting on a light brown wooden surface. The kit in the foreground appears to be partially assembled or deconstructed.",
+      "style": "photograph",
+      "people": "none",
+      "about_programming": false,
+      "about_robotics": true,
+      "ai_altered": false,
+      "tags": [
+        "robotics kits",
+        "electronics",
+        "unassembled",
+        "educational",
+        "wooden table",
+        "bright"
+      ],
+      "path": "images/examples/cutebots/cutebot_closeup_flipper_lowangle.jpeg",
+      "mtime": 1783540337.4483132,
+      "role": "reference"
+    },
+    "images/examples/cutebots/cutebot_closeup_flipper_wide.jpeg": {
+      "description": "Three small, unassembled robot kits with wheels and various connecting pieces are arranged on a wooden floor. The robots appear to be made from common hobbyist robot components.",
+      "style": "photograph",
+      "people": "none",
+      "about_programming": false,
+      "about_robotics": true,
+      "ai_altered": false,
+      "tags": [
+        "robotics",
+        "kits",
+        "electronics",
+        "assembly",
+        "wooden floor",
+        "blue",
+        "green",
+        "orange"
+      ],
+      "path": "images/examples/cutebots/cutebot_closeup_flipper_wide.jpeg",
+      "mtime": 1783540337.516315,
+      "role": "reference"
+    },
+    "images/examples/cutebots/cutebot_closeup_grippers.jpeg": {
+      "description": "Two small robots with wheels and robotic arms are positioned on a wooden surface, appearing interconnected or in close proximity. Each robot has a blue battery pack visible on its chassis.",
+      "style": "photograph",
+      "people": "none",
+      "about_programming": false,
+      "about_robotics": true,
+      "ai_altered": false,
+      "tags": [
+        "robots",
+        "robotics",
+        "wooden table",
+        "blue batteries",
+        "diy",
+        "education",
+        "engineering"
+      ],
+      "path": "images/examples/cutebots/cutebot_closeup_grippers.jpeg",
+      "mtime": 1783540337.6053169,
+      "role": "reference"
+    },
+    "images/examples/cutebots/cutebot_front_quad_bench.jpeg": {
+      "description": "Four small, assembled robot vehicles with colorful parts, batteries, and wires are arranged on a wooden floor.",
+      "style": "photograph",
+      "people": "none",
+      "about_programming": false,
+      "about_robotics": true,
+      "ai_altered": false,
+      "tags": [
+        "robotics",
+        "robots",
+        "engineering",
+        "electronics",
+        "wood floor",
+        "colorful",
+        "building"
+      ],
+      "path": "images/examples/cutebots/cutebot_front_quad_bench.jpeg",
+      "mtime": 1783540337.641148,
+      "role": "reference"
+    },
+    "images/examples/cutebots/cutebot_front_quad_floor.jpeg": {
+      "description": "Four partially assembled robotics kits, composed of circuit boards, motors, wheels, batteries, and colorful plastic blocks, are arranged on a wooden surface. Different attachments, such as a claw or scoop, are connected to some of the kits.",
+      "style": "photograph",
+      "people": "none",
+      "about_programming": false,
+      "about_robotics": true,
+      "ai_altered": false,
+      "tags": [
+        "robotics kits",
+        "assembly",
+        "electronics",
+        "colorful blocks",
+        "wooden background",
+        "engineering",
+        "small robots"
+      ],
+      "path": "images/examples/cutebots/cutebot_front_quad_floor.jpeg",
+      "mtime": 1783540338.0105627,
+      "role": "reference"
+    },
+    "images/examples/cutebots/cutebot_front_quad_floor.png": {
+      "description": "Four partially assembled miniature robots, each with wheels and various attachments like claws and plows, are arranged on a wooden surface. They appear to be educational robotics kits.",
+      "style": "photograph",
+      "people": "none",
+      "about_programming": true,
+      "about_robotics": true,
+      "ai_altered": false,
+      "tags": [
+        "robot kits",
+        "robotics",
+        "education",
+        "construction",
+        "toys",
+        "colorful",
+        "wooden surface"
+      ],
+      "path": "images/examples/cutebots/cutebot_front_quad_floor.png",
+      "mtime": 1783540338.3131275,
+      "role": "reference"
+    },
+    "images/examples/cutebots/cutebots.png": {
+      "description": "This image showcases a 'CUTEBOT (BASE)' robot with various attachments, including a joystick controller, ball pusher, short pinchers, long grippers, orange flipper, and ball caster.",
+      "style": "photograph",
+      "people": "none",
+      "about_programming": true,
+      "about_robotics": true,
+      "ai_altered": false,
+      "tags": [
+        "robotics",
+        "cutebot",
+        "attachments",
+        "electronics",
+        "hardware",
+        "education",
+        "stem"
+      ],
+      "path": "images/examples/cutebots/cutebots.png",
+      "mtime": 1783540338.4211667,
+      "role": "reference"
+    },
+    "images/examples/logos/bolt.png": {
+      "description": "An orange lightning bolt symbol on a white background. The bolt is angled slightly upwards from left to right.",
+      "style": "flat-poster",
+      "people": "none",
+      "about_programming": false,
+      "about_robotics": false,
+      "ai_altered": false,
+      "tags": [
+        "lightning bolt",
+        "orange",
+        "simple",
+        "icon",
+        "energy",
+        "power"
+      ],
+      "path": "images/examples/logos/bolt.png",
+      "mtime": 1783540338.4220965,
+      "role": "reference"
+    },
+    "images/examples/logos/clearRobot3Color1.png": {
+      "description": "This is a simple graphic of a robot's upper body and head, with a gray body, black face, and orange accents, including a lightning bolt on its chest. The robot is encased in a thick black circular border.",
+      "style": "flat-poster",
+      "people": "none",
+      "about_programming": false,
+      "about_robotics": true,
+      "ai_altered": false,
+      "tags": [
+        "robot",
+        "logo",
+        "icon",
+        "orange",
+        "gray",
+        "black",
+        "lightning bolt"
+      ],
+      "path": "images/examples/logos/clearRobot3Color1.png",
+      "mtime": 1783540338.4345207,
+      "role": "reference"
+    },
+    "images/examples/logos/flag.png": {
+      "description": "An illustration of an orange flag with a white lightning bolt in the center is displayed against a white background.",
+      "style": "flat-poster",
+      "people": "none",
+      "about_programming": false,
+      "about_robotics": false,
+      "ai_altered": false,
+      "tags": [
+        "flag",
+        "lightning bolt",
+        "orange",
+        "white",
+        "symbol",
+        "icon"
+      ],
+      "path": "images/examples/logos/flag.png",
+      "mtime": 1783540338.4398828,
+      "role": "reference"
+    },
+    "images/images/Proto-AtHisCommand.png": {
+      "description": "This image depicts a comic story in five panels showing a boy, Valente, interacting with robots he built. He uses a laptop to connect with an AI assistant to control the robots.",
+      "style": "comic-book",
+      "people": "single",
+      "about_programming": true,
+      "about_robotics": true,
+      "ai_altered": true,
+      "tags": [
+        "comic",
+        "robotics",
+        "ai",
+        "programming",
+        "boy",
+        "innovation",
+        "youth",
+        "yellow"
+      ],
+      "path": "images/images/Proto-AtHisCommand.png",
+      "mtime": 1783540338.8905115,
+      "role": "reference"
+    },
+    "images/images/comic/GreatestInvention.png": {
+      "description": "This image is a comic book-style cover featuring a young girl wearing safety glasses and a plaid shirt, intently working on assembling a robotic arm. The title reads 'The League of Amazing Programmers', with accompanying text like 'Smart Minds, Bold Ideas, Bright Futures' and 'Meet a Young Inventor!'",
+      "style": "comic-book",
+      "people": "single",
+      "about_programming": true,
+      "about_robotics": true,
+      "ai_altered": false,
+      "tags": [
+        "comic book",
+        "girl",
+        "robotics",
+        "programming",
+        "invention",
+        "youth",
+        "yellow",
+        "blue"
+      ],
+      "path": "images/images/comic/GreatestInvention.png",
+      "mtime": 1783540339.3699052,
+      "role": "reference"
+    },
+    "images/images/comic/RobotRiot.png": {
+      "description": "This image is designed as a vintage comic book cover, featuring four children excitedly controlling battling robots with game controllers. The title reads 'The League of Amazing Programmers' and promotes 'Robot Riot!', suggesting a focus on programming and robotics.",
+      "style": "comic-book",
+      "people": "multiple",
+      "about_programming": true,
+      "about_robotics": true,
+      "ai_altered": false,
+      "tags": [
+        "comic book",
+        "robotics",
+        "programming",
+        "children",
+        "battle",
+        "education",
+        "red",
+        "blue"
+      ],
+      "path": "images/images/comic/RobotRiot.png",
+      "mtime": 1783540339.5366645,
+      "role": "reference"
+    },
+    "images/images/examples/AtHisCommand-DBZ-detail.png": {
+      "description": "This image is a multi-panel comic depicting a young man named Valente interacting with several robots he built. He uses an AI assistant on a laptop to control them with hand gestures and pointing.",
+      "style": "comic-book",
+      "people": "single",
+      "about_programming": true,
+      "about_robotics": true,
+      "ai_altered": true,
+      "tags": [
+        "robotics",
+        "programming",
+        "ai control",
+        "teenager",
+        "comic style",
+        "anime",
+        "dynamic",
+        "futuristic"
+      ],
+      "path": "images/images/examples/AtHisCommand-DBZ-detail.png",
+      "mtime": 1783540340.0175061,
+      "role": "reference"
+    },
+    "images/images/examples/AtHisCommand-DBZ.png": {
+      "description": "This is a comic book page depicting a young man named Valente interacting with several robots he built. The panels show him observing the robots, using a laptop to connect to an AI assistant, waving his hand, and pointing to command a robot.",
+      "style": "comic-book",
+      "people": "single",
+      "about_programming": true,
+      "about_robotics": true,
+      "ai_altered": true,
+      "tags": [
+        "comic",
+        "robotics",
+        "programming",
+        "ai",
+        "youth",
+        "technology",
+        "yellow",
+        "blue"
+      ],
+      "path": "images/images/examples/AtHisCommand-DBZ.png",
+      "mtime": 1783540340.6732874,
+      "role": "reference"
+    },
+    "images/images/manga/AtHisCommandManga.png": {
+      "description": "A multi-panel, black and white comic book style illustration depicting a young man named Valente interacting with several robots he built, first surveying them, then programming them via a laptop and AI assistant, and finally commanding them with gestures.",
+      "style": "graphic-novel",
+      "people": "single",
+      "about_programming": true,
+      "about_robotics": true,
+      "ai_altered": true,
+      "tags": [
+        "robotics",
+        "programming",
+        "ai assistant",
+        "comic",
+        "monochrome",
+        "innovation",
+        "youth"
+      ],
+      "path": "images/images/manga/AtHisCommandManga.png",
+      "mtime": 1783540342.99877,
+      "role": "reference"
+    },
+    "images/images/pop/BringHomeTheFuture.png": {
+      "description": "This image depicts two young people in a comic-book style illustration, looking intently at a robot they are assembling. Text on the left exclaims \"LET'S BRING HOME THE FUTURE!\" with a tagline below about hosting a tech club event.",
+      "style": "comic-book",
+      "people": "multiple",
+      "about_programming": false,
+      "about_robotics": true,
+      "ai_altered": false,
+      "tags": [
+        "comic style",
+        "robotics",
+        "youth",
+        "education",
+        "innovation",
+        "yellow",
+        "red",
+        "blue"
+      ],
+      "path": "images/images/pop/BringHomeTheFuture.png",
+      "mtime": 1783540344.2310798,
+      "role": "reference"
+    },
+    "images/images/pop/Robots-2kids-table.png": {
+      "description": "Two children, a girl and a boy, are intently focused on assembling a robot while a laptop displays programming code. The image is rendered in a pop-art style with halftone dots.",
+      "style": "pop-art",
+      "people": "multiple",
+      "about_programming": true,
+      "about_robotics": true,
+      "ai_altered": false,
+      "tags": [
+        "robotics",
+        "programming",
+        "children",
+        "learning",
+        "pop-art",
+        "comic",
+        "yellow",
+        "education"
+      ],
+      "path": "images/images/pop/Robots-2kids-table.png",
+      "mtime": 1783540344.4847069,
+      "role": "reference"
+    },
+    "images/images/pop/ThatWasFun.png": {
+      "description": "Two children, a girl and a boy, with excited expressions are looking down at a robot made of metal beams, wires, and a blue sensor module. Speech bubble says, \"THAT WAS FUN! LET'S DO IT AGAIN!\" and text at bottom says \"Your Kids, Our Robots. Host a Tech club.\"",
+      "style": "graphic-novel",
+      "people": "multiple",
+      "about_programming": false,
+      "about_robotics": true,
+      "ai_altered": false,
+      "tags": [
+        "robotics",
+        "children",
+        "excitement",
+        "comic style",
+        "learning",
+        "STEM"
+      ],
+      "path": "images/images/pop/ThatWasFun.png",
+      "mtime": 1783540344.9646301,
+      "role": "reference"
+    },
+    "images/images/pop/boy-mecha.png": {
+      "description": "A comic-book style illustration depicts a child in a superhero costume standing next to a large, metallic robot in a workshop environment. A laptop displaying programming code is open in the foreground.",
+      "style": "comic-book",
+      "people": "single",
+      "about_programming": true,
+      "about_robotics": true,
+      "ai_altered": true,
+      "tags": [
+        "superhero",
+        "robot",
+        "programming",
+        "workshop",
+        "comic-art",
+        "yellow",
+        "blue",
+        "red"
+      ],
+      "path": "images/images/pop/boy-mecha.png",
+      "mtime": 1783540345.6238368,
+      "role": "reference"
+    },
+    "images/images/pop/robot-arena.png": {
+      "description": "Six diverse children watch intently as three small, custom-built robots battle on a gray arena floor, with one robot flipping over from an impact marked by a 'WHAM!' speech bubble.",
+      "style": "comic-book",
+      "people": "multiple",
+      "about_programming": false,
+      "about_robotics": true,
+      "ai_altered": true,
+      "tags": [
+        "robotics competition",
+        "children",
+        "excitement",
+        "robots",
+        "comic art",
+        "colorful",
+        "STEM education"
+      ],
+      "path": "images/images/pop/robot-arena.png",
+      "mtime": 1783540347.0365155,
+      "role": "reference"
+    },
+    "images/photos/NolanAndValente.png": {
+      "description": "Two boys are in a workshop, with one boy in a yellow shirt observing a small blue robotic toy on a large wooden table, while another boy in a blue shirt stands by a laptop and monitor. The workshop is equipped with various tools and storage shelves.",
+      "style": "photograph",
+      "people": "multiple",
+      "about_programming": true,
+      "about_robotics": true,
+      "ai_altered": false,
+      "tags": [
+        "workshop",
+        "robotics",
+        "education",
+        "youth",
+        "collaboration",
+        "learning",
+        "electronics"
+      ],
+      "path": "images/photos/NolanAndValente.png",
+      "mtime": 1783540783.0421655,
+      "role": "source"
+    },
+    "images/photos/RobotRiotAtGateway.png": {
+      "description": "Multiple children are sitting and kneeling on a carpeted floor, engaging with small robots on a black mat framed by white pipes. A bookshelf filled with books is visible in the background.",
+      "style": "photograph",
+      "people": "multiple",
+      "about_programming": false,
+      "about_robotics": true,
+      "ai_altered": false,
+      "tags": [
+        "youth",
+        "robotics",
+        "education",
+        "classroom",
+        "learning",
+        "robots",
+        "children",
+        "bookshelf"
+      ],
+      "path": "images/photos/RobotRiotAtGateway.png",
+      "mtime": 1783540348.156761,
+      "role": "source"
+    },
+    "images/photos/challenge_mat.png": {
+      "description": "A young person leans over a table, operating a laptop with one hand and touching a small robot with the other. The robot is on a white mat with black lines and colored squares, and another robot is visible further back on the table.",
+      "style": "photograph",
+      "people": "single",
+      "about_programming": true,
+      "about_robotics": true,
+      "ai_altered": false,
+      "tags": [
+        "student",
+        "robotics",
+        "programming",
+        "education",
+        "laptop",
+        "classroom",
+        "teen"
+      ],
+      "path": "images/photos/challenge_mat.png",
+      "mtime": 1783541228.0008192,
+      "role": "source"
+    },
+    "images/prior-art/examples_pop/66884e61-4627-460a-8568-d0f32a28a198-thumbnail.jpg": {
+      "description": "This image depicts a close-up of a person's distressed face in a comic book style. There is a speech bubble with an exclamation mark above their head and 'POW!' in a burst graphic near their mouth.",
+      "style": "comic-book",
+      "people": "single",
+      "about_programming": false,
+      "about_robotics": false,
+      "ai_altered": false,
+      "tags": [
+        "comic",
+        "pop art",
+        "distressed",
+        "pow",
+        "exclamation",
+        "vibrant",
+        "retro"
+      ],
+      "path": "images/prior-art/examples_pop/66884e61-4627-460a-8568-d0f32a28a198-thumbnail.jpg",
+      "mtime": 1783540348.2983835,
+      "role": "reference"
+    },
+    "images/prior-art/examples_pop/f4984027681ef97239dbf739b415fb55.jpg": {
+      "description": "This image is a pop-art style illustration of Wonder Woman's face from the shoulders up, depicting her looking to the right with blue hair and her signature tiara.",
+      "style": "pop-art",
+      "people": "single",
+      "about_programming": false,
+      "about_robotics": false,
+      "ai_altered": false,
+      "tags": [
+        "wonder woman",
+        "pop art",
+        "comic",
+        "illustration",
+        "blue hair",
+        "superhero",
+        "roy lichtenstein style"
+      ],
+      "path": "images/prior-art/examples_pop/f4984027681ef97239dbf739b415fb55.jpg",
+      "mtime": 1783540348.3138032,
+      "role": "reference"
+    },
+    "images/prior-art/examples_pop/pop-art-artistic-image-text-260nw-2689540113.webp": {
+      "description": "A pop art style illustration of a blonde woman with blue earrings, looking forward with red lipstick, and a speech bubble that says \"MY SUCKERS?\". The background features yellow, red, and blue dotted patterns.",
+      "style": "pop-art",
+      "people": "single",
+      "about_programming": false,
+      "about_robotics": false,
+      "ai_altered": false,
+      "tags": [
+        "pop art",
+        "woman",
+        "speech bubble",
+        "retro",
+        "comic style",
+        "blonde",
+        "dotted patterns"
+      ],
+      "path": "images/prior-art/examples_pop/pop-art-artistic-image-text-260nw-2689540113.webp",
+      "mtime": 1783540348.3570395,
+      "role": "reference"
+    },
+    "images/prior-art/examples_pop/shocking-phone-news-stockcake.jpg": {
+      "description": "Three frames depict a blonde woman speaking on a retro-style telephone, with speech bubbles showing progressive states of surprise or concern such as 'HELLO...?', 'WAIT, WHAT!?', and 'WHO?!'. The style is reminiscent of classic comic book art with halftone dots and bold lines.",
+      "style": "comic-book",
+      "people": "single",
+      "about_programming": false,
+      "about_robotics": false,
+      "ai_altered": false,
+      "tags": [
+        "comic",
+        "pop art",
+        "woman",
+        "telephone",
+        "surprise",
+        "dialogue",
+        "retro",
+        "halftone"
+      ],
+      "path": "images/prior-art/examples_pop/shocking-phone-news-stockcake.jpg",
+      "mtime": 1783540348.3801932,
+      "role": "reference"
+    },
+    "images/prior-art/stock_images_comic/70c91edc-0234-402d-8dcf-009a174a5330-thumbnail.jpg": {
+      "description": "This image shows a comic strip panel featuring a man on the left saying 'WOW!' in a speech bubble and a woman on the right with an explosion graphic uttering 'BAM!'",
+      "style": "comic-book",
+      "people": "multiple",
+      "about_programming": false,
+      "about_robotics": false,
+      "ai_altered": true,
+      "tags": [
+        "comic",
+        "pop art",
+        "man",
+        "woman",
+        "speech bubble",
+        "retro",
+        "wow",
+        "bam"
+      ],
+      "path": "images/prior-art/stock_images_comic/70c91edc-0234-402d-8dcf-009a174a5330-thumbnail.jpg",
+      "mtime": 1783540348.4236655,
+      "role": "reference"
+    },
+    "images/prior-art/stock_images_comic/84e471cd-0283-4d32-a99d-efefbd6f1369-thumbnail.jpg": {
+      "description": "This image is a comic book-style panel layout featuring various school/office supplies and the word 'BAM!'. It includes a coffee cup, a clock, a pencil, an apple, a water bottle, a book, and a speech bubble.",
+      "style": "comic-book",
+      "people": "none",
+      "about_programming": false,
+      "about_robotics": false,
+      "ai_altered": true,
+      "tags": [
+        "comic",
+        "bureau",
+        "school supplies",
+        "pop art",
+        "red",
+        "blue",
+        "yellow",
+        "bam"
+      ],
+      "path": "images/prior-art/stock_images_comic/84e471cd-0283-4d32-a99d-efefbd6f1369-thumbnail.jpg",
+      "mtime": 1783540348.5031087,
+      "role": "reference"
+    },
+    "images/prior-art/stock_images_comic/Screenshot 2026-06-18 at 3.49.00 PM.png": {
+      "description": "Six comic book-style word bubbles are displayed, each with an exclamation word such as 'POW!', 'WOW!', 'ZAP!', 'CRASH!', and 'KABOOM!'. The bubbles feature a starburst shape with halftone dot patterns.",
+      "style": "comic-book",
+      "people": "none",
+      "about_programming": false,
+      "about_robotics": false,
+      "ai_altered": false,
+      "tags": [
+        "comic book",
+        "word bubbles",
+        "exclamations",
+        "pop art",
+        "colorful",
+        "halftone"
+      ],
+      "path": "images/prior-art/stock_images_comic/Screenshot 2026-06-18 at 3.49.00 PM.png",
+      "mtime": 1783540348.741213,
+      "role": "reference"
+    },
+    "images/prior-art/stock_images_comic/Screenshot 2026-06-18 at 3.49.48 PM.png": {
+      "description": "Six blank speech and thought bubbles are arranged in a 2x3 grid, each set against a colorful, ray-burst background. The backgrounds are red, yellow, and blue, with some featuring halftone dot patterns.",
+      "style": "comic-book",
+      "people": "none",
+      "about_programming": false,
+      "about_robotics": false,
+      "ai_altered": true,
+      "tags": [
+        "comic book",
+        "speech bubbles",
+        "thought bubbles",
+        "pop art",
+        "burst",
+        "retro",
+        "colorful"
+      ],
+      "path": "images/prior-art/stock_images_comic/Screenshot 2026-06-18 at 3.49.48 PM.png",
+      "mtime": 1783540349.0050106,
+      "role": "reference"
+    },
+    "images/prior-art/stock_images_comic/istockphoto-1130483091-1024x1024.jpg": {
+      "description": "An illustration of a female superhero in a red suit, blue cape, and yellow hair, depicted in a dynamic action pose with a raised fist. The background is yellow with radial lines and the word \"WHAM!\" in large red letters.",
+      "style": "comic-book",
+      "people": "single",
+      "about_programming": false,
+      "about_robotics": false,
+      "ai_altered": false,
+      "tags": [
+        "superhero",
+        "woman",
+        "action",
+        "comic",
+        "empowerment",
+        "wham",
+        "yellow",
+        "red"
+      ],
+      "path": "images/prior-art/stock_images_comic/istockphoto-1130483091-1024x1024.jpg",
+      "mtime": 1783540349.0445144,
+      "role": "reference"
+    },
+    "images/prior-art/stock_images_comic/istockphoto-853338234-1024x1024.jpg": {
+      "description": "This comic book style illustration shows a blue-suited hero punching another character, with the word 'Pow!' in a yellow speech bubble. The background is red.",
+      "style": "comic-book",
+      "people": "multiple",
+      "about_programming": false,
+      "about_robotics": false,
+      "ai_altered": false,
+      "tags": [
+        "comic book",
+        "action",
+        "pow",
+        "superhero",
+        "punch",
+        "red background",
+        "dynamic"
+      ],
+      "path": "images/prior-art/stock_images_comic/istockphoto-853338234-1024x1024.jpg",
+      "mtime": 1783540349.2830155,
+      "role": "reference"
+    },
+    "images/prior-art/stock_images_comic/istockphoto-929724630-1024x1024.jpg": {
+      "description": "An illustration in a comic book style shows a female superhero punching a villain. The word \"Sock!\" is prominently displayed at the bottom of the image.",
+      "style": "comic-book",
+      "people": "multiple",
+      "about_programming": false,
+      "about_robotics": false,
+      "ai_altered": false,
+      "tags": [
+        "superhero",
+        "action",
+        "fight",
+        "pop-art",
+        "cartoon",
+        "comic",
+        "yellow",
+        "red"
+      ],
+      "path": "images/prior-art/stock_images_comic/istockphoto-929724630-1024x1024.jpg",
+      "mtime": 1783540349.3999727,
+      "role": "reference"
+    },
+    "images/prior-art/stock_images_comic/istockphoto-939550302-1024x1024.jpg": {
+      "description": "An illustration in a comic book style shows a superhero with a yellow and blue costume, red cape, and black mask. The superhero has his arms raised and the text 'HOLD ON, I'M COMING!' in a speech bubble.",
+      "style": "comic-book",
+      "people": "single",
+      "about_programming": false,
+      "about_robotics": false,
+      "ai_altered": false,
+      "tags": [
+        "superhero",
+        "comic",
+        "illustration",
+        "hero",
+        "yellow",
+        "blue",
+        "red"
+      ],
+      "path": "images/prior-art/stock_images_comic/istockphoto-939550302-1024x1024.jpg",
+      "mtime": 1783540349.442483,
+      "role": "reference"
+    },
+    "images/stock_images/programming/PairProgrammers.png": {
+      "description": "Two people, seen from behind, are sitting at a desk with dual monitors displaying lines of code. One person is pointing at a screen with a pen, while the other types on a keyboard.",
+      "style": "photograph",
+      "people": "multiple",
+      "about_programming": true,
+      "about_robotics": false,
+      "ai_altered": false,
+      "tags": [
+        "coding",
+        "programming",
+        "software development",
+        "collaboration",
+        "computers",
+        "desk",
+        "indoor"
+      ],
+      "path": "images/stock_images/programming/PairProgrammers.png",
+      "mtime": 1783540349.5895994,
+      "role": "source"
+    },
+    "images/stock_images/programming/istockphoto-1254050848-612x612.jpg": {
+      "description": "A person from behind is typing on a laptop which displays a visual programming interface with blocks and flows. A small robot and a miniature wind turbine are visible in the background.",
+      "style": "photograph",
+      "people": "single",
+      "about_programming": true,
+      "about_robotics": true,
+      "ai_altered": false,
+      "tags": [
+        "youth",
+        "computer",
+        "coding",
+        "robotics",
+        "education",
+        "stem",
+        "visual programming"
+      ],
+      "path": "images/stock_images/programming/istockphoto-1254050848-612x612.jpg",
+      "mtime": 1783540349.6038198,
+      "role": "source"
+    },
+    "images/stock_images/programming/istockphoto-996990848-612x612.jpg": {
+      "description": "Two children, a girl and a boy, are looking at a laptop screen which displays lines of code or programming text. The girl is pointing at the screen with her finger.",
+      "style": "photograph",
+      "people": "multiple",
+      "about_programming": true,
+      "about_robotics": false,
+      "ai_altered": false,
+      "tags": [
+        "children",
+        "laptop",
+        "programming",
+        "education",
+        "learning",
+        "teamwork",
+        "coding blast",
+        "tech"
+      ],
+      "path": "images/stock_images/programming/istockphoto-996990848-612x612.jpg",
+      "mtime": 1783540349.6094584,
+      "role": "source"
+    },
+    "images/stock_images/robotics/RobotLab.jpg": {
+      "description": "A young, smiling boy wearing safety glasses and a lab coat is intently working on electronic components and what appears to be a robot on a workbench. Various tools, wires, and circuit boards are scattered around the table.",
+      "style": "photograph",
+      "people": "single",
+      "about_programming": false,
+      "about_robotics": true,
+      "ai_altered": false,
+      "tags": [
+        "youth",
+        "robotics",
+        "engineer",
+        "stem",
+        "education",
+        "workshop",
+        "electronics"
+      ],
+      "path": "images/stock_images/robotics/RobotLab.jpg",
+      "mtime": 1783540350.3861547,
+      "role": "source"
+    },
+    "images/stock_images/robotics/greatest_invention.jpg": {
+      "description": "A smiling young girl holds up a robotic creation made from construction toys. Two other children are blurred in the background, seemingly working on their own projects.",
+      "style": "photograph",
+      "people": "multiple",
+      "about_programming": false,
+      "about_robotics": true,
+      "ai_altered": false,
+      "tags": [
+        "children",
+        "robotics",
+        "building",
+        "stem",
+        "education",
+        "happy",
+        "classroom"
+      ],
+      "path": "images/stock_images/robotics/greatest_invention.jpg",
+      "mtime": 1783540350.4073448,
+      "role": "source"
+    },
+    "images/stock_images/robotics/images.jpeg": {
+      "description": "Multiple people are gathered around a competition field where robots equipped with a lift mechanism are interacting with colorful rings and posts. The scene appears to be a robotics competition or event in a gymnasium or large indoor space.",
+      "style": "photograph",
+      "people": "multiple",
+      "about_programming": false,
+      "about_robotics": true,
+      "ai_altered": false,
+      "tags": [
+        "robotics competition",
+        "robots",
+        "youth",
+        "students",
+        "indoor",
+        "colorful",
+        "vex"
+      ],
+      "path": "images/stock_images/robotics/images.jpeg",
+      "mtime": 1783540350.4217987,
+      "role": "source"
+    },
+    "images/stock_images/robotics/istockphoto-1064236318-612x612.jpg": {
+      "description": "A young boy in a blue shirt is focused on building or repairing a small robot that resembles an excavator, using a blue screwdriver. The robot is primarily made of cardboard with yellow and orange plastic components.",
+      "style": "photograph",
+      "people": "single",
+      "about_programming": false,
+      "about_robotics": true,
+      "ai_altered": false,
+      "tags": [
+        "boy",
+        "robotics",
+        "building",
+        "engineer",
+        "stem",
+        "excavator",
+        "screwdriver",
+        "focus"
+      ],
+      "path": "images/stock_images/robotics/istockphoto-1064236318-612x612.jpg",
+      "mtime": 1783540350.7076154,
+      "role": "source"
+    },
+    "images/stock_images/robotics/istockphoto-1150731216-612x612.jpg": {
+      "description": "A smiling young girl is seated at a table, looking at a laptop computer. On the table surrounding her are various robot kits and components.",
+      "style": "photograph",
+      "people": "single",
+      "about_programming": true,
+      "about_robotics": true,
+      "ai_altered": false,
+      "tags": [
+        "girl",
+        "robotics",
+        "programming",
+        "laptop",
+        "education",
+        "stem",
+        "happy",
+        "learning"
+      ],
+      "path": "images/stock_images/robotics/istockphoto-1150731216-612x612.jpg",
+      "mtime": 1783540350.727457,
+      "role": "source"
+    },
+    "images/stock_images/robotics/istockphoto-1150731492-612x612.jpg": {
+      "description": "A smiling young boy in a blue shirt stands at a table with an open laptop, looking towards the camera. Next to him on the table is a small, partially assembled robot with yellow wheels.",
+      "style": "photograph",
+      "people": "single",
+      "about_programming": true,
+      "about_robotics": true,
+      "ai_altered": false,
+      "tags": [
+        "boy",
+        "robotics",
+        "laptop",
+        "learning",
+        "classroom",
+        "youth",
+        "programming",
+        "happy"
+      ],
+      "path": "images/stock_images/robotics/istockphoto-1150731492-612x612.jpg",
+      "mtime": 1783540350.7842455,
+      "role": "source"
+    },
+    "images/stock_images/robotics/istockphoto-1206218645-612x612.jpg": {
+      "description": "A young girl in a plaid shirt is intently working on assembling a small robot with yellow wheels. In the background, a computer monitor displays lines of code.",
+      "style": "photograph",
+      "people": "single",
+      "about_programming": true,
+      "about_robotics": true,
+      "ai_altered": false,
+      "tags": [
+        "girl",
+        "robotics",
+        "programming",
+        "education",
+        "coding",
+        "robot",
+        "stem",
+        "learning"
+      ],
+      "path": "images/stock_images/robotics/istockphoto-1206218645-612x612.jpg",
+      "mtime": 1783540350.859636,
+      "role": "source"
+    },
+    "images/stock_images/robotics/istockphoto-600094928-2048x2048.jpg": {
+      "description": "A young girl wearing safety glasses is focused on assembling parts of a small black robot with her hands. The robot sits on a wooden base with red wires connected to it, and a screwdriver is visible on the white desk next to her.",
+      "style": "photograph",
+      "people": "single",
+      "about_programming": false,
+      "about_robotics": true,
+      "ai_altered": false,
+      "tags": [
+        "girl",
+        "robotics",
+        "assembly",
+        "youth",
+        "education",
+        "science",
+        "engineering",
+        "focused"
+      ],
+      "path": "images/stock_images/robotics/istockphoto-600094928-2048x2048.jpg",
+      "mtime": 1783540350.9381154,
+      "role": "source"
+    },
+    "images/stock_images/robotics/istockphoto-653874998-612x612.jpg": {
+      "description": "Three children are focused on building and assembling small robots or robotic components on a white table. The children appear to be engrossed in the activity, with various small parts scattered around.",
+      "style": "photograph",
+      "people": "multiple",
+      "about_programming": false,
+      "about_robotics": true,
+      "ai_altered": false,
+      "tags": [
+        "children",
+        "robotics",
+        "building",
+        "education",
+        "stem",
+        "learning",
+        "activity",
+        "focus"
+      ],
+      "path": "images/stock_images/robotics/istockphoto-653874998-612x612.jpg",
+      "mtime": 1783540350.9392314,
+      "role": "source"
+    },
+    "images/stock_images/robotics/istockphoto-653877496-612x612.jpg": {
+      "description": "Three children are in an indoor setting working on robotics kits at a table. Two are focused on building, while one girl looks at the camera.",
+      "style": "photograph",
+      "people": "multiple",
+      "about_programming": false,
+      "about_robotics": true,
+      "ai_altered": false,
+      "tags": [
+        "children",
+        "robotics",
+        "building",
+        "STEM",
+        "education",
+        "indoor",
+        "kits"
+      ],
+      "path": "images/stock_images/robotics/istockphoto-653877496-612x612.jpg",
+      "mtime": 1783540350.9841616,
+      "role": "source"
+    },
+    "images/stock_images/robotics/mleong_scioly_20230831_slide-9e843d008b04d98e953ae08664a41e26fa8369a0.jpg": {
+      "description": "Multiple young people are gathered around a partially assembled robot on a workbench, actively working on its components. The background shows a workshop setting with shelves and equipment.",
+      "style": "photograph",
+      "people": "multiple",
+      "about_programming": false,
+      "about_robotics": true,
+      "ai_altered": false,
+      "tags": [
+        "youth",
+        "robotics",
+        "teamwork",
+        "workshop",
+        "engineering",
+        "assembly",
+        "students",
+        "learning"
+      ],
+      "path": "images/stock_images/robotics/mleong_scioly_20230831_slide-9e843d008b04d98e953ae08664a41e26fa8369a0.jpg",
+      "mtime": 1783540353.957757,
+      "role": "source"
+    }
+  }
+}
