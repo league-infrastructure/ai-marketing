@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Empower Today — conversion review</title>
+<style>
+  :root {
+    --bg: #14110f; --panel: #1e1a17; --line: #3a322c;
+    --ink: #f6efe8; --dim: #a89b90;
+    --orange: #ea5402; --cream: #fae4d2;
+    --ok: #4ea172; --warn: #d8912f; --bad: #d1543f;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink);
+         font: 15px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+  header { padding: 28px 32px 20px; border-bottom: 1px solid var(--line); }
+  h1 { margin: 0 0 6px; font-size: 22px; letter-spacing: -0.01em; }
+  h1 span { color: var(--orange); }
+  .sub { color: var(--dim); font-size: 14px; }
+  main { padding: 24px 32px 60px; max-width: 1500px; }
+  section { margin: 0 0 40px; background: var(--panel);
+            border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+  .head { display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+          padding: 14px 18px; border-bottom: 1px solid var(--line); }
+  .head h2 { margin: 0; font-size: 16px; }
+  .ctl { margin-left: auto; display: flex; align-items: center; gap: 10px;
+         font-size: 13px; color: var(--dim); }
+  input[type=range] { width: 220px; accent-color: var(--orange); }
+  .stage { position: relative; background: #000; line-height: 0; }
+  .stage img, .stage object { display: block; width: 100%; height: auto; }
+  .stage .over { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .files { display: flex; gap: 10px; flex-wrap: wrap; padding: 14px 18px;
+           border-top: 1px solid var(--line); }
+  .files a { color: var(--ink); text-decoration: none; font-size: 13px;
+             border: 1px solid var(--line); border-radius: 6px;
+             padding: 7px 12px; background: #262019; }
+  .files a:hover { border-color: var(--orange); color: var(--orange); }
+  .files a small { color: var(--dim); }
+  .notes { padding: 4px 18px 18px; }
+  .note { display: flex; gap: 10px; padding: 7px 0; font-size: 14px;
+          border-bottom: 1px solid rgba(255,255,255,.05); }
+  .note:last-child { border: 0; }
+  .tag { flex: none; width: 74px; font-size: 11px; font-weight: 700;
+         letter-spacing: .05em; text-transform: uppercase; padding-top: 3px; }
+  .ok .tag { color: var(--ok); } .warn .tag { color: var(--warn); }
+  .bad .tag { color: var(--bad); }
+  code { background: #2b241d; padding: 1px 5px; border-radius: 4px;
+         font-size: 12.5px; color: var(--cream); }
+</style>
+</head>
+<body>
+<header>
+  <h1>Empower Today — <span>conversion review</span></h1>
+  <div class="sub">Flat PNG → LayerDoc → PSD / SVG / PDF. Drag each slider to cross-fade
+    the original against the exported SVG; the export is on the right of the slider.</div>
+</header>
+<main>
+
+  <section>
+    <div class="head">
+      <h2>Front</h2>
+      <div class="ctl"><span>original</span>
+        <input type="range" min="0" max="100" value="100" oninput="document.getElementById('fO').style.opacity=this.value/100">
+        <span>export</span></div>
+    </div>
+    <div class="stage">
+      <img src="../Front.png" alt="Front original">
+      <img class="over" id="fO" src="front/export.svg" alt="Front exported SVG">
+    </div>
+    <div class="files">
+      <a href="front/export.psd">export.psd <small>6.7 MB · layered</small></a>
+      <a href="front/export.svg">export.svg <small>3.4 MB · 1521×1034</small></a>
+      <a href="front/export.pdf">export.pdf <small>2.3 MB · print</small></a>
+      <a href="Front.layerdoc.json">Front.layerdoc.json <small>51 layers</small></a>
+    </div>
+  </section>
+
+  <section>
+    <div class="head">
+      <h2>Back</h2>
+      <div class="ctl"><span>original</span>
+        <input type="range" min="0" max="100" value="100" oninput="document.getElementById('bO').style.opacity=this.value/100">
+        <span>export</span></div>
+    </div>
+    <div class="stage">
+      <img src="../Back.png" alt="Back original">
+      <img class="over" id="bO" src="back/export.svg" alt="Back exported SVG">
+    </div>
+    <div class="files">
+      <a href="back/export.psd">export.psd <small>3.6 MB · layered</small></a>
+      <a href="back/export.svg">export.svg <small>380 KB · 1521×1034</small></a>
+      <a href="back/export.pdf">export.pdf <small>285 KB · print</small></a>
+      <a href="Back.layerdoc.json">Back.layerdoc.json <small>76 layers</small></a>
+    </div>
+  </section>
+
+  <section>
+    <div class="head"><h2>What to check</h2></div>
+    <div class="notes">
+      <div class="note ok"><span class="tag">Text</span>
+        <span>Live and editable — 12 type layers front, 21 back. Headlines resolved to
+          <code>Oswald 700</code>. Every string exact, line breaks included.</span></div>
+      <div class="note ok"><span class="tag">QR</span>
+        <span>Preserved as <code>pixels: "source"</code> — original bytes, not redrawn.
+          Scan both before print anyway.</span></div>
+      <div class="note ok"><span class="tag">Photo</span>
+        <span>Photorealistic, unstyled, and extracted as the full rectangle — the curved
+          edge is now a separate shape, so the photo can move behind it.</span></div>
+      <div class="note bad"><span class="tag">PSD size</span>
+        <span>Front is <code>1382×940</code>, Back is <code>1401×952</code> — neither matches
+          the <code>1521×1034</code> source, and the two sides don't match each other.
+          Use SVG or PDF for anything dimensional; the PSD needs a canvas resize first.</span></div>
+      <div class="note ok"><span class="tag">SVG / PDF</span>
+        <span>Both correct: SVG <code>1521×1034</code> with viewBox, PDF <code>1141×776 pt</code>
+          (= 1521×1034 at 96 dpi).</span></div>
+      <div class="note warn"><span class="tag">Expiry</span>
+        <span>URLs inside the LayerDoc JSON expire <code>2026-08-13</code>. Pixels are already
+          local in <code>*.assets/</code>. Re-export free with keys
+          <code>empower-today-front-v1</code> / <code>-back-v1</code>.</span></div>
+    </div>
+  </section>
+
+</main>
+</body>
+</html>

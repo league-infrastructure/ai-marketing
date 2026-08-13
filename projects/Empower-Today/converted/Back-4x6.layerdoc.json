@@ -1,0 +1,1605 @@
+{
+ "version": "2",
+ "canvas": {
+  "width": 1521,
+  "height": 1034
+ },
+ "source": {
+  "artifactId": "source-original",
+  "mediaType": "image/png",
+  "width": 1521,
+  "height": 1034,
+  "scale": 1,
+  "url": "https://12ui.com/api/v1/convert/657ace55-a852-4a05-a7bb-4e141750a008?artifact=source-original&expires=1786645931&signature=gaaztSR20iPupmrvUlKRe7BWiFf-tF3LkPQk_qJbZbg",
+  "expiresAt": "2026-08-13T18:32:11.491Z"
+ },
+ "layers": [
+  {
+   "kind": "group",
+   "name": "background",
+   "box": [
+    0,
+    0,
+    1521,
+    1034
+   ],
+   "children": [
+    {
+     "kind": "background",
+     "content": "orange gradient background",
+     "z": 0,
+     "box": [
+      0,
+      0,
+      1521,
+      1034
+     ],
+     "extractionIndex": 0,
+     "surface": "vector",
+     "style": {
+      "background": "#ea5402"
+     }
+    },
+    {
+     "kind": "group",
+     "name": "circuits",
+     "box": [
+      116.0,
+      87.3,
+      1405.0,
+      475.6
+     ],
+     "children": [
+      {
+       "kind": "decoration",
+       "content": "top-left circuit trace motif",
+       "z": 1,
+       "box": [
+        116.0,
+        87.3,
+        146.5,
+        258.5
+       ],
+       "extractionIndex": 1,
+       "surface": "vector",
+       "style": {
+        "border": "1px solid #f45117",
+        "strokeWidth": "1.5px",
+        "fill": "none"
+       },
+       "artifacts": {
+        "crop": {
+         "artifactId": "crop-1",
+         "mediaType": "image/png",
+         "width": 166,
+         "height": 293,
+         "scale": 1,
+         "pixels": "source",
+         "url": "https://12ui.com/api/v1/convert/657ace55-a852-4a05-a7bb-4e141750a008?artifact=crop-1&expires=1786645931&signature=nLZjxU2PLjLp8dmox7rjv1Lf2q5vpVrdkwdGLubmO0w",
+         "expiresAt": "2026-08-13T18:32:11.491Z"
+        },
+        "cutout": {
+         "artifactId": "cutout-1",
+         "mediaType": "image/png",
+         "width": 332,
+         "height": 586,
+         "scale": 2,
+         "pixels": "cleaned",
+         "url": "https://12ui.com/api/v1/convert/657ace55-a852-4a05-a7bb-4e141750a008?artifact=cutout-1&expires=1786645931&signature=-v6BO7GDSvVheqslyz1zxdXSnMj4xgxq_iqB-I18p3I",
+         "expiresAt": "2026-08-13T18:32:11.491Z"
+        },
+        "region2x": {
+         "artifactId": "upscaled-region-1",
+         "mediaType": "image/png",
+         "width": 332,
+         "height": 586,
+         "scale": 2,
+         "pixels": "cleaned",
+         "url": "https://12ui.com/api/v1/convert/657ace55-a852-4a05-a7bb-4e141750a008?artifact=upscaled-region-1&expires=1786645931&signature=H1PVVpKO5vsw7os-dtK5bNygZDQ9xh6wJidloG9_bwQ",
+         "expiresAt": "2026-08-13T18:32:11.491Z"
+        }
+       }
+      },
+      {
+       "kind": "decoration",
+       "content": "right circuit trace motif",
+       "z": 2,
+       "box": [
+        1338.0,
+        277.9,
+        183.0,
+        285.0
+       ],
+       "extractionIndex": 2,
+       "surface": "vector",
+       "style": {
+        "border": "1px solid #f45117",
+        "strokeWidth": "1.5px",
+        "fill": "none"
+       },
+       "artifacts": {
+        "crop": {
+         "artifactId": "crop-2",
+         "mediaType": "image/png",
+         "width": 106,
+         "height": 323,
+         "scale": 1,
+         "pixels": "source",
+         "url": "https://12ui.com/api/v1/convert/657ace55-a852-4a05-a7bb-4e141750a008?artifact=crop-2&expires=1786645931&signature=ZKQwNGxsTf8Nb-j1U-q4Anc8eDNkQfexENAmvoQfYzM",
+         "expiresAt": "2026-08-13T18:32:11.491Z"
+        },
+        "cutout": {
+         "artifactId": "cutout-2",
+         "mediaType": "image/png",
+         "width": 212,
+         "height": 646,
+         "scale": 2,
+         "pixels": "cleaned",
+         "url": "https://12ui.com/api/v1/convert/657ace55-a852-4a05-a7bb-4e141750a008?artifact=cutout-2&expires=1786645931&signature=tl8BShWGO5og-lmLUvtb4ZrBdJrXK4K996wT_yi6PHg",
+         "expiresAt": "2026-08-13T18:32:11.491Z"
+        },
+        "region2x": {
+         "artifactId": "upscaled-region-2",
+         "mediaType": "image/png",
+         "width": 212,
+         "height": 646,
+         "scale": 2,
+         "pixels": "cleaned",
+         "url": "https://12ui.com/api/v1/convert/657ace55-a852-4a05-a7bb-4e141750a008?artifact=upscaled-region-2&expires=1786645931&signature=y2zMBPz1pvA5dwCvmg8ju-Svo6yCGifLtEdBi5QmIuw",
+         "expiresAt": "2026-08-13T18:32:11.491Z"
+        }
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "group",
+   "name": "main",
+   "box": [
+    115.1,
+    87.3,
+    1290.0,
+    758.8
+   ],
+   "children": [
+    {
+     "kind": "panel",
+     "content": "main cream content panel",
+     "z": 3,
+     "box": [
+      115.1,
+      87.3,
+      1290.0,
+      758.8
+     ],
+     "extractionIndex": 3,
+     "surface": "vector",
+     "style": {
+      "background": "#fff8f1",
+      "borderRadius": "12px"
+     }
+    }
+   ]
+  },
+  {
+   "kind": "group",
+   "name": "footer",
+   "box": [
+    0,
+    839.0,
+    1521,
+    111.2
+   ],
+   "children": [
+    {
+     "kind": "group",
+     "name": "circuits",
+     "box": [
+      0,
+      839.0,
+      1521,
+      111.2
+     ],
+     "children": [
+      {
+       "kind": "decoration",
+       "content": "bottom-left circuit trace motif",
+       "z": 4,
+       "box": [
+        0,
+        852.3,
+        253.6,
+        97.9
+       ],
+       "extractionIndex": 4,
+       "surface": "vector",
+       "style": {
+        "border": "1px solid #f56b27",
+        "strokeWidth": "1.5px",
+        "fill": "none",
+        "opacity": "0.7"
+       },
+       "artifacts": {
+        "crop": {
+         "artifactId": "crop-4",
+         "mediaType": "image/png",
+         "width": 186,
+         "height": 111,
+         "scale": 1,
+         "pixels": "source",
+         "url": "https://12ui.com/api/v1/convert/657ace55-a852-4a05-a7bb-4e141750a008?artifact=crop-4&expires=1786645931&signature=tkQ-qmzEjI9XPMa4uGvg6B2f2KzcCA1xTi2Pb0mm7hQ",
+         "expiresAt": "2026-08-13T18:32:11.491Z"
+        },
+        "cutout": {
+         "artifactId": "cutout-4",
+         "mediaType": "image/png",
+         "width": 372,
+         "height": 222,
+         "scale": 2,
+         "pixels": "cleaned",
+         "url": "https://12ui.com/api/v1/convert/657ace55-a852-4a05-a7bb-4e141750a008?artifact=cutout-4&expires=1786645931&signature=oWPKJMpxz6wxerIclQO3RcDwX7A-olv_o6sKe72qghQ",
+         "expiresAt": "2026-08-13T18:32:11.491Z"
+        },
+        "region2x": {
+         "artifactId": "upscaled-region-4",
+         "mediaType": "image/png",
+         "width": 372,
+         "height": 222,
+         "scale": 2,
+         "pixels": "cleaned",
+         "url": "https://12ui.com/api/v1/convert/657ace55-a852-4a05-a7bb-4e141750a008?artifact=upscaled-region-4&expires=1786645931&signature=uE02VmwT8Tqx2c_pwMjR0FxcDOg3QGtI9SBvaRelfAE",
+         "expiresAt": "2026-08-13T18:32:11.491Z"
+        }
+       }
+      },
+      {
+       "kind": "decoration",
+       "content": "bottom-right circuit trace motif",
+       "z": 5,
+       "box": [
+        1278.9,
+        839.0,
+        242.1,
+        111.2
+       ],
+       "extractionIndex": 5,
+       "surface": "vector",
+       "style": {
+        "border": "1px solid #f56b27",
+        "strokeWidth": "1.5px",
+        "fill": "none",
+        "opacity": "0.7"
+       },
+       "artifacts": {
+        "crop": {
+         "artifactId": "crop-5",
+         "mediaType": "image/png",
+         "width": 173,
+         "height": 126,
+         "scale": 1,
+         "pixels": "source",
+         "url": "https://12ui.com/api/v1/convert/657ace55-a852-4a05-a7bb-4e141750a008?artifact=crop-5&expires=1786645931&signature=EnlEUUkmpHf0u6Z7OUWRk-gypR2I4ih2Z3xKyofcA8A",
+         "expiresAt": "2026-08-13T18:32:11.491Z"
+        },
+        "cutout": {
+         "artifactId": "cutout-5",
+         "mediaType": "image/png",
+         "width": 346,
+         "height": 252,
+         "scale": 2,
+         "pixels": "cleaned",
+         "url": "https://12ui.com/api/v1/convert/657ace55-a852-4a05-a7bb-4e141750a008?artifact=cutout-5&expires=1786645931&signature=jw_gSXMng51nrchSR0aYNKoq7tUZEdW3LYbzWHY4xAc",
+         "expiresAt": "2026-08-13T18:32:11.491Z"
+        },
+        "region2x": {
+         "artifactId": "upscaled-region-5",
+         "mediaType": "image/png",
+         "width": 346,
+         "height": 252,
+         "scale": 2,
+         "pixels": "cleaned",
+         "url": "https://12ui.com/api/v1/convert/657ace55-a852-4a05-a7bb-4e141750a008?artifact=upscaled-region-5&expires=1786645931&signature=F2jEJRquMqg237CIqMGH8fZ5H7Xwmuzh4d4HzVE9TSw",
+         "expiresAt": "2026-08-13T18:32:11.491Z"
+        }
+       }
+      }
+     ]
+    },
+    {
+     "kind": "group",
+     "name": "logo",
+     "box": [
+      330.4,
+      851.4,
+      385.6,
+      96.2
+     ],
+     "children": [
+      {
+       "kind": "logo",
+       "content": "The League of Amazing Programmers logo",
+       "z": 50,
+       "box": [
+        330.4,
+        851.4,
+        385.6,
+        96.2
+       ],
+       "extractionIndex": 50,
+       "surface": "raster",
+       "artifacts": {
+        "cutout": {
+         "artifactId": "cutout-50",
+         "mediaType": "image/png",
+         "width": 874,
+         "height": 218,
+         "scale": 2,
+         "pixels": "cleaned",
+         "url": "https://12ui.com/api/v1/convert/657ace55-a852-4a05-a7bb-4e141750a008?artifact=cutout-50&expires=1786645931&signature=wU8Zkr-XCpptGpfZjxfjFA1bGcHaJL7UexdAnvmKTqk",
+         "expiresAt": "2026-08-13T18:32:11.491Z"
+        },
+        "region2x": {
+         "artifactId": "upscaled-region-50",
+         "mediaType": "image/png",
+         "width": 874,
+         "height": 218,
+         "scale": 2,
+         "pixels": "cleaned",
+         "url": "https://12ui.com/api/v1/convert/657ace55-a852-4a05-a7bb-4e141750a008?artifact=upscaled-region-50&expires=1786645931&signature=OYzB8p0WaAs_BgInQpTiXBCB2BfoVssgz3G8pcqrgZ8",
+         "expiresAt": "2026-08-13T18:32:11.491Z"
+        }
+       }
+      }
+     ]
+    },
+    {
+     "kind": "divider",
+     "content": "footer divider",
+     "z": 51,
+     "box": [
+      753.9,
+      870.8,
+      2.6,
+      73.2
+     ],
+     "extractionIndex": 51,
+     "surface": "vector",
+     "style": {
+      "background": "#ffffff"
+     }
+    },
+    {
+     "kind": "heading",
+     "content": "BE PART OF SOMETHING",
+     "z": 52,
+     "box": [
+      798.9,
+      888.5,
+      313.2,
+      35.3
+     ],
+     "extractionIndex": 52,
+     "surface": "vector",
+     "googleFontFamily": "Oswald",
+     "color": "#080808",
+     "align": "left",
+     "fontSizePx": 32.6,
+     "fontWeight": 700
+    },
+    {
+     "kind": "text",
+     "content": "AMAZING.",
+     "z": 53,
+     "box": [
+      1120.0,
+      881.4,
+      165.0,
+      43.2
+     ],
+     "extractionIndex": 53,
+     "surface": "vector",
+     "googleFontFamily": "Caveat",
+     "color": "#ffffff",
+     "align": "left",
+     "fontSizePx": 40.6,
+     "fontWeight": 700
+    },
+    {
+     "kind": "decoration",
+     "content": "white underline flourish",
+     "z": 54,
+     "box": [
+      1120.9,
+      922.9,
+      141.2,
+      13.2
+     ],
+     "extractionIndex": 54,
+     "surface": "vector",
+     "style": {
+      "border": "1px solid #ffffff",
+      "strokeWidth": "2px",
+      "fill": "none"
+     },
+     "artifacts": {
+      "crop": {
+       "artifactId": "crop-54",
+       "mediaType": "image/png",
+       "width": 160,
+       "height": 15,
+       "scale": 1,
+       "pixels": "source",
+       "url": "https://12ui.com/api/v1/convert/657ace55-a852-4a05-a7bb-4e141750a008?artifact=crop-54&expires=1786645931&signature=ksWaU9Zs-uPALkRpUJpCGLnv1mSotvVyQIakN3mQxzo",
+       "expiresAt": "2026-08-13T18:32:11.491Z"
+      },
+      "cutout": {
+       "artifactId": "cutout-54",
+       "mediaType": "image/png",
+       "width": 960,
+       "height": 90,
+       "scale": 6,
+       "pixels": "cleaned",
+       "url": "https://12ui.com/api/v1/convert/657ace55-a852-4a05-a7bb-4e141750a008?artifact=cutout-54&expires=1786645931&signature=wyxESN_dLuD8-Fe14GNsj2mS1fbX44jFIkZrFbual6Y",
+       "expiresAt": "2026-08-13T18:32:11.491Z"
+      },
+      "region2x": {
+       "artifactId": "upscaled-region-54",
+       "mediaType": "image/png",
+       "width": 320,
+       "height": 30,
+       "scale": 2,
+       "pixels": "cleaned",
+       "url": "https://12ui.com/api/v1/convert/657ace55-a852-4a05-a7bb-4e141750a008?artifact=upscaled-region-54&expires=1786645931&signature=jrfu6KRzctEMcOwNX9ApD9rT31TIQnKjrR9qOS9ARk0",
+       "expiresAt": "2026-08-13T18:32:11.491Z"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "kind": "group",
+   "name": "hero",
+   "box": [
+    236.0,
+    137.6,
+    635.3,
+    341.5
+   ],
+   "children": [
+    {
+     "kind": "heading",
+     "content": "YOU CAN HELP US",
+     "z": 6,
+     "box": [
+      236.0,
+      137.6,
+      512.6,
+      67.1
+     ],
+     "extractionIndex": 6,
+     "surface": "vector",
+     "googleFontFamily": "Oswald",
+     "color": "#080808",
+     "align": "left",
+     "fontSizePx": 59.1,
+     "fontWeight": 700
+    },
+    {
+     "kind": "heading",
+     "content": "OPEN THE NEXT DOOR.",
+     "z": 7,
+     "box": [
+      239.5,
+      215.2,
+      631.7,
+      64.4
+     ],
+     "extractionIndex": 7,
+     "surface": "vector",
+     "googleFontFamily": "Oswald",
+     "color": "#f0520b",
+     "align": "left",
+     "fontSizePx": 56.5,
+     "fontWeight": 700
+    },
+    {
+     "kind": "divider",
+     "content": "orange underline",
+     "z": 8,
+     "box": [
+      239.5,
+      296.4,
+      87.3,
+      2.6
+     ],
+     "extractionIndex": 8,
+     "surface": "vector",
+     "style": {
+      "background": "#f0520b"
+     }
+    },
+    {
+     "kind": "text",
+     "content": "For some students, today may be their first time building a robot,\nwriting code, or seeing themselves as creators. The League of\nAmazing Programmers opens doors to coding, robotics, and\nreal-world opportunity. With support from families, volunteers,\nand community partners, more young people can discover\nwhat they are capable of.",
+     "z": 9,
+     "box": [
+      239.5,
+      313.2,
+      585.0,
+      165.9
+     ],
+     "extractionIndex": 9,
+     "surface": "vector",
+     "googleFontFamily": "Nunito Sans",
+     "color": "#121212",
+     "align": "left",
+     "fontSizePx": 20.3,
+     "fontWeight": 500
+    }
+   ]
+  },
+  {
+   "kind": "group",
+   "name": "qr",
+   "box": [
+    913.6,
+    126.1,
+    461.5,
+    310.6
+   ],
+   "children": [
+    {
+     "kind": "card",
+     "content": "scan call-to-action card",
+     "z": 10,
+     "box": [
+      913.6,
+      126.1,
+      461.5,
+      310.6
+     ],
+     "extractionIndex": 10,
+     "surface": "vector",
+     "style": {
+      "background": "linear-gradient(135deg, #ef4b00, #f45a00)",
+      "borderRadius": "25px"
+     }
+    },
+    {
+     "kind": "group",
+     "name": "code",
+     "box": [
+      931.2,
+      145.5,
+      224.1,
+      226.8
+     ],
+     "children": [
+      {
+       "kind": "image",
+       "content": "QR code",
+       "z": 11,
+       "box": [
+        931.2,
+        145.5,
+        224.1,
+        226.8
+       ],
+       "extractionIndex": 11,
+       "surface": "raster",
+       "artifacts": {
+        "crop": {
+         "artifactId": "crop-11",
+         "mediaType": "image/png",
+         "width": 254,
+         "height": 257,
+         "scale": 1,
+         "pixels": "source",
+         "url": "https://12ui.com/api/v1/convert/657ace55-a852-4a05-a7bb-4e141750a008?artifact=crop-11&expires=1786645931&signature=JA17ukIi7AYgGWQ266CN6GoMGyUllgPEumSIdl8yPWM",
+         "expiresAt": "2026-08-13T18:32:11.491Z"
+        },
+        "region2x": {
+         "artifactId": "upscaled-region-11",
+         "mediaType": "image/png",
+         "width": 508,
+         "height": 514,
+         "scale": 2,
+         "pixels": "cleaned",
+         "url": "https://12ui.com/api/v1/convert/657ace55-a852-4a05-a7bb-4e141750a008?artifact=upscaled-region-11&expires=1786645931&signature=h9Y8a30l2BolvecCFuwb3EDKnnyh62NDt7M8vU1GTx4",
+         "expiresAt": "2026-08-13T18:32:11.491Z"
+        }
+       }
+      }
+     ]
+    },
+    {
+     "kind": "heading",
+     "content": "SCAN TO",
+     "z": 12,
+     "box": [
+      1176.5,
+      180.0,
+      128.8,
+      38.8
+     ],
+     "extractionIndex": 12,
+     "surface": "vector",
+     "googleFontFamily": "Oswald",
+     "color": "#050505",
+     "align": "left",
+     "fontSizePx": 38.8,
+     "fontWeight": 700
+    },
+    {
+     "kind": "heading",
+     "content": "GET INVOLVED",
+     "z": 13,
+     "box": [
+      1176.5,
+      227.6,
+      190.6,
+      35.3
+     ],
+     "extractionIndex": 13,
+     "surface": "vector",
+     "googleFontFamily": "Oswald",
+     "color": "#ffffff",
+     "align": "left",
+     "fontSizePx": 33.5,
+     "fontWeight": 700
+    },
+    {
+     "kind": "decoration",
+     "content": "white scan rays",
+     "z": 14,
+     "box": [
+      1317.7,
+      155.2,
+      47.6,
+      40.6
+     ],
+     "extractionIndex": 14,
+     "surface": "vector",
+     "style": {
+      "border": "1px solid #ffffff",
+      "strokeWidth": "1.5px",
+      "fill": "none"
+     },
+     "artifacts": {
+      "crop": {
+       "artifactId": "crop-14",
+       "mediaType": "image/png",
+       "width": 54,
+       "height": 46,
+       "scale": 1,
+       "pixels": "source",
+       "url": "https://12ui.com/api/v1/convert/657ace55-a852-4a05-a7bb-4e141750a008?artifact=crop-14&expires=1786645931&signature=AC4Jia4dUPyxLvtjeGFyHOpeAZnWBhzuTHmGeQUMw3o",
+       "expiresAt": "2026-08-13T18:32:11.491Z"
+      },
+      "cutout": {
+       "artifactId": "cutout-14",
+       "mediaType": "image/png",
+       "width": 108,
+       "height": 92,
+       "scale": 2,
+       "pixels": "cleaned",
+       "url": "https://12ui.com/api/v1/convert/657ace55-a852-4a05-a7bb-4e141750a008?artifact=cutout-14&expires=1786645931&signature=nz_AKWZG_qke7tPS2dKR6olZ0X-BwPsLmBCOSr1toxo",
+       "expiresAt": "2026-08-13T18:32:11.491Z"
+      },
+      "region2x": {
+       "artifactId": "upscaled-region-14",
+       "mediaType": "image/png",
+       "width": 108,
+       "height": 92,
+       "scale": 2,
+       "pixels": "cleaned",
+       "url": "https://12ui.com/api/v1/convert/657ace55-a852-4a05-a7bb-4e141750a008?artifact=upscaled-region-14&expires=1786645931&signature=radAvEYjgTlV3A7JiHWRWsP2DxK_0mHAjPpWmTDqScM",
+       "expiresAt": "2026-08-13T18:32:11.491Z"
+      }
+     }
+    },
+    {
+     "kind": "decoration",
+     "content": "white curved arrow",
+     "z": 15,
+     "box": [
+      1183.6,
+      278.8,
+      97.1,
+      50.3
+     ],
+     "extractionIndex": 15,
+     "surface": "vector",
+     "style": {
+      "border": "1px solid #ffffff",
+      "strokeWidth": "2.5px",
+      "fill": "none"
+     },
+     "artifacts": {
+      "crop": {
+       "artifactId": "crop-15",
+       "mediaType": "image/png",
+       "width": 110,
+       "height": 57,
+       "scale": 1,
+       "pixels": "source",
+       "url": "https://12ui.com/api/v1/convert/657ace55-a852-4a05-a7bb-4e141750a008?artifact=crop-15&expires=1786645931&signature=tgwkkIt5t_TBMV1AEL7Bv6pXD-CV-vE-KwtM268iBcQ",
+       "expiresAt": "2026-08-13T18:32:11.491Z"
+      },
+      "cutout": {
+       "artifactId": "cutout-15",
+       "mediaType": "image/png",
+       "width": 220,
+       "height": 114,
+       "scale": 2,
+       "pixels": "cleaned",
+       "url": "https://12ui.com/api/v1/convert/657ace55-a852-4a05-a7bb-4e141750a008?artifact=cutout-15&expires=1786645931&signature=Ip-53_3vs4opxQ8jtRwiOJNr6B57c3V7PUjLFUXyaZo",
+       "expiresAt": "2026-08-13T18:32:11.491Z"
+      },
+      "region2x": {
+       "artifactId": "upscaled-region-15",
+       "mediaType": "image/png",
+       "width": 220,
+       "height": 114,
+       "scale": 2,
+       "pixels": "cleaned",
+       "url": "https://12ui.com/api/v1/convert/657ace55-a852-4a05-a7bb-4e141750a008?artifact=upscaled-region-15&expires=1786645931&signature=QAv8_ua3neoMowcugrb-E6tPTSowTQ5sOrzKBC8pinE",
+       "expiresAt": "2026-08-13T18:32:11.491Z"
+      }
+     }
+    },
+    {
+     "kind": "group",
+     "name": "link",
+     "box": [
+      932.1,
+      383.8,
+      365.3,
+      32.6
+     ],
+     "children": [
+      {
+       "kind": "icon",
+       "content": "globe",
+       "z": 16,
+       "box": [
+        932.1,
+        383.8,
+        33.5,
+        32.6
+       ],
+       "extractionIndex": 16,
+       "iconSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 256 256\" width=\"100%\" height=\"100%\" preserveAspectRatio=\"xMidYMid meet\" fill=\"currentColor\"><rect width=\"256\" height=\"256\" fill=\"none\"/><path d=\"M128,24h0A104,104,0,1,0,232,128,104.12,104.12,0,0,0,128,24Zm78.36,64H170.71a135.28,135.28,0,0,0-22.3-45.6A88.29,88.29,0,0,1,206.37,88ZM216,128a87.61,87.61,0,0,1-3.33,24H174.16a157.44,157.44,0,0,0,0-48h38.51A87.61,87.61,0,0,1,216,128ZM128,43a115.27,115.27,0,0,1,26,45H102A115.11,115.11,0,0,1,128,43ZM102,168H154a115.11,115.11,0,0,1-26,45A115.27,115.27,0,0,1,102,168Zm-3.9-16a140.84,140.84,0,0,1,0-48h59.88a140.84,140.84,0,0,1,0,48Zm50.35,61.6a135.28,135.28,0,0,0,22.3-45.6h35.66A88.29,88.29,0,0,1,148.41,213.6Z\"/></svg>",
+       "surface": "vector",
+       "color": "#ffffff"
+      },
+      {
+       "kind": "text",
+       "content": "jointheleague.org/about/impact",
+       "z": 17,
+       "box": [
+        975.3,
+        389.9,
+        322.0,
+        26.5
+       ],
+       "extractionIndex": 17,
+       "surface": "vector",
+       "googleFontFamily": "Nunito Sans",
+       "color": "#ffffff",
+       "align": "left",
+       "fontSizePx": 22.9,
+       "fontWeight": 500
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "group",
+   "name": "ways-to-help",
+   "box": [
+    208.6,
+    490.5,
+    1109.1,
+    223.2
+   ],
+   "children": [
+    {
+     "kind": "divider",
+     "content": "left line beside section title",
+     "z": 18,
+     "box": [
+      208.6,
+      499.4,
+      429.7,
+      1.8
+     ],
+     "extractionIndex": 18,
+     "surface": "vector",
+     "style": {
+      "background": "#f0520b"
+     }
+    },
+    {
+     "kind": "heading",
+     "content": "WAYS TO HELP",
+     "z": 19,
+     "box": [
+      650.7,
+      490.5,
+      217.9,
+      27.4
+     ],
+     "extractionIndex": 19,
+     "surface": "vector",
+     "googleFontFamily": "Oswald",
+     "color": "#0b0b0b",
+     "align": "center",
+     "fontSizePx": 31.8,
+     "fontWeight": 700
+    },
+    {
+     "kind": "divider",
+     "content": "right line beside section title",
+     "z": 20,
+     "box": [
+      882.7,
+      499.4,
+      435.0,
+      1.8
+     ],
+     "extractionIndex": 20,
+     "surface": "vector",
+     "style": {
+      "background": "#f0520b"
+     }
+    },
+    {
+     "kind": "group",
+     "name": "item-1",
+     "box": [
+      224.5,
+      526.7,
+      112.9,
+      147.3
+     ],
+     "children": [
+      {
+       "kind": "icon",
+       "content": "school building",
+       "z": 21,
+       "box": [
+        228.0,
+        526.7,
+        109.4,
+        93.5
+       ],
+       "extractionIndex": 21,
+       "surface": "raster",
+       "artifacts": {
+        "crop": {
+         "artifactId": "crop-21",
+         "mediaType": "image/png",
+         "width": 124,
+         "height": 106,
+         "scale": 1,
+         "pixels": "source",
+         "url": "https://12ui.com/api/v1/convert/657ace55-a852-4a05-a7bb-4e141750a008?artifact=crop-21&expires=1786645931&signature=x2k94uQ8CY0lqpEPNABGhqvV91i6roctMwExVYw-ooM",
+         "expiresAt": "2026-08-13T18:32:11.491Z"
+        }
+       }
+      },
+      {
+       "kind": "text",
+       "content": "Introduce us\nto a school",
+       "z": 22,
+       "box": [
+        224.5,
+        636.1,
+        102.3,
+        37.9
+       ],
+       "extractionIndex": 22,
+       "surface": "vector",
+       "googleFontFamily": "Nunito Sans",
+       "color": "#111111",
+       "align": "center",
+       "fontSizePx": 18.5,
+       "fontWeight": 600
+      }
+     ]
+    },
+    {
+     "kind": "divider",
+     "content": "dotted vertical divider",
+     "z": 23,
+     "box": [
+      372.7,
+      526.7,
+      3.5,
+      172.9
+     ],
+     "extractionIndex": 23,
+     "surface": "vector",
+     "style": {
+      "borderLeft": "2px dotted #f0520b"
+     }
+    },
+    {
+     "kind": "group",
+     "name": "item-2",
+     "box": [
+      400.1,
+      523.2,
+      158.8,
+      172.9
+     ],
+     "children": [
+      {
+       "kind": "icon",
+       "content": "church building",
+       "z": 24,
+       "box": [
+        432.7,
+        523.2,
+        102.3,
+        97.9
+       ],
+       "extractionIndex": 24,
+       "surface": "raster",
+       "artifacts": {
+        "cutout": {
+         "artifactId": "cutout-24",
+         "mediaType": "image/png",
+         "width": 232,
+         "height": 222,
+         "scale": 2,
+         "pixels": "cleaned",
+         "url": "https://12ui.com/api/v1/convert/657ace55-a852-4a05-a7bb-4e141750a008?artifact=cutout-24&expires=1786645931&signature=mRBzsIFMarXObrAto86LKVVv5tlTc1k6PXQXBIh5oqo",
+         "expiresAt": "2026-08-13T18:32:11.491Z"
+        },
+        "region2x": {
+         "artifactId": "upscaled-region-24",
+         "mediaType": "image/png",
+         "width": 232,
+         "height": 222,
+         "scale": 2,
+         "pixels": "cleaned",
+         "url": "https://12ui.com/api/v1/convert/657ace55-a852-4a05-a7bb-4e141750a008?artifact=upscaled-region-24&expires=1786645931&signature=d6zwHH7-eE4egY_JKJ6rwHDBjHT7NtrFA6K0uqQmP2A",
+         "expiresAt": "2026-08-13T18:32:11.491Z"
+        }
+       }
+      },
+      {
+       "kind": "text",
+       "content": "Connect us with\na church, library, or\ncommunity group",
+       "z": 25,
+       "box": [
+        400.1,
+        635.2,
+        158.8,
+        60.9
+       ],
+       "extractionIndex": 25,
+       "surface": "vector",
+       "googleFontFamily": "Nunito Sans",
+       "color": "#111111",
+       "align": "center",
+       "fontSizePx": 18.5,
+       "fontWeight": 600
+      }
+     ]
+    },
+    {
+     "kind": "divider",
+     "content": "dotted vertical divider",
+     "z": 26,
+     "box": [
+      580.9,
+      526.7,
+      3.5,
+      172.9
+     ],
+     "extractionIndex": 26,
+     "surface": "vector",
+     "style": {
+      "borderLeft": "2px dotted #f0520b"
+     }
+    },
+    {
+     "kind": "group",
+     "name": "item-3",
+     "box": [
+      623.3,
+      536.4,
+      111.2,
+      159.7
+     ],
+     "children": [
+      {
+       "kind": "icon",
+       "content": "office building",
+       "z": 27,
+       "box": [
+        631.2,
+        536.4,
+        103.2,
+        85.6
+       ],
+       "extractionIndex": 27,
+       "surface": "raster",
+       "artifacts": {
+        "crop": {
+         "artifactId": "crop-27",
+         "mediaType": "image/png",
+         "width": 117,
+         "height": 97,
+         "scale": 1,
+         "pixels": "source",
+         "url": "https://12ui.com/api/v1/convert/657ace55-a852-4a05-a7bb-4e141750a008?artifact=crop-27&expires=1786645931&signature=AK51Xhp7gvBCxHV7Ql1fSA2BOqaIrZY4_C1Onr8-7Qc",
+         "expiresAt": "2026-08-13T18:32:11.491Z"
+        }
+       }
+      },
+      {
+       "kind": "text",
+       "content": "Share our\nmission with\nyour employer",
+       "z": 28,
+       "box": [
+        623.3,
+        635.2,
+        109.4,
+        60.9
+       ],
+       "extractionIndex": 28,
+       "surface": "vector",
+       "googleFontFamily": "Nunito Sans",
+       "color": "#111111",
+       "align": "center",
+       "fontSizePx": 18.5,
+       "fontWeight": 600
+      }
+     ]
+    },
+    {
+     "kind": "divider",
+     "content": "dotted vertical divider",
+     "z": 29,
+     "box": [
+      769.8,
+      526.7,
+      4.4,
+      172.9
+     ],
+     "extractionIndex": 29,
+     "surface": "vector",
+     "style": {
+      "borderLeft": "2px dotted #f0520b"
+     }
+    },
+    {
+     "kind": "group",
+     "name": "item-4",
+     "box": [
+      813.9,
+      531.1,
+      98.8,
+      165.0
+     ],
+     "children": [
+      {
+       "kind": "icon",
+       "content": "volunteer hand with heart",
+       "z": 30,
+       "box": [
+        813.9,
+        531.1,
+        98.8,
+        90.0
+       ],
+       "extractionIndex": 30,
+       "surface": "raster",
+       "artifacts": {
+        "crop": {
+         "artifactId": "crop-30",
+         "mediaType": "image/png",
+         "width": 112,
+         "height": 102,
+         "scale": 1,
+         "pixels": "source",
+         "url": "https://12ui.com/api/v1/convert/657ace55-a852-4a05-a7bb-4e141750a008?artifact=crop-30&expires=1786645931&signature=rQAcbyWDpWVq57dcmRll7ipxJo0epCjkCqhwHClPAMk",
+         "expiresAt": "2026-08-13T18:32:11.491Z"
+        }
+       }
+      },
+      {
+       "kind": "text",
+       "content": "Volunteer\nat an event\nor class",
+       "z": 31,
+       "box": [
+        820.9,
+        635.2,
+        90.9,
+        60.9
+       ],
+       "extractionIndex": 31,
+       "surface": "vector",
+       "googleFontFamily": "Nunito Sans",
+       "color": "#111111",
+       "align": "center",
+       "fontSizePx": 18.5,
+       "fontWeight": 600
+      }
+     ]
+    },
+    {
+     "kind": "divider",
+     "content": "dotted vertical divider",
+     "z": 32,
+     "box": [
+      960.3,
+      526.7,
+      4.4,
+      172.9
+     ],
+     "extractionIndex": 32,
+     "surface": "vector",
+     "style": {
+      "borderLeft": "2px dotted #f0520b"
+     }
+    },
+    {
+     "kind": "group",
+     "name": "item-5",
+     "box": [
+      1006.2,
+      545.2,
+      101.5,
+      128.8
+     ],
+     "children": [
+      {
+       "kind": "icon",
+       "content": "two people holding laptop",
+       "z": 33,
+       "box": [
+        1006.2,
+        545.2,
+        101.5,
+        69.7
+       ],
+       "extractionIndex": 33,
+       "surface": "raster",
+       "artifacts": {
+        "cutout": {
+         "artifactId": "cutout-33",
+         "mediaType": "image/png",
+         "width": 230,
+         "height": 158,
+         "scale": 2,
+         "pixels": "cleaned",
+         "url": "https://12ui.com/api/v1/convert/657ace55-a852-4a05-a7bb-4e141750a008?artifact=cutout-33&expires=1786645931&signature=t-PchXgHCazpUFXpoFDG-p3BQ_-NVn9TMiBLfE9DBKo",
+         "expiresAt": "2026-08-13T18:32:11.491Z"
+        },
+        "region2x": {
+         "artifactId": "upscaled-region-33",
+         "mediaType": "image/png",
+         "width": 230,
+         "height": 158,
+         "scale": 2,
+         "pixels": "cleaned",
+         "url": "https://12ui.com/api/v1/convert/657ace55-a852-4a05-a7bb-4e141750a008?artifact=upscaled-region-33&expires=1786645931&signature=hv0r6tKLA-aBJ8aOZoDCwpeqKgSKV1__j2W1wFwChxQ",
+         "expiresAt": "2026-08-13T18:32:11.491Z"
+        }
+       }
+      },
+      {
+       "kind": "text",
+       "content": "Help lead\na Tech Club",
+       "z": 34,
+       "box": [
+        1007.1,
+        635.2,
+        97.1,
+        38.8
+       ],
+       "extractionIndex": 34,
+       "surface": "vector",
+       "googleFontFamily": "Nunito Sans",
+       "color": "#111111",
+       "align": "center",
+       "fontSizePx": 18.5,
+       "fontWeight": 600
+      }
+     ]
+    },
+    {
+     "kind": "divider",
+     "content": "dotted vertical divider",
+     "z": 35,
+     "box": [
+      1148.3,
+      526.7,
+      4.4,
+      172.9
+     ],
+     "extractionIndex": 35,
+     "surface": "vector",
+     "style": {
+      "borderLeft": "2px dotted #f0520b"
+     }
+    },
+    {
+     "kind": "group",
+     "name": "item-6",
+     "box": [
+      1203.0,
+      548.8,
+      107.6,
+      165.0
+     ],
+     "children": [
+      {
+       "kind": "icon",
+       "content": "handshake",
+       "z": 36,
+       "box": [
+        1212.7,
+        548.8,
+        90.0,
+        67.1
+       ],
+       "extractionIndex": 36,
+       "surface": "raster",
+       "artifacts": {
+        "cutout": {
+         "artifactId": "cutout-36",
+         "mediaType": "image/png",
+         "width": 204,
+         "height": 152,
+         "scale": 2,
+         "pixels": "cleaned",
+         "url": "https://12ui.com/api/v1/convert/657ace55-a852-4a05-a7bb-4e141750a008?artifact=cutout-36&expires=1786645931&signature=Gp2ehEqkffp6DvMPohhQjPKfgra9m2ufP0XyQQkJTg0",
+         "expiresAt": "2026-08-13T18:32:11.491Z"
+        },
+        "region2x": {
+         "artifactId": "upscaled-region-36",
+         "mediaType": "image/png",
+         "width": 204,
+         "height": 152,
+         "scale": 2,
+         "pixels": "cleaned",
+         "url": "https://12ui.com/api/v1/convert/657ace55-a852-4a05-a7bb-4e141750a008?artifact=upscaled-region-36&expires=1786645931&signature=s9dn4JtpVSK6AztfFJYJoOH5i63Ibf6op6R3VB7k88Q",
+         "expiresAt": "2026-08-13T18:32:11.491Z"
+        }
+       }
+      },
+      {
+       "kind": "text",
+       "content": "Share skills,\nresources, or\ncommunity\nconnections",
+       "z": 37,
+       "box": [
+        1203.0,
+        635.2,
+        107.6,
+        78.5
+       ],
+       "extractionIndex": 37,
+       "surface": "vector",
+       "googleFontFamily": "Nunito Sans",
+       "color": "#111111",
+       "align": "center",
+       "fontSizePx": 17.6,
+       "fontWeight": 600
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "group",
+   "name": "impact",
+   "box": [
+    190.1,
+    711.1,
+    1153.2,
+    134.1
+   ],
+   "children": [
+    {
+     "kind": "group",
+     "name": "card-1",
+     "box": [
+      190.1,
+      711.1,
+      381.2,
+      134.1
+     ],
+     "children": [
+      {
+       "kind": "card",
+       "content": "introduction impact card",
+       "z": 38,
+       "box": [
+        190.1,
+        719.1,
+        381.2,
+        118.2
+       ],
+       "extractionIndex": 38,
+       "surface": "vector",
+       "style": {
+        "background": "#fff0e4",
+        "borderRadius": "16px"
+       }
+      },
+      {
+       "kind": "icon",
+       "content": "open door",
+       "z": 39,
+       "box": [
+        228.0,
+        711.1,
+        105.9,
+        134.1
+       ],
+       "extractionIndex": 39,
+       "surface": "raster",
+       "artifacts": {
+        "crop": {
+         "artifactId": "crop-39",
+         "mediaType": "image/png",
+         "width": 120,
+         "height": 152,
+         "scale": 1,
+         "pixels": "source",
+         "url": "https://12ui.com/api/v1/convert/657ace55-a852-4a05-a7bb-4e141750a008?artifact=crop-39&expires=1786645931&signature=9eZSINlYv4EVoPrNakEg8kqt1xqaWtVA6LLKT5Bb9Lc",
+         "expiresAt": "2026-08-13T18:32:11.491Z"
+        }
+       }
+      },
+      {
+       "kind": "text",
+       "content": "One introduction",
+       "z": 40,
+       "box": [
+        354.2,
+        757.9,
+        165.9,
+        20.3
+       ],
+       "extractionIndex": 40,
+       "surface": "vector",
+       "googleFontFamily": "Nunito Sans",
+       "color": "#f0520b",
+       "align": "left",
+       "fontSizePx": 22.9,
+       "fontWeight": 700
+      },
+      {
+       "kind": "text",
+       "content": "can open a class.",
+       "z": 41,
+       "box": [
+        354.2,
+        785.2,
+        194.1,
+        22.9
+       ],
+       "extractionIndex": 41,
+       "surface": "vector",
+       "googleFontFamily": "Nunito Sans",
+       "color": "#101010",
+       "align": "left",
+       "fontSizePx": 21.2,
+       "fontWeight": 600
+      }
+     ]
+    },
+    {
+     "kind": "group",
+     "name": "card-2",
+     "box": [
+      588.9,
+      719.1,
+      376.8,
+      118.2
+     ],
+     "children": [
+      {
+       "kind": "card",
+       "content": "volunteer impact card",
+       "z": 42,
+       "box": [
+        588.9,
+        719.1,
+        376.8,
+        118.2
+       ],
+       "extractionIndex": 42,
+       "surface": "vector",
+       "style": {
+        "background": "#fff0e4",
+        "borderRadius": "16px"
+       }
+      },
+      {
+       "kind": "icon",
+       "content": "group of people",
+       "z": 43,
+       "box": [
+        622.4,
+        725.2,
+        107.6,
+        105.9
+       ],
+       "extractionIndex": 43,
+       "surface": "raster",
+       "artifacts": {
+        "cutout": {
+         "artifactId": "cutout-43",
+         "mediaType": "image/png",
+         "width": 244,
+         "height": 240,
+         "scale": 2,
+         "pixels": "cleaned",
+         "url": "https://12ui.com/api/v1/convert/657ace55-a852-4a05-a7bb-4e141750a008?artifact=cutout-43&expires=1786645931&signature=NXruMkv50pgLoaZbZKbAZnXlI4YaiZppbvrdSaIcfUk",
+         "expiresAt": "2026-08-13T18:32:11.491Z"
+        },
+        "region2x": {
+         "artifactId": "upscaled-region-43",
+         "mediaType": "image/png",
+         "width": 244,
+         "height": 240,
+         "scale": 2,
+         "pixels": "cleaned",
+         "url": "https://12ui.com/api/v1/convert/657ace55-a852-4a05-a7bb-4e141750a008?artifact=upscaled-region-43&expires=1786645931&signature=6YKO0fLjFmN5ONmMPblrrTl-x60Cl_SFFq4DfNhnfHc",
+         "expiresAt": "2026-08-13T18:32:11.491Z"
+        }
+       }
+      },
+      {
+       "kind": "text",
+       "content": "One volunteer",
+       "z": 44,
+       "box": [
+        745.9,
+        742.9,
+        145.6,
+        20.3
+       ],
+       "extractionIndex": 44,
+       "surface": "vector",
+       "googleFontFamily": "Nunito Sans",
+       "color": "#f0520b",
+       "align": "left",
+       "fontSizePx": 22.9,
+       "fontWeight": 700
+      },
+      {
+       "kind": "text",
+       "content": "can inspire a\nroom of students.",
+       "z": 45,
+       "box": [
+        745.9,
+        770.2,
+        165.0,
+        43.2
+       ],
+       "extractionIndex": 45,
+       "surface": "vector",
+       "googleFontFamily": "Nunito Sans",
+       "color": "#101010",
+       "align": "left",
+       "fontSizePx": 21.2,
+       "fontWeight": 600
+      }
+     ]
+    },
+    {
+     "kind": "group",
+     "name": "card-3",
+     "box": [
+      980.6,
+      719.1,
+      362.6,
+      118.2
+     ],
+     "children": [
+      {
+       "kind": "card",
+       "content": "partnership impact card",
+       "z": 46,
+       "box": [
+        980.6,
+        719.1,
+        362.6,
+        118.2
+       ],
+       "extractionIndex": 46,
+       "surface": "vector",
+       "style": {
+        "background": "#fff0e4",
+        "borderRadius": "16px"
+       }
+      },
+      {
+       "kind": "icon",
+       "content": "community partnership people",
+       "z": 47,
+       "box": [
+        1012.4,
+        725.2,
+        107.6,
+        105.9
+       ],
+       "extractionIndex": 47,
+       "surface": "raster",
+       "artifacts": {
+        "cutout": {
+         "artifactId": "cutout-47",
+         "mediaType": "image/png",
+         "width": 244,
+         "height": 240,
+         "scale": 2,
+         "pixels": "cleaned",
+         "url": "https://12ui.com/api/v1/convert/657ace55-a852-4a05-a7bb-4e141750a008?artifact=cutout-47&expires=1786645931&signature=KVSdLsD9kfGclrBqJ52jVbXdgAJHddyTIoxJMhnCDxE",
+         "expiresAt": "2026-08-13T18:32:11.491Z"
+        },
+        "region2x": {
+         "artifactId": "upscaled-region-47",
+         "mediaType": "image/png",
+         "width": 244,
+         "height": 240,
+         "scale": 2,
+         "pixels": "cleaned",
+         "url": "https://12ui.com/api/v1/convert/657ace55-a852-4a05-a7bb-4e141750a008?artifact=upscaled-region-47&expires=1786645931&signature=HVHv6UNJ6g2t6a2EExkjUrUHmwYsHkgMauP_HhU8iHs",
+         "expiresAt": "2026-08-13T18:32:11.491Z"
+        }
+       }
+      },
+      {
+       "kind": "text",
+       "content": "One partnership",
+       "z": 48,
+       "box": [
+        1143.0,
+        736.7,
+        166.8,
+        25.6
+       ],
+       "extractionIndex": 48,
+       "surface": "vector",
+       "googleFontFamily": "Nunito Sans",
+       "color": "#f0520b",
+       "align": "left",
+       "fontSizePx": 22.9,
+       "fontWeight": 700
+      },
+      {
+       "kind": "text",
+       "content": "can create\nopportunities\nfor years.",
+       "z": 49,
+       "box": [
+        1143.0,
+        765.8,
+        154.4,
+        61.8
+       ],
+       "extractionIndex": 49,
+       "surface": "vector",
+       "googleFontFamily": "Nunito Sans",
+       "color": "#101010",
+       "align": "left",
+       "fontSizePx": 21.2,
+       "fontWeight": 600
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

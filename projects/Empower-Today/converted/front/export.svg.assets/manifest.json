@@ -1,0 +1,71 @@
+{
+  "conversionId": "6aaf7491-d71b-4836-ae91-757110f5b0b6",
+  "operationExpiresAt": "2026-08-13T18:35:52.448Z",
+  "manifestFile": "/Volumes/Proj/proj/league-projects/infrastructure/marketing/projects/Empower-Today/converted/front/export.svg.assets/manifest.json",
+  "artifacts": [
+    {
+      "id": "crop-1",
+      "role": "layer-crop",
+      "mediaType": "image/png",
+      "sha256": "2038e8f0b2cbd40a63bac778afbda39bdec12ba55c549d81210252a42e0ddd66",
+      "sourceHref": "https://12ui.com/api/v1/convert/6aaf7491-d71b-4836-ae91-757110f5b0b6?artifact=crop-1&expires=1786646152&signature=KQ5Kh5A-F-IGr2ANCN7vAu9-L2zT7furVeAnThV9YrY",
+      "localPath": "/Volumes/Proj/proj/league-projects/infrastructure/marketing/projects/Empower-Today/converted/front/export.svg.assets/crop-1-2038e8f0b2cb.png"
+    },
+    {
+      "id": "crop-14",
+      "role": "layer-crop",
+      "mediaType": "image/png",
+      "sha256": "f7c9e1b7a110a1ddd8e59d880a1d4fc902faa5e4ba0d081d4e4182630321c3d2",
+      "sourceHref": "https://12ui.com/api/v1/convert/6aaf7491-d71b-4836-ae91-757110f5b0b6?artifact=crop-14&expires=1786646152&signature=WYI1ayzWULsotDHn38B2yolYTE53yHjEApQ5rkLdgoA",
+      "localPath": "/Volumes/Proj/proj/league-projects/infrastructure/marketing/projects/Empower-Today/converted/front/export.svg.assets/crop-14-f7c9e1b7a110.png"
+    },
+    {
+      "id": "crop-4",
+      "role": "layer-crop",
+      "mediaType": "image/png",
+      "sha256": "fe87e2099eae79288228d11fae00705ae657ceb82c0785b8296c98b3b65c1421",
+      "sourceHref": "https://12ui.com/api/v1/convert/6aaf7491-d71b-4836-ae91-757110f5b0b6?artifact=crop-4&expires=1786646152&signature=AS3jago_JW-6L76SOd-AUfqztOcRnkbnJen6rd9q9H8",
+      "localPath": "/Volumes/Proj/proj/league-projects/infrastructure/marketing/projects/Empower-Today/converted/front/export.svg.assets/crop-4-fe87e2099eae.png"
+    },
+    {
+      "id": "cutout-3",
+      "role": "layer-cutout",
+      "mediaType": "image/png",
+      "sha256": "46187c4d833bcc3f3aac3241d19995dddb60ef8c868a6bbfc0ff172c49914016",
+      "sourceHref": "https://12ui.com/api/v1/convert/6aaf7491-d71b-4836-ae91-757110f5b0b6?artifact=cutout-3&expires=1786646152&signature=CTGn6oageozvul6YUzy28SOXdcz4NbitZFqMDYbIVes",
+      "localPath": "/Volumes/Proj/proj/league-projects/infrastructure/marketing/projects/Empower-Today/converted/front/export.svg.assets/cutout-3-46187c4d833b.png"
+    },
+    {
+      "id": "cutout-32",
+      "role": "layer-cutout",
+      "mediaType": "image/png",
+      "sha256": "02b4a8989d1dad2f49e6c9f51d75647dc88a1d23c2fdcdff296e01ad36d55a08",
+      "sourceHref": "https://12ui.com/api/v1/convert/6aaf7491-d71b-4836-ae91-757110f5b0b6?artifact=cutout-32&expires=1786646152&signature=Drp9TTqZNVlENY5LCm0SsqGp89SVqWeliEEfp1q-BTU",
+      "localPath": "/Volumes/Proj/proj/league-projects/infrastructure/marketing/projects/Empower-Today/converted/front/export.svg.assets/cutout-32-02b4a8989d1d.png"
+    },
+    {
+      "id": "cutout-5",
+      "role": "layer-cutout",
+      "mediaType": "image/png",
+      "sha256": "8a8c7a15fdf64eb53c1d2444c63f6abafd451f96d3a784e2b57b094daba076fd",
+      "sourceHref": "https://12ui.com/api/v1/convert/6aaf7491-d71b-4836-ae91-757110f5b0b6?artifact=cutout-5&expires=1786646152&signature=8In6Mt1_Nj_KvsZ_GR6MwKsTNRWhBqEA_sU53cx84Gs",
+      "localPath": "/Volumes/Proj/proj/league-projects/infrastructure/marketing/projects/Empower-Today/converted/front/export.svg.assets/cutout-5-8a8c7a15fdf6.png"
+    },
+    {
+      "id": "cutout-6",
+      "role": "layer-cutout",
+      "mediaType": "image/png",
+      "sha256": "452fc7a6b84e08def815d0bc41f647fa16a45db822a67125d7f7319a76b1535b",
+      "sourceHref": "https://12ui.com/api/v1/convert/6aaf7491-d71b-4836-ae91-757110f5b0b6?artifact=cutout-6&expires=1786646152&signature=HXbKXKRKv539fZdhrY_Ylcy3Lk-cpZN0L6SP5w_iBbA",
+      "localPath": "/Volumes/Proj/proj/league-projects/infrastructure/marketing/projects/Empower-Today/converted/front/export.svg.assets/cutout-6-452fc7a6b84e.png"
+    },
+    {
+      "id": "source",
+      "role": "source",
+      "mediaType": "image/png",
+      "sha256": "ceff6b15c0538276c34325af32d59502b7d7cd1a859887d169ad250028d500b2",
+      "sourceHref": "https://12ui.com/api/v1/convert/6aaf7491-d71b-4836-ae91-757110f5b0b6?artifact=source&expires=1786646152&signature=35AEEz-vb77AZGYHURELRMEkRZbJmnDmfLoFAEg8NMg",
+      "localPath": "/Volumes/Proj/proj/league-projects/infrastructure/marketing/projects/Empower-Today/converted/front/export.svg.assets/source-ceff6b15c053.png"
+    }
+  ]
+}

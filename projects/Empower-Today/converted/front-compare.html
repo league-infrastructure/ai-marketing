@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Empower Today — front, three states</title>
+<style>
+  :root { --bg:#14110f; --panel:#1e1a17; --line:#3a322c; --ink:#f6efe8;
+          --dim:#a89b90; --orange:#ea5402; --ok:#4ea172; --bad:#d1543f; --warn:#d8912f; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink);
+         font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+  header { padding:26px 32px 18px; border-bottom:1px solid var(--line);
+           display:flex; align-items:flex-end; gap:24px; flex-wrap:wrap; }
+  h1 { margin:0 0 4px; font-size:21px; } h1 span { color:var(--orange); }
+  .sub { color:var(--dim); font-size:13.5px; max-width:70ch; }
+  .toggles { margin-left:auto; font-size:13px; color:var(--dim); }
+  label { display:flex; align-items:center; gap:6px; cursor:pointer; }
+  input { accent-color:var(--bad); }
+  main { padding:24px 32px 60px; max-width:1250px; }
+  section { margin:0 0 30px; background:var(--panel); border:1px solid var(--line);
+            border-radius:10px; overflow:hidden; }
+  .head { display:flex; align-items:center; gap:11px; padding:13px 18px;
+          border-bottom:1px solid var(--line); flex-wrap:wrap; }
+  .head h2 { margin:0; font-size:16px; }
+  .head .n { color:var(--dim); font-size:13px; }
+  .pill { font-size:11px; font-weight:700; letter-spacing:.05em; text-transform:uppercase;
+          padding:3px 8px; border-radius:99px; }
+  .pill.ok { background:rgba(78,161,114,.16); color:var(--ok); }
+  .pill.bad { background:rgba(209,84,63,.16); color:var(--bad); }
+  .pill.warn { background:rgba(216,145,47,.16); color:var(--warn); }
+  .card { position:relative; width:100%; aspect-ratio:1521/1034; line-height:0;
+          background:#000; }
+  .card img, .card object { width:100%; height:100%; display:block; }
+  /* frame-overlay decoration box: x630 y0 w346 h910 of 1521x1034 */
+  .mark { position:absolute; left:41.42%; top:0; width:22.75%; height:88.01%;
+          border:2px solid var(--bad); box-shadow:0 0 0 9999px rgba(0,0,0,.45);
+          pointer-events:none; }
+  .mark b { position:absolute; bottom:-1px; left:-2px; background:var(--bad);
+            color:#fff; font:10px/1 ui-monospace,monospace; padding:4px 6px;
+            letter-spacing:.05em; white-space:nowrap; }
+  .hidden { display:none; }
+  .note { padding:12px 18px; font-size:13.5px; color:var(--dim);
+          border-top:1px solid var(--line); }
+  .note b { color:var(--ink); font-weight:600; }
+  code { background:#2b241d; padding:1px 5px; border-radius:4px; font-size:12.5px;
+         color:#fae4d2; }
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>Front — <span>three states</span></h1>
+    <div class="sub">The pale rectangle and the ragged cream blob in the photo are present
+      in the <b>base conversion</b>, before any edit of mine. Both trace to one layer:
+      the <code>cream curved overlay</code> raster cutout in the <code>frame</code> group.</div>
+  </div>
+  <div class="toggles"><label><input type="checkbox" id="t" checked> highlight the culprit layer</label></div>
+</header>
+<main>
+
+  <section>
+    <div class="head"><h2>1 · Original</h2><span class="n">Front.png — 1521×1034</span>
+      <span class="pill ok">reference</span></div>
+    <div class="card"><img src="../Front.png" alt="original">
+      <div class="mark m"><b>frame / cream curved overlay — clean here</b></div></div>
+    <div class="note">The curve is a clean edge and the photo runs unbroken to the footer.</div>
+  </section>
+
+  <section>
+    <div class="head"><h2>2 · Base conversion</h2><span class="n">front/export.svg — no edits</span>
+      <span class="pill bad">defect present</span></div>
+    <div class="card"><object data="front/export.svg" type="image/svg+xml"></object>
+      <div class="mark m"><b>opaque bbox + inpaint blob</b></div></div>
+    <div class="note"><b>Two faults, both from the conversion itself.</b> The cutout paints its
+      whole bounding box in a cream that does not match the background
+      (<code>#faf0e6</code> vs <code>#fae4d2</code>), leaving a visible vertical seam; and the
+      bottom of the curve carries a ragged inpainting artifact that eats into the photo.
+      Headlines also render serif here — the SVG names <code>Oswald</code> but embeds no font.</div>
+  </section>
+
+  <section>
+    <div class="head"><h2>3 · QR removed</h2><span class="n">Front-noqr.png — 43 layers</span>
+      <span class="pill ok">photo in register</span>
+      <span class="pill warn">inherits the overlay defect</span></div>
+    <div class="card"><img src="Front-noqr.png" alt="QR removed">
+      <div class="mark m"><b>same overlay defect, inherited</b></div></div>
+    <div class="note">QR block gone, geometry untouched — all 40 surviving layers diffed
+      identical, so the photo plates stay in register and the type renders correctly as
+      Oswald. The overlay defect is inherited from state 2, not introduced here.</div>
+  </section>
+
+</main>
+<script>
+  t.onchange = () => document.querySelectorAll('.m')
+    .forEach(e => e.classList.toggle('hidden', !t.checked));
+</script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Empower Today — 4×6 full-bleed proof</title>
+<style>
+  :root { --bg:#14110f; --panel:#1e1a17; --line:#3a322c; --ink:#f6efe8;
+          --dim:#a89b90; --orange:#ea5402; --ok:#4ea172; --bad:#d1543f; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink);
+         font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+  header { padding:26px 32px 18px; border-bottom:1px solid var(--line);
+           display:flex; align-items:flex-end; gap:24px; flex-wrap:wrap; }
+  h1 { margin:0 0 4px; font-size:21px; } h1 span { color:var(--orange); }
+  .sub { color:var(--dim); font-size:13.5px; }
+  .toggles { margin-left:auto; display:flex; gap:16px; font-size:13px; color:var(--dim); }
+  label { display:flex; align-items:center; gap:6px; cursor:pointer; }
+  input { accent-color:var(--orange); }
+  main { padding:24px 32px 60px; max-width:1400px; }
+  section { margin:0 0 34px; background:var(--panel); border:1px solid var(--line);
+            border-radius:10px; overflow:hidden; }
+  .head { display:flex; align-items:center; gap:12px; padding:13px 18px;
+          border-bottom:1px solid var(--line); }
+  .head h2 { margin:0; font-size:16px; }
+  .pill { font-size:11px; font-weight:700; letter-spacing:.05em; text-transform:uppercase;
+          padding:3px 8px; border-radius:99px; }
+  .pill.ok { background:rgba(78,161,114,.16); color:var(--ok); }
+  .pill.bad { background:rgba(209,84,63,.16); color:var(--bad); }
+  .wrap { padding:22px; background:
+    repeating-conic-gradient(#000 0% 25%, #0a0a0a 0% 50%) 50%/22px 22px; }
+  .card { position:relative; width:100%; aspect-ratio:1521/1034; line-height:0; }
+  .card object, .card img { width:100%; height:100%; display:block; }
+  .g { position:absolute; pointer-events:none; inset:0; }
+  /* trim = 0.125in inset : 2.000% of width, 2.942% of height
+     safe = 0.250in inset : 4.000% of width, 5.884% of height */
+  .trim { left:2%; right:2%; top:2.942%; bottom:2.942%;
+          border:1px dashed rgba(255,255,255,.85); }
+  .safe { left:4%; right:4%; top:5.884%; bottom:5.884%;
+          border:1px dashed rgba(78,161,114,.9); }
+  .bleedlab, .trimlab, .safelab { position:absolute; font:10px/1 ui-monospace,monospace;
+          letter-spacing:.06em; padding:3px 5px; border-radius:3px; }
+  .bleedlab { top:3px; left:3px; background:rgba(234,84,2,.9); color:#fff; }
+  .trimlab { top:calc(2.942% + 3px); left:calc(2% + 3px);
+             background:rgba(255,255,255,.9); color:#111; }
+  .safelab { top:calc(5.884% + 3px); left:calc(4% + 3px);
+             background:rgba(78,161,114,.95); color:#06231a; }
+  .hidden { display:none; }
+  .files { display:flex; gap:9px; flex-wrap:wrap; padding:13px 18px;
+           border-top:1px solid var(--line); }
+  .files a { color:var(--ink); text-decoration:none; font-size:13px; padding:6px 11px;
+             border:1px solid var(--line); border-radius:6px; background:#262019; }
+  .files a:hover { border-color:var(--orange); color:var(--orange); }
+  .files a small { color:var(--dim); }
+  table { border-collapse:collapse; width:100%; font-size:13.5px; }
+  td,th { text-align:left; padding:8px 18px; border-bottom:1px solid rgba(255,255,255,.06); }
+  th { color:var(--dim); font-weight:600; font-size:12px; text-transform:uppercase;
+       letter-spacing:.05em; }
+  code { background:#2b241d; padding:1px 5px; border-radius:4px; font-size:12.5px; }
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>Empower Today — <span>4×6 full-bleed proof</span></h1>
+    <div class="sub">Trim 6×4 in · bleed 0.125 in all round · safe area 0.125 in inside trim.
+      Anything outside the white dashed line gets cut off.</div>
+  </div>
+  <div class="toggles">
+    <label><input type="checkbox" id="tTrim" checked> trim</label>
+    <label><input type="checkbox" id="tSafe" checked> safe area</label>
+  </div>
+</header>
+<main>
+
+  <section>
+    <div class="head"><h2>Front</h2>
+      <span class="pill bad">QR removed</span>
+      <span class="pill ok">43 layers</span></div>
+    <div class="wrap"><div class="card">
+      <object data="Front-4x6.svg" type="image/svg+xml"></object>
+      <div class="g"><div class="bleedlab">BLEED 6.25 × 4.25 in</div></div>
+      <div class="g trim guide-trim"><div class="trimlab">TRIM 6 × 4 in</div></div>
+      <div class="g safe guide-safe"><div class="safelab">SAFE</div></div>
+    </div></div>
+    <div class="files">
+      <a href="Front-4x6-print.svg">Front-4x6-print.svg <small>6.25×4.25 in</small></a>
+      <a href="Front-4x6.svg">Front-4x6.svg <small>px units</small></a>
+      <a href="Front-4x6.layerdoc.json">Front-4x6.layerdoc.json</a>
+      <a href="../Front.png">original PNG</a>
+    </div>
+  </section>
+
+  <section>
+    <div class="head"><h2>Back</h2>
+      <span class="pill ok">QR intact</span>
+      <span class="pill ok">76 layers</span></div>
+    <div class="wrap"><div class="card">
+      <object data="Back-4x6.svg" type="image/svg+xml"></object>
+      <div class="g"><div class="bleedlab">BLEED 6.25 × 4.25 in</div></div>
+      <div class="g trim guide-trim"><div class="trimlab">TRIM 6 × 4 in</div></div>
+      <div class="g safe guide-safe"><div class="safelab">SAFE</div></div>
+    </div></div>
+    <div class="files">
+      <a href="Back-4x6-print.svg">Back-4x6-print.svg <small>6.25×4.25 in</small></a>
+      <a href="Back-4x6.svg">Back-4x6.svg <small>px units</small></a>
+      <a href="Back-4x6.layerdoc.json">Back-4x6.layerdoc.json</a>
+      <a href="../Back.png">original PNG</a>
+    </div>
+  </section>
+
+  <section>
+    <div class="head"><h2>Spec</h2></div>
+    <table>
+      <tr><th>Measure</th><th>Inches</th><th>px @300dpi</th><th>Canvas px</th></tr>
+      <tr><td>Bleed (file size)</td><td>6.250 × 4.250</td><td>1875 × 1275</td><td>1521 × 1034</td></tr>
+      <tr><td>Trim (finished)</td><td>6.000 × 4.000</td><td>1800 × 1200</td><td>1460 × 974</td></tr>
+      <tr><td>Safe area</td><td>5.750 × 3.750</td><td>1725 × 1125</td><td>1399 × 912</td></tr>
+      <tr><td>Design scaled</td><td colspan="3"><code>0.88232</code> inward, offset <code>89.5, 60.8</code> — clears the safe margin</td></tr>
+      <tr><td>Aspect match</td><td colspan="3">source <code>1.47099</code> vs bleed <code>1.47059</code> — <code>0.027%</code>, pure scale, no reflow</td></tr>
+    </table>
+  </section>
+
+</main>
+<script>
+  const sync = () => {
+    document.querySelectorAll('.guide-trim').forEach(e =>
+      e.classList.toggle('hidden', !tTrim.checked));
+    document.querySelectorAll('.guide-safe').forEach(e =>
+      e.classList.toggle('hidden', !tSafe.checked));
+  };
+  tTrim.onchange = tSafe.onchange = sync; sync();
+</script>
+</body>
+</html>

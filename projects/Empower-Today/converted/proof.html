@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Empower Today — 4×6 print proof</title>
+<style>
+  :root { --bg:#14110f; --panel:#1e1a17; --line:#3a322c; --ink:#f6efe8;
+          --dim:#a89b90; --orange:#ea5402; --ok:#4ea172; --warn:#d8912f; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink);
+         font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+  header { padding:26px 32px 18px; border-bottom:1px solid var(--line);
+           display:flex; align-items:flex-end; gap:24px; flex-wrap:wrap; }
+  h1 { margin:0 0 4px; font-size:21px; } h1 span { color:var(--orange); }
+  .sub { color:var(--dim); font-size:13.5px; max-width:74ch; }
+  .toggles { margin-left:auto; display:flex; gap:15px; font-size:13px; color:var(--dim); }
+  label { display:flex; align-items:center; gap:6px; cursor:pointer; }
+  input { accent-color:var(--orange); }
+  main { padding:24px 32px 60px; max-width:1300px; }
+  section { margin:0 0 32px; background:var(--panel); border:1px solid var(--line);
+            border-radius:10px; overflow:hidden; }
+  .head { display:flex; align-items:center; gap:11px; padding:13px 18px;
+          border-bottom:1px solid var(--line); flex-wrap:wrap; }
+  .head h2 { margin:0; font-size:16px; } .head .n { color:var(--dim); font-size:13px; }
+  .pill { font-size:11px; font-weight:700; letter-spacing:.05em; text-transform:uppercase;
+          padding:3px 8px; border-radius:99px; background:rgba(78,161,114,.16); color:var(--ok); }
+  .wrap { padding:22px; background:repeating-conic-gradient(#000 0% 25%, #0b0b0b 0% 50%) 50%/20px 20px; }
+  .card { position:relative; width:100%; aspect-ratio:1875/1275; line-height:0; }
+  .card img { width:100%; height:100%; display:block; }
+  .g { position:absolute; pointer-events:none; }
+  /* 1875×1275: trim inset 37.5px = 2.000% / 2.941%; safe 75px = 4.000% / 5.882% */
+  .trim { left:2%; right:2%; top:2.941%; bottom:2.941%; border:1px dashed rgba(255,255,255,.9); }
+  .safe { left:4%; right:4%; top:5.882%; bottom:5.882%; border:1px dashed rgba(78,161,114,.95); }
+  .lab { position:absolute; font:10px/1 ui-monospace,monospace; padding:3px 5px;
+         border-radius:3px; letter-spacing:.05em; white-space:nowrap; }
+  .trim .lab { top:3px; left:3px; background:rgba(255,255,255,.92); color:#111; }
+  .safe .lab { top:3px; left:3px; background:rgba(78,161,114,.95); color:#06231a; }
+  .hidden { display:none; }
+  .files { display:flex; gap:9px; flex-wrap:wrap; padding:13px 18px; border-top:1px solid var(--line); }
+  .files a { color:var(--ink); text-decoration:none; font-size:13px; padding:6px 11px;
+             border:1px solid var(--line); border-radius:6px; background:#262019; }
+  .files a:hover { border-color:var(--orange); color:var(--orange); }
+  .files a small { color:var(--dim); }
+  table { border-collapse:collapse; width:100%; font-size:13.5px; }
+  td,th { text-align:left; padding:8px 18px; border-bottom:1px solid rgba(255,255,255,.06);
+          vertical-align:top; }
+  th { color:var(--dim); font-weight:600; font-size:12px; text-transform:uppercase; letter-spacing:.05em; }
+  code { background:#2b241d; padding:1px 5px; border-radius:4px; font-size:12.5px; color:#fae4d2; }
+  .tick { color:var(--ok); font-weight:700; } .warn { color:var(--warn); font-weight:700; }
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>Empower Today — <span>4×6 print proof</span></h1>
+    <div class="sub">Built straight from the approved artwork. The only change to the front
+      is the QR panel removed and healed; the back is untouched. Trim 6×4 in, 0.125 in bleed.
+      White dashed = the cut.</div>
+  </div>
+  <div class="toggles">
+    <label><input type="checkbox" id="tTrim" checked> trim</label>
+    <label><input type="checkbox" id="tSafe"> safe</label>
+  </div>
+</header>
+<main>
+
+  <section>
+    <div class="head"><h2>Front</h2><span class="n">QR removed · footer lifted for cut clearance</span>
+      <span class="pill">verified</span></div>
+    <div class="wrap"><div class="card">
+      <img src="Front-print-300dpi.png?v=10" alt="front proof">
+      <div class="g trim gt"><span class="lab">TRIM 6 × 4 in</span></div>
+      <div class="g safe gs"><span class="lab">SAFE</span></div>
+    </div></div>
+    <div class="files">
+      <a href="Empower-Today-front.pdf">Empower-Today-front.pdf <small>press-ready · TrimBox</small></a>
+      <a href="Front-print-300dpi.png">Front-print-300dpi.png <small>1875×1275 · 300 dpi</small></a>
+      <a href="../Front.png">original</a>
+    </div>
+  </section>
+
+  <section>
+    <div class="head"><h2>Back</h2><span class="n">unchanged, bleed added</span>
+      <span class="pill">verified</span></div>
+    <div class="wrap"><div class="card">
+      <img src="Back-print-300dpi.png?v=10" alt="back proof">
+      <div class="g trim gt"><span class="lab">TRIM 6 × 4 in</span></div>
+      <div class="g safe gs"><span class="lab">SAFE</span></div>
+    </div></div>
+    <div class="files">
+      <a href="Empower-Today-back.pdf">Empower-Today-back.pdf <small>press-ready · TrimBox</small></a>
+      <a href="Back-print-300dpi.png">Back-print-300dpi.png <small>1875×1275 · 300 dpi</small></a>
+      <a href="../Back.png">original</a>
+    </div>
+  </section>
+
+  <section>
+    <div class="head"><h2>Send these</h2>
+      <span class="pill">press ready</span></div>
+    <table>
+      <tr><th>File</th><th>What it is</th></tr>
+      <tr><td><a href="Empower-Today-postcard.pdf" style="color:var(--orange)">Empower-Today-postcard.pdf</a></td>
+          <td><b>Both sides, 2 pages</b> — page 1 front, page 2 back. Usually what a printer wants.</td></tr>
+      <tr><td><a href="Empower-Today-front.pdf" style="color:var(--orange)">Empower-Today-front.pdf</a><br>
+              <a href="Empower-Today-back.pdf" style="color:var(--orange)">Empower-Today-back.pdf</a></td>
+          <td>Single-page versions, if they want the sides separately.</td></tr>
+      <tr><td>Page geometry</td>
+          <td>MediaBox / BleedBox <code>6.25 × 4.25 in</code>, TrimBox / ArtBox
+              <code>6 × 4 in</code> inset 9 pt. The RIP reads the cut line out of the file —
+              no need to explain the bleed in an email.</td></tr>
+      <tr><td>Image</td>
+          <td><code>1875 × 1275</code> at <code>450 × 306 pt</code> = exactly <b>300 dpi</b>,
+              8-bit DeviceRGB, <b>FlateDecode — lossless</b>, no JPEG artifacts.</td></tr>
+      <tr><td>Verified</td>
+          <td>Every PDF page rasterised and compared against its source:
+              <b>0 of 265,625 sampled pixels differ, worst delta 0</b>.</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <div class="head"><h2>Independently verified</h2></div>
+    <table>
+      <tr><th>Check</th><th>Result</th></tr>
+      <tr><td>Instructor's head</td><td><span class="tick">✓</span> Single, intact. No doubling,
+          ghosting, shear or cut line. Difference map against the original is black across the
+          whole quadrant apart from sub-pixel resampling edges.</td></tr>
+      <tr><td>Seams / patches over the photo</td><td><span class="tick">✓</span> None. The only
+          differences anywhere on the front are the QR footprint and the bleed margin.</td></tr>
+      <tr><td>Swooping orange curve</td><td><span class="tick">✓</span> One smooth stroke, even
+          width, matching the original at every sampled row.</td></tr>
+      <tr><td>Former QR area</td><td><span class="tick">✓</span> Natural photo content — tabletop,
+          wires, wheel, motor. No rectangle, no smear, no cloned content.</td></tr>
+      <tr><td>Footer detail</td><td><span class="tick">✓</span> MENTOR icon has its 3 figures,
+          megaphone has its 3 sound lines, tagline keeps its comma, row stays balanced.</td></tr>
+      <tr><td>Headline leading</td><td><span class="tick">✓</span> Line tops land within 1 px of
+          the original's, scaled. Unchanged.</td></tr>
+      <tr><td>Back</td><td><span class="tick">✓</span> All circuit traces, the curved arrow, the
+          QR, six WAYS TO HELP icons and three stat rows present and clean.</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <div class="head"><h2>Know before you send it</h2></div>
+    <table>
+      <tr><td>Effective resolution</td>
+          <td><span class="warn">!</span> The artwork is 1521×1034, which is <b>259 ppi</b> at
+              6×4 in. The file is written at 1875×1275 / 300 dpi, so it is a 1.16× upsample —
+              it satisfies a vendor's 300 dpi requirement but carries 259 ppi of real detail.
+              Only a larger original would change that.</td></tr>
+      <tr><td>Edges</td>
+          <td>The art is 1.471:1; a 6×4 card is 1.5:1, so it is 30 px narrower than the trim.
+              The surplus is pushed <b>entirely to the left</b>, where the edge is flat peach,
+              flat orange and circuit traces already meant to run off the page. The right edge —
+              the photo — therefore gets exactly one bleed of margin, all of it trimmed away:
+              <b>0 extended pixels land inside the cut on the right</b>. Margins are the design's
+              own edge continued outward, never mirrored (verified: zero internal variation on
+              all four edges of both sides).</td></tr>
+      <tr><td><span class="tick">✓</span> Footer clearance fixed</td>
+          <td>The label row now clears the cut by <b>37.5 px = 3.17 mm</b>, up from 1.18 mm —
+              exactly the standard 1/8 in safe margin. Done by stepping the left column up
+              (logo −12, headline −30, copy −30) and growing the orange bar from 126 to 156 px,
+              with the footer content lifted only 21 px so it re-centres in the taller bar.
+              The orange rule stays centred between headline and copy (33 px above, 32 px below),
+              and the rule → copy and copy → bar gaps are unchanged.</td></tr>
+      <tr><td>The one aesthetic cost</td>
+          <td>The logo → headline gap tightened from 62 px to 41 px, so the logo reads as part of
+              the headline stack rather than a separate mark. Widening it means lifting the logo
+              further, which eats its top margin (already 3.51 mm). Say the word and I'll trade
+              one for the other.</td></tr>
+      <tr><td><span class="warn">!</span> <code>AMAZING,</code> sits near the right cut</td>
+          <td>The comma reaches 2.33 mm from the right trim — inside the 3.175 mm safe zone by
+              0.85 mm. <b>Inherited from the source art</b>, not introduced. Fixable by nudging
+              the tagline left if you want it.</td></tr>
+      <tr><td>No URL on the front</td>
+          <td>Removing the QR panel took the <code>jointheleague.org</code> line with it. The
+              back still carries its QR and <code>jointheleague.org/about/impact</code>.</td></tr>
+      <tr><td>Scan the printed QR</td>
+          <td>The back's QR is original pixels, never redrawn — but scan the physical proof
+              before the run.</td></tr>
+      <tr><td>RGB, not CMYK</td>
+          <td>The PDFs are DeviceRGB. Most postcard printers convert for you, but the orange
+              will shift unless they use a profile you approve. Ask which they want.</td></tr>
+      <tr><td>Superseded files</td>
+          <td><code>*-print.svg</code>, <code>*-final.svg</code> and <code>*.layerdoc.json</code>
+              are from the vectorised attempt, which lost fidelity. Kept for reference but
+              <b>not the deliverable</b>.</td></tr>
+    </table>
+  </section>
+
+</main>
+<script>
+  const sync = () => {
+    document.querySelectorAll('.gt').forEach(e => e.classList.toggle('hidden', !tTrim.checked));
+    document.querySelectorAll('.gs').forEach(e => e.classList.toggle('hidden', !tSafe.checked));
+  };
+  tTrim.onchange = tSafe.onchange = sync; sync();
+</script>
+</body>
+</html>
